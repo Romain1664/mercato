@@ -9,8 +9,6 @@ import model.Compte;
 public class DAOCompteJpa extends DaoJpa implements IDAOCompte {
 
 
-
-	
 	public void insert(Compte c) {
 		this.em.getTransaction().begin();
 
