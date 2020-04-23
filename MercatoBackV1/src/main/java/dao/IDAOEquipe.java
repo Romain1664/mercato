@@ -2,7 +2,7 @@ package dao;
 
 import model.Equipe;
 
-public interface DAOEquipe extends DAO<Equipe, Integer> {
+public interface IDAOEquipe extends IDAO<Equipe, Integer> {
 
 	public Equipe selectByNomEquipe(String nom);
 	

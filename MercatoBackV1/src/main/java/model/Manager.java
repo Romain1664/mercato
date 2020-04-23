@@ -5,12 +5,11 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.Transient;
 
-@Entity
-@DiscriminatorValue("manager")
+
 public class Manager extends Compte {
 	
-	@Column (name ="budget", nullable = false)
 	private double budget;
 		
 	
@@ -35,7 +34,7 @@ public class Manager extends Compte {
 	
 	public void listeJoueurEquipe(int id_equipe)
 	{
-		List<Joueur> listeJoueurs = Context.getInstance().getDaoJ().selectByEquipe(id_equipe);
+		List<Joueur> listeJoueurs = Context.getDaoJoueur().selectByEquipe(id_equipe);
 		
 		if(listeJoueurs.isEmpty()) 
 		{
@@ -55,7 +54,7 @@ public class Manager extends Compte {
 	public void listeJoueurEquipeByBudget(int id_equipe, double budget)
 	{
 
-		List<Joueur> listeJoueurs = Context.getInstance().getDaoJ().selectByEquipeByBudget(id_equipe, budget);
+		List<Joueur> listeJoueurs = Context.getDaoJoueur().selectByEquipeByBudget(id_equipe, budget);
 		
 		if(listeJoueurs.isEmpty()) 
 		{

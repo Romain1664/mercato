@@ -1,4 +1,4 @@
-package dao;
+package dao.jdbc;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -6,17 +6,17 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import dao.IDAOJoueur;
 import model.Context;
 import model.Joueur;
 
-public class DAOJoueurJDBC implements DAOJoueur{
+public class DAOJoueurJdbc extends DaoJdbc implements IDAOJoueur {
 	
 	
 	@Override
 	public void insert(Joueur j) {
 		try 
 		(
-				Connection connect=Context.getInstance().getConnection();
 				PreparedStatement ps=connect.prepareStatement("INSERT INTO `joueurs` ( `id_compte`, `nom`, `prenom`, `age`, `poste`, `tir`, `precision`, `acceleration`, `puissance`, `tacle`, `marquage`, `id_equipe`, `prix`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)");                      
 		)
 		{
@@ -45,7 +45,6 @@ public class DAOJoueurJDBC implements DAOJoueur{
 		Joueur j=null;
 		try
 		(
-				Connection connect=Context.getInstance().getConnection();
 				PreparedStatement ps=connect.prepareStatement("SELECT * from joueurs WHERE id_compte=?"); 
 		)
 		{
@@ -67,7 +66,6 @@ public class DAOJoueurJDBC implements DAOJoueur{
 			
 			try
 			(
-				Connection connect=Context.getInstance().getConnection();
 				PreparedStatement ps=connect.prepareStatement("SELECT * from joueurs JOIN equipes ON joueurs.id_equipe=equipes.id WHERE id_equipe=?"); 
 			)
 			{
@@ -91,7 +89,6 @@ public class DAOJoueurJDBC implements DAOJoueur{
 		
 		try
 		(
-			Connection connect=Context.getInstance().getConnection();
 			PreparedStatement ps=connect.prepareStatement("SELECT * from joueurs JOIN equipes ON joueurs.id_equipe=equipes.id WHERE id_equipe=? AND prix<?"); 
 		)
 		{
@@ -119,7 +116,6 @@ public class DAOJoueurJDBC implements DAOJoueur{
 			
 			try
 			(
-				Connection connect=Context.getInstance().getConnection();
 				PreparedStatement ps=connect.prepareStatement("SELECT * from joueurs JOIN equipes ON joueurs.id_equipe=equipes.id"); 
 			)
 			{
@@ -141,7 +137,6 @@ public class DAOJoueurJDBC implements DAOJoueur{
 		
 		try
 		(
-			Connection connect=Context.getInstance().getConnection();
 			PreparedStatement ps=connect.prepareStatement("UPDATE joueurs SET statut= ? WHERE id_compte=?"); 
 		)
 		
@@ -159,7 +154,6 @@ public class DAOJoueurJDBC implements DAOJoueur{
 	public void delete(Integer id) {
 		try 
 		(
-			Connection connect=Context.getInstance().getConnection();
 			PreparedStatement ps=connect.prepareStatement("DELETE FROM joueurs WHERE id_compte=?");                      
 		)
 		{
@@ -175,7 +169,6 @@ public class DAOJoueurJDBC implements DAOJoueur{
 	
 		try 
 		(
-				Connection connect=Context.getInstance().getConnection();
 				PreparedStatement ps=connect.prepareStatement("UPDATE joueurs SET nom = ?, prenom = ?, age = ?, poste = ?, tir = ?, `precision` = ?, acceleration = ?, puissance = ?, tacle = ?, marquage = ?, id_equipe = ?, prix = ? WHERE id_compte = ?") 
 		)
 		{

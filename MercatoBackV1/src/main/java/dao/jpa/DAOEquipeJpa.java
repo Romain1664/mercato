@@ -1,11 +1,11 @@
-package dao;
+package dao.jpa;
 
 import java.util.List;
 
-import model.Compte;
+import dao.IDAOEquipe;
 import model.Equipe;
 
-public class DAOEquipeJPA implements DAOEquipe {
+public class DAOEquipeJpa extends DaoJpa implements IDAOEquipe {
 
 	@Override
 	public void insert(Equipe t) {

@@ -1,22 +1,22 @@
-package dao;
+package dao.jdbc;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.List;
 
+import dao.IDAOCompte;
 import model.Compte;
 import model.Context;
 import model.Joueur;
 import model.Manager;
 
-public class DAOCompteJDBC implements DAOCompte {
+public class DAOCompteJdbc extends DaoJdbc implements IDAOCompte {
 
 	@Override
 	public void insert(Compte c) {
 		try 
 		(
-				Connection connect=Context.getInstance().getConnection();
 				PreparedStatement ps=connect.prepareStatement("INSERT INTO comptes (login, password, type) VALUES (?,?,?) ") 
 		)
 		{
@@ -34,7 +34,6 @@ public class DAOCompteJDBC implements DAOCompte {
 		Compte c=null;
 		try
 		(
-				Connection connect=Context.getInstance().getConnection();
 				PreparedStatement ps=connect.prepareStatement("SELECT * from comptes where id=?"); 
 				)
 		{
@@ -62,7 +61,6 @@ public class DAOCompteJDBC implements DAOCompte {
 		
 		try
 		(
-				Connection connect=Context.getInstance().getConnection();
 				PreparedStatement ps=connect.prepareStatement("SELECT * from comptes where login=?"); 
 				)
 		{
@@ -87,7 +85,6 @@ public class DAOCompteJDBC implements DAOCompte {
 		
 		try
 		(
-				Connection connect=Context.getInstance().getConnection();
 				PreparedStatement ps=connect.prepareStatement("SELECT * from comptes where nom=? AND prenom=?"); 
 		)
 		{
@@ -111,7 +108,6 @@ public class DAOCompteJDBC implements DAOCompte {
 		
 		try
 		(
-				Connection connect=Context.getInstance().getConnection();
 				PreparedStatement ps=connect.prepareStatement("SELECT * from comptes where login=? and password=?"); 
 				)
 		{
@@ -151,7 +147,6 @@ public class DAOCompteJDBC implements DAOCompte {
 	public void update(Compte c) {
 		try 
 		(
-				Connection connect=Context.getInstance().getConnection();
 				PreparedStatement ps=connect.prepareStatement("UPDATE comptes Set login=?, password=?, type=? WHERE id=?") 
 		)
 		{
@@ -163,14 +158,21 @@ public class DAOCompteJDBC implements DAOCompte {
 			ps.executeUpdate();
 
 		}catch (Exception e) {e.printStackTrace();}	
-
 	}
 
 	
 	
 	@Override
 	public void delete(Integer id) {
-		// TODO Auto-generated method stub
+		try 
+		(
+				PreparedStatement ps=connect.prepareStatement("DELETE FROM comptes WHERE id=?") 
+		)
+		{
+			ps.setInt(1,id);
+			ps.executeUpdate();
+
+		}catch (Exception e) {e.printStackTrace();}	
 
 	}
 

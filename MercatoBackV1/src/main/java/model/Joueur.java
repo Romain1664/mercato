@@ -1,14 +1,17 @@
 package model;
 
 import javax.persistence.Column;
-import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Transient;
 
-import dao.DAOJoueur;
+import dao.IDAOJoueur;
 
 @Entity
-@DiscriminatorValue("joueur")
+@PrimaryKeyJoinColumn(name="id",referencedColumnName="id")
 public class Joueur extends Compte {
 	
 	@Column (name ="nom", length=25,  nullable = false)
@@ -26,7 +29,7 @@ public class Joueur extends Compte {
 	@Column (name ="tir", nullable = false)
 	private int tir;
 	
-	@Column (name ="precision", nullable = false)
+	@Column (name ="précision", nullable = false)
 	private int precision;
 	
 	@Column (name ="acceleration", nullable = false)
@@ -191,14 +194,14 @@ public class Joueur extends Compte {
 	
 	public void update()
 	{
-		DAOJoueur daoJ=Context.getInstance().getDaoJ();
+		IDAOJoueur daoJ=Context.getDaoJoueur();
 		
 		daoJ.update(this);
 	}
 
 	public void addBdd() 
 	{
-		DAOJoueur daoJ=Context.getInstance().getDaoJ();
+		IDAOJoueur daoJ=Context.getDaoJoueur();
 		
 		daoJ.insert(this);
 		
@@ -206,14 +209,14 @@ public class Joueur extends Compte {
 	
 	public void deleteBdd(Integer id)
 	{
-		DAOJoueur daoJ=Context.getInstance().getDaoJ();
+		IDAOJoueur daoJ=Context.getDaoJoueur();
 		
 		daoJ.delete(id);
 	}
 
 	public void regarderStat(Integer id)
 	{
-		DAOJoueur daoJ=Context.getInstance().getDaoJ();
+		IDAOJoueur daoJ=Context.getDaoJoueur();
 		
 		Joueur j = null;
 		

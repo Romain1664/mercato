@@ -5,7 +5,12 @@ import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
-import dao.DAOCompteJDBC;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
+import dao.IDAOCompte;
+import dao.jdbc.DAOCompteJdbc;
 import model.Compte;
 import model.Context;
 import model.Equipe;
@@ -128,14 +133,14 @@ public class App {
 			System.out.print(System.lineSeparator());
 			
 			Equipe eq = new Equipe();
-			eq=Context.getInstance().getDaoE().selectByNomEquipe(equipe);
+			eq=Context.getDaoEquipe().selectByNomEquipe(equipe);
 			
 			if (eq!=null) 
 			{
 				System.out.println("Cette équipe existe déjà. Demandez à l'actuel manager de vous donner les accès.");
 				System.out.print(System.lineSeparator());
 				c=new Compte(login, password, type);	 
-				Context.getInstance().getDaoC().insert(c);
+				Context.getDaoCompte().insert(c);
 			}
 			else
 			{
@@ -143,12 +148,12 @@ public class App {
 				System.out.print(System.lineSeparator());
 				
 				c=new Compte(login, password, type);	 
-				Context.getInstance().getDaoC().insert(c);
+				Context.getDaoCompte().insert(c);
 				
-				Compte c2 = Context.getInstance().getDaoC().selectByLogin(c.getLogin());
+				Compte c2 = Context.getDaoCompte().selectByLogin(c.getLogin());
 				
 				Equipe eq2= new Equipe (equipe,c2.getId(),budget);
-				Context.getInstance().getDaoE().insert(eq2);
+				Context.getDaoEquipe().insert(eq2);
 				
 				System.out.println("L'équipe a été ajouté à la base de donnée.");
 			}
@@ -157,7 +162,7 @@ public class App {
 		else
 		{
 			c=new Compte(login, password, type);	 
-			Context.getInstance().getDaoC().insert(c);
+			Context.getDaoCompte().insert(c);
 		}
 
 		
@@ -172,7 +177,7 @@ public class App {
 		String password=saisieString("Saisir votre password : ");
 		System.out.print(System.lineSeparator());
 		
-		c = Context.getInstance().getDaoC().checkConnect(login, password);
+		c = Context.getDaoCompte().checkConnect(login, password);
 		
 		if(c==null) 
 		{
@@ -212,7 +217,7 @@ public class App {
 	
 	public static void menuManager() {
 				
-		Equipe eq = Context.getInstance().getDaoE().selectById(c.getId());
+		Equipe eq = Context.getDaoEquipe().selectById(c.getId());
 		
 		if (eq==null)
 		{
@@ -288,7 +293,7 @@ public class App {
 
 	public static void listeJoueurEquipe() {
 		
-		Equipe eq = Context.getInstance().getDaoE().selectById(c.getId());
+		Equipe eq = Context.getDaoEquipe().selectById(c.getId());
 		
 		if (eq==null)
 		{
@@ -304,7 +309,7 @@ public class App {
 	
 	public static void updateBudget() {
 		
-		Equipe eq = Context.getInstance().getDaoE().selectById(c.getId());
+		Equipe eq = Context.getDaoEquipe().selectById(c.getId());
 
 		if (eq==null)
 		{
@@ -317,7 +322,7 @@ public class App {
 			Double budget =saisieDouble("Quel est votre nouveau budget ?");
 			System.out.print(System.lineSeparator());
 			eq.setBudget(budget);
-			Context.getInstance().getDaoE().update(eq);
+			Context.getDaoEquipe().update(eq);
 			
 			System.out.println("Le budget a été actualisé.");
 			System.out.print(System.lineSeparator());
@@ -327,7 +332,7 @@ public class App {
 	
 	public static void acheterJoueur() {
 		
-		Equipe eq = Context.getInstance().getDaoE().selectById(c.getId());
+		Equipe eq = Context.getDaoEquipe().selectById(c.getId());
 
 		if (eq==null)
 		{
@@ -352,17 +357,17 @@ public class App {
 			{
 				try
 				{
-					Joueur j = Context.getInstance().getDaoJ().selectById(choix);
+					Joueur j = Context.getDaoJoueur().selectById(choix);
 					System.out.print(System.lineSeparator());
 					
 					if (j.getId_equipe()!=1) {System.out.println("Ce joueur n'est pas disponible");acheterJoueur();}
 					else 
 					{
 						j.setId_equipe(eq.getId());
-						Context.getInstance().getDaoJ().update(j);
+						Context.getDaoJoueur().update(j);
 						
 						eq.setBudget(eq.getBudget()-j.getPrix());
-						Context.getInstance().getDaoE().update(eq);
+						Context.getDaoEquipe().update(eq);
 						
 						System.out.println("Félicitation pour votre achat de " + j.getPrenom() + " " + j.getNom());
 						System.out.print(System.lineSeparator());
@@ -376,7 +381,7 @@ public class App {
 	}
 	
 	public static void vendreJoueur() {
-		Equipe eq = Context.getInstance().getDaoE().selectById(c.getId());
+		Equipe eq = Context.getDaoEquipe().selectById(c.getId());
 
 		if (eq==null)
 		{
@@ -401,16 +406,16 @@ public class App {
 			{
 				try
 				{
-					Joueur j = Context.getInstance().getDaoJ().selectById(choix);
+					Joueur j = Context.getDaoJoueur().selectById(choix);
 					
 					if (j.getId_equipe()!=eq.getId()) {System.out.println("Ce joueur n'est pas à vendre");acheterJoueur();}
 					else 
 					{
 						j.setId_equipe(1);
-						Context.getInstance().getDaoJ().update(j);
+						Context.getDaoJoueur().update(j);
 						
 						eq.setBudget(eq.getBudget()+j.getPrix());
-						Context.getInstance().getDaoE().update(eq);
+						Context.getDaoEquipe().update(eq);
 						
 						System.out.println("Félicitation pour la vente de " + j.getPrenom() + " " + j.getNom());
 					}
@@ -424,7 +429,7 @@ public class App {
 
 	public static void leguer() {
 		
-		Equipe eq = Context.getInstance().getDaoE().selectById(c.getId());
+		Equipe eq = Context.getDaoEquipe().selectById(c.getId());
 
 		if (eq==null)
 		{
@@ -436,7 +441,7 @@ public class App {
 		{
 			String nouveauManager = saisieString("Quel est le login du nouveau manager ?");
 			
-			Compte c2=Context.getInstance().getDaoC().selectByLogin(nouveauManager);
+			Compte c2=Context.getDaoCompte().selectByLogin(nouveauManager);
 			
 			if (c2==null) 
 			{
@@ -451,7 +456,7 @@ public class App {
 			else if (c2.getType().equals("manager"))
 			{
 				eq.setId_new_compte(c2.getId());
-				Context.getInstance().getDaoE().update(eq);
+				Context.getDaoEquipe().update(eq);
 			}
 		}
 	}
@@ -558,7 +563,7 @@ public class App {
 		
 		Joueur j = new Joueur();
 		
-		j = Context.getInstance().getDaoJ().selectById(c.getId());
+		j = Context.getDaoJoueur().selectById(c.getId());
 		
 		if (j==null)
 		{
@@ -592,7 +597,7 @@ public class App {
 		
 		Joueur j = new Joueur();
 		
-		j = Context.getInstance().getDaoJ().selectById(c.getId());
+		j = Context.getDaoJoueur().selectById(c.getId());
 		
 		if (j==null)
 		{
@@ -619,6 +624,15 @@ public class App {
 
 
 	public static void main(String[] args) {
+		
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("MercatoUnit");
+		EntityManager em = emf.createEntityManager();
+		
+		emf.close();
+		
+		//Compte c1 = new Compte(12, "1", "2", "joueur");
+		
+		//Context.getDaoCompte().delete(12);
 		
 		//accueil();
 		

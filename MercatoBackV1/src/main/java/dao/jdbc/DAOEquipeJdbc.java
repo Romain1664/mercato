@@ -1,4 +1,4 @@
-package dao;
+package dao.jdbc;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -6,17 +6,16 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import dao.IDAOEquipe;
 import model.Context;
 import model.Equipe;
-import model.Joueur;
 
-public class DAOEquipeJDBC implements DAOEquipe {
+public class DAOEquipeJdbc extends DaoJdbc implements IDAOEquipe {
 
 	@Override
 	public void insert(Equipe eq) {
 		try 
 		(
-				Connection connect=Context.getInstance().getConnection();
 				PreparedStatement ps=connect.prepareStatement("INSERT INTO equipes (nom_equipe, id_manager, budget) VALUES (?,?,?) ") 
 		)
 		{
@@ -38,7 +37,6 @@ public class DAOEquipeJDBC implements DAOEquipe {
 		
 		try
 		(
-			Connection connect=Context.getInstance().getConnection();
 			PreparedStatement ps=connect.prepareStatement("SELECT * from equipes"); 
 		)
 		{
@@ -59,7 +57,6 @@ public class DAOEquipeJDBC implements DAOEquipe {
 		Equipe eq = null;
 		try
 		(
-				Connection connect=Context.getInstance().getConnection();
 				PreparedStatement ps=connect.prepareStatement("SELECT * from equipes WHERE id_manager=?"); 
 		)
 		{
@@ -81,7 +78,6 @@ public class DAOEquipeJDBC implements DAOEquipe {
 		Equipe eq = null;
 		try
 		(
-				Connection connect=Context.getInstance().getConnection();
 				PreparedStatement ps=connect.prepareStatement("SELECT * from equipes WHERE nom_equipe=?"); 
 		)
 		{
@@ -103,7 +99,6 @@ public class DAOEquipeJDBC implements DAOEquipe {
 	public void update(Equipe eq) {
 		try 
 		(
-				Connection connect=Context.getInstance().getConnection();
 				PreparedStatement ps=connect.prepareStatement("UPDATE equipes SET id_manager=?, nom_equipe=?, budget=? WHERE id_manager=? ") 
 		)
 		{
@@ -123,7 +118,6 @@ public class DAOEquipeJDBC implements DAOEquipe {
 	public void delete(Integer id) {
 		try 
 		(
-				Connection connect=Context.getInstance().getConnection();
 				PreparedStatement ps=connect.prepareStatement("DELETE FROM equipes WHERE id_manager = ? ") 
 		)
 		{

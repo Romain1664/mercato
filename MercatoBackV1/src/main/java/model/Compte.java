@@ -12,13 +12,12 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
-import dao.DAOCompte;
-import dao.DAOJoueur;
+import dao.IDAOCompte;
+import dao.IDAOJoueur;
 
 @Entity 
 @Table(name = "compte")
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "type")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Compte extends Context{
 	
 	@Id
@@ -29,10 +28,10 @@ public class Compte extends Context{
 	@Column(name="login", length=25, nullable =false ) 
 	protected String login;
 	
-	@Column(name="login", length=25, nullable =false ) 
+	@Column(name="password", length=25, nullable =false ) 
 	protected String password;
 	
-	@Column(name="login", length=10, nullable =false ) 
+	@Column(name="type", length=10, nullable =false, insertable=false, updatable=false) 
 	protected String type;
 	
 	
@@ -89,7 +88,7 @@ public class Compte extends Context{
 	public void setPassword(String password) 
 	{
 		this.password = password;
-		Context.getInstance().getDaoC().update(this);
+		Context.getDaoCompte().update(this);
 	}
 	
 	public String getType() 
@@ -105,7 +104,7 @@ public class Compte extends Context{
 	
 	public Compte checkLogin(String login)
 	{
-		DAOCompte daoC= Context.getInstance().getDaoC();
+		IDAOCompte daoC= Context.getDaoCompte();
 		
 		Compte c=daoC.selectByLogin(login);
 
@@ -114,7 +113,7 @@ public class Compte extends Context{
 	
 	public Compte checkConnect(String login,String password)
 	{
-		DAOCompte daoC= Context.getInstance().getDaoC();
+		IDAOCompte daoC= Context.getDaoCompte();
 		
 		Compte c=daoC.checkConnect(login, password);
 
@@ -125,7 +124,7 @@ public class Compte extends Context{
 	public void listeJoueur()
 	{
 
-		DAOJoueur daoJ=Context.getInstance().getDaoJ();
+		IDAOJoueur daoJ=Context.getDaoJoueur();
 		
 		List<Joueur> listeJoueurs = daoJ.selectAll();
 		
@@ -148,14 +147,14 @@ public class Compte extends Context{
 
 		Compte c=null;
 				
-		c=Context.getInstance().getDaoC().selectByLogin(login);
+		c=Context.getDaoCompte().selectByLogin(login);
 
 		return c;
 	}
 	
 	public void updatePassword() {
 		
-		Context.getInstance().getDaoC().update(this);
+		Context.getDaoCompte().update(this);
 		System.out.println("Votre mot de passe a été modifié !");
 		
 	}

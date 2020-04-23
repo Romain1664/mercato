@@ -1,31 +1,32 @@
-package dao;
+package dao.jpa;
 
 import java.util.List;
 
-import model.Joueur;
+import dao.IDAOCompte;
+import model.Compte;
 
-public class DAOJoueurJPA implements DAOJoueur {
+public class DAOCompteJpa extends DaoJpa implements IDAOCompte {
 
 	@Override
-	public void insert(Joueur t) {
+	public void insert(Compte t) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public Joueur selectById(Integer id) {
+	public Compte selectById(Integer id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<Joueur> selectAll() {
+	public List<Compte> selectAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void update(Joueur t) {
+	public void update(Compte t) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -37,24 +38,21 @@ public class DAOJoueurJPA implements DAOJoueur {
 	}
 
 	@Override
-	public List<Joueur> selectByEquipe(int id_equipe) {
+	public Compte selectByLogin(String login) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<Joueur> selectByEquipeByBudget(int id_equipe, double budget) {
+	public Compte SelectByIdentite(String nom, String prenom) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void updateStatut(Integer id, String statut) {
+	public Compte checkConnect(String login, String password) {
 		// TODO Auto-generated method stub
-		
+		return null;
 	}
-
-	
-
 
 }
