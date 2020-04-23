@@ -1,13 +1,11 @@
 package dao.jdbc;
 
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.List;
 
-import dao.IDAOCompte;
+import dao.idao.IDAOCompte;
 import model.Compte;
-import model.Context;
 import model.Joueur;
 import model.Manager;
 
@@ -79,28 +77,7 @@ public class DAOCompteJdbc extends DaoJdbc implements IDAOCompte {
 		return c;
 	}
 	
-	public Compte SelectByIdentite(String nom,String prenom) 
-	{
-		Compte c=null;
-		
-		try
-		(
-				PreparedStatement ps=connect.prepareStatement("SELECT * from comptes where nom=? AND prenom=?"); 
-		)
-		{
-			ps.setString(1, nom);
-			ps.setString(2, prenom);
-			
-			ResultSet rs= ps.executeQuery();
-			
-			rs.next();
-			
-			if (rs.getRow()>0) {c = new Compte(rs.getInt("id"), rs.getString("login"), rs.getString("password"),rs.getString("type"));}
-			
-		}catch (Exception e) {e.printStackTrace();}
-		
-		return c;
-	}
+
 
 	public Compte checkConnect(String login,String password) 
 	{

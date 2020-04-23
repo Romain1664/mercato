@@ -1,11 +1,8 @@
 package model;
 
-import dao.IDAOCompte;
-import dao.IDAOEquipe;
-import dao.IDAOJoueur;
-import dao.jdbc.DAOCompteJdbc;
-import dao.jdbc.DAOEquipeJdbc;
-import dao.jdbc.DAOJoueurJdbc;
+import dao.idao.IDAOCompte;
+import dao.idao.IDAOEquipe;
+import dao.idao.IDAOJoueur;
 import dao.jpa.DAOCompteJpa;
 import dao.jpa.DAOEquipeJpa;
 import dao.jpa.DAOJoueurJpa;

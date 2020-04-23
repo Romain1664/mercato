@@ -51,11 +51,11 @@ public class connection extends HttpServlet {
 			String login = request.getParameter("login");
 			String password = request.getParameter("nouveau password");
 
-			Compte c = Context.getInstance().getDaoC().selectByLogin(login);
+			Compte c = Context.getDaoCompte().selectByLogin(login);
 
 			Compte c1 = new Compte (c.getId(),login,password,c.getType());
 
-			Context.getInstance().getDaoC().update(c1);
+			Context.getDaoCompte().update(c1);
 
 			this.getServletContext().getRequestDispatcher("/WEB-INF/connection.jsp").forward(request, response);
 
@@ -65,7 +65,7 @@ public class connection extends HttpServlet {
 			String login = request.getParameter("login");
 			String password = request.getParameter("password");
 
-			Compte c = Compte.getInstance().getDaoC().checkConnect(login, password);
+			Compte c = Compte.getDaoCompte().checkConnect(login, password);
 			request.getSession().setAttribute("Login", login);
 
 

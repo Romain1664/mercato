@@ -9,7 +9,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-import dao.IDAOCompte;
+import dao.idao.IDAOCompte;
 import dao.jdbc.DAOCompteJdbc;
 import model.Compte;
 import model.Context;
@@ -624,15 +624,6 @@ public class App {
 
 
 	public static void main(String[] args) {
-		
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("MercatoUnit");
-		EntityManager em = emf.createEntityManager();
-		
-		emf.close();
-		
-		//Compte c1 = new Compte(12, "1", "2", "joueur");
-		
-		//Context.getDaoCompte().delete(12);
 		
 		//accueil();
 		

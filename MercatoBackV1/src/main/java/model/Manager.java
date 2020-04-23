@@ -2,11 +2,6 @@ package model;
 
 import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.DiscriminatorValue;
-import javax.persistence.Entity;
-import javax.persistence.Transient;
-
 
 public class Manager extends Compte {
 	
@@ -26,6 +21,7 @@ public class Manager extends Compte {
 	{
 		return budget;
 	}
+
 	public void setBudget(double budget) 
 	{
 		this.budget = budget;
@@ -54,7 +50,7 @@ public class Manager extends Compte {
 	public void listeJoueurEquipeByBudget(int id_equipe, double budget)
 	{
 
-		List<Joueur> listeJoueurs = Context.getDaoJoueur().selectByEquipeByBudget(id_equipe, budget);
+		List<Joueur> listeJoueurs = Context.getDaoJoueur().selectByEquipeByBudget(budget);
 		
 		if(listeJoueurs.isEmpty()) 
 		{

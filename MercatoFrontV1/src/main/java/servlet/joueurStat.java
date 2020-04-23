@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -8,7 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.Compte;
-import model.Context;
 import model.Joueur;
 
 /**
@@ -49,7 +49,7 @@ public class joueurStat extends HttpServlet {
 			
 			Joueur j= new Joueur(id_compte,nom,prenom,age,poste,tir,precision,acceleration,puissance,tacle,marquage,id_equipe,prix);
 
-			Compte.getInstance().getDaoJ().insert(j);
+			Compte.getDaoJoueur().insert(j);
 			
 			this.getServletContext().getRequestDispatcher("/WEB-INF/joueur.jsp").forward(request, response);
 		}
@@ -65,7 +65,7 @@ public class joueurStat extends HttpServlet {
 				
 				Joueur j= new Joueur(j1.getId(),j1.getNom(),j1.getPrenom(),j1.getAge(),j1.getPoste(),tir,precision,acceleration,puissance,tacle,marquage,j1.getId_equipe(),j1.getPrix());
 				
-				Compte.getInstance().getDaoJ().update(j);
+				Compte.getDaoJoueur().update(j);
 				
 				this.getServletContext().getRequestDispatcher("/WEB-INF/joueur.jsp").forward(request, response);
 			}

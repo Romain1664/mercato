@@ -32,7 +32,7 @@ public class inscription extends HttpServlet {
 		Compte c = new Compte(login,password,type);
 
 
-		Context.getInstance().getDaoC().insert(c);
+		Context.getDaoCompte().insert(c);
 		this.getServletContext().getRequestDispatcher("/WEB-INF/connection.jsp").forward(request, response);
 
 

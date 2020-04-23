@@ -2,7 +2,7 @@ package dao.jpa;
 
 import java.util.List;
 
-import dao.IDAOEquipe;
+import dao.idao.IDAOEquipe;
 import model.Equipe;
 
 
@@ -17,22 +17,22 @@ public class DAOEquipeJpa extends DaoJpa implements IDAOEquipe {
 			this.em.persist(eq);
 			this.em.getTransaction().commit();
 		}
-		catch (Exception e) {
+		catch (Exception e) 
+		{
 			this.em.getTransaction().rollback();
 		}
 	}
 
 	
 	public Equipe selectById(Integer id) {
-		
-		return this.em.createQuery("SELECT e FROM Equipe e WHERE e.id = ?1" , Equipe.class)
-				.setParameter(1, id).getSingleResult();
+		return this.em.find(Equipe.class, id);
 	}
 
 	
 	public List<Equipe> selectAll() {
-		
-		return this.em.createQuery("SELECT e FROM Equipe e", Equipe.class).getResultList();
+		return this.em
+				.createQuery("SELECT eq FROM Equipe eq", Equipe.class)
+				.getResultList();
 	}
 
 	
@@ -43,7 +43,8 @@ public class DAOEquipeJpa extends DaoJpa implements IDAOEquipe {
 			this.em.merge(eq);
 			this.em.getTransaction().commit();
 		}
-		catch (Exception e) {
+		catch (Exception e) 
+		{
 			this.em.getTransaction().rollback();
 		}
 
@@ -51,15 +52,25 @@ public class DAOEquipeJpa extends DaoJpa implements IDAOEquipe {
 
 	
 	public void delete(Integer id) {
-		this.em.createQuery("DELETE FROM Equipe e where e.id = ?1",Equipe.class)
-				.setParameter(1, id).executeUpdate();
+		try 
+		{
+			this.em.getTransaction().begin();
 
+			Equipe equipeToRemove = new Equipe();
+			equipeToRemove.setId(id);
 
+			this.em.remove(this.em.merge(equipeToRemove));
+			this.em.getTransaction().commit();
+		}
+		catch (Exception e) 
+		{
+			this.em.getTransaction().rollback();
+		}
 	}
 
 	@Override
 	public Equipe selectByNomEquipe(String nom) {
-		return this.em.createQuery("SELECT e FROM Equipe e WHERE e.nom = ?1" , Equipe.class)
+		return this.em.createQuery("SELECT eq FROM Equipe eq WHERE eq.nom = ?1" , Equipe.class)
 				.setParameter(1, nom).getSingleResult();
 	}
 

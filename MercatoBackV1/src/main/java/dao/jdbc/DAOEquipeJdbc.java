@@ -1,13 +1,11 @@
 package dao.jdbc;
 
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import dao.IDAOEquipe;
-import model.Context;
+import dao.idao.IDAOEquipe;
 import model.Equipe;
 
 public class DAOEquipeJdbc extends DaoJdbc implements IDAOEquipe {
@@ -32,7 +30,7 @@ public class DAOEquipeJdbc extends DaoJdbc implements IDAOEquipe {
 	
 	@Override
 	public List<Equipe> selectAll() {
-		List<Equipe> liste = new ArrayList();
+		List<Equipe> liste = new ArrayList<>();
 		Equipe eq = null;
 		
 		try

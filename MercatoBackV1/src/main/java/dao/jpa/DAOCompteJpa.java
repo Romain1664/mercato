@@ -2,7 +2,7 @@ package dao.jpa;
 
 import java.util.List;
 
-import dao.IDAOCompte;
+import dao.idao.IDAOCompte;
 import model.Compte;
 
 
@@ -16,33 +16,36 @@ public class DAOCompteJpa extends DaoJpa implements IDAOCompte {
 			this.em.persist(c);
 			this.em.getTransaction().commit();
 		}
-		catch (Exception e) {
+		catch (Exception e) 
+		{
 			this.em.getTransaction().rollback();
 		}
 	}
 
 	
 	public Compte selectById(Integer id) {
-		
-		return this.em.createQuery("SELECT c FROM Compte c WHERE c.id = ?1" , Compte.class)
-				.setParameter(1, id).getSingleResult();
+		return this.em.find(Compte.class, id);
 	}
 
 	
 	public List<Compte> selectAll() {
-		
-		return this.em.createQuery("SELECT c FROM Compte c", Compte.class).getResultList();
+		return this.em
+				.createQuery("select c from Compte c", Compte.class)
+				.getResultList();
 	}
 
 	
 	public void update(Compte c) {
+		
 		this.em.getTransaction().begin();
 		
-		try {
+		try 
+		{
 			this.em.merge(c);
 			this.em.getTransaction().commit();
 		}
-		catch (Exception e) {
+		catch (Exception e) 
+		{
 			this.em.getTransaction().rollback();
 		}
 
@@ -50,23 +53,27 @@ public class DAOCompteJpa extends DaoJpa implements IDAOCompte {
 
 	
 	public void delete(Integer id) {
-		this.em.createQuery("DELETE FROM Compte c where c.id = ?1")
-				.setParameter(1, id).executeUpdate();
+		try 
+		{
+			this.em.getTransaction().begin();
 
+			Compte compteToRemove = new Compte();
+			compteToRemove.setId(id);
 
+			this.em.remove(this.em.merge(compteToRemove));
+			this.em.getTransaction().commit();
+		}
+		catch (Exception e) 
+		{
+			this.em.getTransaction().rollback();
+		}
 	}
-
+	
 	@Override
 	public Compte selectByLogin(String login) {
 		
 		return this.em.createQuery("SELECT c FROM Compte c WHERE c.login = ?1" , Compte.class)
 				.setParameter(1, login).getSingleResult();
-	}
-
-	@Override
-	public Compte SelectByIdentite(String nom, String prenom) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 	@Override

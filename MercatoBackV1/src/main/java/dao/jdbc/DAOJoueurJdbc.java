@@ -1,13 +1,11 @@
 package dao.jdbc;
 
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import dao.IDAOJoueur;
-import model.Context;
+import dao.idao.IDAOJoueur;
 import model.Joueur;
 
 public class DAOJoueurJdbc extends DaoJdbc implements IDAOJoueur {
@@ -61,7 +59,7 @@ public class DAOJoueurJdbc extends DaoJdbc implements IDAOJoueur {
 	}
 
 	public List<Joueur> selectByEquipe(int id_equipe) {
-			List<Joueur> liste = new ArrayList();
+			List<Joueur> liste = new ArrayList<>();
 			Joueur j = null;
 			
 			try
@@ -82,18 +80,17 @@ public class DAOJoueurJdbc extends DaoJdbc implements IDAOJoueur {
 		
 		}
 	
-	public List<Joueur> selectByEquipeByBudget(int id_equipe, double budget) {
+	public List<Joueur> selectByEquipeByBudget(double budget) {
 		
-		List<Joueur> liste = new ArrayList();
+		List<Joueur> liste = new ArrayList<>();
 		Joueur j = null;
 		
 		try
 		(
-			PreparedStatement ps=connect.prepareStatement("SELECT * from joueurs JOIN equipes ON joueurs.id_equipe=equipes.id WHERE id_equipe=? AND prix<?"); 
+			PreparedStatement ps=connect.prepareStatement("SELECT * from joueurs JOIN equipes ON joueurs.id_equipe=equipes.id WHERE id_equipe=0 AND prix<?"); 
 		)
 		{
-			ps.setInt(1, id_equipe);
-			ps.setDouble(2, budget);
+			ps.setDouble(1, budget);
 			ResultSet rs= ps.executeQuery();
 			
 			while(rs.next())
@@ -108,10 +105,9 @@ public class DAOJoueurJdbc extends DaoJdbc implements IDAOJoueur {
 	
 	
 	
-	
 	@Override
 	public List<Joueur> selectAll() {
-			List<Joueur> liste = new ArrayList();
+			List<Joueur> liste = new ArrayList<>();
 			Joueur j = null;
 			
 			try
@@ -131,24 +127,6 @@ public class DAOJoueurJdbc extends DaoJdbc implements IDAOJoueur {
 		
 		}
 	
-
-	
-	public void updateStatut(Integer id,String statut) {
-		
-		try
-		(
-			PreparedStatement ps=connect.prepareStatement("UPDATE joueurs SET statut= ? WHERE id_compte=?"); 
-		)
-		
-		{
-			ps.setString(1,statut);
-			ps.setInt(2, id);
-			ResultSet rs= ps.executeQuery();
-		}
-		catch (Exception e) {e.printStackTrace();}
-	}
-
-
 
 	@Override
 	public void delete(Integer id) {
