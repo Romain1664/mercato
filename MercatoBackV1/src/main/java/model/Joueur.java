@@ -1,15 +1,54 @@
 package model;
 
+import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+
 import dao.DAOJoueur;
 import dao.DAOJoueurJDBC;
 
+@Entity 
+@DiscriminatorValue("joueur")
+
 public class Joueur extends Compte {
 	
-	private String nom,prenom;
+	@Column (name ="nom", nullable = false)
+	private String nom;
+	
+	@Column (name ="prenom", nullable = false)
+	private String prenom;
+	
+	@Column (name ="age", nullable = false)
 	private int age;
+	
+	@Column (name ="poste", nullable = false)
 	private String poste;
-	private int tir,precision,acceleration,puissance,tacle,marquage,id_equipe;
+	
+	@Column (name ="tir", nullable = false)
+	private int tir;
+	
+	@Column (name ="precision", nullable = false)
+	private int precision;
+	
+	@Column (name ="acceleration", nullable = false)
+	private int acceleration;
+	
+	@Column (name ="puissance", nullable = false)
+	private int puissance;
+	
+	@Column (name ="tacle", nullable = false)
+	private int tacle;
+	
+	@Column (name ="marquage", nullable = false)
+	private int marquage;
+	
+	@Column (name ="id_equipe", nullable = false)
+	private int id_equipe;
+	
+	@Column (name ="nom_equipe", nullable = false)
 	private String nom_equipe;
+	
+	@Column (name ="prix", nullable = false)
 	private double prix;
 
 	
@@ -50,9 +89,7 @@ public class Joueur extends Compte {
 		super(id, login, password, type);
 	}
 	
-	public Joueur() 
-	{
-	}
+	public Joueur() {}
 	
 	
 	public int getAge() {
