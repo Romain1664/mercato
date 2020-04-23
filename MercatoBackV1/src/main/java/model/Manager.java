@@ -2,10 +2,15 @@ package model;
 
 import java.util.List;
 
-import dao.DAOJoueurJDBC;
+import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
 
+@Entity 
+@DiscriminatorValue("manager")
 public class Manager extends Compte {
 	
+	@Column (name ="budget", nullable = false)
 	private double budget;
 		
 	
@@ -13,6 +18,8 @@ public class Manager extends Compte {
 	{
 		super(id, login, password, type);
 	}
+	
+	public Manager() {}
 	
 	
 	
@@ -28,7 +35,6 @@ public class Manager extends Compte {
 	
 	public void listeJoueurEquipe(int id_equipe)
 	{
-
 		List<Joueur> listeJoueurs = Context.getInstance().getDaoJ().selectByEquipe(id_equipe);
 		
 		if(listeJoueurs.isEmpty()) 
