@@ -1,12 +1,30 @@
 package model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "equipes")
 public class Equipe {
 
-	
+	@Column(name = "nom_equipe", nullable = false)
 	private String nom_equipe;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
 	private int id;
+	
+	@Column(name = "id_compte", nullable = false)
 	private int id_compte;
+	
+	@Column(name = "budget", nullable = false)
 	private double budget;
+	
 	private int id_new_compte;
 	
 
