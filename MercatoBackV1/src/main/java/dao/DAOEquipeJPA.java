@@ -1,17 +1,10 @@
-package dao.jpa;
+package dao;
 
 import java.util.List;
 
-<<<<<<< Updated upstream:MercatoBackV1/src/main/java/dao/jpa/DAOEquipeJpa.java
-import dao.IDAOEquipe;
-import model.Equipe;
-
-public class DAOEquipeJpa extends DaoJpa implements IDAOEquipe {
-=======
 import model.Equipe;
 
 public class DAOEquipeJPA extends DaoJpa implements DAOEquipe {
->>>>>>> Stashed changes:MercatoBackV1/src/main/java/dao/DAOEquipeJPA.java
 
 	public void insert(Equipe eq) {
 		this.em.getTransaction().begin();
