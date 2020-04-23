@@ -2,6 +2,7 @@ package dao.idao;
 
 import java.util.List;
 
+import dao.IDAO;
 import model.Joueur;
 
 public interface IDAOJoueur extends IDAO<Joueur, Integer> {

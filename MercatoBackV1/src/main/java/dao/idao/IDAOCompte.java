@@ -1,5 +1,6 @@
 package dao.idao;
 
+import dao.IDAO;
 import model.Compte;
 
 public interface IDAOCompte extends IDAO<Compte, Integer> {
