@@ -5,11 +5,10 @@ import java.util.List;
 import dao.IDAOCompte;
 import model.Compte;
 
-<<<<<<< Updated upstream:MercatoBackV1/src/main/java/dao/jpa/DAOCompteJpa.java
+
 public class DAOCompteJpa extends DaoJpa implements IDAOCompte {
-=======
-public class DAOCompteJPA extends DaoJpa implements DAOCompte {
->>>>>>> Stashed changes:MercatoBackV1/src/main/java/dao/DAOCompteJPA.java
+
+
 
 	
 	public void insert(Compte c) {

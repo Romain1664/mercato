@@ -4,7 +4,7 @@ import java.util.List;
 
 import model.Equipe;
 
-public class DAOEquipeJPA extends DaoJpa implements DAOEquipe {
+public class DAOEquipeJPA extends DaoJpa implements IDAOEquipe {
 
 	public void insert(Equipe eq) {
 		this.em.getTransaction().begin();

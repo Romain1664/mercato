@@ -4,7 +4,7 @@ import java.util.List;
 
 import model.Compte;
 
-public class DAOCompteJPA extends DaoJpa implements DAOCompte {
+public class DAOCompteJPA extends DaoJpa implements IDAOCompte {
 
 	
 	public void insert(Compte c) {
