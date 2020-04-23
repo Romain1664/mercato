@@ -38,7 +38,6 @@ public class Context {
 	
     public Connection getConnection() throws ClassNotFoundException, SQLException 
     {
-    	Class.forName("com.mysql.jdbc.Driver");
         connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/base_mercato","root","");
     
         return connection;

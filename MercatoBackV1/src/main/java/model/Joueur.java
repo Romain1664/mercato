@@ -3,25 +3,24 @@ package model;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.Transient;
 
 import dao.DAOJoueur;
-import dao.DAOJoueurJDBC;
 
-@Entity 
+@Entity
 @DiscriminatorValue("joueur")
-
 public class Joueur extends Compte {
 	
-	@Column (name ="nom", nullable = false)
+	@Column (name ="nom", length=25,  nullable = false)
 	private String nom;
 	
-	@Column (name ="prenom", nullable = false)
+	@Column (name ="prenom", length=25,  nullable = false)
 	private String prenom;
 	
 	@Column (name ="age", nullable = false)
 	private int age;
 	
-	@Column (name ="poste", nullable = false)
+	@Column (name ="poste", length=10,  nullable = false)
 	private String poste;
 	
 	@Column (name ="tir", nullable = false)
@@ -45,7 +44,7 @@ public class Joueur extends Compte {
 	@Column (name ="id_equipe", nullable = false)
 	private int id_equipe;
 	
-	@Column (name ="nom_equipe", nullable = false)
+	@Transient
 	private String nom_equipe;
 	
 	@Column (name ="prix", nullable = false)

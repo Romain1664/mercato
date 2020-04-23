@@ -1,18 +1,40 @@
 package model;
 
-import java.sql.Connection;
-import java.util.LinkedList;
 import java.util.List;
 
-import dao.DAOCompte;
-import dao.DAOCompteJDBC;
-import dao.DAOJoueur;
-import dao.DAOJoueurJDBC;
+import javax.persistence.Column;
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.Table;
 
+import dao.DAOCompte;
+import dao.DAOJoueur;
+
+@Entity 
+@Table(name = "compte")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "type")
 public class Compte extends Context{
 	
-	protected String login,password,type;
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id")
 	protected int id;
+	
+	@Column(name="login", length=25, nullable =false ) 
+	protected String login;
+	
+	@Column(name="login", length=25, nullable =false ) 
+	protected String password;
+	
+	@Column(name="login", length=10, nullable =false ) 
+	protected String type;
+	
 	
 	public Compte(int id, String login, String password, String type)
 	{

@@ -6,7 +6,7 @@ import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
-@Entity 
+@Entity
 @DiscriminatorValue("manager")
 public class Manager extends Compte {
 	

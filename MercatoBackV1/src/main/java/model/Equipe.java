@@ -6,25 +6,27 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
-@Table(name = "equipes")
+@Table(name = "equipe")
 public class Equipe {
-
-	@Column(name = "nom_equipe", nullable = false)
-	private String nom_equipe;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private int id;
 	
+	@Column(name = "nom_equipe", length=50,  nullable = false)
+	private String nom_equipe;
+
 	@Column(name = "id_compte", nullable = false)
 	private int id_compte;
 	
 	@Column(name = "budget", nullable = false)
 	private double budget;
 	
+	@Transient
 	private int id_new_compte;
 	
 
