@@ -42,12 +42,10 @@ public class joueurStat extends HttpServlet {
 			int puissance = Integer.parseInt(request.getParameter("puissance"));
 			int tacle = Integer.parseInt(request.getParameter("tacle"));
 			int marquage = Integer.parseInt(request.getParameter("marquage"));
-			
-			int id_equipe = Integer.parseInt(request.getParameter("id_equipe"));
 			Double prix = Double.parseDouble(request.getParameter("prix"));
 			
 			
-			Joueur j= new Joueur(id_compte,nom,prenom,age,poste,tir,precision,acceleration,puissance,tacle,marquage,id_equipe,prix);
+			Joueur j= new Joueur(id_compte,nom,prenom,age,poste,tir,precision,acceleration,puissance,tacle,marquage,0,prix);
 
 			Compte.getDaoJoueur().insert(j);
 			

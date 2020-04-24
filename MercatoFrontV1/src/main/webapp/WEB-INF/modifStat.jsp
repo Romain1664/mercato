@@ -9,33 +9,36 @@
 <html>
 <head>
 
-<meta charset="UTF-8">
-<title>Affichage statistiques Joueur</title>
-</head>
+		<title>changement stats joueur</title>
+			<meta charset="UTF-8"/>
+	</head>
 
 <body>
 
-		<form action="joueur" method="POST">
-			<input type="hidden" action="stats">
+		<form action="joueurStat" method="POST">
+			<input type="hidden" value="modifStat" name="action">
 		</form>
-	
+		
 		<div id="table1">
 			<table>
-				<legend>Voila tes statistiques mon champion</legend>
+				<legend>ALORS ON CHANGE QUOI?</legend>
 			</table>
-			
-	
+		</div>
+
+		
 		</div>
 	<div id="table2">
 			<table>
 				<tr> <h4>Offensive</h4> 
 					<td>Tir</td>	
 					<td> 
-					LIEN AVEC LA TABLE CHECK HOPITAL
+					<input placeholder="Tir" type="Tir">
 					</td>
 				</tr>	
 					<td>Precision</td> 	
-					
+					<td> 
+					<input placeholder="Precision" type="Precision">
+					</td>
 				</tr> 	
 			</table>
 		</div>
@@ -43,9 +46,14 @@
 			<table>
 				<tr> <h4>Générale</h4> 
 					<td>Acceleration</td>	
-					
+					<td> 
+					<input placeholder="Acceleration" type="Acceleration">
+					</td>
 				</tr>	
 					<td>Puissance</td>	
+					<td> 
+					<input placeholder="Puissance" type="Puissance">
+					</td>						
 				</tr>	
 			</table>
 		</div>
@@ -53,9 +61,14 @@
 			<table>
 				<tr> <h4>Défense</h4> 
 					<td>Tacle</td> 
-					
+					<td> 
+					<input placeholder="Tacle" type="Tacle">
+					</td>
 				</tr>
-					<td>Marquage</td>						
+					<td>Marquage</td>	
+					<td> 
+					<input placeholder="Marquage" type=Marquage">
+					</td>
 				</tr>
 			</table>
 		</div>

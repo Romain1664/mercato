@@ -35,7 +35,7 @@ public class joueur extends HttpServlet {
 		{
 			Joueur c = (Joueur) request.getSession().getAttribute("Compte");
 			c.deleteBdd(c.getId());
-			this.getServletContext().getRequestDispatcher("/WEB-INF/joueur.jsp").forward(request, response);
+			this.getServletContext().getRequestDispatcher("/WEB-INF/desinscription.jsp").forward(request, response);
 		}
 		else if(action.equals("stats")) 
 		{
