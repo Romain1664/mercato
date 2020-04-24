@@ -16,3 +16,23 @@ a
 }
 
 #error{color :red;}
+
+#table1 
+{
+	border: solid black 2px;
+	background-color:white; 
+ 	width:40%;
+}
+
+#table2 
+{
+	border: solid black 2px;
+	background-color:white; 
+	width:40%; 
+	border-collapse:collapse; 
+}
+ legend
+{
+ 	text-align:center;
+	font-weight:bold;
+}
