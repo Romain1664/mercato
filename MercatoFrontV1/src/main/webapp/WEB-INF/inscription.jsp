@@ -14,24 +14,45 @@
 <title>S'inscrire</title>
 </head>
 <body>
-	<table>
-		<tr>
-			<td>S'inscrire</td>
-		</tr>
-	</table>
+
 	<form method="POST" action="inscription?action=inscription">
-		<input type="text" name="login" value="${sessionScope.login}" placeholder="login">
-		<input type="text" name="password" placeholder="password">
-		<select name="type">
-            <option value="manager">manager</option>
-            <option value="joueur">joueur</option>
-        </select>
 		
-		<input type="submit" value="Valider">	
-	</form>
-	
-	
-	
+		<div id="table1">
+			<table>
+				<legend>BIENVENUE SUR L'APPLICATION MERCATO</legend>
+			</table>
+		</div>
+		
+		<div id="table2">
+			<legend>S'inscrire</legend>
+			
+			<table>
+				<tr>
+					<td>Login</td>	
+					<td> 
+						<input Required type="text" name="login" value="${sessionScope.login}" placeholder="login">
+					</td>
+				</tr>
+				<tr>
+					<td>Mot de passe</td> 
+					<td>
+						<input Required type="password" name="password" placeholder="password">
+					</td>
+				</tr>
+				<tr>
+					<td>Type de compte ?</td>	
+					<td>
+						<select name="type">
+			            	<option value="manager">joueur</option>
+			            	<option value="joueur">manager</option>
+			        	</select>
+					</td>
+				</tr>
+			</table>
+			<br>
+			<input type="submit" value="Valider"/>
+		</div>
+	</form>	
 	
 </body>
 </html>
