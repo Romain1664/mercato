@@ -164,7 +164,6 @@ public class DAOJoueurJdbc extends DaoJdbc implements IDAOJoueur {
 			ps.setDouble(12 ,j.getPrix());
 			ps.setInt(13,j.getId());
 			
-			
 			ps.executeUpdate();
 	
 		}catch (Exception e) {e.printStackTrace();}	

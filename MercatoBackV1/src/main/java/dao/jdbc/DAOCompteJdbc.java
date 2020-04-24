@@ -103,7 +103,6 @@ public class DAOCompteJdbc extends DaoJdbc implements IDAOCompte {
 				{
 					c=new Manager(rs.getInt("id"),rs.getString("login"), rs.getString("password"),rs.getString("type"));
 				}
-
 			}
 		}catch (Exception e) {e.printStackTrace();}
 		
