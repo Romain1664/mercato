@@ -41,7 +41,10 @@ public class joueur extends HttpServlet {
 		{
 			this.getServletContext().getRequestDispatcher("/WEB-INF/stats.jsp").forward(request, response);
 		}
-		
+		else if(action.equals("joueurs")) 
+		{
+			this.getServletContext().getRequestDispatcher("/WEB-INF/joueurs.jsp").forward(request, response);
+		}
 	}
 
 	

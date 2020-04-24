@@ -11,7 +11,12 @@
 <title>Liste des joueurs</title>
 </head>
 <body>
+<form action="">
+<div id="table1">
+<table>
+	<legend>Voici les joueurs inscrits sur l'application</legend>
 	
-	
+	</table>
+	</form>
 </body>
 </html>

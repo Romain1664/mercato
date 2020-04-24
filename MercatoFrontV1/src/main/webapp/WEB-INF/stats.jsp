@@ -10,7 +10,11 @@
 <head>
 
 <meta charset="UTF-8">
+<<<<<<< Updated upstream
 <title>Affichage statistiques Joueur</title>
+=======
+<title>Vos stats</title>
+>>>>>>> Stashed changes
 </head>
 
 <body>
