@@ -15,8 +15,6 @@ import model.Joueur;
 import model.Manager;
 
 
-
-
 @WebServlet("/connection")
 public class connection extends HttpServlet {
 
@@ -37,7 +35,6 @@ public class connection extends HttpServlet {
 			this.getServletContext().getRequestDispatcher("/WEB-INF/connection.jsp").forward(request, response);
 
 		}
-
 
 	}
 
@@ -60,23 +57,16 @@ public class connection extends HttpServlet {
 			this.getServletContext().getRequestDispatcher("/WEB-INF/connection.jsp").forward(request, response);
 
 		}
-		else if(action.equals("inscription")) 
+		else if(action.equals("identification")) 
 		{
 			String login = request.getParameter("login");
 			String password = request.getParameter("password");
 
-			Compte c = Compte.getDaoCompte().checkConnect(login, password);
+			Compte c = Context.getDaoCompte().checkConnect(login, password);
 			request.getSession().setAttribute("Login", login);
-
-
-
-
-
-
-
+			
 			if(c instanceof Joueur)
 			{
-
 				request.getSession().setAttribute("compte", c);
 				request.getSession().setAttribute("typeAccount", "Joueur");
 				request.getSession().setAttribute("isConnect", "Y");

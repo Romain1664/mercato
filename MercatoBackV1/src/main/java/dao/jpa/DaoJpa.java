@@ -6,8 +6,21 @@ import javax.persistence.Persistence;
 
 public abstract class DaoJpa {
 	
-	private final static EntityManagerFactory emf = Persistence.createEntityManagerFactory("MercatoUnit");
-	protected final EntityManager em = emf.createEntityManager();
+	private static EntityManagerFactory emf;
+	protected EntityManager em;
+	
+	public DaoJpa() {
+		try
+		{
+			if (emf==null)
+			{
+				Class.forName("com.mysql.jdbc.Driver");
+				emf = Persistence.createEntityManagerFactory("MercatoUnit");
+			}
+			em=emf.createEntityManager();
+		}
+		catch (Exception e) {}
+	}
 	
 	public static void close() {
 		emf.close();

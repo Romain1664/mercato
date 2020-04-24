@@ -25,9 +25,9 @@ public class inscription extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
 
-		String login = (String) request.getSession().getAttribute("login");
-		String password = (String) request.getSession().getAttribute("password");
-		String type = (String) request.getSession().getAttribute("type");
+		String login = request.getParameter("login");
+		String password = request.getParameter("password");
+		String type = request.getParameter("type");
 
 		Compte c = new Compte(login,password,type);
 
@@ -35,10 +35,7 @@ public class inscription extends HttpServlet {
 		Context.getDaoCompte().insert(c);
 		this.getServletContext().getRequestDispatcher("/WEB-INF/connection.jsp").forward(request, response);
 
-
-		//Doit vérifier le type de compte et demander des infos supplémentaire
-
-		doGet(request, response);
+		
 	}
 
 }

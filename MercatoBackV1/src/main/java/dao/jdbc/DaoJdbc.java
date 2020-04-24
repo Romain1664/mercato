@@ -12,7 +12,10 @@ public abstract class DaoJdbc {
 		try
 		{
 			if (connect==null)
-			connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/base_mercato","root","");
+			{
+				Class.forName("com.mysql.jdbc.Driver");
+				connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/base_mercato","root","");
+			}
 		}
 		catch (Exception e) {}
 	}

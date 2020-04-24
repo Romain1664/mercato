@@ -21,6 +21,7 @@ public class DAOCompteJpa extends DaoJpa implements IDAOCompte {
 		catch (Exception e) 
 		{
 			this.em.getTransaction().rollback();
+			e.printStackTrace();
 		}
 	}
 

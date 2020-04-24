@@ -30,7 +30,7 @@ public class Compte extends Context{
 	@Column(name="password", length=25, nullable =false ) 
 	protected String password;
 	
-	@Column(name="type", length=10, nullable =false, insertable=false, updatable=false) 
+	@Column(name="type", length=10, nullable =false) 
 	protected String type;
 	
 	

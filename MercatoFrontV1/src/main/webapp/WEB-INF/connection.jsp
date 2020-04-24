@@ -19,9 +19,9 @@
 			<td>Connection</td>
 		</tr>
 	</table>
-	<form method="POST" action="connection?action=inscription">
+	<form method="POST" action="connection?action=identification">
 		<input type="text" name="login" value="${sessionScope.login}" placeholder="login">
-		<input type="text" name="password" placeholder="password">
+		<input type="password" name="password" placeholder="password">
 		
 		<c:if test ="${sessionScope.isConnect=='N' }">
 		<div id="error">Login/Password invalides</div>
@@ -29,17 +29,9 @@
 		<input type="submit" value="Valider">	
 	</form>
 	
-	
-	
-	
 		<a href="inscription">S'inscrire</a>
-
-	
-	
-	
-	
 		<a href="connection?action=reset">Mot de passe perdu</a>
 	
-	
+
 </body>
 </html>
