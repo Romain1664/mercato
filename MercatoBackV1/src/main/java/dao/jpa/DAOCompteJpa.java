@@ -84,21 +84,23 @@ public class DAOCompteJpa extends DaoJpa implements IDAOCompte {
 	public Compte checkConnect(String login, String password) {
 		
 		Compte c=new Compte();
-				
-		c=em.createQuery("SELECT c FROM Compte c WHERE c.login = ?1 AND c.password=?2" , Compte.class)
-		.setParameter(1, login)
-		.setParameter(2, password)
-		.getSingleResult();
 		
-		System.out.println(c instanceof Joueur);
-		
-		switch (c.getType())
+		try
 		{
-			case "joueur" : {System.out.println("joueur"); Joueur c2 = new Joueur(c.getId(),c.getLogin(),c.getPassword(),c.getType()) ; return c2;}
-			case "manager" : {System.out.println("manager"); Manager c2= new Manager(c.getId(),c.getLogin(),c.getPassword(),c.getType()) ; return c2;}
-			default : {System.out.println("null"); Compte c2 = null; return c2;}
+			c=em.createQuery("SELECT c FROM Compte c WHERE c.login = ?1 AND c.password=?2" , Compte.class)
+			.setParameter(1, login)
+			.setParameter(2, password)
+			.getSingleResult();
+			
+			switch (c.getType())
+			{
+				case "joueur" : {Joueur c2 = new Joueur(c.getId(),c.getLogin(),c.getPassword(),c.getType());return c2;}
+				case "manager" : {Manager c2= new Manager(c.getId(),c.getLogin(),c.getPassword(),c.getType());return c2;}
+				default : {return null;}
+			}
 		}
-
+		catch (Exception e) {return null;}
+		
 	}
 
 }
