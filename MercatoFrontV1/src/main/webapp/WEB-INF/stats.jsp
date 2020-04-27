@@ -56,7 +56,7 @@
 		<div id="table5">
 			<table>
 				<td>
-					<a href="connection"><p>Se déconnecter</p></a>
+					<a href="joueur"><p>Retour au menu Joueur</p></a>
 				</td>
 			</table>
 		</div>

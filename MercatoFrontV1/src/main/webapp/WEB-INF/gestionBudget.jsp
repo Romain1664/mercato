@@ -32,6 +32,13 @@
 			</table>
 			<input type="submit">
 		</div>
+		<div id="table3">
+			<table>
+				<td>
+					<a href="manager"><p>Retour au menu Manager</p></a>
+				</td>
+			</table>
+		</div>
 	</form>
 </body>
 </html>
