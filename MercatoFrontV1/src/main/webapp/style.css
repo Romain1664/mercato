@@ -25,14 +25,14 @@ a
 {
 	border: solid black 2px;
 	background-color:white; 
- 	width:40%;
+ 	width:400px;
 }
 
 .table2 
 {
 	border: solid black 2px;
 	background-color:white; 
-	width:40%; 
+	width:400px; 
 	border-collapse:collapse; 
 }
 
