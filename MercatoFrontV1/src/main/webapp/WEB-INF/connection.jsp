@@ -25,13 +25,13 @@
 					<tr>
 						<td>Login</td>	
 						<td> 
-							<input type="text" name="login" value="${sessionScope.login}" placeholder="login">
+							<input type="text" name="login" value="${sessionScope.login}" placeholder="Login">
 						</td>
 					</tr>
 					<tr>
 						<td>Mot de passe</td> 
 						<td>
-							<input type="password" name="password" placeholder="password">
+							<input type="password" name="password" placeholder="Password">
 						</td>
 					</tr>
 					<tr>
