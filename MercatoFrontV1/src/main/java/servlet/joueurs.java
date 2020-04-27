@@ -20,15 +20,16 @@ import model.Manager;
 @WebServlet("/joueurs")
 public class joueurs extends HttpServlet {
 	
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+	{
 		
-		
-		List<Joueur> equipe = Context.getDaoJoueur().selectByEquipeByBudget((double) request.getSession().getAttribute("budget"));
-		
-		request.setAttribute("joueurs de l'equipe",equipe);
-		
-		
+
+		List<Joueur> liste = Context.getDaoJoueur().selectAll();		
+		request.getSession().setAttribute("joueurs",liste);
+	
 		this.getServletContext().getRequestDispatcher("/WEB-INF/joueurs.jsp").forward(request, response);
+		
+	
 	}
 
 	

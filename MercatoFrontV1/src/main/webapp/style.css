@@ -8,6 +8,10 @@ background-position:center center;
 background-repeat: no-repeat;
 background-size : cover;
 font-family:"times new roman", times, serif;
+
+display : flex;
+justify-content: center;
+align-items : center; 
 }
 a
 {
@@ -21,14 +25,14 @@ a
 {
 	border: solid black 2px;
 	background-color:white; 
- 	width:40%;
+ 	width:400px;
 }
 
 .table2 
 {
 	border: solid black 2px;
 	background-color:white; 
-	width:40%; 
+	width:400px; 
 	border-collapse:collapse; 
 }
 
