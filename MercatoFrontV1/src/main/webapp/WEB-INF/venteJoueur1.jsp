@@ -29,10 +29,19 @@
 		</div>
 		<div id="table3">
 			<table>
-				<p> Alors tu choisi qui?</p> <button>id du joueur<button>
+				<p> Alors tu choisi qui?</p> 
+				<input type="text" name="id_joueur"  placeholder="id du joueur">
+				<input type="submit" value="Valider">
 			</table>
 		</div>
 	</form>
+	<div id="table4">
+			<table>
+				<td>
+					<a href="manager"><p>Retour au menu Manager</p></a>
+				</td>
+			</table>
+		</div>
 </body>
 
 </html>

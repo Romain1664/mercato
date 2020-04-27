@@ -29,18 +29,20 @@
 				<table>
 				 <td>
 					<p>Achat joueur</p> (MENU DEROULANT?)
-						<c:forEach items="${joueur}" var="j">
-								<tr> 
-									<td>${p.nom}</td>
-									<td>${p.prenom}</td>
-									<td>${p.age}</td>
-								</tr>      
-						    </c:forEach>
+						
 					</td> 
 				</table>
 				<input type="submit">
 			</div>
 		</form>
+		
+		<div id="table4">
+			<table>
+				<td>
+					<a href="manager"><p>Retour au menu Manager</p></a>
+				</td>
+			</table>
+		</div>
 
 	
 </body>
