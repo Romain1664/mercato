@@ -13,13 +13,13 @@
 <body>
 
 	<form action="">
-		<div id="table1">
+		<div class="table1">
 			<table>
 				<legend>Menu Joueur</legend>
 			</table>
 		</div>
 
-		<div id="table2">
+		<div class="table2">
 
 			<c:choose>
 				<c:when test ="${sessionScope.joueurInscrit=='N' }">

@@ -17,42 +17,22 @@ a
 
 #error{color :red;}
 
-#table1 
+.table1 
 {
 	border: solid black 2px;
 	background-color:white; 
  	width:40%;
 }
 
-#table2 
+.table2 
 {
 	border: solid black 2px;
 	background-color:white; 
 	width:40%; 
 	border-collapse:collapse; 
 }
-#table3 
-{
-	border: solid black 2px;
-	background-color:white; 
-	width:40%; 
-	border-collapse:collapse; 
-}
-#table4 
-{
-	border: solid black 2px;
-	background-color:white; 
-	width:40%; 
-	border-collapse:collapse; 
-}
-#table5 
-{
-	border: solid black 2px;
-	background-color:white; 
-	width:40%; 
-	border-collapse:collapse; 
-}
- legend
+
+.legend
 {
  	text-align:center;
 	font-weight:bold;

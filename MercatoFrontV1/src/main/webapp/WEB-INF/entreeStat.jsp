@@ -16,13 +16,13 @@
 	</head>
 
 	<body>
-		<div id="table1">
+		<div class="table1">
 			<table>
 				<legend>ENTRE TES STATISTIQUES</legend>
 			</table>
 		</div>
 		
-		<div id="table2">
+		<div class="table2">
 			<form action="joueurStat?action=entreeStat" method="POST">
 				<table>
 					<tr>
@@ -92,10 +92,10 @@
 						</td>
 					</tr>	
 				</table>
-				<input type="submit" value="envoyer">
+				<input type="submit" value="Envoyer">
 			</form>	
 		</div>
-		<div id="table2">
+		<div class="table2">
 			<table>
 				<td>
 					<a href="joueur"><p>Retour au menu Joueur</p></a>

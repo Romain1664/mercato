@@ -7,81 +7,69 @@
 	
 <!DOCTYPE html>
 <html>
-<head>
-
+	<head>
 		<title>changement stats joueur</title>
-			<meta charset="UTF-8"/>
+		<meta charset="UTF-8"/>
 	</head>
-
-<body>
-
+	
+	<body>
 		<form action="joueurStat" method="POST">
-			<input type="hidden" value="modifStat" name="action">
+			<div class="table1">
+				<table>
+					<legend>ALORS ON CHANGE QUOI?</legend>
+				</table>
+			</div>
+			<div class="table2">
+				<table>
+					<tr><h4>Offensive</h4> 
+						<td>Tir</td>	
+						<td> 
+							<input placeholder="Tir" type="text" name="tir">
+						</td>
+					</tr>	
+					<tr>
+						<td>Precision</td> 	
+						<td> 
+							<input placeholder="Precision" type="text" name="precision">
+						</td>
+					</tr> 	
+				</table>
+			</div>
+			<div class="table2">
+				<table>
+					<tr> <h4>Générale</h4> 
+						<td>Acceleration</td>	
+						<td> 
+							<input placeholder="Acceleration" type="text" name="acceleeration">
+						</td>
+					</tr>	
+					<tr>
+						<td>Puissance</td>	
+						<td> 
+							<input placeholder="Puissance" type="text" name="puissance">
+						</td>						
+					</tr>	
+				</table>
+			</div>
+			<div class="table2">
+				<table>
+					<tr> <h4>Défense</h4> 
+						<td>Tacle</td> 
+						<td> 
+						<input placeholder="Tacle" type="text" name="tacle">
+						</td>
+					</tr>
+					<tr>
+						<td>Marquage</td>	
+						<td> 
+						<input placeholder="Marquage" type="text" name="marquage">
+						</td>
+					</tr>
+				</table>
+			</div>
+		<div class="table2">
+			<a href=joueur><p>Retourner au menu joueur</p></a>
+		</div>
 		</form>
-		
-		<div id="table1">
-			<table>
-				<legend>ALORS ON CHANGE QUOI?</legend>
-			</table>
-		</div>
-
-		
-		</div>
-	<div id="table2">
-			<table>
-				<tr> <h4>Offensive</h4> 
-					<td>Tir</td>	
-					<td> 
-					<input placeholder="Tir" type="Tir">
-					</td>
-				</tr>	
-					<td>Precision</td> 	
-					<td> 
-					<input placeholder="Precision" type="Precision">
-					</td>
-				</tr> 	
-			</table>
-		</div>
-	<div id="table3">
-			<table>
-				<tr> <h4>Générale</h4> 
-					<td>Acceleration</td>	
-					<td> 
-					<input placeholder="Acceleration" type="Acceleration">
-					</td>
-				</tr>	
-					<td>Puissance</td>	
-					<td> 
-					<input placeholder="Puissance" type="Puissance">
-					</td>						
-				</tr>	
-			</table>
-		</div>
-	<div id="table4">
-			<table>
-				<tr> <h4>Défense</h4> 
-					<td>Tacle</td> 
-					<td> 
-					<input placeholder="Tacle" type="Tacle">
-					</td>
-				</tr>
-					<td>Marquage</td>	
-					<td> 
-					<input placeholder="Marquage" type=Marquage">
-					</td>
-				</tr>
-			</table>
-		</div>
-		<div id="table5">
-			<table>
-				<td>
-					<a href="joueur"><p>Retour au menu Joueur</p></a>
-				</td>
-			</table>
-		</div>
-	</form>
-</body>
-	
-	
-</body>
+	</body>
 </html>
