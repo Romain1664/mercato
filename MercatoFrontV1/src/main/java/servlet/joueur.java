@@ -41,7 +41,8 @@ public class joueur extends HttpServlet {
 			request.getSession().removeAttribute("joueur");
 			this.getServletContext().getRequestDispatcher("/WEB-INF/joueur.jsp").forward(request, response);
 		}
-		else if(action.equals("stats")) 
+		
+		else if(action.substring(0,5).equals("stats")) 
 		{
 			Joueur j = (Joueur) request.getSession().getAttribute("joueur");
 			request.getSession().setAttribute("tir", j.getTir());
@@ -49,8 +50,12 @@ public class joueur extends HttpServlet {
 			request.getSession().setAttribute("acceleration", j.getAcceleration());
 			request.getSession().setAttribute("puissance", j.getPuissance());
 			request.getSession().setAttribute("tacle", j.getTacle());
-			request.getSession().setAttribute("marquage", j.getMarquage());			
-			this.getServletContext().getRequestDispatcher("/WEB-INF/modifStat.jsp").forward(request, response);
+			request.getSession().setAttribute("marquage", j.getMarquage());	
+			
+			System.out.println(action.substring(5));
+			
+			if (action.substring(5).equals("Afficher")) {this.getServletContext().getRequestDispatcher("/WEB-INF/statsAfficher.jsp").forward(request, response);}
+			else if (action.substring(5).equals("Modifier")) {this.getServletContext().getRequestDispatcher("/WEB-INF/statsModifier.jsp").forward(request, response);}
 		}
 		else if(action.equals("joueurs")) 
 		{

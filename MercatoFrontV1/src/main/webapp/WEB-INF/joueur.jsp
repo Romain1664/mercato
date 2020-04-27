@@ -29,7 +29,9 @@
 				<c:when test ="${sessionScope.joueurInscrit=='Y' }">
 					<a href="joueur?action=desinscription">Se desinscrire</a> 
 					<br><br> 
-					<a href="joueur?action=stats">Afficher / Modifier mes statistiques</a>
+					<a href="joueur?action=statsAfficher">Afficher mes statistiques</a>
+					<br> <br> 
+					<a href="joueur?action=statsModifier">Modifier mes statistiques</a>
 					<br> <br> 
 				</c:when>
 			</c:choose>	

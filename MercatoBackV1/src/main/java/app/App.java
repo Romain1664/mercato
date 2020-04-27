@@ -625,16 +625,9 @@ public class App {
 
 	public static void main(String[] args) {
 		
-		Compte c1=Context.getDaoCompte().checkConnect("xalbat", "itoiz");
-		System.out.println(c1.getClass().getName());
-
-		Compte c2=Context.getDaoCompte().checkConnect("xalbat", "sopra");
-		System.out.println(c2.getClass().getName());
-		
-		Compte c3=Context.getDaoCompte().checkConnect("xalbat", "z");
-		System.out.println(c3==null);
-		
-		System.out.println();
+		String a ="statModifier";
+		System.out.println(a.substring(0,4));
+				
 		
 		//accueil();
 		
