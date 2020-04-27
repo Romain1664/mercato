@@ -13,7 +13,7 @@
 	</head>
 	
 	<body>
-		<form action="joueurStat" method="POST">
+		<form action="joueurStat?action=modifStat" method="POST">
 			<div class="table1">
 				<table>
 					<legend>ALORS ON CHANGE QUOI?</legend>
@@ -27,13 +27,13 @@
 					<tr>
 						<td>Tir</td>	
 						<td> 
-							<input placeholder="${sessionScope.tir}" type="text" name="tir">
+							<input value="${sessionScope.tir}" type="text" name="tir">
 						</td>
 					</tr>	
 					<tr>
 						<td>Precision</td> 	
 						<td> 
-							<input placeholder="${sessionScope.precision}" type="text" name="precision">
+							<input value="${sessionScope.precision}" type="text" name="precision">
 						</td>
 					</tr> 	
 					<tr>
@@ -42,13 +42,13 @@
 					<tr>
 						<td>Acceleration</td>
 						<td>
-							<input placeholder="${sessionScope.acceleration}" type="text" name="acceleeration">
+							<input value="${sessionScope.acceleration}" type="text" name="acceleration">
 						</td>
 					</tr>	
 					<tr>
 						<td>Puissance</td>	
 						<td> 
-							<input placeholder="${sessionScope.puissance}" type="text" name="puissance">
+							<input value="${sessionScope.puissance}" type="text" name="puissance">
 						</td>						
 					</tr>
 					 <tr>
@@ -57,13 +57,13 @@
 					<tr>
 						<td>Tacle</td> 
 						<td> 
-							<input placeholder="${sessionScope.tacle}" type="text" name="tacle">
+							<input value="${sessionScope.tacle}" type="text" name="tacle">
 						</td>
 					</tr>
 					<tr>
 						<td>Marquage</td>	
 						<td> 
-							<input placeholder="${sessionScope.marquage}" type="text" name="marquage">
+							<input value="${sessionScope.marquage}" type="text" name="marquage">
 						</td>
 					</tr>
 				</table>
