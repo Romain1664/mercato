@@ -25,7 +25,7 @@
 					<tr>
 						<td>Demande à l'émir de te faire un plus gros chèque.
 						</br> 
-						Tu n'as clairement pas le budget pour acheter le moindre joindre.
+						Tu n'as clairement pas le budget pour acheter le moindre joueur.
 					</td>
 					</tr>
 			</table>
