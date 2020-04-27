@@ -16,11 +16,28 @@ public class DAOJoueurJpa extends DaoJpa implements IDAOJoueur {
 		
 		try 
 		{
-			this.em.persist(j);
+			em.
+			createNativeQuery("INSERT INTO joueur ( id, nom, prenom, age, poste, tir, précision, acceleration, puissance, tacle, marquage, id_equipe, prix) VALUES (?1,?2,?3,?4,?5,?6,?7,?8,?9,?10,?11,?12,?13)")
+			.setParameter(1, j.getId())
+			.setParameter(2, j.getNom())
+			.setParameter(3, j.getPrenom())
+			.setParameter(4, j.getAge())
+			.setParameter(5, j.getPoste())
+			.setParameter(6, j.getTir())
+			.setParameter(7, j.getPrecision())
+			.setParameter(8, j.getAcceleration())
+			.setParameter(9, j.getPuissance())
+			.setParameter(10, j.getTacle())
+			.setParameter(11, j.getMarquage())
+			.setParameter(12, j.getId_equipe())
+			.setParameter(13, j.getPrix())
+			.executeUpdate();
+			
 			this.em.getTransaction().commit(); 
 		}
-		catch (Exception e) 
+		catch (Exception e)
 		{ 
+			e.printStackTrace();
 			this.em.getTransaction().rollback(); 
 		}
 	}

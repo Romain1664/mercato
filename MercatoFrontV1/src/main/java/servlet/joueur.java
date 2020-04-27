@@ -37,6 +37,7 @@ public class joueur extends HttpServlet {
 			Joueur j = (Joueur) request.getSession().getAttribute("joueur");
 			Context.getDaoJoueur().delete(j.getId());
 			request.getSession().setAttribute("joueurInscrit", "N");
+			request.getSession().removeAttribute("joueur");
 			this.getServletContext().getRequestDispatcher("/WEB-INF/joueur.jsp").forward(request, response);
 		}
 		else if(action.equals("stats")) 

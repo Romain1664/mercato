@@ -49,6 +49,8 @@ public class joueurStat extends HttpServlet {
 			Joueur j2= new Joueur(c.getId(),nom,prenom,age,poste,tir,precision,acceleration,puissance,tacle,marquage,1,prix);
 			
 			Context.getDaoJoueur().insert(j2);
+			request.getSession().setAttribute("joueurInscrit", "Y");
+			request.getSession().setAttribute("joueur", j2);
 			
 			this.getServletContext().getRequestDispatcher("/WEB-INF/joueur.jsp").forward(request, response);
 		}
