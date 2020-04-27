@@ -32,6 +32,16 @@ public class manager extends HttpServlet {
 		{
 			this.getServletContext().getRequestDispatcher("/WEB-INF/joueurs.jsp").forward(request, response);
 		}
+		
+		else if(action.equals("achatJoueur1")) 
+		{
+			this.getServletContext().getRequestDispatcher("/WEB-INF/achatJoueur1.jsp").forward(request, response);
+		}
+		
+		else if(action.equals("venteJoueur1")) 
+		{
+				this.getServletContext().getRequestDispatcher("/WEB-INF/venteJoueur1.jsp").forward(request, response);
+		}
 	}
 
 	
@@ -39,12 +49,7 @@ public class manager extends HttpServlet {
 		
 		String action=request.getParameter("action");
 		
-		if(action.equals("achatJoueur1")) 
-		{
-			this.getServletContext().getRequestDispatcher("/WEB-INF/achatJoueur1.jsp").forward(request, response);
-		}
-			
-		else if(action.equals("achatJoueur2")) 
+		 if(action.equals("achatJoueur2")) 
 		{
 				this.getServletContext().getRequestDispatcher("/WEB-INF/achatJoueur2.jsp").forward(request, response);
 		}
@@ -54,10 +59,7 @@ public class manager extends HttpServlet {
 				this.getServletContext().getRequestDispatcher("/WEB-INF/achatJoueur3.jsp").forward(request, response);
 		}
 				
-		else if(action.equals("venteJoueur1")) 
-		{
-				this.getServletContext().getRequestDispatcher("/WEB-INF/venteJoueur1.jsp").forward(request, response);
-		}
+	
 			
 		else if(action.equals("venteJoueur2")) 
 		{	
