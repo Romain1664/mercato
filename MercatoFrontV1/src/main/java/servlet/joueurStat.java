@@ -57,7 +57,7 @@ public class joueurStat extends HttpServlet {
 		 
 		 if(action.equals("modifStat")) 
 			{
-			 	Joueur j1 = (Joueur) request.getSession().getAttribute("compte");
+			 	Joueur j1 = (Joueur) request.getSession().getAttribute("joueur");
 			 	
 				int tir = Integer.parseInt(request.getParameter("tir"));
 				int precision = Integer.parseInt(request.getParameter("precision"));
@@ -66,9 +66,15 @@ public class joueurStat extends HttpServlet {
 				int tacle = Integer.parseInt(request.getParameter("tacle"));
 				int marquage = Integer.parseInt(request.getParameter("marquage"));
 				
-				Joueur j2= new Joueur(j1.getId(),j1.getNom(),j1.getPrenom(),j1.getAge(),j1.getPoste(),tir,precision,acceleration,puissance,tacle,marquage,j1.getId_equipe(),j1.getPrix());
+				j1.setTir(tir);
+				j1.setPrecision(precision);
+				j1.setAcceleration(acceleration);
+				j1.setPuissance(puissance);
+				j1.setTacle(tacle);
+				j1.setMarquage(marquage);
 				
-				Context.getDaoJoueur().update(j2);
+				Context.getDaoJoueur().update(j1);
+				request.getSession().setAttribute("joueur", j1);
 				
 				request.getSession().removeAttribute("tir");
 				request.getSession().removeAttribute("precision");

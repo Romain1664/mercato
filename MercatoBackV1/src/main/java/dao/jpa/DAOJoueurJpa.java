@@ -66,6 +66,7 @@ public class DAOJoueurJpa extends DaoJpa implements IDAOJoueur {
 		}
 		catch (Exception e) 
 		{ 
+			e.printStackTrace();
 			this.em.getTransaction().rollback();
 		}
 	}
