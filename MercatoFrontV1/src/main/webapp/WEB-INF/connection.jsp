@@ -14,13 +14,13 @@
 	
 	<body>
 		<form method="POST" action="connection?action=identification">
-			<div id="table1">
+			<div class="table1">
 				<table>
 					<legend>BIENVENUE SUR L'APPLICATION MERCATO</legend>
 				</table>
 			</div>
 		
-			<div id="table2">
+			<div class="table2">
 				<table>
 					<tr>
 						<td>Login</td>	

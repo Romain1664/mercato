@@ -70,6 +70,13 @@ public class joueurStat extends HttpServlet {
 				
 				Context.getDaoJoueur().update(j2);
 				
+				request.getSession().removeAttribute("tir");
+				request.getSession().removeAttribute("precision");
+				request.getSession().removeAttribute("acceleration");
+				request.getSession().removeAttribute("puissance");
+				request.getSession().removeAttribute("tacle");
+				request.getSession().removeAttribute("marquage");
+				
 				this.getServletContext().getRequestDispatcher("/WEB-INF/joueur.jsp").forward(request, response);
 			}
 		

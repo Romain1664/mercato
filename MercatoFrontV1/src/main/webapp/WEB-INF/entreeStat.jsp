@@ -96,11 +96,7 @@
 			</form>	
 		</div>
 		<div class="table2">
-			<table>
-				<td>
-					<a href="joueur"><p>Retour au menu Joueur</p></a>
-				</td>
-			</table>
+			<a href="joueur"><p>Retour au menu Joueur</p></a>
 		</div>
 	</body>
 

@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.Compte;
 import model.Context;
 import model.Joueur;
 
@@ -42,7 +43,14 @@ public class joueur extends HttpServlet {
 		}
 		else if(action.equals("stats")) 
 		{
-			this.getServletContext().getRequestDispatcher("/WEB-INF/stats.jsp").forward(request, response);
+			Joueur j = (Joueur) request.getSession().getAttribute("joueur");
+			request.getSession().setAttribute("tir", j.getTir());
+			request.getSession().setAttribute("precision", j.getPrecision());
+			request.getSession().setAttribute("acceleration", j.getAcceleration());
+			request.getSession().setAttribute("puissance", j.getPuissance());
+			request.getSession().setAttribute("tacle", j.getTacle());
+			request.getSession().setAttribute("marquage", j.getMarquage());			
+			this.getServletContext().getRequestDispatcher("/WEB-INF/modifStat.jsp").forward(request, response);
 		}
 		else if(action.equals("joueurs")) 
 		{

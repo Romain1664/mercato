@@ -20,56 +20,58 @@
 				</table>
 			</div>
 			<div class="table2">
-				<table>
-					<tr><h4>Offensive</h4> 
+				<table> 
+					<tr>
+						<td colspan="2"><h4>Offensive</h4></td>
+					</tr>
+					<tr>
 						<td>Tir</td>	
 						<td> 
-							<input placeholder="Tir" type="text" name="tir">
+							<input placeholder="${sessionScope.tir}" type="text" name="tir">
 						</td>
 					</tr>	
 					<tr>
 						<td>Precision</td> 	
 						<td> 
-							<input placeholder="Precision" type="text" name="precision">
+							<input placeholder="${sessionScope.precision}" type="text" name="precision">
 						</td>
 					</tr> 	
-				</table>
-			</div>
-			<div class="table2">
-				<table>
-					<tr> <h4>Générale</h4> 
-						<td>Acceleration</td>	
-						<td> 
-							<input placeholder="Acceleration" type="text" name="acceleeration">
+					<tr>
+						<td colspan="2"><h4>Général</h4></td>
+					</tr>
+					<tr>
+						<td>Acceleration</td>
+						<td>
+							<input placeholder="${sessionScope.acceleration}" type="text" name="acceleeration">
 						</td>
 					</tr>	
 					<tr>
 						<td>Puissance</td>	
 						<td> 
-							<input placeholder="Puissance" type="text" name="puissance">
+							<input placeholder="${sessionScope.puissance}" type="text" name="puissance">
 						</td>						
-					</tr>	
-				</table>
-			</div>
-			<div class="table2">
-				<table>
-					<tr> <h4>Défense</h4> 
+					</tr>
+					 <tr>
+						<td colspan="2"><h4>Défensive</h4></td>
+					</tr>
+					<tr>
 						<td>Tacle</td> 
 						<td> 
-						<input placeholder="Tacle" type="text" name="tacle">
+							<input placeholder="${sessionScope.tacle}" type="text" name="tacle">
 						</td>
 					</tr>
 					<tr>
 						<td>Marquage</td>	
 						<td> 
-						<input placeholder="Marquage" type="text" name="marquage">
+							<input placeholder="${sessionScope.marquage}" type="text" name="marquage">
 						</td>
 					</tr>
 				</table>
+				<input type="submit" value="Envoyer">
 			</div>
-		<div class="table2">
+		</form>
+		<div class="table1">
 			<a href=joueur><p>Retourner au menu joueur</p></a>
 		</div>
-		</form>
 	</body>
 </html>
