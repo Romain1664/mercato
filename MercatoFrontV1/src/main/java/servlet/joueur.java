@@ -21,8 +21,6 @@ public class joueur extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String action=request.getParameter("action");
-		System.out.println(action);
-		
 		
 		if(action==null)
 		{
@@ -47,9 +45,7 @@ public class joueur extends HttpServlet {
 		else if(action.substring(0,5).equals("stats")) 
 		{
 			Compte c = (Compte) request.getSession().getAttribute("compte");
-			System.out.println(c);
 			Joueur j = Context.getDaoJoueur().selectById(c.getId());
-			System.out.println(j);
 			
 			request.getSession().setAttribute("tir", j.getTir());
 			request.getSession().setAttribute("precision", j.getPrecision());
@@ -57,8 +53,7 @@ public class joueur extends HttpServlet {
 			request.getSession().setAttribute("puissance", j.getPuissance());
 			request.getSession().setAttribute("tacle", j.getTacle());
 			request.getSession().setAttribute("marquage", j.getMarquage());	
-			
-			System.out.println(action.substring(5));
+
 			
 			if (action.substring(5).equals("Afficher")) {this.getServletContext().getRequestDispatcher("/WEB-INF/statsAfficher.jsp").forward(request, response);}
 			else if (action.substring(5).equals("Modifier")) {this.getServletContext().getRequestDispatcher("/WEB-INF/statsModifier.jsp").forward(request, response);}

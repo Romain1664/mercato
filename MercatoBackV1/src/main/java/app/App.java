@@ -625,9 +625,9 @@ public class App {
 
 	public static void main(String[] args) {
 		
-		String a ="statModifier";
-		System.out.println(a.substring(0,4));
+		List<Joueur> liste = Context.getDaoJoueur().selectAll();
 				
+		System.out.println(liste);
 		
 		//accueil();
 		

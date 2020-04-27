@@ -23,13 +23,12 @@ public class joueurs extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
 		
-
-		List<Joueur> liste = Context.getDaoJoueur().selectAll();		
-		request.getSession().setAttribute("joueurs",liste);
+		List<Joueur> liste = Context.getDaoJoueur().selectAll();
+		System.out.println("Ok");
+		System.out.println(liste);
+		request.getSession().setAttribute("listeJoueurs",liste);
 	
 		this.getServletContext().getRequestDispatcher("/WEB-INF/joueurs.jsp").forward(request, response);
-		
-	
 	}
 
 	
