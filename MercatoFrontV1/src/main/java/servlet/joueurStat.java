@@ -46,7 +46,7 @@ public class joueurStat extends HttpServlet {
 			int marquage = Integer.parseInt(request.getParameter("marquage"));
 			Double prix = Double.parseDouble(request.getParameter("prix"));
 			
-			Joueur j2= new Joueur(c.getId(),nom,prenom,age,poste,tir,precision,acceleration,puissance,tacle,marquage,0,prix);
+			Joueur j2= new Joueur(c.getId(),nom,prenom,age,poste,tir,precision,acceleration,puissance,tacle,marquage,1,prix);
 			
 			Context.getDaoJoueur().insert(j2);
 			

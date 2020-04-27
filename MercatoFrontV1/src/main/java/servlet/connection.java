@@ -92,7 +92,6 @@ public class connection extends HttpServlet {
 				doGet(request, response);
 			}
 
-
 		}
 	}
 }
