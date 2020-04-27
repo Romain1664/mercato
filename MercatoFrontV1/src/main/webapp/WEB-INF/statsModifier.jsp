@@ -71,7 +71,9 @@
 			</div>
 		</form>
 		<div class="table1">
-			<a href=joueur><p>Retourner au menu joueur</p></a>
+			<table>
+				<td><a href="joueur"><p>Retour au menu Joueur</p></a></td>
+			</table>
 		</div>
 	</body>
 </html>
