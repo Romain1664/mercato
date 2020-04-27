@@ -35,7 +35,9 @@ public class joueur extends HttpServlet {
 		
 		else if(action.equals("desinscription")) 
 		{
-			Joueur j = (Joueur) request.getSession().getAttribute("joueur");
+			Compte c = (Compte) request.getSession().getAttribute("compte");
+			Joueur j = Context.getDaoJoueur().selectById(c.getId());
+			
 			Context.getDaoJoueur().delete(j.getId());
 			request.getSession().setAttribute("joueurInscrit", "N");
 			request.getSession().removeAttribute("joueur");
@@ -44,7 +46,11 @@ public class joueur extends HttpServlet {
 		
 		else if(action.substring(0,5).equals("stats")) 
 		{
-			Joueur j = (Joueur) request.getSession().getAttribute("joueur");
+			Compte c = (Compte) request.getSession().getAttribute("compte");
+			System.out.println(c);
+			Joueur j = Context.getDaoJoueur().selectById(c.getId());
+			System.out.println(j);
+			
 			request.getSession().setAttribute("tir", j.getTir());
 			request.getSession().setAttribute("precision", j.getPrecision());
 			request.getSession().setAttribute("acceleration", j.getAcceleration());

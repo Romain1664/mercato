@@ -27,12 +27,10 @@ public class joueurStat extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String action=request.getParameter("action");
-		System.out.println(action);
 		
 		if(action.equals("entreeStat")) 
 		{
 			Compte c = (Compte) request.getSession().getAttribute("compte");
-			System.out.println(c.getId());
 			
 			String nom = request.getParameter("nom");
 			String prenom = request.getParameter("prenom");
@@ -50,14 +48,14 @@ public class joueurStat extends HttpServlet {
 			
 			Context.getDaoJoueur().insert(j2);
 			request.getSession().setAttribute("joueurInscrit", "Y");
-			request.getSession().setAttribute("joueur", j2);
 			
 			this.getServletContext().getRequestDispatcher("/WEB-INF/joueur.jsp").forward(request, response);
 		}
 		 
 		 if(action.equals("modifStat")) 
 			{
-			 	Joueur j1 = (Joueur) request.getSession().getAttribute("joueur");
+			 	Compte c = (Compte) request.getSession().getAttribute("compte");
+			 	Joueur j1 = (Joueur) Context.getDaoJoueur().selectById(c.getId());
 			 	
 				int tir = Integer.parseInt(request.getParameter("tir"));
 				int precision = Integer.parseInt(request.getParameter("precision"));
@@ -74,7 +72,6 @@ public class joueurStat extends HttpServlet {
 				j1.setMarquage(marquage);
 				
 				Context.getDaoJoueur().update(j1);
-				request.getSession().setAttribute("joueur", j1);
 				
 				request.getSession().removeAttribute("tir");
 				request.getSession().removeAttribute("precision");

@@ -74,7 +74,7 @@ public class connection extends HttpServlet {
 				Joueur j = Context.getDaoJoueur().selectById(c.getId());
 				
 				if (j==null) {request.getSession().setAttribute("joueurInscrit", "N");}
-				else {request.getSession().setAttribute("joueurInscrit", "Y"); request.getSession().setAttribute("joueur", j);}
+				else {request.getSession().setAttribute("joueurInscrit", "Y");}
 
 				this.getServletContext().getRequestDispatcher("/WEB-INF/joueur.jsp").forward(request, response);
 			}
