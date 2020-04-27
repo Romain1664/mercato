@@ -35,7 +35,7 @@
 					<br> <br> 
 				</c:when>
 			</c:choose>	
-			<a href="joueur?action=joueurs">Afficher la liste des joueurs inscrits</a>
+			<a href="joueurs">Afficher la liste des joueurs inscrits</a>
 			<br> <br> 
 			<a href="connection">Se	deconnecter</a>
 
