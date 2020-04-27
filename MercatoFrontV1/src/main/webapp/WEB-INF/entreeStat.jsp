@@ -11,98 +11,99 @@
 
 
 	<head>
-	<meta charset="UTF-8">
+		<meta charset="UTF-8">
 		<title>Inscription Joueur</title>
-			<meta charset="UTF-8"/>
 	</head>
 
-<body>
-	<form action="">
+	<body>
 		<div id="table1">
 			<table>
 				<legend>ENTRE TES STATISTIQUES</legend>
+			</table>
+		</div>
 		
-			</table>
+		<div id="table2">
+			<form action="joueurStat?action=entreeStat" method="POST">
+				<table>
+					<tr>
+						<td>Nom</td>	
+						<td> 
+							<input placeholder="Nom" type="Text" name="nom" required>
+						</td>
+					</tr>
+					<tr>
+						<td>Prenom</td> 
+						<td>
+							<input placeholder="Prenom" type="Text" name="prenom" required >
+						</td>
+					</tr>	
+					<tr>
+						<td>Age</td>	
+						<td> 
+							<input placeholder="Age" type="Text" name="age"required>
+						</td>
+					</tr>
+					<tr>
+						<td>Poste</td> 
+						<td>
+							<input placeholder="Poste" type="Text" name="poste" required >
+						</td>
+					</tr>
+					<tr>
+						<td>Tir</td>	
+						<td> 
+							<input placeholder="Tir" type="Text" name="tir" required>
+						</td>
+					</tr>	
+					<tr>
+						<td>Precision</td> 
+						<td>
+							<input placeholder="Precision" type="Text" name="precision" required >
+						</td>
+					</tr>
+					<tr>
+						<td>Acceleration</td>	
+						<td> 
+							<input placeholder="Acceleration" type="Text" name="acceleration" required>
+						</td>
+					</tr>	
+					<tr>
+						<td>Puissance</td>	
+						<td> 
+							<input placeholder="Puissance" type="Text" name="puissance" required>
+						</td>
+					</tr>	
+					<tr>
+						<td>Tacle</td> 
+						<td>
+							<input placeholder="Tacle" type="Text" name="tacle" required >
+						</td>
+					</tr>
+					<tr>
+						<td>Marquage</td>	
+						<td> 
+							<input placeholder="Marquage" type="Text" name="marquage" required>
+						</td>
+					</tr>
+					<tr>	
+						<td>Prix</td> 
+						<td>
+							<input placeholder="Prix" type="Text" name="prix" required >
+						</td>
+					</tr>	
+				</table>
+				<input type="submit" value="envoyer">
+			</form>	
 		</div>
-	<div id="table2">
-	
-	<form action="joueurStat?entreeStat" method="POST">
-	<input type="hidden" value="entreeStat" name="action">
-
-	</form>
+		<div id="table2">
 			<table>
-			
-					<td>Nom</td>	
-						<td> 
-							<input placeholder="Nom" type="Nom" required>
-						</td>
-				</tr>
-					<td>Prenom</td> 
-						<td>
-							<input placeholder="Prenom" type="Prenom" required >
-						</td>
-				</tr>		
-					<td>Age</td>	
-						<td> 
-							<input placeholder="Age" type="Age"required>
-						</td>
-				</tr>
-					<td>Poste</td> 
-						<td>
-							<input placeholder="Poste" type="Poste" required >
-						</td>
-				</tr>
-					<td>Tir</td>	
-						<td> 
-							<input placeholder="Tir" type="Tir" required>
-						</td>
-				</tr>	
-					<td>Precision</td> 
-						<td>
-							<input placeholder="Precision" type="Precision" required >
-						</td>
-				</tr>
-					<td>Acceleration</td>	
-						<td> 
-							<input placeholder="Acceleration" type="Acceleration" required>
-						</td>
-				</tr>	
-					<td>Puissance</td>	
-						<td> 
-							<input placeholder="Puissance" type="Puissance" required>
-						</td>
-				</tr>	
-					<td>Tacle</td> 
-						<td>
-							<input placeholder="Tacle" type="Tacle" required >
-						</td>
-				</tr>
-					<td>Marquage</td>	
-						<td> 
-							<input placeholder="Marquage" type="Marquage" required>
-						</td>
-				</tr>
-					
-					<td>Prix</td> 
-						<td>
-							<input placeholder="Prix" type="Prix" required >
-						</td>
-				</tr>	
-			</table>
-			<input type="submit" value="envoyer">
-		</div>
-		<div id="table3">
-			<table>
-				<td id="td2">
-					<a href="file:///C:/Users/Modeste/Desktop/Mercato/PageAccueil.html"><p>Se déconnecter</p></a>
+				<td>
+					<a href="connection"><p>Se déconnecter</p></a>
 				</td>
 			</table>
 		</div>
-	</form>
-</body>
+	</body>
 
 </html>
 
-<html>
-<head>
 

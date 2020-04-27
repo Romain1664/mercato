@@ -187,29 +187,6 @@ public class Joueur extends Compte {
 		this.prenom = prenom;
 	}
 	
-	
-	
-	public void update()
-	{
-		IDAOJoueur daoJ=Context.getDaoJoueur();
-		
-		daoJ.update(this);
-	}
-
-	public void addBdd() 
-	{
-		IDAOJoueur daoJ=Context.getDaoJoueur();
-		
-		daoJ.insert(this);
-		
-	}		
-	
-	public void deleteBdd(Integer id)
-	{
-		IDAOJoueur daoJ=Context.getDaoJoueur();
-		
-		daoJ.delete(id);
-	}
 
 	public void regarderStat(Integer id)
 	{

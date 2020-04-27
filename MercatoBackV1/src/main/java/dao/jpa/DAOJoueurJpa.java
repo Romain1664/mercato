@@ -2,6 +2,8 @@ package dao.jpa;
 
 import java.util.List;
 
+import org.hibernate.engine.spi.ExecuteUpdateResultCheckStyle;
+
 import dao.idao.IDAOJoueur;
 import model.Joueur;
 
@@ -52,6 +54,7 @@ public class DAOJoueurJpa extends DaoJpa implements IDAOJoueur {
 	}
 	
 
+/*
 	@Override
 	public void delete(Integer id) {
 		try 
@@ -62,6 +65,27 @@ public class DAOJoueurJpa extends DaoJpa implements IDAOJoueur {
 			joueurToRemove.setId(id);
 			
 			this.em.remove(this.em.merge(joueurToRemove));
+			this.em.getTransaction().commit(); 
+		}
+		
+		catch (Exception e) 
+		{ 
+			this.em.getTransaction().rollback();
+		}
+	}
+*/
+	
+	@Override
+	public void delete(Integer id) {
+		try 
+		{
+			this.em.getTransaction().begin(); 
+
+			em
+			.createNativeQuery("DELETE FROM Joueur WHERE id=?1")
+			.setParameter(1, id)
+			.executeUpdate();
+			
 			this.em.getTransaction().commit(); 
 		}
 		

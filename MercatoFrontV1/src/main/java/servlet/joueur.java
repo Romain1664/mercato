@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.Context;
 import model.Joueur;
 
 /**
@@ -19,6 +20,9 @@ public class joueur extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String action=request.getParameter("action");
+		System.out.println(action);
+		
+		
 		if(action==null)
 		{
 			this.getServletContext().getRequestDispatcher("/WEB-INF/joueur.jsp").forward(request, response);
@@ -30,9 +34,10 @@ public class joueur extends HttpServlet {
 		
 		else if(action.equals("desinscription")) 
 		{
-			Joueur c = (Joueur) request.getSession().getAttribute("Compte");
-			c.deleteBdd(c.getId());
-			this.getServletContext().getRequestDispatcher("/WEB-INF/desinscription.jsp").forward(request, response);
+			Joueur j = (Joueur) request.getSession().getAttribute("joueur");
+			Context.getDaoJoueur().delete(j.getId());
+			request.getSession().setAttribute("joueurInscrit", "N");
+			this.getServletContext().getRequestDispatcher("/WEB-INF/joueur.jsp").forward(request, response);
 		}
 		else if(action.equals("stats")) 
 		{

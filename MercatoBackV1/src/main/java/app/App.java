@@ -526,7 +526,7 @@ public class App {
 		
 		try
 		{
-			((Joueur) c).addBdd();
+			Context.getDaoJoueur().insert((Joueur) c);
 			System.out.println("Vous avez été ajouté à la base de donnée");
 		}
 		catch (Exception e) {e.printStackTrace();}
@@ -544,7 +544,7 @@ public class App {
 		{
 			try
 			{
-				((Joueur) c).deleteBdd(c.getId());
+				Context.getDaoJoueur().delete(c.getId());
 			}
 			catch (Exception e) {e.printStackTrace();}
 			}
@@ -587,7 +587,7 @@ public class App {
 				
 				j=new Joueur(j.getId(), j.getNom(), j.getPrenom(), j.getAge(), j.getPoste(), tir, precision, acceleration, puissance, tacle, marquage, j.getId_equipe(), j.getPrix());
 				
-				j.update();
+				Context.getDaoJoueur().update(j);
 			}
 			catch (Exception e) {System.out.println("Veuillez rentrer des informations au format valide");addBdd();}
 		}
@@ -614,7 +614,7 @@ public class App {
 				
 				j=new Joueur(j.getId(), j.getNom(), j.getPrenom(), j.getAge(), j.getPoste(), j.getTir(), j.getPrecision(), j.getAcceleration(), j.getPuissance(), j.getTacle(), j.getMarquage(), j.getId_equipe(), prix);
 				
-				j.update();
+				Context.getDaoJoueur().update(j);
 			}
 			catch (Exception e) {System.out.println("Veuillez rentrer des informations au format valide");addBdd();}
 		}

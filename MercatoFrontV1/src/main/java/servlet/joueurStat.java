@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.Compte;
+import model.Context;
 import model.Joueur;
 
 /**
@@ -26,12 +27,13 @@ public class joueurStat extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String action=request.getParameter("action");
-		
-		Joueur j1 = (Joueur) request.getSession().getAttribute("Compte");
+		System.out.println(action);
 		
 		if(action.equals("entreeStat")) 
 		{
-			int id_compte = (int) request.getSession().getAttribute("id_compte");
+			Compte c = (Compte) request.getSession().getAttribute("compte");
+			System.out.println(c.getId());
+			
 			String nom = request.getParameter("nom");
 			String prenom = request.getParameter("prenom");
 			int age = Integer.parseInt(request.getParameter("age"));
@@ -44,16 +46,17 @@ public class joueurStat extends HttpServlet {
 			int marquage = Integer.parseInt(request.getParameter("marquage"));
 			Double prix = Double.parseDouble(request.getParameter("prix"));
 			
+			Joueur j2= new Joueur(c.getId(),nom,prenom,age,poste,tir,precision,acceleration,puissance,tacle,marquage,0,prix);
 			
-			Joueur j= new Joueur(id_compte,nom,prenom,age,poste,tir,precision,acceleration,puissance,tacle,marquage,0,prix);
-
-			Compte.getDaoJoueur().insert(j);
+			Context.getDaoJoueur().insert(j2);
 			
 			this.getServletContext().getRequestDispatcher("/WEB-INF/joueur.jsp").forward(request, response);
 		}
 		 
 		 if(action.equals("modifStat")) 
 			{
+			 	Joueur j1 = (Joueur) request.getSession().getAttribute("compte");
+			 	
 				int tir = Integer.parseInt(request.getParameter("tir"));
 				int precision = Integer.parseInt(request.getParameter("precision"));
 				int acceleration = Integer.parseInt(request.getParameter("acceleration"));
@@ -61,9 +64,9 @@ public class joueurStat extends HttpServlet {
 				int tacle = Integer.parseInt(request.getParameter("tacle"));
 				int marquage = Integer.parseInt(request.getParameter("marquage"));
 				
-				Joueur j= new Joueur(j1.getId(),j1.getNom(),j1.getPrenom(),j1.getAge(),j1.getPoste(),tir,precision,acceleration,puissance,tacle,marquage,j1.getId_equipe(),j1.getPrix());
+				Joueur j2= new Joueur(j1.getId(),j1.getNom(),j1.getPrenom(),j1.getAge(),j1.getPoste(),tir,precision,acceleration,puissance,tacle,marquage,j1.getId_equipe(),j1.getPrix());
 				
-				Compte.getDaoJoueur().update(j);
+				Context.getDaoJoueur().update(j2);
 				
 				this.getServletContext().getRequestDispatcher("/WEB-INF/joueur.jsp").forward(request, response);
 			}
