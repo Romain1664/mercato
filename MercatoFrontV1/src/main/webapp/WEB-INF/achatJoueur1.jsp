@@ -14,18 +14,18 @@
 
 <body>
 	<form action="">
-		<div id="table1">
+		<div class="table1">
 			<table>
 				<legend>L'EMIR VEUT GAGNER LA CHAMPION'S LEAGUE: 
 				<br> Qui sera ta nouvelle pépite?</legend>
 			</table>
 		</div>
-		<div id="table2">
+		<div class="table2">
 			<table>Afficher la liste des joueurs libres	</table>
 		</div>
 		
 		<form method="POST" action="AcheterJoueur">
-			<div id="table3">
+			<div class="table3">
 				<table>
 				 <td>
 					<p>Achat joueur</p> (MENU DEROULANT?)
@@ -36,7 +36,7 @@
 			</div>
 		</form>
 		
-		<div id="table4">
+		<div class="table4">
 			<table>
 				<td>
 					<a href="manager"><p>Retour au menu Manager</p></a>

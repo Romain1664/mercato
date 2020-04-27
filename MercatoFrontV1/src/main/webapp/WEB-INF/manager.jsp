@@ -13,13 +13,13 @@
 <body>
 
 	<form action="">
-		<div id="table1">
+		<div class="table1">
 			<table>
 				<legend>Menu Manager</legend>
 			</table>
 		</div>
 
-		<div id="table2">
+		<div class="table2">
 
 			<a href="joueurs">Afficher la liste des joueurs inscrits</a>
 			<br>

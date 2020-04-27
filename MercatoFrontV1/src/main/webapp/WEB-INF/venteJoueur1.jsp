@@ -14,12 +14,12 @@
 </head>
 <body>
 	<form action="">
-		<div id="table1">
+		<div class="table1">
 			<table>
 				<legend>LE QUATAR VEUX FAIRE DES ECONOMIES: On vire qui???</legend>
 			</table>
 		</div>
-	<div id="table2">
+	<div class="table2">
 		<legend0>
 		tableau des joueurs du club à rajouter ICI 
 		</legend>
@@ -27,7 +27,7 @@
 				
 			</table>
 		</div>
-		<div id="table3">
+		<div class="table3">
 			<table>
 				<p> Alors tu choisi qui?</p> 
 				<input type="text" name="id_joueur"  placeholder="id du joueur">
@@ -35,7 +35,7 @@
 			</table>
 		</div>
 	</form>
-	<div id="table4">
+	<div class="table4">
 			<table>
 				<td>
 					<a href="manager"><p>Retour au menu Manager</p></a>

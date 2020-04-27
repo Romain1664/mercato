@@ -19,7 +19,7 @@
 	</table>
 	</div>
 	</form>
-	<div id="table2">
+	<div class="table2">
 			<table>
 				<td>
 					<a href="joueur"><p>Retour au menu Joueur</p></a>

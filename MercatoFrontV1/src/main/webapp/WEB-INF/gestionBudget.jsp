@@ -14,12 +14,12 @@
 
 <body>
 	<form action="">
-		<div id="table1">
+		<div class="table1">
 			<table>
 				<legend>GESTION DU BUDGET</legend>
 			</table>
 		</div>
-		<div id="table2">
+		<div class="table2">
 			<table>
 				<tr>
 					<td> 
@@ -32,7 +32,7 @@
 			</table>
 			<input type="submit">
 		</div>
-		<div id="table3">
+		<div class="table3">
 			<table>
 				<td>
 					<a href="manager"><p>Retour au menu Manager</p></a>

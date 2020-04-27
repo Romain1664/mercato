@@ -19,12 +19,12 @@
 	<form action="joueur" method="POST">
 		<input type="hidden" action="stats">
 	
-	<div id="table1">
+	<div class="table1">
 		<table>
 			<legend>Voila tes statistiques mon champion</legend>
 		</table>
 	</div>
-	<div id="table2">
+	<div class="table2">
 			<table>
 				<tr> <h4>Offensive</h4> 
 					<td>Tir</td>	
@@ -35,7 +35,7 @@
 				</tr> 	
 			</table>
 		</div>
-	<div id="table3">
+	<div class="table3">
 			<table>
 				<tr> <h4>Générale</h4> 
 					<td>Acceleration</td>	
@@ -44,7 +44,7 @@
 				</tr>	
 			</table>
 		</div>
-	<div id="table4">
+	<div class="table4">
 			<table>
 				<tr> <h4>Défense</h4> 
 					<td>Tacle</td> 
@@ -53,7 +53,7 @@
 				</tr>
 			</table>
 		</div>
-		<div id="table5">
+		<div class="table5">
 			<table>
 				<td>
 					<a href="joueur"><p>Retour au menu Joueur</p></a>
