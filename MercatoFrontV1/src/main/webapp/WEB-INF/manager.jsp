@@ -21,7 +21,7 @@
 
 		<div id="table2">
 
-			<a href="manager?action=joueurs">Afficher la liste des joueurs inscrits</a>
+			<a href="joueurs">Afficher la liste des joueurs inscrits</a>
 			<br>
 			<br> 
 			<a href="manager?action=gestionBudget">Gerer son compte en banque</a>
@@ -30,10 +30,10 @@
 			<a href="">Afficher les joueurs de son equipe</a>
 			<br>
 			<br>
-			<a href="manager?action=achatJoueur">Acheter un joueur</a>
+			<a href="manager?action=achatJoueur1">Acheter un joueur</a>
 			<br>
 			<br>
-			<a href="manager?action=venteJoueur">Vendre un joueur</a>
+			<a href="manager?action=venteJoueur1">Vendre un joueur</a>
 			<br>
 			<br>
 			<a href="connection">Se deconnecter</a>
