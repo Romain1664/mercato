@@ -27,7 +27,8 @@
 						<p>(chanceux va)</p>
 					</td>
 				</tr>
-					<td><input type="box"> com's : J'avoue j'ai pas compris si c'est quelque chose qu'on affiche ou si c'est quelque chose qu'on rentre ici le budget</td>
+					<td>Nouveau Budget</td>
+					<td><input type="text" name="Budget"  placeholder="Budget"></td>
 			</table>
 			<input type="submit">
 		</div>
