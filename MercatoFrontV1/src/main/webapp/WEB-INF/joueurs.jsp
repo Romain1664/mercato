@@ -39,7 +39,7 @@
 			<div class="table2">
 					<table>
 						<td>
-							<a href="joueurs"><p>Retour au menu Joueur</p></a>
+							<a href="joueur"><p>Retour au menu Joueur</p></a>
 						</td>
 					</table>
 				</div>
