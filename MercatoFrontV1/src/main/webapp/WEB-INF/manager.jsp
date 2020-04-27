@@ -21,24 +21,22 @@
 
 		<div id="table2">
 
-
-
-			<a href="">Afficher la liste des joueurs inscrits</a>
+			<a href="manager?action=joueurs">Afficher la liste des joueurs inscrits</a>
 			<br>
 			<br> 
-			<a href="">Gerer son compte en banque</a>
+			<a href="manager?action=gestionBudget">Gerer son compte en banque</a>
 			<br>
 			<br>
 			<a href="">Afficher les joueurs de son equipe</a>
 			<br>
 			<br>
-			<a href="">Acheter un joueur</a>
+			<a href="manager?action=achatJoueur">Acheter un joueur</a>
 			<br>
 			<br>
-			<a href="">Vendre un joueur</a>
+			<a href="manager?action=venteJoueur">Vendre un joueur</a>
 			<br>
 			<br>
-			<a href="">Se deconnecter</a>
+			<a href="connection">Se deconnecter</a>
 		</div>
 	</form>
 </body>
