@@ -14,7 +14,7 @@
 	</head>
 	<body>
 		<form method="GET" action="joueurs">
-			<div id="table1">
+			<div class="table1">
 				<table>
 					<legend>Voici les joueurs inscrits sur l'application</legend>
 						<c:forEach items="${joueurs}" var="j">
