@@ -21,13 +21,16 @@
 
 		<div id="table2">
 
-
-			<a href="joueur?action=inscription">Etre éligible Joueur</a> 
-			<br>
-			<br> 
-			<a href="joueur?action=desinscription">Se desinscrire</a> 
-			<br>
-			<br> 
+			<c:choose>
+				<c:when test ="${sessionScope.joueurInscrit=='N' }">
+					<a href="joueur?action=inscription">Etre éligible Joueur</a> 
+					<br><br>
+				</c:when>
+				<c:when test ="${sessionScope.joueurInscrit=='Y' }">
+					<a href="joueur?action=desinscription">Se desinscrire</a> 
+					<br><br> 
+				</c:when>
+			</c:choose>	
 			<a href="joueur?action=stats">Afficher / Modifier mes statistiques</a>
 			<br> 
 			<br> 

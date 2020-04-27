@@ -70,6 +70,11 @@ public class connection extends HttpServlet {
 				request.getSession().setAttribute("compte", c);
 				request.getSession().setAttribute("typeAccount", "Joueur");
 				request.getSession().setAttribute("isConnect", "Y");
+				
+				Joueur j = Context.getDaoJoueur().selectById(c.getId());
+				
+				if (j==null) {request.getSession().setAttribute("joueurInscrit", "N");}
+				else {request.getSession().setAttribute("joueurInscrit", "Y"); request.getSession().setAttribute("joueur", j);}
 
 				this.getServletContext().getRequestDispatcher("/WEB-INF/joueur.jsp").forward(request, response);
 			}
