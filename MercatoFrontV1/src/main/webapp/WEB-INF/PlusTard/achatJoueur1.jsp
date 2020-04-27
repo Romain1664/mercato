@@ -15,6 +15,10 @@
 <form method="POST" action="listeJoueursLibre">
 		<a href="">Afficher la liste des joueurs libres</a>
 	</form>
+		<table>
+			<legend>L'EMIR VEUT GAGNER LA CHAMPION'S LEAGUE: 
+			</br> Qui sera ta nouvelle pépite?</legend>
+		</table>
 	<c:forEach items="${joueur}"var="j">
 				<c:if test="${p.prenom!='jordan'}">
 					<tr> 

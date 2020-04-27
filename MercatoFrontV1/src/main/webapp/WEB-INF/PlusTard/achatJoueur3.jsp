@@ -14,22 +14,27 @@
 <body>
 
 <form method="POST" action="joueurAcheter">
-	<h4> prenom_joueur nom_joueur fait désormais parti de ton équipe
-				</h4>
-
+	<h4> prenom_joueur nom_joueur fait désormais parti de ton équipe</h4>
 
 
 <form method="POST" action="listeJoueursLibre">
 		VEUX TU UN AUTRE JOUEUR?
 	</form>
 	<br>
-	<br>
 	
 	<form method="POST" action="AcheterJoueur">
 		<p>Achat joueur</p> "id_joueur"	<input type="submit">
 	</form>
-	<br>
-	<br>
+		<table>
+				<tr>
+					<td> 
+						<p id="P1"> Oui c'est l'émir qui paye </br>
+						<input type="radio" name="HO"></p>
+						<p id="P2"> Non avec lui ça suffit pour gagner</br>
+						<input type="radio" name="HO"></p>  
+					</td>
+			</table>
+		</div>
 	
 </body>
 </html>

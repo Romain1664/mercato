@@ -13,14 +13,25 @@
 </head>
 <body>
 <form method="POST" action="AcheterJoueur">
+</form>
+		<div id="table1">
 		<a href="">VEUX TU VRAIMENT ACHETER 
 		
-		 "prenom_joueur nom_joueur""
+		 "prenom_joueur nom_joueur"
 		<input type="submit">
+		</div>
 		
-	</form>
-	<br>
-	<br>
+		<div id="table2">
+			<table>
+				<tr>
+					<td> 
+						<p id="P1"> Oui il est parfait </br><input type="radio" name="HEY"></p>
+						<p id="P2"> Non pas assez bon pour moi</br><input type="radio" name="HEY"></p>  
+					</td>
+				</tr>
+			</table>
+		</div>
+	
 	
 </body>
 </html>

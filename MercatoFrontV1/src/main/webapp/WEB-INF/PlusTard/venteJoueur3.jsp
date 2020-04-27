@@ -10,7 +10,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Vente Joueur</title>
+<title>Vente Joueur3</title>
 </head>
 <body>
 
