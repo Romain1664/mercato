@@ -27,7 +27,7 @@
 			<a href="manager?action=gestionBudget">Gerer son compte en banque</a>
 			<br>
 			<br>
-			<a href="">Afficher les joueurs de son equipe</a>
+			<a href="joueurs?action=joueursEquipe">Afficher les joueurs de son equipe</a>
 			<br>
 			<br>
 			<a href="manager?action=achatJoueur1">Acheter un joueur</a>

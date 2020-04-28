@@ -9,10 +9,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.Compte;
+
 import model.Context;
 import model.Joueur;
-import model.Manager;
+
 
 /**
  * Servlet implementation class joueur
@@ -23,18 +23,38 @@ public class joueurs extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
 		
-		List<Joueur> liste = Context.getDaoJoueur().selectAll();
+	/*	List<Joueur> liste = Context.getDaoJoueur().selectAll();
 		System.out.println("Ok");
 		System.out.println(liste);
 		request.getSession().setAttribute("listeJoueurs",liste);
+		*/
+		String action=request.getParameter("action");
+				
+		if(action==null)
+		{
+			List<Joueur> liste = Context.getDaoJoueur().selectAll();		
+			request.getSession().setAttribute("joueurs",liste);
+			this.getServletContext().getRequestDispatcher("/WEB-INF/joueurs.jsp").forward(request, response);
+		}
+		
+		else if(action.contentEquals("joueursEquipe"))
+		{
+		
+			this.getServletContext().getRequestDispatcher("/WEB-INF/formulaire.jsp").forward(request, response);
+		}
+
 	
 		this.getServletContext().getRequestDispatcher("/WEB-INF/joueurs.jsp").forward(request, response);
 	}
 
 	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
+	{
 		
-		doGet(request,response);
+		int idEquipe = Integer.parseInt(request.getParameter("id_equipe"));
+		List<Joueur> equipe = Context.getDaoJoueur().selectByEquipe(idEquipe);
+		request.setAttribute("joueurs", equipe);		
+		this.getServletContext().getRequestDispatcher("/WEB-INF/joueursEquipe.jsp").forward(request, response);
 		
 	}
 
