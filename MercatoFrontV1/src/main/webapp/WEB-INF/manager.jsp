@@ -30,7 +30,7 @@
 			<a href="joueurs?action=Equipe">Afficher les joueurs de son equipe</a>
 			<br>
 			<br>
-			<a href="manager?action=achatJoueur1">Acheter un joueur</a>
+			<a href="joueurs?action=Achat">Acheter un joueur</a>
 			<br>
 			<br>
 			<a href="manager?action=venteJoueur1">Vendre un joueur</a>
