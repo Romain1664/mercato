@@ -1,11 +1,11 @@
-package dao.jpa;
+package fr.formation.dao.jpa;
 
 import java.util.List;
 
-import dao.idao.IDAOCompte;
-import model.Compte;
-import model.Joueur;
-import model.Manager;
+import fr.formation.dao.idao.IDAOCompte;
+import fr.formation.model.Compte;
+import fr.formation.model.Joueur;
+import fr.formation.model.Manager;
 
 
 public class DAOCompteJpa extends DaoJpa implements IDAOCompte {

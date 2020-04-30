@@ -1,13 +1,13 @@
-package dao.jdbc;
+package fr.formation.dao.jdbc;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.List;
 
-import dao.idao.IDAOCompte;
-import model.Compte;
-import model.Joueur;
-import model.Manager;
+import fr.formation.dao.idao.IDAOCompte;
+import fr.formation.model.Compte;
+import fr.formation.model.Joueur;
+import fr.formation.model.Manager;
 
 public class DAOCompteJdbc extends DaoJdbc implements IDAOCompte {
 

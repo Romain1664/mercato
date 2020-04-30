@@ -1,4 +1,4 @@
-<%@page import="model.*"%>
+<%@page import="fr.formation.model.*"%>
 <%@page import="java.util.List"%>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -13,13 +13,11 @@
 	</head>
 	
 	<body>
-		<form action="joueurStat?action=modifStat" method="POST">
-			<div class="table1">
-				<table>
-					<legend>ALORS ON CHANGE QUOI?</legend>
-				</table>
-			</div>
-			<div class="table2">
+		<div class="table1">
+			<legend>ALORS ON CHANGE QUOI?</legend>
+		</div>
+		<div class="table2">
+			<form action="joueurStat?action=modifStat" method="POST">
 				<table> 
 					<tr>
 						<td colspan="2"><h4>Offensive</h4></td>
@@ -68,8 +66,8 @@
 					</tr>
 				</table>
 				<input type="submit" value="Envoyer">
-			</div>
-		</form>
+			</form>
+		</div>
 		<div class="table1">
 			<table>
 				<td><a href="joueur"><p>Retour au menu Joueur</p></a></td>

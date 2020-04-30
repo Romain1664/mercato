@@ -1,18 +1,21 @@
 body 
 {
-color:black;
-background-color:black;
-background-image:url(TERRAIN_FOOTBALL.jpg); 
-background-attachment:fixed;
-background-position:center center;
-background-repeat: no-repeat;
-background-size : cover;
-font-family:"times new roman", times, serif;
-
-display : flex;
-justify-content: center;
-align-items : center; 
+	color:black;
+	background-color:black;
+	background-image:url(TERRAIN_FOOTBALL.jpg); 
+	background-attachment:fixed;
+	background-position:center center;
+	background-repeat: no-repeat;
+	background-size : cover;
+	font-family:"times new roman", times, serif;
+	
+	DISPLAY: FLEX;
+	FLEX-DIRECTION: column;
+	
+	justify-content: center;
+	align-items : center; 
 }
+
 a
 {
     color: black;
@@ -26,6 +29,7 @@ a
 	border: solid black 2px;
 	background-color:white; 
  	width:400px;
+ 	border-collapse:collapse; 
 }
 
 .table2 
@@ -34,6 +38,14 @@ a
 	background-color:white; 
 	width:400px; 
 	border-collapse:collapse; 
+}
+
+.table3
+{
+	border: solid black 2px;
+	background-color:white; 
+	width:75%;
+ 	border-collapse:collapse; 
 }
 
 .legend

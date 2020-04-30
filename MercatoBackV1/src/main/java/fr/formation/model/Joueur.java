@@ -1,11 +1,11 @@
-package model;
+package fr.formation.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Transient;
 
-import dao.idao.IDAOJoueur;
+import fr.formation.dao.idao.IDAOJoueur;
 
 @Entity
 @PrimaryKeyJoinColumn(name="id",referencedColumnName="id")

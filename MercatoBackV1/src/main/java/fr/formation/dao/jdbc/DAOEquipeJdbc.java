@@ -1,12 +1,12 @@
-package dao.jdbc;
+package fr.formation.dao.jdbc;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import dao.idao.IDAOEquipe;
-import model.Equipe;
+import fr.formation.dao.idao.IDAOEquipe;
+import fr.formation.model.Equipe;
 
 public class DAOEquipeJdbc extends DaoJdbc implements IDAOEquipe {
 

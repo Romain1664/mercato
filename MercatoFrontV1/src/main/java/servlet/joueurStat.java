@@ -8,9 +8,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.Compte;
-import model.Context;
-import model.Joueur;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+import fr.formation.configSpring.AppConfig;
+import fr.formation.daoSpring.IDAOJoueur;
+import fr.formation.model.Compte;
+import fr.formation.model.Context;
+import fr.formation.model.Joueur;
 
 /**
  * Servlet implementation class joueur
@@ -30,6 +34,9 @@ public class joueurStat extends HttpServlet {
 		
 		if(action.equals("entreeStat")) 
 		{
+			AnnotationConfigApplicationContext myContext = new AnnotationConfigApplicationContext(AppConfig.class);
+			IDAOJoueur daoJoueur = myContext.getBean(IDAOJoueur.class);
+			
 			Compte c = (Compte) request.getSession().getAttribute("compte");
 			
 			String nom = request.getParameter("nom");
@@ -44,9 +51,10 @@ public class joueurStat extends HttpServlet {
 			int marquage = Integer.parseInt(request.getParameter("marquage"));
 			Double prix = Double.parseDouble(request.getParameter("prix"));
 			
-			Joueur j2= new Joueur(c.getId(),nom,prenom,age,poste,tir,precision,acceleration,puissance,tacle,marquage,1,prix);
+			Joueur j= new Joueur(c.getId(),nom,prenom,age,poste,tir,precision,acceleration,puissance,tacle,marquage,1,prix);
 			
-			Context.getDaoJoueur().insert(j2);
+			daoJoueur.insert(j);
+			
 			request.getSession().setAttribute("joueurInscrit", "Y");
 			
 			this.getServletContext().getRequestDispatcher("/WEB-INF/joueur.jsp").forward(request, response);
@@ -54,8 +62,11 @@ public class joueurStat extends HttpServlet {
 		 
 		 if(action.equals("modifStat")) 
 			{
+			 	AnnotationConfigApplicationContext myContext = new AnnotationConfigApplicationContext(AppConfig.class);
+				IDAOJoueur daoJoueur = myContext.getBean(IDAOJoueur.class);
+			 
 			 	Compte c = (Compte) request.getSession().getAttribute("compte");
-			 	Joueur j1 = (Joueur) Context.getDaoJoueur().selectById(c.getId());
+			 	Joueur j = daoJoueur.findById(c.getId()).get();
 			 	
 				int tir = Integer.parseInt(request.getParameter("tir"));
 				int precision = Integer.parseInt(request.getParameter("precision"));
@@ -64,14 +75,14 @@ public class joueurStat extends HttpServlet {
 				int tacle = Integer.parseInt(request.getParameter("tacle"));
 				int marquage = Integer.parseInt(request.getParameter("marquage"));
 				
-				j1.setTir(tir);
-				j1.setPrecision(precision);
-				j1.setAcceleration(acceleration);
-				j1.setPuissance(puissance);
-				j1.setTacle(tacle);
-				j1.setMarquage(marquage);
+				j.setTir(tir);
+				j.setPrecision(precision);
+				j.setAcceleration(acceleration);
+				j.setPuissance(puissance);
+				j.setTacle(tacle);
+				j.setMarquage(marquage);
 				
-				Context.getDaoJoueur().update(j1);
+				daoJoueur.save(j);
 				
 				request.getSession().removeAttribute("tir");
 				request.getSession().removeAttribute("precision");

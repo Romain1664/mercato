@@ -1,4 +1,4 @@
-<%@page import="model.*"%>
+<%@page import="fr.formation.model.*"%>
 <%@page import="java.util.List"%>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -34,15 +34,11 @@
 							<input type="password" name="password" placeholder="Password">
 						</td>
 					</tr>
-					<tr>
-						<td>
-							<c:if test ="${sessionScope.isConnect=='N' }">
-								<div id="error">Login/Password invalides</div>
-							</c:if>	
-							<input type="submit" value="Valider">							
-						</td>
-					</tr>					
 				</table>
+				<c:if test ="${sessionScope.isConnect=='N' }">
+					<div id="error">Login/Password invalides</div>
+				</c:if>	
+				<input type="submit" value="Valider">							
 			<br>
 			<a href="inscription">S'inscrire</a>
 			<a href="connection?action=reset">Mot de passe perdu</a>		

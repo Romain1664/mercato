@@ -1,4 +1,4 @@
-package model;
+package fr.formation.model;
 
 import java.util.List;
 
@@ -11,8 +11,8 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
-import dao.idao.IDAOCompte;
-import dao.idao.IDAOJoueur;
+import fr.formation.dao.idao.IDAOCompte;
+import fr.formation.dao.idao.IDAOJoueur;
 
 @Entity 
 @Table(name = "compte")

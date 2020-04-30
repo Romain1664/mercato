@@ -1,7 +1,7 @@
-package dao.idao;
+package fr.formation.dao.idao;
 
-import dao.IDAO;
-import model.Equipe;
+import fr.formation.dao.IDAO;
+import fr.formation.model.Equipe;
 
 public interface IDAOEquipe extends IDAO<Equipe, Integer> {
 

@@ -1,9 +1,9 @@
-package dao.idao;
+package fr.formation.dao.idao;
 
 import java.util.List;
 
-import dao.IDAO;
-import model.Joueur;
+import fr.formation.dao.IDAO;
+import fr.formation.model.Joueur;
 
 public interface IDAOJoueur extends IDAO<Joueur, Integer> {
 

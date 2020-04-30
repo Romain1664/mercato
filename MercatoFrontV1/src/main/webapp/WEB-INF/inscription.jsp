@@ -1,4 +1,4 @@
-<%@page import="model.*"%>
+<%@page import="fr.formation.model.*"%>
 <%@page import="java.util.List"%>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -43,8 +43,8 @@
 					<td>Type de compte ?</td>	
 					<td>
 						<select name="type">
-			            	<option value="manager">joueur</option>
-			            	<option value="joueur">manager</option>
+			            	<option value="joueur">Joueur</option>
+			            	<option value="manager">Manager</option>
 			        	</select>
 					</td>
 				</tr>

@@ -1,4 +1,4 @@
-<%@page import="model.*"%>
+<%@page import="fr.formation.model.*"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -15,7 +15,7 @@
 		<form action="">
 			<div class="table1">
 				<table>
-					<legend>Menu Joueur</legend>
+					<legend>Menu Joueur, que voulez-vous faire ${sessionScope.login}</legend>
 				</table>
 			</div>
 	
@@ -29,7 +29,7 @@
 					</c:when>
 					<c:when test="${sessionScope.joueurInscrit=='Y' }">
 						<!-- Button trigger modal -->
-						<a href="#" data-href="" data-toggle="modal" data-target="#confirm-delete">Se désinscrire</a><br>
+						<a href="#" data-href="" data-toggle="modal" data-target="#confirm-delete">Prendre sa retraite</a><br>
 						<!-- Modal -->
 						<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 							<div class="modal-dialog">
@@ -45,7 +45,7 @@
 									</div>
 									<div class="modal-footer">
 										<button type="button" class="btn btn-default" data-dismiss="modal">Pas maintenant ...</button>
-										<a class="btn btn-danger btn-ok" href="joueur?action=desinscription">Retraite bien mérité</a>
+										<a class="btn btn-danger btn-ok" href="joueur?action=desinscription">Retraite bien méritée</a>
 									</div>
 								</div>
 							</div>
@@ -59,8 +59,9 @@
 						<br>
 					</c:when>
 				</c:choose>
-				<a href="joueurs">Afficher la liste des joueurs
-					inscrits</a> <br> <br> <a href="connection">Se deconnecter</a>
+				<a href="joueurs">Afficher la liste des joueurs inscrits</a>
+				<br><br>
+				<a href="connection">Se deconnecter</a>
 			</div>
 		</form>
 	</body>

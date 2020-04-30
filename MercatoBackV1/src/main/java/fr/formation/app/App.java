@@ -1,21 +1,18 @@
-package app;
+package fr.formation.app;
 
 import java.util.ArrayList;
 import java.util.InputMismatchException;
-import java.util.List;
 import java.util.Scanner;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import dao.idao.IDAOCompte;
-import dao.jdbc.DAOCompteJdbc;
-import model.Compte;
-import model.Context;
-import model.Equipe;
-import model.Joueur;
-import model.Manager;
+import fr.formation.configSpring.AppConfig;
+import fr.formation.daoSpring.IDAOCompte;
+import fr.formation.model.Compte;
+import fr.formation.model.Context;
+import fr.formation.model.Equipe;
+import fr.formation.model.Joueur;
+import fr.formation.model.Manager;
 
 
 public class App {
@@ -625,9 +622,13 @@ public class App {
 
 	public static void main(String[] args) {
 		
-		List<Joueur> liste = Context.getDaoJoueur().selectAll();
-				
-		System.out.println(liste);
+		AnnotationConfigApplicationContext myContext = new AnnotationConfigApplicationContext(AppConfig.class);
+		
+		IDAOCompte daoCompte = myContext.getBean(IDAOCompte.class);
+
+		for (Compte c : daoCompte.findAll()) {
+			System.out.println(c);
+		}
 		
 		//accueil();
 		

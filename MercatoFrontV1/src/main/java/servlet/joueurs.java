@@ -9,14 +9,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import model.Context;
-import model.Joueur;
+import fr.formation.configSpring.AppConfig;
+import fr.formation.daoSpring.IDAOJoueur;
+import fr.formation.model.Context;
+import fr.formation.model.Joueur;
 
 
-/**
- * Servlet implementation class joueur
- */
 @WebServlet("/joueurs")
 public class joueurs extends HttpServlet {
 	
@@ -28,11 +28,14 @@ public class joueurs extends HttpServlet {
 		System.out.println(liste);
 		request.getSession().setAttribute("listeJoueurs",liste);
 		*/
+		AnnotationConfigApplicationContext myContext = new AnnotationConfigApplicationContext(AppConfig.class);
+		IDAOJoueur daoJoueur = myContext.getBean(IDAOJoueur.class);
+		
 		String action=request.getParameter("action");
 				
 		if(action==null)
 		{
-			List<Joueur> liste = Context.getDaoJoueur().selectAll();		
+			List<Joueur> liste = daoJoueur.findAll();		
 			request.getSession().setAttribute("joueurs",liste);
 			this.getServletContext().getRequestDispatcher("/WEB-INF/joueurs.jsp").forward(request, response);
 		}
@@ -50,12 +53,15 @@ public class joueurs extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
+		AnnotationConfigApplicationContext myContext = new AnnotationConfigApplicationContext(AppConfig.class);
+		IDAOJoueur daoJoueur = myContext.getBean(IDAOJoueur.class);
 		
 		int idEquipe = Integer.parseInt(request.getParameter("id_equipe"));
-		List<Joueur> equipe = Context.getDaoJoueur().selectByEquipe(idEquipe);
-		request.setAttribute("joueurs", equipe);		
-		this.getServletContext().getRequestDispatcher("/WEB-INF/joueursEquipe.jsp").forward(request, response);
+		List<Joueur> equipe = daoJoueur.findByEquipe(idEquipe);
 		
+		request.setAttribute("joueurs", equipe);		
+		
+		this.getServletContext().getRequestDispatcher("/WEB-INF/joueursEquipe.jsp").forward(request, response);
 	}
 
 }

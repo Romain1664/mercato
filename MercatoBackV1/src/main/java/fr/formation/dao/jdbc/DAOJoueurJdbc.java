@@ -1,12 +1,12 @@
-package dao.jdbc;
+package fr.formation.dao.jdbc;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import dao.idao.IDAOJoueur;
-import model.Joueur;
+import fr.formation.dao.idao.IDAOJoueur;
+import fr.formation.model.Joueur;
 
 public class DAOJoueurJdbc extends DaoJdbc implements IDAOJoueur {
 	

@@ -1,4 +1,4 @@
-<%@page import="model.*"%>
+<%@page import="fr.formation.model.*"%>
 <%@page import="java.util.List"%>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"

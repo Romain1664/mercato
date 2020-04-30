@@ -1,9 +1,9 @@
-package dao.jpa;
+package fr.formation.dao.jpa;
 
 import java.util.List;
 
-import dao.idao.IDAOEquipe;
-import model.Equipe;
+import fr.formation.dao.idao.IDAOEquipe;
+import fr.formation.model.Equipe;
 
 
 

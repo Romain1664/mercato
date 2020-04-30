@@ -1,4 +1,4 @@
-package dao;
+package fr.formation.dao;
 
 import java.util.List;
 

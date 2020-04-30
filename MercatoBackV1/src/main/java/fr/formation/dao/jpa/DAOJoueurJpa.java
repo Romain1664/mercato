@@ -1,11 +1,11 @@
-package dao.jpa;
+package fr.formation.dao.jpa;
 
 import java.util.List;
 
 import org.hibernate.engine.spi.ExecuteUpdateResultCheckStyle;
 
-import dao.idao.IDAOJoueur;
-import model.Joueur;
+import fr.formation.dao.idao.IDAOJoueur;
+import fr.formation.model.Joueur;
 
 
 public class DAOJoueurJpa extends DaoJpa implements IDAOJoueur {

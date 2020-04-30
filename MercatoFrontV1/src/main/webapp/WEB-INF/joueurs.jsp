@@ -1,5 +1,5 @@
 
-<%@page import="model.*"%>
+<%@page import="fr.formation.model.*"%>
 <%@page import="java.util.List"%>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -13,12 +13,12 @@
 		<title>Liste des joueurs</title>
 	</head>
 	<body>
-		<div>
+		<div class="table3">
 			<form method="GET" action="joueurs">
 				<legend>Voici les joueurs inscrits sur l'application</legend>
 				<table class="table">
 					<thead>
-						<tr>
+						<tr align="center">
 							<th scope="col">id</th>
 							<th scope="col">Nom</th>
 							<th scope="col">Prenom</th>
@@ -35,8 +35,8 @@
 						</tr>
 					</thead>
 					<tbody>
-						<c:forEach items="${listeJoueurs}" var="j">
-							<tr>
+						<c:forEach items="${joueurs}" var="j">
+							<tr align="center">
 								<td>${j.id}</td>
 								<td>${j.nom}</td>
 								<td>${j.prenom}</td>
@@ -56,8 +56,8 @@
 				</table>
 			</form>
 		</div>
-		<div>
-			<td><a href="joueur"><p>Retour au menu Joueur</p></a></td>
+		<div class="table2">
+			<a href="joueur"><p>Retour au menu Joueur</p></a>
 		</div>
 	</body>
 </html>

@@ -1,7 +1,7 @@
-package dao.idao;
+package fr.formation.dao.idao;
 
-import dao.IDAO;
-import model.Compte;
+import fr.formation.dao.IDAO;
+import fr.formation.model.Compte;
 
 public interface IDAOCompte extends IDAO<Compte, Integer> {
 

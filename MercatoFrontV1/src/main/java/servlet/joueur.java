@@ -8,9 +8,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.Compte;
-import model.Context;
-import model.Joueur;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+import fr.formation.configSpring.AppConfig;
+import fr.formation.daoSpring.IDAOJoueur;
+import fr.formation.model.Compte;
+import fr.formation.model.Joueur;
 
 /**
  * Servlet implementation class joueur
@@ -33,10 +36,15 @@ public class joueur extends HttpServlet {
 		
 		else if(action.equals("desinscription")) 
 		{
-			Compte c = (Compte) request.getSession().getAttribute("compte");
-			Joueur j = Context.getDaoJoueur().selectById(c.getId());
+			AnnotationConfigApplicationContext myContext = new AnnotationConfigApplicationContext(AppConfig.class);
+			IDAOJoueur daoJoueur = myContext.getBean(IDAOJoueur.class);
 			
-			Context.getDaoJoueur().delete(j.getId());
+			Compte c = (Compte) request.getSession().getAttribute("compte");
+			Joueur j = daoJoueur.findById(c.getId()).get();
+			
+			System.out.println(j.getId());
+			
+			daoJoueur.deleteById(j.getId());
 			request.getSession().setAttribute("joueurInscrit", "N");
 			request.getSession().removeAttribute("joueur");
 			this.getServletContext().getRequestDispatcher("/WEB-INF/joueur.jsp").forward(request, response);
@@ -44,8 +52,11 @@ public class joueur extends HttpServlet {
 		
 		else if(action.substring(0,5).equals("stats")) 
 		{
+			AnnotationConfigApplicationContext myContext = new AnnotationConfigApplicationContext(AppConfig.class);
+			IDAOJoueur daoJoueur = myContext.getBean(IDAOJoueur.class);
+			
 			Compte c = (Compte) request.getSession().getAttribute("compte");
-			Joueur j = Context.getDaoJoueur().selectById(c.getId());
+			Joueur j = daoJoueur.findById(c.getId()).get();
 			
 			request.getSession().setAttribute("tir", j.getTir());
 			request.getSession().setAttribute("precision", j.getPrecision());
@@ -55,8 +66,14 @@ public class joueur extends HttpServlet {
 			request.getSession().setAttribute("marquage", j.getMarquage());	
 
 			
-			if (action.substring(5).equals("Afficher")) {this.getServletContext().getRequestDispatcher("/WEB-INF/statsAfficher.jsp").forward(request, response);}
-			else if (action.substring(5).equals("Modifier")) {this.getServletContext().getRequestDispatcher("/WEB-INF/statsModifier.jsp").forward(request, response);}
+			if (action.substring(5).equals("Afficher")) 
+			{
+				this.getServletContext().getRequestDispatcher("/WEB-INF/statsAfficher.jsp").forward(request, response);
+			}
+			else if (action.substring(5).equals("Modifier")) 
+			{
+				this.getServletContext().getRequestDispatcher("/WEB-INF/statsModifier.jsp").forward(request, response);
+			}
 		}
 		else if(action.equals("joueurs")) 
 		{
