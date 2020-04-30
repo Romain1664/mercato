@@ -24,6 +24,14 @@ a
 
 #error{color :red;}
 
+#hidden_div1 {
+    display: none;
+}
+
+#hidden_div2 {
+    display: none;
+}
+
 .table1 
 {
 	border: solid black 2px;
