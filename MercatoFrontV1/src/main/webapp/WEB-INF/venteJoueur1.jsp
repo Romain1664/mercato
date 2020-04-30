@@ -41,7 +41,7 @@
 						</tr>
 					</thead>
 					<tbody>
-						<c:forEach items="${joueurs}" var="j">
+						<c:forEach items="${joueursEquipe}" var="j">
 							<tr align="center">
 								<td>${j.id}</td>
 								<td>${j.nom}</td>

@@ -53,7 +53,7 @@ public class joueurs extends HttpServlet {
 			
 			List<Joueur> liste = daoJoueur.findByEquipe(id_equipe);
 			
-			request.getSession().setAttribute("joueurs",liste);
+			request.getSession().setAttribute("joueursEquipe",liste);
 			this.getServletContext().getRequestDispatcher("/WEB-INF/joueursEquipe.jsp").forward(request, response);
 		}
 		
@@ -70,7 +70,7 @@ public class joueurs extends HttpServlet {
 			
 			List<Joueur> liste = daoJoueur.findByEquipe(id_equipe);
 			
-			request.getSession().setAttribute("joueurs",liste);
+			request.getSession().setAttribute("joueursAchat",liste);
 			this.getServletContext().getRequestDispatcher("/WEB-INF/achatJoueur1.jsp").forward(request, response);
 		}
 		
@@ -87,7 +87,7 @@ public class joueurs extends HttpServlet {
 			
 			List<Joueur> liste = daoJoueur.findByEquipe(id_equipe);
 			
-			request.getSession().setAttribute("joueurs",liste);
+			request.getSession().setAttribute("joueursEquipe",liste);
 			this.getServletContext().getRequestDispatcher("/WEB-INF/VenteJoueur1.jsp").forward(request, response);
 		}
 	
