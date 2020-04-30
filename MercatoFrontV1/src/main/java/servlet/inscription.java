@@ -11,8 +11,10 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 import fr.formation.configSpring.AppConfig;
 import fr.formation.daoSpring.IDAOCompte;
+import fr.formation.daoSpring.IDAOEquipe;
 import fr.formation.model.Compte;
 import fr.formation.model.Context;
+import fr.formation.model.Equipe;
 
 /**
  * Servlet implementation class désinscription
@@ -30,6 +32,7 @@ public class inscription extends HttpServlet {
 	{
 		AnnotationConfigApplicationContext myContext = new AnnotationConfigApplicationContext(AppConfig.class);
 		IDAOCompte daoCompte = myContext.getBean(IDAOCompte.class);
+		IDAOEquipe daoEquipe = myContext.getBean(IDAOEquipe.class);
 		
 		String login = request.getParameter("login");
 		String password = request.getParameter("password");
@@ -37,8 +40,18 @@ public class inscription extends HttpServlet {
 
 		Compte c = new Compte(login,password,type);
 
-
 		daoCompte.save(c);
+		
+		if (request.getParameter("choix").equals("oui"))
+			{
+			String nom_equipe = request.getParameter("nom_equipe");
+			Double budget = Double.parseDouble(request.getParameter("budget"));
+			
+			Equipe eq = new Equipe(nom_equipe, c.getId(), budget);
+			
+			daoEquipe.save(eq);
+			}
+		
 		this.getServletContext().getRequestDispatcher("/WEB-INF/connection.jsp").forward(request, response);
 
 		
