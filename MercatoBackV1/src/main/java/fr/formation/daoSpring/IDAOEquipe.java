@@ -10,4 +10,7 @@ public interface IDAOEquipe extends JpaRepository<Equipe, Integer> {
 	@Query(value = "SELECT eq FROM Equipe eq WHERE eq.nom_equipe = ?1", nativeQuery = false)
 	public Equipe findByNomEquipe(String nom);
 	
+	@Query(value = "SELECT eq FROM Equipe eq WHERE id_compte = ?1", nativeQuery = false)
+	public Equipe findByManager(Integer id_compte);
+	
 }

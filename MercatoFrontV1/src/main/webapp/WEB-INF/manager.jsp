@@ -21,13 +21,13 @@
 
 		<div class="table2">
 
-			<a href="joueurs">Afficher la liste des joueurs inscrits</a>
+			<a href="joueurs?action=Tous">Afficher la liste des joueurs inscrits</a>
 			<br>
 			<br> 
 			<a href="manager?action=gestionBudget">Gerer son compte en banque</a>
 			<br>
 			<br>
-			<a href="joueurs?action=joueursEquipe">Afficher les joueurs de son equipe</a>
+			<a href="joueurs?action=Equipe">Afficher les joueurs de son equipe</a>
 			<br>
 			<br>
 			<a href="manager?action=achatJoueur1">Acheter un joueur</a>

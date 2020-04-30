@@ -12,8 +12,11 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import fr.formation.configSpring.AppConfig;
+import fr.formation.daoSpring.IDAOEquipe;
 import fr.formation.daoSpring.IDAOJoueur;
+import fr.formation.model.Compte;
 import fr.formation.model.Context;
+import fr.formation.model.Equipe;
 import fr.formation.model.Joueur;
 
 
@@ -23,29 +26,36 @@ public class joueurs extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
 		
-	/*	List<Joueur> liste = Context.getDaoJoueur().selectAll();
-		System.out.println("Ok");
-		System.out.println(liste);
-		request.getSession().setAttribute("listeJoueurs",liste);
-		*/
 		AnnotationConfigApplicationContext myContext = new AnnotationConfigApplicationContext(AppConfig.class);
 		IDAOJoueur daoJoueur = myContext.getBean(IDAOJoueur.class);
 		
 		String action=request.getParameter("action");
 				
-		if(action==null)
+		
+		if(action.equals("Tous"))
 		{
+			System.out.println("OK TOUS");
 			List<Joueur> liste = daoJoueur.findAll();		
 			request.getSession().setAttribute("joueurs",liste);
 			this.getServletContext().getRequestDispatcher("/WEB-INF/joueurs.jsp").forward(request, response);
+			
 		}
-		
-		else if(action.contentEquals("joueursEquipe"))
+		else if(action.equals("Equipe"))
 		{
-		
-			this.getServletContext().getRequestDispatcher("/WEB-INF/formulaire.jsp").forward(request, response);
+			System.out.println("OK EQUIPE");
+			IDAOEquipe daoEquipe = myContext.getBean(IDAOEquipe.class);
+			
+			Compte c = (Compte) request.getSession().getAttribute("compte");
+			int id_compte=c.getId();
+			
+			Equipe eq = daoEquipe.findByManager(id_compte);
+			int id_equipe = eq.getId();
+			
+			List<Joueur> liste = daoJoueur.findByEquipe(id_equipe);
+			
+			request.getSession().setAttribute("joueurs",liste);
+			this.getServletContext().getRequestDispatcher("/WEB-INF/joueurs.jsp").forward(request, response);
 		}
-
 	
 		this.getServletContext().getRequestDispatcher("/WEB-INF/joueurs.jsp").forward(request, response);
 	}
