@@ -21,7 +21,7 @@
 			<div class="table2">
 					<table>
 						<td>
-							<a href="joueurs"><p>Retour au menu Joueur</p></a>
+							<a href="manager"><p>Retour au menu Manager</p></a>
 						</td>
 					</table>
 				</div>
