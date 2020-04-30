@@ -19,11 +19,11 @@
 			<input type="submit" value="Envoyer" />
 		</form>
 			<div class="table2">
-					<table>
-						<td>
-							<a href="manager"><p>Retour au menu Manager</p></a>
-						</td>
-					</table>
-				</div>
-</body>
+				<table>
+					<td>
+						<a href="manager"><p>Retour au menu Manager</p></a>
+					</td>
+				</table>
+			</div>
+	</body>
 </html>

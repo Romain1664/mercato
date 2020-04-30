@@ -60,11 +60,9 @@
 			<c:choose>
 					<c:when test="${sessionScope.typeAccount=='Joueur' }">
 						<a href="joueur"><p>Retour au menu Joueur</p></a>
-						<br>
-						<br>
 					</c:when>
 					<c:when test="${sessionScope.typeAccount=='Manager' }">
-					<a href="manager"><p>Retour au menu Manager</p></a>
+						<a href="manager"><p>Retour au menu Manager</p></a>
 					</c:when>
 			</c:choose>
 			
