@@ -35,7 +35,6 @@
 						<th scope="col">Puissance</th>
 						<th scope="col">Tacle</th>
 						<th scope="col">Marquage</th>							
-						<th scope="col">Id_Equipe</th>
 						<th scope="col">Prix</th>
 					</tr>
 				</thead>
@@ -53,7 +52,6 @@
 							<td>${j.puissance}</td>
 							<td>${j.tacle}</td>
 							<td>${j.marquage}</td>
-							<td>${j.id_equipe}</td>
 							<td>${j.prix}</td>
 						</tr>
 					</c:forEach>
@@ -64,10 +62,16 @@
 		<form method="POST" action="AcheterJoueur">
 			<div class="table3">
 				<table>
-				 <td>
-					<p>Achat joueur</p> (MENU DEROULANT?)
-						
-					</td> 
+				 	<tr>
+						<td>Qui veux-tu acheter ?</td>
+						<td>
+							<select name="joueurAchat">
+								<c:forEach items="${joueursAchat}" var="j">
+									<option value="${j.id}">${j.nom} ${j.prenom}</option>
+								</c:forEach>
+							</select>
+						</td>
+					</tr> 
 				</table>
 				<input type="submit">
 			</div>
