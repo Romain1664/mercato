@@ -53,43 +53,43 @@ public class joueurs extends HttpServlet {
 			
 			List<Joueur> liste = daoJoueur.findByEquipe(id_equipe);
 			
-			request.getSession().setAttribute("joueursEquipe",liste);
+			request.getSession().setAttribute("joueurs",liste);
 			this.getServletContext().getRequestDispatcher("/WEB-INF/joueursEquipe.jsp").forward(request, response);
 		}
 		
-		else if(action.equals("Achat"))
-		{
-			System.out.println("OK Achat");
-			IDAOEquipe daoEquipe = myContext.getBean(IDAOEquipe.class);
-			
-			
-			int id_compte=0;
-			
-			Equipe eq = daoEquipe.findByManager(id_compte);
-			int id_equipe = eq.getId();
-			
-			List<Joueur> liste = daoJoueur.findByEquipe(id_equipe);
-			
-			request.getSession().setAttribute("joueursAchat",liste);
-			this.getServletContext().getRequestDispatcher("/WEB-INF/achatJoueur1.jsp").forward(request, response);
-		}
-		
-		else if(action.equals("Vente"))
-		{
-			System.out.println("OK Vente");
-			IDAOEquipe daoEquipe = myContext.getBean(IDAOEquipe.class);
-			
-			Compte c = (Compte) request.getSession().getAttribute("compte");
-			int id_compte=c.getId();
-			
-			Equipe eq = daoEquipe.findByManager(id_compte);
-			int id_equipe = eq.getId();
-			
-			List<Joueur> liste = daoJoueur.findByEquipe(id_equipe);
-			
-			request.getSession().setAttribute("joueursEquipe",liste);
-			this.getServletContext().getRequestDispatcher("/WEB-INF/VenteJoueur1.jsp").forward(request, response);
-		}
+//		else if(action.equals("Achat"))
+//		{
+//			System.out.println("OK Achat");
+//			IDAOEquipe daoEquipe = myContext.getBean(IDAOEquipe.class);
+//			
+//			
+//			int id_compte=0;
+//			
+//			Equipe eq = daoEquipe.findByManager(id_compte);
+//			int id_equipe = eq.getId();
+//			
+//			List<Joueur> liste = daoJoueur.findByEquipe(id_equipe);
+//			
+//			request.getSession().setAttribute("joueursAchat",liste);
+//			this.getServletContext().getRequestDispatcher("/WEB-INF/achatJoueur1.jsp").forward(request, response);
+//		}
+//		
+//		else if(action.equals("Vente"))
+//		{
+//			System.out.println("OK Vente");
+//			IDAOEquipe daoEquipe = myContext.getBean(IDAOEquipe.class);
+//			
+//			Compte c = (Compte) request.getSession().getAttribute("compte");
+//			int id_compte=c.getId();
+//			
+//			Equipe eq = daoEquipe.findByManager(id_compte);
+//			int id_equipe = eq.getId();
+//			
+//			List<Joueur> liste = daoJoueur.findByEquipe(id_equipe);
+//			
+//			request.getSession().setAttribute("joueursEquipe",liste);
+//			this.getServletContext().getRequestDispatcher("/WEB-INF/VenteJoueur1.jsp").forward(request, response);
+//		}
 	
 		this.getServletContext().getRequestDispatcher("/WEB-INF/joueurs.jsp").forward(request, response);
 	}

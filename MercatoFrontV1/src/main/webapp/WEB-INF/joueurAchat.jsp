@@ -7,17 +7,16 @@
 	
 <!DOCTYPE html>
 <html>
-<head>
+	<head>
 		<title>Achat Joueur 1</title>
-			<meta charset="UTF-8"/>
+		<meta charset="UTF-8"/>
 	</head>
 
-<body>
-	<form action="">
+	<body>
 		<div class="table1">
 			<table>
 				<legend>L'EMIR VEUT GAGNER LA CHAMPION'S LEAGUE: 
-				<br> Qui sera ta nouvelle pépite?</legend>
+				<br> Qui sera ta nouvelle pépite (selon le budget de l'émir) ?</legend>
 			</table>
 		</div>
 		<div class="table2">
@@ -39,7 +38,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					<c:forEach items="${joueursAchat}" var="j">
+					<c:forEach items="${joueurs}" var="j">
 						<tr align="center">
 							<td>${j.id}</td>
 							<td>${j.nom}</td>
@@ -59,14 +58,14 @@
 			</table>
 		</div>
 		
-		<form method="POST" action="AcheterJoueur">
+		<form method="POST" action="AcheterJoueur"> <!-- FAUT VOIR OU CETTE PAGE MENE -->
 			<div class="table3">
 				<table>
 				 	<tr>
 						<td>Qui veux-tu acheter ?</td>
 						<td>
 							<select name="joueurAchat">
-								<c:forEach items="${joueursAchat}" var="j">
+								<c:forEach items="${joueurs}" var="j">
 									<option value="${j.id}">${j.nom} ${j.prenom}</option>
 								</c:forEach>
 							</select>
@@ -79,12 +78,11 @@
 		
 		<div class="table4">
 			<table>
-				<td>
-					<a href="manager"><p>Retour au menu Manager</p></a>
-				</td>
+				<tr>
+					<td><a href="manager">Retour au menu Manager</a></td>
+				</tr>
 			</table>
 		</div>
-
-	
-</body>
+		
+	</body>
 </html>
