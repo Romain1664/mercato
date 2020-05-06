@@ -12,10 +12,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import fr.formation.daoSpring.IDAOCompte;
 
-<<<<<<< HEAD:MercatoFrontV1/src/main/java/fr/formation/controller/HomeController.java
-=======
-
->>>>>>> master:MercatoFrontV1/src/main/java/fr/formation/controller/ConnectionController.java
 @Controller
 public class ConnectionController 
 {
@@ -57,9 +53,9 @@ public class ConnectionController
 	}
 	
 //	@DeleteMapping("/deconnection")
-//	public String déconnection(Model model) 
+//	public String dï¿½connection(Model model) 
 //	{
-//		model.addAttribute("Vous êtes déconnecté de l'application Mercato, merci de votre visite");
+//		model.addAttribute("Vous ï¿½tes dï¿½connectï¿½ de l'application Mercato, merci de votre visite");
 //		
 //		return "connection";
 //	}
