@@ -6,6 +6,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -14,18 +15,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 import fr.formation.daoSpring.IDAOCompte;
 
 
-
-
-
 @Controller
-//@RequestMapping("/home") // Ajoute /home devant tous les mappings
-public class HomeController {
+public class ConnectionController 
+{
 	
 	@Autowired
 	private IDAOCompte daoCompte;
 	
 	@PostMapping("/spring-connect")
-	public String connexion
+	public String connection
 	(
 			@RequestParam(value="login",defaultValue="Nom") String username,
 			@RequestParam String password,
@@ -36,12 +34,12 @@ public class HomeController {
 		{
 			model.addAttribute("error","Login vide");
 		}
-		return "redirect:/test-redirect";
+		return "redirect:/connection-redirect";
 	}
 	
 	//@RequestMapping(value="/test", method = RequestMethod.GET)
-	@GetMapping("/conection")
-	public String conection(Model model) 
+	@GetMapping("/connection")
+	public String connection(Model model) 
 	{
 		
 		//return "connect";
@@ -57,4 +55,11 @@ public class HomeController {
 		return "connection";
 	}
 	
+//	@DeleteMapping("/deconnection")
+//	public String déconnection(Model model) 
+//	{
+//		model.addAttribute("Vous êtes déconnecté de l'application Mercato, merci de votre visite");
+//		
+//		return "connection";
+//	}
 }
