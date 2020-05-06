@@ -2,6 +2,8 @@ package fr.formation.controller;
 
 import java.util.Optional;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,7 +29,11 @@ public class ConnectionControlleur {
 	private IDAOEquipe daoEquipe;	
 	
 	@GetMapping({"/","/accueil"})
-	public String accueilInscription(Model model) {
+	@PostMapping({"/","/accueil"})
+	public String accueilInscription(HttpSession session, Model model) {
+		
+		
+		
 		return "accueil";
 	}
 	

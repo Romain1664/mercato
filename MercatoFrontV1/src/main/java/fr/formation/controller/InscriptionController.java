@@ -1,11 +1,10 @@
 package fr.formation.controller;
 
-import javax.validation.Valid;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import fr.formation.daoSpring.IDAOCompte;
 import fr.formation.daoSpring.IDAOEquipe;
 import fr.formation.model.Compte;
-import fr.formation.model.Equipe;
 
 @Controller
 public class InscriptionController {
@@ -70,7 +68,7 @@ public class InscriptionController {
 	}	
 	
 	@PostMapping("/reset_password")
-	public String resetPassword(@RequestParam(value="login") String login, @RequestParam(value="password") String password, Model model) {
+	public String resetPassword(@RequestParam(value="login") String login, @RequestParam(value="password") String password, HttpSession session, Model model) {
 		
 		Compte c = daoCompte.findByLogin(login);
 		
@@ -83,7 +81,7 @@ public class InscriptionController {
 		c.setPassword(password);
 		daoCompte.save(c);
 		
-		model.addAttribute("message","Votre mot de passe à bien été changé");
+		session.setAttribute("message","Votre mot de passe à bien été changé");
 		return "redirect:/accueil";
 	}
 	
