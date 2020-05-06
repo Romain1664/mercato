@@ -39,12 +39,20 @@
 		
 		<div class="table1">
 			<table>
-				<legend>BIENVENUE SUR L'APPLICATION MERCATO</legend>
+				<tr>
+					<td>BIENVENUE SUR L'APPLICATION MERCATO</td>
+				</tr>
 			</table>
 		</div>
 		
 		<div class="table2">
-			<legend>S'inscrire</legend>
+			<div class="table1">
+				<table>
+					<tr>
+						<td>S'inscrire</td>
+					</tr>
+				</table>
+			</div>
 			
 			<table>
 				<tr>
@@ -69,6 +77,7 @@
 					</td>
 				</tr>
 			</table>
+		</div>
 		<div id="hidden_div1" class="table2">	
 			<table>
 				<tr>
