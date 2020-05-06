@@ -1,4 +1,4 @@
-package servlet;
+package fr.formation.servlet;
 
 
 import java.io.IOException;
@@ -47,6 +47,7 @@ public class connection extends HttpServlet {
 
 		String action=request.getParameter("action");
 
+		//Inscription
 		if(action.equals("reset")) 
 		{
 			AnnotationConfigApplicationContext myContext = new AnnotationConfigApplicationContext(AppConfig.class);
