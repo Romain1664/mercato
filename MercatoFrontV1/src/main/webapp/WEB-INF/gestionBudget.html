@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html	xmlns:th="http://www.thymeleaf.org"
+		th:replace="~{layout.html :: layout(~{::title}, ~{::body})}">
+
+	<head>
+		<title>Gestion du budget</title>	
+	</head>
+
+<body>
+	<form action="">
+		<div class="table1">
+			<table>
+				<legend>GESTION DU BUDGET</legend>
+			</table>
+		</div>
+		<div class="table2">
+			<table>
+				<tr>
+					<td> 
+						<p>Alors le Qatar a sorti le chequier?</p>
+						<p>(chanceux va)</p>
+					</td>
+				</tr>
+					<td>Nouveau Budget</td>
+					<td><input type="text" name="Budget"  placeholder="Budget"></td>
+			</table>
+			<input type="submit">
+		</div>
+		<div class="table3">
+			<table>
+				<td>
+					<a href="manager"><p>Retour au menu Manager</p></a>
+				</td>
+			</table>
+		</div>
+	</form>
+</body>
+</html>

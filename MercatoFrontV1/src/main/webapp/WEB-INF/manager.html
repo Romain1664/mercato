@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html	xmlns:th="http://www.thymeleaf.org"
+		th:replace="~{layout.html :: layout(~{::title}, ~{::body})}">
+<head>
+<title>Menu Manager</title>
+</head>
+<body>
+
+	<form action="">
+		<div class="table1">
+			<table>
+				<legend>Menu Manager</legend>
+			</table>
+		</div>
+
+		<div class="table2">
+
+			<a href="joueurs?action=Tous">Afficher la liste des joueurs inscrits</a>
+			<br>
+			<br> 
+			<a href="manager?action=gestionBudget">Gerer son compte en banque</a>
+			<br>
+			<br>
+			<a href="joueurs?action=Equipe">Afficher les joueurs de son equipe</a>
+			<br>
+			<br>
+			<a href="manager?action=achatJoueur">Acheter un joueur</a>
+			<br>
+			<br>
+			<a href="manager?action=venteJoueur">Vendre un joueur</a>
+			<br>
+			<br>
+			<a href="connection">Se deconnecter</a>
+		</div>
+	</form>
+</body>
+</html>
+

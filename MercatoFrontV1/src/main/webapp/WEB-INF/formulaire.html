@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html	xmlns:th="http://www.thymeleaf.org"
+		th:replace="~{layout.html :: layout(~{::title}, ~{::body})}">
+
+
+	<head>
+		<title>Liste des joueurs</title>
+	</head>
+	
+	
+	<body>
+		<form method="POST" action="joueurs">
+			<input type="number" name="id_equipe"/>
+				<p>Tape l'identifiant de ton équipe</p>
+			<input type="submit" value="Envoyer" />
+		</form>
+			<div class="table2">
+				<table>
+					<td>
+						<a href="manager"><p>Retour au menu Manager</p></a>
+					</td>
+				</table>
+			</div>
+	</body>
+</html>
