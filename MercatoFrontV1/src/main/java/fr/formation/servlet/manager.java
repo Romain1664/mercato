@@ -21,7 +21,7 @@ import fr.formation.model.Joueur;
 /**
  * Servlet implementation class manager
  */
-@WebServlet("/manager")
+//@WebServlet("/manager")
 public class manager extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

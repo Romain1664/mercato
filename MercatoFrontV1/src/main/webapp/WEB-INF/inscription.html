@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html	xmlns:th="http://www.thymeleaf.org"
-		th:replace="~{layout.html :: layout(~{::title}, ~{::body})}">
-	
-	<head>
-		<title>S'inscrire</title>
-	</head>
-	
-	<body>
-	
-		<script>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{layout.html :: layout(~{::title}, ~{::body})}">
+
+<head>
+<title>S'inscrire</title>
+</head>
+
+<body>
+
+	<script>
 			function showDiv1 (element)
 			{
 				if (element.value == "manager") {
@@ -28,83 +28,72 @@
 				}
 			}
 		</script>
-	
-	
-		<form method="POST" action="inscription"> <!-- A VOIR AVEC LE CONTROLLEUR  -->
-			
-			<div class="table1">
-				<table>
-					<tr>
-						<td>BIENVENUE SUR L'APPLICATION MERCATO</td>
-					</tr>
-				</table>
-			</div>
-			
-			<div class="table2">
-				<div class="table1">
-					<table>
-						<tr>
-							<td>S'inscrire</td>
-						</tr>
-					</table>
-				</div>
-				
-				<table>
-					<tr>
-						<td>Login</td>	
-						<td> 
-							<input Required type="text" name="login" value="${sessionScope.login}" placeholder="login">
-						</td>
-					</tr>
-					<tr>
-						<td>Mot de passe</td> 
-						<td>
-							<input Required type="password" name="password" placeholder="password">
-						</td>
-					</tr>
-					<tr>
-						<td>Type de compte ?</td>	
-						<td>
-							<select name="type" id="type" onchange="showDiv1(this)">
-				            	<option value="joueur">Joueur</option>
-				            	<option value="manager">Manager</option>
-				        	</select>
-						</td>
-					</tr>
-				</table>
-			</div>
-			<div id="hidden_div1" class="table2">	
-				<table>
-					<tr>
-						<td>Créer son équipe</td>
-						<td>	
-							<select name="choix" id="choix" onchange="showDiv2(this)">
-				            	<option value="oui">Oui</option>
-				            	<option selected value="non">Non</option>
-				        	</select>
-						</td>
-					</tr>
-				</table>
-			</div>	
-			<div id="hidden_div2" class="table2">
-				<table>
-					<tr>
-						<td>Nom d'équipe</td>
-						<td>	
-							<input Required type="text" name="nom_equipe" placeholder="Nom d'equipe">
-						</td>
-					</tr>
-					<tr>
-						<td>Budget de l'équipe</td>
-						<td>
-							<input Required type="text" name="budget" placeholder="Budget de l'équipe">
-						</td>
-					</tr>
-				</table>
-			</div>
-			<input type="submit" value="Valider"/>
-		</form>	
+
+
+	<form method="POST" action="inscription">
+
+		<div class="table1">
+			<table>
+				<tr>
+					<td>S'inscrire sur l'application Mercato</td>
+				</tr>
+			</table>
+		</div>
 		
-	</body>
-	
+		<div class="table2">
+			<table>
+				<tr>
+					<td>Login</td>
+					<td><input Required type="text" name="login"
+						th:value="${session.login}" placeholder="login"></td>
+				</tr>
+				<tr>
+					<td>Mot de passe</td>
+					<td><input Required type="password" name="password"
+						placeholder="password"></td>
+				</tr>
+				<tr>
+					<td>Type de compte ?</td>
+					<td><select name="type" id="type" onchange="showDiv1(this)">
+							<option value="joueur">Joueur</option>
+							<option value="manager">Manager</option>
+					</select></td>
+				</tr>
+			</table>
+		</div>
+				
+		<div id="hidden_div1" class="table2">
+			<table>
+				<tr>
+					<td>Créer son équipe</td>
+					<td><select name="choix" id="choix" onchange="showDiv2(this)">
+							<option value="oui">Oui</option>
+							<option selected value="non">Non</option>
+					</select></td>
+				</tr>
+			</table>
+		</div>
+		<div id="hidden_div2" class="table2">
+			<table>
+				<tr>
+					<td>Nom d'équipe</td>
+					<td><input type="text" name="nom_equipe"
+						placeholder="Nom d'equipe"></td>
+				</tr>
+				<tr>
+					<td>Budget de l'équipe</td>
+					<td><input type="text" name="budget"
+						placeholder="Budget de l'équipe"></td>
+				</tr>
+			</table>
+		</div>
+		<div class="table2">
+			<span class="error" th:if="${errorLogin!=null}" th:text="${errorLogin}"></span>
+			<span class="error" th:if="${errorType!=null}" th:text="${errorType}"></span>
+		</div>
+		<input type="submit" value="Valider" />
+	</form>
+
+</body>
+
 </html>

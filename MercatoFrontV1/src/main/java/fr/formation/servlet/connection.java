@@ -21,7 +21,7 @@ import fr.formation.model.Joueur;
 import fr.formation.model.Manager;
 
 
-@WebServlet("/connection")
+//@WebServlet("/connection")
 public class connection extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

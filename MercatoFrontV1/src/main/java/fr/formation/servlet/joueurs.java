@@ -20,7 +20,7 @@ import fr.formation.model.Equipe;
 import fr.formation.model.Joueur;
 
 
-@WebServlet("/joueurs")
+//@WebServlet("/joueurs")
 public class joueurs extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException

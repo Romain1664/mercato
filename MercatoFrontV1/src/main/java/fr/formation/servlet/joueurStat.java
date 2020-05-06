@@ -19,7 +19,7 @@ import fr.formation.model.Joueur;
 /**
  * Servlet implementation class joueur
  */
-@WebServlet("/joueurStat")
+//@WebServlet("/joueurStat")
 public class joueurStat extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

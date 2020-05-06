@@ -9,6 +9,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import fr.formation.daoSpring.IDAOCompte;
 import fr.formation.daoSpring.IDAOEquipe;
@@ -25,41 +26,65 @@ public class InscriptionController {
 	
 	@GetMapping("/inscription")
 	public String accueilInscription(Model model) {
-		System.out.println("test");
 		return "inscription";
 	}
 	
 	@PostMapping("/inscription")
-	public String inscription(@Valid @ModelAttribute Compte compte, BindingResult result,@Valid @ModelAttribute Equipe equipe, BindingResult resultEquipe, Model model) {
-		
-		if (result.hasErrors()||result.hasErrors())
-		{
-			return "inscription";
-		}
+	public String inscription(@ModelAttribute Compte compte, Model model) {
 		
 		Compte c=daoCompte.findByLogin(compte.getLogin());
 		
 		if (c!=null)
 		{
+			model.addAttribute("errorLogin","Ce login existe déjà");
 			return "inscription";
 		}
 		
-		if ( (!compte.getType().equals("manager")) & (!compte.getType().equals("manager")) )
+		if ( (!compte.getType().equals("joueur")) && (!compte.getType().equals("manager")) )
 		{
 			model.addAttribute("login",compte.getLogin());
 			model.addAttribute("errorType","Choisissez un type de compte VALIDE !");
 			return "inscription";
 		}
 		
-		if (compte.getType().equals("manager"))
-		{
-			Equipe eq = daoEquipe.findByNomEquipe(equipe.getNom_equipe());
-			return "accueil";
-		}
-		
+//		if (compte.getType().equals("manager"))
+//		{
+//			Equipe eq = daoEquipe.findByNomEquipe(equipe.getNom_equipe());
+//			
+//			if (eq!=null)
+//			{
+//				model.addAttribute("login",compte.getLogin());
+//				model.addAttribute("errorEquipe","Le nom d'équipe est déjà pris!");
+//				return "inscription";
+//			}
+//		}
 		
 		daoCompte.save(compte);
-		return "Blabla";
+		
+		return "accueil";
+	}
+	
+	@GetMapping("/reset_password")
+	public String accueilReset(Model model) {
+		return "reset";
+	}	
+	
+	@PostMapping("/reset_password")
+	public String resetPassword(@RequestParam(value="login") String login, @RequestParam(value="password") String password, Model model) {
+		
+		Compte c = daoCompte.findByLogin(login);
+		
+		if (c==null)
+		{
+			model.addAttribute("errorLogin", "Ce login n'est associé à aucun compte");
+			return "reset";
+		}
+		
+		c.setPassword(password);
+		daoCompte.save(c);
+		
+		model.addAttribute("message","Votre mot de passe à bien été changé");
+		return "redirect:/accueil";
 	}
 	
 	
