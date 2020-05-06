@@ -1,8 +1,8 @@
 package fr.formation.servlet;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -13,13 +13,10 @@ import fr.formation.configSpring.AppConfig;
 import fr.formation.daoSpring.IDAOCompte;
 import fr.formation.daoSpring.IDAOEquipe;
 import fr.formation.model.Compte;
-import fr.formation.model.Context;
 import fr.formation.model.Equipe;
 
-/**
- * Servlet implementation class désinscription
- */
-@WebServlet("/inscription")
+
+//@WebServlet("/inscription")
 public class inscription extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException

@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 import fr.formation.dao.idao.IDAOCompte;
 import fr.formation.dao.idao.IDAOJoueur;
@@ -24,13 +25,16 @@ public class Compte extends Context{
 	@Column(name="id")
 	protected int id;
 	
-	@Column(name="login", length=25, nullable =false ) 
+	@Column(name="login", length=25, nullable =false )
+	@NotNull
 	protected String login;
 	
 	@Column(name="password", length=25, nullable =false ) 
+	@NotNull
 	protected String password;
 	
 	@Column(name="type", length=10, nullable =false) 
+	@NotNull
 	protected String type;
 	
 	
