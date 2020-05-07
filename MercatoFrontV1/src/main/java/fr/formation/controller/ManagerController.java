@@ -34,7 +34,7 @@ public class ManagerController
 	@PostMapping("/manager")
 	public String add(Manager manager) 
 	{
-		this.daoEquipe.save(manager);
+		//this.daoEquipe.save(manager);
 		
 		return "redirect:/manager";
 	}
@@ -55,14 +55,14 @@ public class ManagerController
 		return "joueurEquipe";
 	}
 	
-	@GetMapping("/equipe/{id}")
-	public String findById(@PathVariable int id, Model model) 
-	{
-		model.addAttribute("equipe", this.daoEquipe.
-				findById(id).orElse(new Manager()));
-		// Je ne suis pas sur de ce truc là!! 
-		return "manager";
-	}
+//	@GetMapping("/equipe/{id}")
+//	public String findById(@PathVariable int id, Model model) 
+//	{
+//		model.addAttribute("equipe", this.daoEquipe.
+//				findById(id).orElse(new Manager()));
+//		// Je ne suis pas sur de ce truc là!! 
+//		return "manager";
+//	}
 		
 //	@PostMapping("/achatJoueur")
 //	public String add(@Valid @ModelAttribute Joueur joueur, BindingResult result, Model model)

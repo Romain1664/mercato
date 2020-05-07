@@ -28,16 +28,15 @@ public class ConnectionControlleur {
 	@Autowired
 	private IDAOEquipe daoEquipe;	
 	
-	@GetMapping({"/","/accueil"})
-	@PostMapping({"/","/accueil"})
+	@GetMapping({"/","/accueil","/connection"})
 	public String accueilInscription(HttpSession session, Model model) {
 		
-		
-		
+		model.addAttribute("message",session.getAttribute("message"));
+		session.removeAttribute("message");
 		return "accueil";
 	}
 	
-	@PostMapping("/Connection")
+	@PostMapping("/connection")
 	public String connection(@RequestParam(value="login") String login, @RequestParam(value="password") String password, Model model) {
 	
 		Compte c = daoCompte.checkConnect(login, password);
@@ -45,7 +44,9 @@ public class ConnectionControlleur {
 		if (c==null) 
 		{
 			model.addAttribute("error", "Le login/password est incorrect");
+			System.out.println("Mauvaise connection");
 			return "accueil";
+			
 		}
 		else if(c.getType().equals("joueur"))
 		{
@@ -63,6 +64,7 @@ public class ConnectionControlleur {
 				model.addAttribute("joueurInscrit", "Y");
 			}
 
+			System.out.println("Connection Joueur");
 			return "redirect:/Menu_Joueur";
 		}
 		else if (c.getType().equals("manager"))
@@ -81,6 +83,7 @@ public class ConnectionControlleur {
 				model.addAttribute("managerEquipe", "Y");
 			}
 
+			System.out.println("Connection Manager");
 			return "redirect:/Menu_Manager";
 		}
 		

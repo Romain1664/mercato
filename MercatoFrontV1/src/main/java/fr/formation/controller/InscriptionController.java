@@ -28,9 +28,10 @@ public class InscriptionController {
 	}
 	
 	@PostMapping("/inscription")
-	public String inscription(@ModelAttribute Compte compte, Model model) {
+	public String inscription(@ModelAttribute Compte compte, HttpSession session, Model model) {
 		
 		Compte c=daoCompte.findByLogin(compte.getLogin());
+		model.addAttribute("login",compte.getLogin());
 		
 		if (c!=null)
 		{
@@ -58,8 +59,9 @@ public class InscriptionController {
 //		}
 		
 		daoCompte.save(compte);
+		session.setAttribute("message","Votre compte a bien été créé");
 		
-		return "accueil";
+		return "redirect:/accueil";
 	}
 	
 	@GetMapping("/reset_password")

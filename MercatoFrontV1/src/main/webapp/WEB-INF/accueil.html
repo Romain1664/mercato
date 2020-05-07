@@ -27,10 +27,11 @@
 						<td><input type="password" name="password" placeholder="Password"></td>
 					</tr>
 				</table>
-				<div id="error" th:if="${isConnect=='N'}">
-					Login/Password invalides
-				</div>
-				<input type="submit" value="Valider">							
+				
+				<input type="submit" value="Valider">		
+								
+				<span class="error" th:if="${error!=null}" th:text="${error}"></span>
+				<span class="valid" th:if="${message!=null}" th:text="${message}"></span>					
 			<br>
 			<a href="inscription">S'inscrire</a>
 			<a href="reset_password">Mot de passe perdu</a>		
