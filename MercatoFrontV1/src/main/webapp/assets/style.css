@@ -101,7 +101,7 @@ a
 .table3
 {
 	border-radius:10px 10px;
-	border: solid black 2px;
+	border: double black 3px;
 	background-color:white; 
 	width:75%;
  	border-collapse:collapse; 
