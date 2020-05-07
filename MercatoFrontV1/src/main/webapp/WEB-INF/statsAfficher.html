@@ -7,7 +7,7 @@
 
 <body class="body2">
 
-	<form action="joueur" method="POST">
+	<form action="Menu_Joueur/ModificationStat" method="POST">
 		<input type="hidden" action="stats">
 
 		<div class="table1">
@@ -21,34 +21,34 @@
 					<td colspan="2"><h4>Offensive</h4></td>
 				</tr>
 				<tr>
-					<td>Tir : [[ ${session.j.tir} ]]</td>
+					<td>Tir : [[${joueur.tir}]] </td>
 				</tr>
 				<tr>
-					<td>Precision : [[ ${session.j.precision} ]]</td>
+					<td>Precision : [[${joueur.precision}]]</td>
 				</tr>
 				<tr>
 					<td colspan="2"><h4>Général</h4></td>
 				</tr>
 				<tr>
-					<td>Acceleration : [[ ${session.j.acceleration} ]]</td>
+					<td>Acceleration : [[${joueur.acceleration}]]</td>
 				</tr>
 				<tr>
-					<td>Puissance : [[ ${session.j.puissance} ]]</td>
+					<td>Puissance : [[${joueur.puissance}]]</td>
 				</tr>
 				<tr>
 					<td colspan="2"><h4>Défensive</h4></td>
 				</tr>
 				<tr>
-					<td>Tacle : [[ ${session.j.tacle} ]]</td>
+					<td>Tacle : [[${joueur.tacle}]]</td>
 				</tr>
 				<tr>
-					<td>Marquage : [[ ${session.j.marquage} ]]</td>
+					<td>Marquage : [[${joueur.marquage}]]</td>
 				</tr>
 			</table>
 		</div>
 		<div class="table1">
 			<table>
-				<td><a href="joueur"><p>Retour au menu Joueur</p></a></td>
+				<td><a href="Menu_Joueur"><p>Retour au menu Joueur</p></a></td>
 			</table>
 		</div>
 	</form>

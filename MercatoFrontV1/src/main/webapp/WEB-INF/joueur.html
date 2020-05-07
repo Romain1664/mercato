@@ -17,6 +17,10 @@
 			</div>
 	
 			<div class="table2">
+			
+				<div class="valid" th:if="${message!=null}" th:text="${message}">
+				</div>
+				
 				<div th:if="${session.joueurInscrit=='N' }">
 					<a href="joueur?action=inscription">Etre éligible Joueur</a>
 					<br><br>
@@ -44,9 +48,9 @@
 					</div>
 					
 					<br>
-					<a href="joueur/afficherStat">Afficher mes statistiques</a>
+					<a href="Menu_Joueur/afficherStats">Afficher mes statistiques</a>
 					<br><br>
-					<a href="joueur/modifierStats">Modifier mes statistiques</a>
+					<a href="Menu_Joueur/modifierStats">Modifier mes statistiques</a>
 					<br><br>
 					
 				</div>

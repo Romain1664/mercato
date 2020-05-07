@@ -10,7 +10,7 @@
 			<legend>ALORS ON CHANGE QUOI?</legend>
 		</div>
 		<div class="table2">
-			<form action="joueurStat?action=modifStat" method="POST">
+			<form action="Menu_Joueur/ModificationStat" method="POST">
 				<table> 
 					<tr>
 						<td colspan="2"><h4>Offensive</h4></td>
@@ -18,13 +18,13 @@
 					<tr>
 						<td>Tir</td>	
 						<td> 
-							<input th:value="${sessionScope.tir}" type="text" name="tir">
+							<input th:value="${joueur.tir}" type="text" name="tir">
 						</td>
 					</tr>	
 					<tr>
 						<td>Precision</td> 	
 						<td> 
-							<input th:value="${sessionScope.precision}" type="text" name="precision">
+							<input th:value="${joueur.precision}" type="text" name="precision">
 						</td>
 					</tr> 	
 					<tr>
@@ -33,13 +33,13 @@
 					<tr>
 						<td>Acceleration</td>
 						<td>
-							<input th:value="${sessionScope.acceleration}" type="text" name="acceleration">
+							<input th:value="${joueur.acceleration}" type="text" name="acceleration">
 						</td>
 					</tr>	
 					<tr>
 						<td>Puissance</td>	
 						<td> 
-							<input th:value="${sessionScope.puissance}" type="text" name="puissance">
+							<input th:value="${joueur.puissance}" type="text" name="puissance">
 						</td>						
 					</tr>
 					 <tr>
@@ -48,13 +48,13 @@
 					<tr>
 						<td>Tacle</td> 
 						<td> 
-							<input th:value="${sessionScope.tacle}" type="text" name="tacle">
+							<input th:value="${joueur.tacle}" type="text" name="tacle">
 						</td>
 					</tr>
 					<tr>
 						<td>Marquage</td>	
 						<td> 
-							<input th:value="${sessionScope.marquage}" type="text" name="marquage">
+							<input th:value="${joueur.marquage}" type="text" name="marquage">
 						</td>
 					</tr>
 				</table>
@@ -63,7 +63,7 @@
 		</div>
 		<div class="table1">
 			<table>
-				<td><a href="joueur"><p>Retour au menu Joueur</p></a></td>
+				<td><a href="Menu_Joueur/ModificationStat"><p>Retour au menu Joueur</p></a></td>
 			</table>
 		</div>
 	</body>
