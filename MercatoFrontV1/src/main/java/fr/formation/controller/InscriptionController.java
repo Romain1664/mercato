@@ -34,13 +34,13 @@ public class InscriptionController {
 		Compte c=daoCompte.findByLogin(compte.getLogin());
 		boolean okEquipe = false;
 		
+		model.addAttribute("login",compte.getLogin());
+		
 		if (c!=null)
 		{
 			model.addAttribute("errorLogin","Ce login existe déjà");
 			return "inscription";
 		}
-		
-		model.addAttribute("login",compte.getLogin());
 		
 		if ( (!compte.getType().equals("joueur")) && (!compte.getType().equals("manager")) )
 		{

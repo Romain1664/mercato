@@ -25,10 +25,14 @@ public class JoueurControlleur {
 	@GetMapping("/Menu_Joueur")
 	public String accueilJoueur(HttpSession session,Model model)
 	{
-		model.addAttribute("message",session.getAttribute("message"));
-		session.removeAttribute("message");
-		
-		return "joueur";
+		if (session.getAttribute("typeAccount")==null) {return "redirect:/accueil" ;}
+		else 
+		{
+			model.addAttribute("message",session.getAttribute("message"));
+			session.removeAttribute("message");
+			
+			return "joueur";
+		}
 	}
 	
 	
