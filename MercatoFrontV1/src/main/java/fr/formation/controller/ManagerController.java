@@ -20,8 +20,7 @@ import fr.formation.model.Equipe;
 import fr.formation.model.Joueur;
 
 @Controller
-public class ManagerController 
-{
+public class ManagerController {
 
 	@Autowired
 	private IDAOEquipe daoEquipe;
@@ -41,7 +40,7 @@ public class ManagerController
 	public String gesttionBudget(HttpSession session,Model model) 
 	{
 		Compte c = (Compte) session.getAttribute("compte");
-		Equipe eq = daoEquipe.findById(c.getId()).get();
+		Equipe eq = this.daoEquipe.findById(c.getId()).get();
 
 		model.addAttribute("equipe",eq);
 		
@@ -53,14 +52,14 @@ public class ManagerController
 	public String achat(@RequestParam(value="id") Integer id ,HttpSession session,Model model) {
 		
 		Compte c = (Compte) session.getAttribute("compte");
-		Equipe eq = daoEquipe.findByManager(c.getId());
-		Joueur j = daoJoueur.findById(id).get();
+		Equipe eq = this.daoEquipe.findByManager(c.getId());
+		Joueur j = this.daoJoueur.findById(id).get();
 		
 		eq.setBudget(eq.getBudget()-j.getPrix());
 		j.setId_equipe(eq.getId());
 		
-		daoJoueur.save(j);
-		daoEquipe.save(eq);
+		this.daoJoueur.save(j);
+		this.daoEquipe.save(eq);
 		
 		session.setAttribute("message","Votre achat fut un succès");
 		
@@ -71,14 +70,14 @@ public class ManagerController
 	public String vente(@RequestParam(value="id") Integer id ,HttpSession session,Model model) {
 
 		Compte c = (Compte) session.getAttribute("compte");
-		Equipe eq = daoEquipe.findByManager(c.getId());
-		Joueur j = daoJoueur.findById(id).get();
+		Equipe eq = this.daoEquipe.findByManager(c.getId());
+		Joueur j = this.daoJoueur.findById(id).get();
 		
 		eq.setBudget(eq.getBudget()+j.getPrix());
 		j.setId_equipe(1);
 		
-		daoJoueur.save(j);
-		daoEquipe.save(eq);
+		this.daoJoueur.save(j);
+		this.daoEquipe.save(eq);
 		
 		session.setAttribute("message","Votre vente fut un succès");
 		
@@ -96,11 +95,11 @@ public class ManagerController
 	public String budget(@RequestParam(value="budget") Double budget, HttpSession session,Model model) {
 
 		Compte c = (Compte) session.getAttribute("compte");
-		Equipe eq = daoEquipe.findByManager(c.getId());
+		Equipe eq = this.daoEquipe.findByManager(c.getId());
 
 		eq.setBudget(budget);
 		
-		daoEquipe.save(eq);
+		this.daoEquipe.save(eq);
 		
 		session.setAttribute("message","Le budget a été changé !");
 		
@@ -117,7 +116,7 @@ public class ManagerController
 	@PostMapping("/Menu_Manager/Creation_Equipe")
 	public String creationEequipe(@Valid @RequestParam(value="nom_equipe") String nom_equipe,@Valid @RequestParam(value="budget") Double budget, Model model, HttpSession session) {
 		
-		Equipe eq = daoEquipe.findByNomEquipe(nom_equipe);
+		Equipe eq = this.daoEquipe.findByNomEquipe(nom_equipe);
 		
 		if (eq!=null)
 		{
@@ -133,7 +132,7 @@ public class ManagerController
 			Compte c = (Compte) session.getAttribute("compte");
 			Equipe eq2 = new Equipe(nom_equipe, c.getId(),budget);
 			
-			daoEquipe.save(eq2);
+			this.daoEquipe.save(eq2);
 			model.addAttribute("message","L'équipe a été créé avec succès !");
 			session.setAttribute("managerEquipe", "Y");
 			

@@ -26,7 +26,7 @@ public class ListeJoueursController {
 	@GetMapping("/Liste_Joueurs")
 	public String listeJoueurs(Model model) {
 		
-		List<Joueur> joueurs = daoJoueur.findAll();
+		List<Joueur> joueurs = this.daoJoueur.findAll();
 		
 		for (Joueur j : joueurs)
 		{
@@ -45,7 +45,7 @@ public class ListeJoueursController {
 		Compte c = (Compte) session.getAttribute("compte");
 		Equipe eq = this.daoEquipe.findByManager(c.getId());
 		
-		List<Joueur> joueurs =daoJoueur.findByEquipe(eq.getId());
+		List<Joueur> joueurs = this.daoJoueur.findByEquipe(eq.getId());
 		model.addAttribute("joueurs", joueurs);
 		
 		return "joueursEquipe";
@@ -58,7 +58,7 @@ public class ListeJoueursController {
 		Compte c = (Compte) session.getAttribute("compte");
 		Equipe eq = this.daoEquipe.findByManager(c.getId());
 		
-		List<Joueur> joueurs =daoJoueur.findLibreByBudget(eq.getBudget());
+		List<Joueur> joueurs =this.daoJoueur.findLibreByBudget(eq.getBudget());
 		model.addAttribute("joueurs", joueurs);
 		
 		return "joueurAchat";
@@ -70,7 +70,7 @@ public class ListeJoueursController {
 		Compte c = (Compte) session.getAttribute("compte");
 		Equipe eq = this.daoEquipe.findByManager(c.getId());
 		
-		List<Joueur> joueurs =daoJoueur.findByEquipe(eq.getId());
+		List<Joueur> joueurs =this.daoJoueur.findByEquipe(eq.getId());
 		model.addAttribute("joueurs", joueurs);
 		
 		return "joueurVente";
