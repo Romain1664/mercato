@@ -44,10 +44,30 @@ public class ListeJoueursController {
 		return "joueursEquipe";
 	}
 	
+	@GetMapping("/Acheter_Joueurs")
+	public String achatEquipe(HttpSession session, Model model) 
+	{
+		
+		Compte c = (Compte) session.getAttribute("compte");
+		Equipe eq = this.daoEquipe.findByManager(c.getId());
+		
+		List<Joueur> joueurs =daoJoueur.findLibreByBudget(eq.getBudget());
+		model.addAttribute("joueurs", joueurs);
+		
+		return "joueurAchat";
+	}	
 	
-	
-	
-	
+	@GetMapping("/Vendre_Joueurs")
+	public String venteEquipe(HttpSession session, Model model) 
+	{
+		Compte c = (Compte) session.getAttribute("compte");
+		Equipe eq = this.daoEquipe.findByManager(c.getId());
+		
+		List<Joueur> joueurs =daoJoueur.findByEquipe(eq.getId());
+		model.addAttribute("joueurs", joueurs);
+		
+		return "joueurVente";
+	}	
 	
 	
 	

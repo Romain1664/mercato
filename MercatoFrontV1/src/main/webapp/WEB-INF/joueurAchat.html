@@ -8,14 +8,14 @@
 	</head>
 
 	<body class="body0">
-		<div class="table1">
+		<div class="table3">
 			<table>
 				<legend>L'EMIR VEUT GAGNER LA CHAMPION'S LEAGUE: 
-				<br> Qui sera ta nouvelle pÈpite (selon le budget de l'Èmir) ?</legend>
+				<br> Qui sera ta nouvelle p√©pite (selon le budget de l'√©mir) ?</legend>
 			</table>
 		</div>
-		<div class="table2">
-			<table>
+		<div class="table3">
+			<table class="table">
 				<thead>
 					<tr align="center">
 						<th scope="col">id</th>
@@ -24,8 +24,8 @@
 						<th scope="col">Age</th>
 						<th scope="col">Poste</th>
 						<th scope="col">Tir</th>
-						<th scope="col">Precision</th>
-						<th scope="col">AccÈlÈration</th>
+						<th scope="col">Pr√©cision</th>
+						<th scope="col">Acc√©l√©ration</th>
 						<th scope="col">Puissance</th>
 						<th scope="col">Tacle</th>
 						<th scope="col">Marquage</th>							
@@ -52,28 +52,29 @@
 			</table>
 		</div>
 		
-		<form method="POST" action="AcheterJoueur"> <!-- FAUT VOIR OU CETTE PAGE MENE -->
-			<div class="table3">
+		<form method="POST" action="Achat_Joueur">
+			<div class="table2">
 				<table>
 				 	<tr>
 						<td>Qui veux-tu acheter ?</td>
 						<td>
-							<select name="joueurAchat">
-								<c:forEach items="${joueurs}" var="j">
-									<option th:value="${j.id}">[[ ${j.nom} ]] [[ ${j.prenom} ]]</option>
-								</c:forEach>
+							<select name="id">
+								<option
+								th:each="j : ${joueurs}"
+								th:value="${j.id}"
+								th:text="${j.nom} + ' ' + ${j.prenom} + ' (' + ${j.id} + ')'"/>
 							</select>
 						</td>
+						<td><input type="submit" value ="Valider"></td>
 					</tr> 
 				</table>
-				<input type="submit">
 			</div>
 		</form>
 		
 		<div class="table4">
 			<table>
 				<tr>
-					<td><a href="manager">Retour au menu Manager</a></td>
+					<td><a href="Menu_Manager">Retour au menu Manager</a></td>
 				</tr>
 			</table>
 		</div>

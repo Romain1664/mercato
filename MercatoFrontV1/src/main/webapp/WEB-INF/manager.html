@@ -9,12 +9,13 @@
 	<form action="">
 		<div class="table1">
 			<table>
-				<legend>Menu Manager</legend>
+				<legend>MENU MANAGER</legend>
 			</table>
 		</div>
 
+		
 		<div class="table2">
-
+			<span class="valid" th:if="${message!=null}" th:text="${message}"></span>
 			<a href="Liste_Joueurs">Afficher la liste des joueurs inscrits</a>
 			<br>
 			<br> 
@@ -24,10 +25,10 @@
 			<a href="Liste_Joueurs_Equipe">Afficher les joueurs de son équipe</a>
 			<br>
 			<br>
-			<a href="Menu_Manager/achatJoueur">Acheter un joueur</a>
+			<a href="Acheter_Joueurs">Acheter un joueur</a>
 			<br>
 			<br>
-			<a href="Menu_Jouuer/venteJoueur">Vendre un joueur</a>
+			<a href="Vendre_Joueurs">Vendre un joueur</a>
 			<br>
 			<br>
 			<a href="deconnection">Se deconnecter</a>
