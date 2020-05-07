@@ -40,7 +40,7 @@ body
 {
 	background-image:url(MaillotV.jpg); 
 	background-position:center center;
-	background-size : 80hv;
+	background-size : 70hv;
 }
 .body4
 {
@@ -82,7 +82,8 @@ a
 
 .table1 
 {
-	border: solid black 2px;
+	border-radius: 10px 10px;
+	border: double black 3px;
 	background-color:white; 
  	width:400px;
  	border-collapse:collapse; 
@@ -90,7 +91,8 @@ a
 
 .table2 
 {
-	border: solid black 2px;
+	border-radius: 10px 10px ;
+	border : double black 3px;
 	background-color:white; 
 	width:400px; 
 	border-collapse:collapse; 
@@ -98,14 +100,16 @@ a
 
 .table3
 {
+	border-radius:10px 10px;
 	border: solid black 2px;
 	background-color:white; 
 	width:75%;
  	border-collapse:collapse; 
 }
 
-.legend
+legend
 {
+	padding-right: 15px;
  	text-align:center;
 	font-weight:bold;
 }
