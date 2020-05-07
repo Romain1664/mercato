@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-	th:replace="~{ layout.html :: layout('Inscription Joueur', ~{ ::body }) }">
+	th:replace="~{ layout.html :: layout(~{::title}, ~{ ::body }) }">
+
+	<head>
+		<title>Liste des joueurs</title>
+	</head>
 
 	<body class="body2">
 		<div class="table1">
@@ -10,80 +14,83 @@
 		</div>
 		
 		<div class="table2">
-			<form action="joueurStat?action=entreeStat" method="POST">
+			<form action="ajoutBDD" method="POST">
 				<table>
 					<tr>
 						<td>Nom</td>	
 						<td> 
-							<input placeholder="Nom" type="Text" name="nom" required th:value="${ joueur.nom }">
+							<input placeholder="Nom" type="Text" name="nom" required th:value="${joueur=!null ? joueur.nom , }">
 						</td>
 					</tr>
 					<tr>
 						<td>Prenom</td> 
 						<td>
-							<input placeholder="Prenom" type="Text" name="prenom" required th:value="${ joueur.prenom }" >
+							<input placeholder="Prenom" type="Text" name="prenom" required th:value="${joueur=!null ? joueur.prenom , }" >
 						</td>
 					</tr>	
 					<tr>
 						<td>Age</td>	
 						<td> 
-							<input placeholder="Age" type="Text" name="age"required th:value="${ joueur.age }">
+							<input placeholder="Age" type="Text" name="age"required th:value="${joueur=!null ? joueur.age , }">
 						</td>
 					</tr>
 					<tr>
 						<td>Poste</td> 
 						<td>
-							<input placeholder="Poste" type="Text" name="poste" required th:value="${ joueur.poste }">
+							<input placeholder="Poste" type="Text" name="poste" required th:value="${joueur=!null ? joueur.poste , }">
 						</td>
 					</tr>
 					<tr>
 						<td>Tir</td>	
 						<td> 
-							<input placeholder="Tir" type="Text" name="tir" required th:value="${ joueur.tir }">
+							<input placeholder="Tir" type="Text" name="tir" required th:value="${joueur=!null ? joueur.tir , }">
 						</td>
 					</tr>	
 					<tr>
 						<td>Precision</td> 
 						<td>
-							<input placeholder="Precision" type="Text" name="precision" required th:value="${ joueur.precision }">
+							<input placeholder="Precision" type="Text" name="precision" required th:value="${joueur=!null ? joueur.precision , }">
 						</td>
 					</tr>
 					<tr>
 						<td>Acceleration</td>	
 						<td> 
-							<input placeholder="Acceleration" type="Text" name="acceleration" required th:value="${ joueur.acceleration }">
+							<input placeholder="Acceleration" type="Text" name="acceleration" required th:value="${joueur=!null ? joueur.acceleration  , }">
 						</td>
 					</tr>	
 					<tr>
 						<td>Puissance</td>	
 						<td> 
-							<input placeholder="Puissance" type="Text" name="puissance" required th:value="${ joueur.puissance }">
+							<input placeholder="Puissance" type="Text" name="puissance" required th:value="${joueur=!null ? joueur..puissance , }">
 						</td>
 					</tr>	
 					<tr>
 						<td>Tacle</td> 
 						<td>
-							<input placeholder="Tacle" type="Text" name="tacle" required th:value="${ joueur.tacle }">
+							<input placeholder="Tacle" type="Text" name="tacle" required th:value="${joueur=!null ? joueur.tacle  , }">
 						</td>
 					</tr>
 					<tr>
 						<td>Marquage</td>	
 						<td> 
-							<input placeholder="Marquage" type="Text" name="marquage" required th:value="${ joueur.marquage }">
+							<input placeholder="Marquage" type="Text" name="marquage" required th:value="${joueur=!null ? joueur.marquage  , }">
 						</td>
 					</tr>
 					<tr>	
 						<td>Prix</td> 
 						<td>
-							<input placeholder="Prix" type="Text" name="prix" required th:value="${ joueur.prix }">
+							<input placeholder="Prix" type="Text" name="prix" required th:value="${joueur=!null ? joueur.prix  , }">
 						</td>
 					</tr>	
 				</table>
 				<input type="submit" value="Envoyer">
 			</form>	
 		</div>
+		<input required type="hidden" value="${session.id}" name="id">
+		<input required type="hidden" value="1" name="id_equipe">
+
 		<div class="table2">
-			<a th:href="@{ joueur/{id}(id=${ joueur.id }) }"><p>Retour au menu Joueur</p></a>
+			<a th:href="Menu_Joueur"><p>Retour au menu Joueur</p></a>
 		</div>
 	</body>
 

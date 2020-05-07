@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -26,9 +27,43 @@ public class JoueurControlleur {
 	{
 		model.addAttribute("message",session.getAttribute("message"));
 		session.removeAttribute("message");
+		
 		return "joueur";
 	}
 	
+	
+	@GetMapping("/retraite")
+	public String retraite(HttpSession session)
+	{
+		Compte c = (Compte) session.getAttribute("compte");
+		Joueur j = daoJoueur.findById(c.getId()).get();
+		
+		this.daoJoueur.deleteById(j.getId());
+		session.setAttribute("joueurInscrit", "N");
+		
+		return "redirect:/Menu_Joueur";
+	}
+	
+	@GetMapping("/Menu_Joueur/Joueur_Inscription")
+	public String debutCarriere()
+	{
+		System.out.println("test");
+		return "entreeStat";
+	}
+	
+	@PostMapping("/ajoutBDD")
+	public String ajoutJoueur(@ModelAttribute Joueur joueur, HttpSession session, Model model) {
+		
+		Compte c = (Compte) session.getAttribute("compte");
+		joueur.setId(c.getId());
+		joueur.setId_equipe(1);
+		
+		daoJoueur.insert(joueur);
+		
+		session.setAttribute("message", "Vos stats ont été modifiées");
+		
+		return "redirect:/Menu_Joueur";
+	}
 	
 	@GetMapping("/Menu_Joueur/afficherStats")
 	public String afficherStat(HttpSession session,Model model) 
@@ -77,18 +112,7 @@ public class JoueurControlleur {
 		
 		return "redirect:/Menu_Joueur";
 	}
-	
-	@GetMapping("retraite")
-	public String deleteById(HttpSession session)
-	{
-		Compte c = (Compte) session.getAttribute("compte");
-		Joueur j = daoJoueur.findById(c.getId()).get();
-		
-		this.daoJoueur.deleteById(j.getId());
-		session.setAttribute("joueurInscrit", "N");
-		
-		return "redirect:/Menu_Joueur";
-	}
+
 
 	
 }
