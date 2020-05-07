@@ -67,7 +67,7 @@ public class InscriptionController {
 		
 		daoCompte.save(compte);
 		
-		session.setAttribute("message", okEquipe ? "Votre compte et votre �quipe ont bien �t�s cr��s" : "Votre compte a bien �t� cr��" );
+		session.setAttribute("message", okEquipe ? "Votre compte et votre �quipe ont bien été créés" : "Votre compte a bien été créé" );
 		System.out.println("4");
 		return "redirect:/accueil";
 	}
