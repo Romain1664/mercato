@@ -54,9 +54,8 @@
 	<form method="POST" action="Vente_Joueur">
 		<div class="table2">
 			<table>
-				<tr>
-					<td>Qui est le maillon faible ?</td>
-					<td><select name="id">
+				<tr><td>Qui est le maillon faible ?</td><tr>
+				<tr><td><select name="id">
 							<option th:each="j : ${joueurs}" th:value="${j.id}"
 								th:text="${j.nom} + ' ' + ${j.prenom} + ' (' + ${j.id} + ')'" />
 					</select></td>

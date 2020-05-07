@@ -28,7 +28,4 @@ public interface IDAOJoueur extends JpaRepository<Joueur, Integer> {
 	@Query(value ="SELECT j FROM Joueur j WHERE j.id_equipe=1 AND j.prix<?1", nativeQuery = false)
 	public List<Joueur> findLibreByBudget(double budget);
 	
-//	@Query(value="SELECT * FROM Joueur JOIN equipe ON joueur.id=equipe.id_manager" ,nativeQuery= true)
-//	public List<Joueur> findAllEquipe();
-	
 }
