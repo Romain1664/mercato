@@ -7,6 +7,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "equipe")
@@ -18,12 +21,15 @@ public class Equipe {
 	private int id;
 	
 	@Column(name = "nom_equipe", length=50,  nullable = false)
+	@NotNull
+	@NotEmpty
 	private String nom_equipe;
 
 	@Column(name = "id_compte", nullable = false)
 	private int id_compte;
 	
 	@Column(name = "budget", nullable = false)
+	@Min(0)
 	private double budget;
 	
 	@Transient

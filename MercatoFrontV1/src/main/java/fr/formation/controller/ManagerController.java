@@ -1,9 +1,8 @@
 package fr.formation.controller;
 
 
-import java.lang.module.FindException;
-
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 //import javax.validation.Valid;
 
@@ -109,12 +108,39 @@ public class ManagerController
 	}
 	
 	@GetMapping("/Menu_Manager/Creation_Equipe")
-	public String equipe(Model model, HttpSession session) {
+	public String equipe() {
 		
-		model.addAttribute("message",session.getAttribute("message"));
-		session.removeAttribute("message");
-		return "";
+		return "creationEquipe";
 	}
+	
+	
+	@PostMapping("/Menu_Manager/Creation_Equipe")
+	public String creationEequipe(@Valid @RequestParam(value="nom_equipe") String nom_equipe,@Valid @RequestParam(value="budget") Double budget, Model model, HttpSession session) {
+		
+		Equipe eq = daoEquipe.findByNomEquipe(nom_equipe);
+		
+		if (eq!=null)
+		{
+			model.addAttribute("errorEquipe","Le nom d'équipe est déjà pris !");
+			model.addAttribute("nom_equipe",nom_equipe);
+			model.addAttribute("budget",budget);
+			
+			return "creationEquipe";
+		}
+		
+		else
+		{
+			Compte c = (Compte) session.getAttribute("compte");
+			Equipe eq2 = new Equipe(nom_equipe, c.getId(),budget);
+			
+			daoEquipe.save(eq2);
+			model.addAttribute("message","L'équipe a été créé avec succès !");
+			session.setAttribute("managerEquipe", "Y");
+			
+			return "manager";
+		}
+	}
+	
 	
 }
 	

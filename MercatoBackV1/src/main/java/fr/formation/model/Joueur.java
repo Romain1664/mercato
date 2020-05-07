@@ -187,6 +187,13 @@ public class Joueur extends Compte {
 		this.prenom = prenom;
 	}
 	
+	public String getNom_equipe() {
+		return nom_equipe;
+	}
+
+	public void setNom_equipe(String nom_equipe) {
+		this.nom_equipe = nom_equipe;
+	}
 
 	public void regarderStat(Integer id)
 	{

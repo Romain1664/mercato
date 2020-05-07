@@ -27,6 +27,13 @@ public class ListeJoueursController {
 	public String listeJoueurs(Model model) {
 		
 		List<Joueur> joueurs = daoJoueur.findAll();
+		
+		for (Joueur j : joueurs)
+		{
+			Equipe eq= this.daoEquipe.findById(j.getId_equipe()).get();
+			j.setNom_equipe(eq.getNom_equipe());
+		}
+		
 		model.addAttribute("joueurs",joueurs);
 		
 		return "joueurs";
