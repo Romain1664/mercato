@@ -60,6 +60,7 @@ public class JoueurControlleur {
 		
 		daoJoueur.insert(joueur);
 		
+		session.setAttribute("joueurInscrit", "Y");
 		session.setAttribute("message", "Vos stats ont été modifiées");
 		
 		return "redirect:/Menu_Joueur";
