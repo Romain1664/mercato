@@ -12,49 +12,44 @@
 		<form action="">
 			<div class="table1">
 				<table>
-					<legend>Menu Joueur, que voulez-vous faire </legend>
+					<tr><td>Menu Joueur, que voulez-vous faire</td></tr>
 				</table>
 			</div>
 	
 			<div class="table2">
-	
-				
 				<div th:if="${session.joueurInscrit=='N' }">
-						<a href="joueur?action=inscription">Etre éligible Joueur</a>
-						<br>
-						<br>
-					</div>
-					<div th:if="${session.joueurInscrit=='Y' }">
-						<!-- Button trigger modal -->
-						<a href="#" data-href="" data-toggle="modal" data-target="#confirm-delete">Prendre sa retraite</a><br>
-						<!-- Modal -->
-						<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-							<div class="modal-dialog">
-								<div class="modal-content">
-									<div class="modal-header">
-										<h5 class="modal-title">Veuillez confirmer</h5>
-										<button type="button" class="close" data-dismiss="modal"
-											aria-hidden="true">&times;</button>
-										<h4 class="modal-title" id="myModalLabel"></h4>
-									</div>
-									<div class="modal-body">
-										<p>Voulez-vous vraiment ranger les crampons ?</p>
-									</div>
-									<div class="modal-footer">
-										<button type="button" class="btn btn-default" data-dismiss="modal">Pas maintenant ...</button>
-										<a class="btn btn-danger btn-ok" href="joueur?action=desinscription">Retraite bien méritée</a>
-									</div>
+					<a href="joueur?action=inscription">Etre éligible Joueur</a>
+					<br><br>
+				</div>
+				
+				<div th:if="${session.joueurInscrit=='Y' }">
+					<a href="#" data-href="" data-toggle="modal" data-target="#confirm-delete">Prendre sa retraite</a><br>
+					<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title">Veuillez confirmer</h5>
+									<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+									<h4 class="modal-title" id="myModalLabel"></h4>
+								</div>
+								<div class="modal-body">
+									<p>Voulez-vous vraiment ranger les crampons ?</p>
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-default" data-dismiss="modal">Pas maintenant ...</button>
+									<a class="btn btn-danger btn-ok" href="joueur?action=desinscription">Retraite bien méritée</a>
 								</div>
 							</div>
 						</div>
-						<br>
-						<a href="joueur?action=statsAfficher">Afficher mes statistiques</a>
-						<br>
-						<br>
-						<a href="joueur?action=statsModifier">Modifier mes statistiques</a>
-						<br>
-						<br>
 					</div>
+					
+					<br>
+					<a href="joueur?action=statsAfficher">Afficher mes statistiques</a>
+					<br><br>
+					<a href="joueur?action=statsModifier">Modifier mes statistiques</a>
+					<br><br>
+					
+				</div>
 				
 				<a href="joueurs?action=Tous">Afficher la liste des joueurs inscrits</a>
 				<br><br>
