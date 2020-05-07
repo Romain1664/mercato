@@ -20,8 +20,7 @@
 	
 			<div class="table2">
 			
-				<div class="valid" th:if="${message!=null}" th:text="${message}">
-				</div>
+				<div class="valid" th:if="${message!=null}" th:text="${message}"></div>				
 				
 				<div th:if="${session.joueurInscrit=='N' }">
 					<a href="Menu_Joueur/Joueur_Inscription">Etre éligible Joueur</a>

@@ -8,14 +8,13 @@
 <body class="body0">
 	<div class="table1">
 		<table>
-			<legend>Le Quatar veut faire des Èconomies : On vire qui
+			<legend>Le Quatar veut faire des √©conomies : On vire qui
 				Coach ???</legend>
 		</table>
 	</div>
 
 	<div class="table3">
-		<legend>Voici vous joueurs Monsieur : qui voulez-vous jeter
-			aux lions ?</legend>
+		<legend>Voici vous joueurs Monsieur : qui voulez-vous donner aux lions ?</legend>
 		<table class="table">
 			<thead>
 				<tr align="center">
@@ -25,8 +24,8 @@
 					<th scope="col">Age</th>
 					<th scope="col">Poste</th>
 					<th scope="col">Tir</th>
-					<th scope="col">Precision</th>
-					<th scope="col">AccÈlÈration</th>
+					<th scope="col">Pr√©cision</th>
+					<th scope="col">Acc√©l√©ration</th>
 					<th scope="col">Puissance</th>
 					<th scope="col">Tacle</th>
 					<th scope="col">Marquage</th>
@@ -61,8 +60,8 @@
 							<option th:each="j : ${joueurs}" th:value="${j.id}"
 								th:text="${j.nom} + ' ' + ${j.prenom} + ' (' + ${j.id} + ')'" />
 					</select></td>
-					<td><input type="submit" value="Au revoir"></td>
 				</tr>
+				<tr><td><input type="submit" value="Au revoir"></td></tr>
 			</table>
 		</div>
 	</form>
