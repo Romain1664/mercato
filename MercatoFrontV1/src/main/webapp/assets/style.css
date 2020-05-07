@@ -15,7 +15,7 @@ body
 	align-items : center;
 	height: 100vh;
     margin: 0;
-    legend : center
+    legend : center;
 }
 
 .body0 
@@ -75,10 +75,9 @@ body
 	transform: translateX(-50%);
 }
 
-
-
 a
 {
+	text-align : center;
     color: black;
     font-family:"times new roman", times, serif;
 }
@@ -109,7 +108,7 @@ a
 	border-radius: 10px 10px ;
 	border : double black 3px;
 	background-color:white; 
-	<!--width:400px;--> 
+	width:400px;
 	border-collapse:collapse; 
 }
 
