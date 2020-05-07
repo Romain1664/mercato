@@ -1,6 +1,7 @@
 package fr.formation.controller;
 
 
+import java.util.List;
 import java.util.Optional;
 
 import javax.servlet.http.HttpSession;
@@ -36,6 +37,9 @@ public class ManagerController
 	@Autowired
 	private IDAOEquipe daoEquipe; // A CREER UNE IDAO MANAGER
 	
+	@Autowired
+	private IDAOJoueur daoJoueur;
+	
 	@GetMapping("/Menu_Manager")
 	public String accueilJoueur(HttpSession session,Model model)
 	{
@@ -61,9 +65,9 @@ public class ManagerController
 	public String afficherEquipe(HttpSession session, Model model) 
 	{
 		Compte c = (Compte) session.getAttribute("compte");
-		Equipe e = daoEquipe.findById(c.getId()).get();
-
-		model.addAttribute("equipe",e);
+		List<Joueur> equipe =daoJoueur.findByEquipe();
+		model.addAttribute("equipe", equipe);
+		
 		return "joueurEquipe";
 	}
 	
