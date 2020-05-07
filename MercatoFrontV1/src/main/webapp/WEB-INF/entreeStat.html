@@ -16,72 +16,89 @@
 		<div class="table2">
 			<form action="ajoutBDD" method="POST">
 				<table>
+					<tr>	
+						<td>Vos informations générales</td> 
+						<td></td>
+					</tr>	
 					<tr>
 						<td>Nom</td>	
 						<td> 
-							<input placeholder="Nom" type="Text" name="nom" required th:value="${joueur=!null ? joueur.nom , }">
+							<input placeholder="Votre nom" type="Text" name="nom" required>
 						</td>
 					</tr>
 					<tr>
-						<td>Prenom</td> 
+						<td>Prénom</td> 
 						<td>
-							<input placeholder="Prenom" type="Text" name="prenom" required th:value="${joueur=!null ? joueur.prenom , }" >
+							<input placeholder="Votre prénom" type="Text" name="prenom" required>
 						</td>
-					</tr>	
+					</tr>
 					<tr>
 						<td>Age</td>	
 						<td> 
-							<input placeholder="Age" type="Text" name="age"required th:value="${joueur=!null ? joueur.age , }">
+							<input placeholder="Votre age" type="Text" name="age"  required>
 						</td>
 					</tr>
 					<tr>
 						<td>Poste</td> 
 						<td>
-							<input placeholder="Poste" type="Text" name="poste" required th:value="${joueur=!null ? joueur.poste , }">
-						</td>
-					</tr>
-					<tr>
-						<td>Tir</td>	
-						<td> 
-							<input placeholder="Tir" type="Text" name="tir" required th:value="${joueur=!null ? joueur.tir , }">
-						</td>
-					</tr>	
-					<tr>
-						<td>Precision</td> 
-						<td>
-							<input placeholder="Precision" type="Text" name="precision" required th:value="${joueur=!null ? joueur.precision , }">
-						</td>
-					</tr>
-					<tr>
-						<td>Acceleration</td>	
-						<td> 
-							<input placeholder="Acceleration" type="Text" name="acceleration" required th:value="${joueur=!null ? joueur.acceleration  , }">
-						</td>
-					</tr>	
-					<tr>
-						<td>Puissance</td>	
-						<td> 
-							<input placeholder="Puissance" type="Text" name="puissance" required th:value="${joueur=!null ? joueur..puissance , }">
-						</td>
-					</tr>	
-					<tr>
-						<td>Tacle</td> 
-						<td>
-							<input placeholder="Tacle" type="Text" name="tacle" required th:value="${joueur=!null ? joueur.tacle  , }">
-						</td>
-					</tr>
-					<tr>
-						<td>Marquage</td>	
-						<td> 
-							<input placeholder="Marquage" type="Text" name="marquage" required th:value="${joueur=!null ? joueur.marquage  , }">
+							<input placeholder="Votre poste" type="Text" name="poste" required>
 						</td>
 					</tr>
 					<tr>	
 						<td>Prix</td> 
 						<td>
-							<input placeholder="Prix" type="Text" name="prix" required th:value="${joueur=!null ? joueur.prix  , }">
+							<input placeholder="Votre prix" type="Text" name="prix" required>
+						</td>
+					</tr>
+					<tr>
+						<td>Vos stats offensives</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>Tir</td>	
+						<td> 
+							<input placeholder="Votre stat de tir" type="Text" name="tir" required>
 						</td>
 					</tr>	
+					<tr>
+						<td>Précision</td> 
+						<td>
+							<input placeholder="Votre stat de précision" type="Text" name="precision" required>
+						</td>
+					</tr>
+					<tr>
+						<td>Vos stats générales</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>Acceleration</td>	
+						<td> 
+							<input placeholder="Votre stat d'acceleration" type="Text" name="acceleration" required>
+						</td>
+					</tr>	
+					<tr>
+						<td>Puissance</td>	
+						<td> 
+							<input placeholder="Votre stat de puissance" type="Text" name="puissance" required>
+						</td>
+					</tr>	
+					<tr>
+						<td>Vos stats défensives</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>Tacle</td> 
+						<td>
+							<input placeholder="Votre stat de tacle" type="Text" name="tacle" required>
+						</td>
+					</tr>
+					<tr>
+						<td>Marquage</td>	
+						<td> 
+							<input placeholder="Votre stat de marquage" type="Text" name="marquage" required>
+						</td>
+					</tr>
+
 				</table>
 				<input type="submit" value="Envoyer">
 			</form>	
