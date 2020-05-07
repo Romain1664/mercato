@@ -32,7 +32,7 @@ public class ManagerController {
 	{
 		model.addAttribute("message",session.getAttribute("message"));
 		session.removeAttribute("message");
-		return "manager";
+		return "menuManager";
 	}
 	
 	

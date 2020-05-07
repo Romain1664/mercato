@@ -36,7 +36,7 @@ public class ListeJoueursController {
 		
 		model.addAttribute("joueurs",joueurs);
 		
-		return "joueurs";
+		return "joueursListe";
 	}
 	
 	@GetMapping("/Liste_Joueurs_Equipe")

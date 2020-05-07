@@ -30,7 +30,7 @@ public class JoueurControlleur {
 			model.addAttribute("message",session.getAttribute("message"));
 			session.removeAttribute("message");
 			
-			return "joueur";
+			return "menuJoueur";
 		}
 		else {return "redirect:/accueil" ;}
 	}
