@@ -28,7 +28,7 @@ body
 {
 	background-image:url(Filet.jpg); 
 	background-position:center center;
-	background-size : 100%;
+	background-size : cover;
 }
 /* .body2 
 {
@@ -40,6 +40,7 @@ body
 {
 	background-image:url(MaillotV.jpg); 
 	background-position-x:center;
+	background-size : 75vh;
 	background-position-y: -15vh;
 	background-color: #094e0f;
 }
@@ -62,17 +63,14 @@ body
 	background-size : 100%;
 }
 
-
-
-.body3 .joueur-nom {
+.body3 .joueur-nom 
+{
 	position: absolute;
 	top: 20vh;
 	left: 50%;
-	
 	font-family: 'Montserrat', sans-serif;
 	font-size: 24px;
 	color: white;
-	
 	text-transform: uppercase;
 	transform: translateX(-50%);
 }
@@ -111,7 +109,7 @@ a
 	border-radius: 10px 10px ;
 	border : double black 3px;
 	background-color:white; 
-	width:400px; 
+	<!--width:400px;--> 
 	border-collapse:collapse; 
 }
 
