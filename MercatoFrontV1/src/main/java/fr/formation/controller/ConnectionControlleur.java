@@ -38,7 +38,7 @@ public class ConnectionControlleur {
 	
 	
 	@PostMapping("/connection")
-	public String connection(@RequestParam(value="login") String login, @RequestParam(value="password") String password, Model model) {
+	public String connection(@RequestParam(value="login") String login, @RequestParam(value="password") String password, Model model, HttpSession session) {
 	
 		Compte c = daoCompte.checkConnect(login, password);
 		model.addAttribute("login", login);
@@ -52,18 +52,18 @@ public class ConnectionControlleur {
 		
 		else if(c.getType().equals("joueur"))
 		{
-			model.addAttribute("compte", c);
-			model.addAttribute("typeAccount", "Joueur");
+			session.setAttribute("compte", c);
+			session.setAttribute("typeAccount", "Joueur");
 			
 			Optional<Joueur> j = daoJoueur.findById(c.getId());
 			
 			if (!j.isPresent()) 
 			{
-				model.addAttribute("joueurInscrit", "N");
+				session.setAttribute("joueurInscrit", "N");
 			}
 			else 
 			{
-				model.addAttribute("joueurInscrit", "Y");
+				session.setAttribute("joueurInscrit", "Y");
 			}
 
 			System.out.println("Connection Joueur");
@@ -71,18 +71,18 @@ public class ConnectionControlleur {
 		}
 		else if (c.getType().equals("manager"))
 		{
-			model.addAttribute("compte", c);
-			model.addAttribute("typeAccount", "Manager");
+			session.setAttribute("compte", c);
+			session.setAttribute("typeAccount", "Manager");
 
 			Equipe eq = daoEquipe.findByManager(c.getId());
 			
 			if (eq == null) 
 			{
-				model.addAttribute("managerEquipe", "N");
+				session.setAttribute("managerEquipe", "N");
 			}
 			else 
 			{
-				model.addAttribute("managerEquipe", "Y");
+				session.setAttribute("managerEquipe", "Y");
 			}
 
 			System.out.println("Connection Manager");
