@@ -41,7 +41,8 @@ public class ConnectionControlleur {
 		
 		session.removeAttribute("compte");
 		session.removeAttribute("typeAccount");
-		session.removeAttribute("joueurInscrit");
+		if (session.getAttribute("joueurInscrit")!=null) {session.removeAttribute("joueurInscrit");}
+		if (session.getAttribute("managerEquipe")!=null) {session.removeAttribute("managerEquipe");}
 		
 		return "redirect:/accueil";
 	}

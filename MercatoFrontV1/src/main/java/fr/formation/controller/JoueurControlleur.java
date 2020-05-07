@@ -26,13 +26,14 @@ public class JoueurControlleur {
 	public String accueilJoueur(HttpSession session,Model model)
 	{
 		if (session.getAttribute("typeAccount")==null) {return "redirect:/accueil" ;}
-		else 
+		else if (session.getAttribute("typeAccount").equals("Joueur"))
 		{
 			model.addAttribute("message",session.getAttribute("message"));
 			session.removeAttribute("message");
 			
 			return "joueur";
 		}
+		else {return "redirect:/accueil" ;}
 	}
 	
 	
