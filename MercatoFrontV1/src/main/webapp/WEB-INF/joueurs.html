@@ -40,6 +40,7 @@
 							<td>[[ ${j.puissance} ]]</td>
 							<td>[[ ${j.tacle} ]]</td>
 							<td>[[ ${j.marquage} ]]</td>
+							<td>[[ ${j.id_equipe} ]]</td>
 							<td>[[ ${j.prix} ]]</td>
 						</tr>
 					</tbody>
@@ -48,11 +49,11 @@
 		</div>
 		<div class="table2">
 		
-		<div th:if="${sessionScope.typeAccount=='Joueur' }">
-			<a href="joueur"><p>Retour au menu Joueur</p></a>
+		<div th:if="${session.typeAccount=='Joueur' }">
+			<a href="Menu_Joueur"><p>Retour au menu Joueur</p></a>
 		</div>
-		<div th:if="${sessionScope.typeAccount=='Manager' }">
-			<a href="manager"><p>Retour au menu Manager</p></a>
+		<div th:if="${session.typeAccount=='Manager' }">
+			<a href="Menu_Manager"><p>Retour au menu Manager</p></a>
 		</div>
 			
 			
