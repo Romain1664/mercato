@@ -39,8 +39,9 @@ body
 .body3 
 {
 	background-image:url(MaillotV.jpg); 
-	background-position:center center;
-	background-size : 70hv;
+	background-position-x:center;
+	background-position-y: -15vh;
+	background-color: #094e0f;
 }
 .body4
 {
@@ -60,6 +61,22 @@ body
 	background-position:center center;
 	background-size : 100%;
 }
+
+
+
+.body3 .joueur-nom {
+	position: absolute;
+	top: 20vh;
+	left: 50%;
+	
+	font-family: 'Montserrat', sans-serif;
+	font-size: 24px;
+	color: white;
+	
+	text-transform: uppercase;
+	transform: translateX(-50%);
+}
+
 
 
 a
