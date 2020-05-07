@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import fr.formation.daoSpring.IDAOCompte;
 import fr.formation.daoSpring.IDAOEquipe;
 import fr.formation.model.Compte;
+import fr.formation.model.Equipe;
 
 @Controller
 public class InscriptionController {
@@ -28,39 +29,46 @@ public class InscriptionController {
 	}
 	
 	@PostMapping("/inscription")
-	public String inscription(@ModelAttribute Compte compte, HttpSession session, Model model) {
+	public String inscription(@ModelAttribute Compte compte, @RequestParam(value="nom_equipe") String nom_equipe, @RequestParam(value="budget") double budget, HttpSession session, Model model) {
 		
 		Compte c=daoCompte.findByLogin(compte.getLogin());
-		model.addAttribute("login",compte.getLogin());
+		boolean okEquipe = false;
 		
 		if (c!=null)
 		{
-			model.addAttribute("errorLogin","Ce login existe déjà");
-			return "inscription";
+			model.addAttribute("errorLogin","Ce login existe dÃ©jÃ ");
 		}
+		
+		model.addAttribute("login",compte.getLogin());
 		
 		if ( (!compte.getType().equals("joueur")) && (!compte.getType().equals("manager")) )
 		{
-			model.addAttribute("login",compte.getLogin());
 			model.addAttribute("errorType","Choisissez un type de compte VALIDE !");
 			return "inscription";
 		}
 		
-//		if (compte.getType().equals("manager"))
-//		{
-//			Equipe eq = daoEquipe.findByNomEquipe(equipe.getNom_equipe());
-//			
-//			if (eq!=null)
-//			{
-//				model.addAttribute("login",compte.getLogin());
-//				model.addAttribute("errorEquipe","Le nom d'équipe est déjà pris!");
-//				return "inscription";
-//			}
-//		}
+		if (compte.getType().equals("manager"))
+		{
+
+			Equipe eq = daoEquipe.findByNomEquipe(nom_equipe);
+			
+			if (eq!=null)
+			{
+				model.addAttribute("errorEquipe","Le nom d'Ã©quipe est dÃ©jÃ  pris!");
+				return "inscription";
+			}
+			
+			Equipe eq2 = new Equipe(nom_equipe,compte.getId(),budget);
+			
+			daoEquipe.save(eq2);
+			okEquipe = true;
+			
+		}
 		
 		daoCompte.save(compte);
-		session.setAttribute("message","Votre compte a bien été créé");
 		
+		session.setAttribute("message", okEquipe ? "Votre compte et votre ï¿½quipe ont bien ï¿½tï¿½s crï¿½ï¿½s" : "Votre compte a bien ï¿½tï¿½ crï¿½ï¿½" );
+		System.out.println("4");
 		return "redirect:/accueil";
 	}
 	
@@ -76,14 +84,14 @@ public class InscriptionController {
 		
 		if (c==null)
 		{
-			model.addAttribute("errorLogin", "Ce login n'est associé à aucun compte");
+			model.addAttribute("errorLogin", "Ce login n'est associÃ© Ã  aucun compte");
 			return "reset";
 		}
 		
 		c.setPassword(password);
 		daoCompte.save(c);
 		
-		session.setAttribute("message","Votre mot de passe à bien été changé");
+		session.setAttribute("message","Votre mot de passe Ã  bien Ã©tÃ© changÃ©");
 		return "redirect:/accueil";
 	}
 	
