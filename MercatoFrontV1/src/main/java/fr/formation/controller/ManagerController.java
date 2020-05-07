@@ -31,6 +31,12 @@ public class ManagerController
 	@Autowired
 	private IDAOEquipe daoEquipe; // A CREER UNE IDAO MANAGER
 	
+	@GetMapping("/Menu_Manager")
+	public String findAll()
+	{
+		return "manager";
+	}
+	
 	@PostMapping("/manager")
 	public String add(Manager manager) 
 	{

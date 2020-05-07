@@ -26,6 +26,13 @@ public class JoueurController
 	@Autowired
 	private IDAOJoueur daoJoueur;
 	
+	@GetMapping("/Menu_Joueur")
+	public String findAll()
+	{
+		return "joueur";
+	}
+	
+
 	
 	@PostMapping("/joueur")
 	public String add(Joueur joueur) 
