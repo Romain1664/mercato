@@ -21,7 +21,6 @@ public class JoueurControlleur {
 	@Autowired
 	private IDAOJoueur daoJoueur;
 	
-	
 	@GetMapping("/Menu_Joueur")
 	public String accueilJoueur(HttpSession session,Model model)
 	{
@@ -41,7 +40,7 @@ public class JoueurControlleur {
 	public String retraite(HttpSession session)
 	{
 		Compte c = (Compte) session.getAttribute("compte");
-		Joueur j = daoJoueur.findById(c.getId()).get();
+		Joueur j = this.daoJoueur.findById(c.getId()).get();
 		
 		this.daoJoueur.deleteById(j.getId());
 		session.setAttribute("joueurInscrit", "N");
@@ -63,7 +62,7 @@ public class JoueurControlleur {
 		joueur.setId(c.getId());
 		joueur.setId_equipe(1);
 		
-		daoJoueur.insert(joueur);
+		this.daoJoueur.insert(joueur);
 		
 		session.setAttribute("joueurInscrit", "Y");
 		session.setAttribute("message", "Vos stats ont été modifiées");
@@ -75,7 +74,7 @@ public class JoueurControlleur {
 	public String afficherStat(HttpSession session,Model model) 
 	{
 		Compte c = (Compte) session.getAttribute("compte");
-		Joueur j = daoJoueur.findById(c.getId()).get();
+		Joueur j = this.daoJoueur.findById(c.getId()).get();
 
 		model.addAttribute("joueur",j);
 		
@@ -86,7 +85,7 @@ public class JoueurControlleur {
 	public String modifierStat(HttpSession session,Model model) 
 	{
 		Compte c = (Compte) session.getAttribute("compte");
-		Joueur j = daoJoueur.findById(c.getId()).get();
+		Joueur j = this.daoJoueur.findById(c.getId()).get();
 		
 		model.addAttribute("joueur",j);
 		
@@ -104,7 +103,7 @@ public class JoueurControlleur {
 			HttpSession session,Model model) 
 	{
 		Compte c = (Compte) session.getAttribute("compte");
-		Joueur j = daoJoueur.findById(c.getId()).get();
+		Joueur j = this.daoJoueur.findById(c.getId()).get();
 		
 		j.setTir(tir);
 		j.setPrecision(precision);
@@ -113,7 +112,7 @@ public class JoueurControlleur {
 		j.setTacle(tacle);
 		j.setMarquage(marquage);
 		
-		daoJoueur.save(j);
+		this.daoJoueur.save(j);
 		session.setAttribute("message", "Vos stats ont été modifiées");
 		
 		return "redirect:/Menu_Joueur";

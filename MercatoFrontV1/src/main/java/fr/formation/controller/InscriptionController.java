@@ -31,7 +31,7 @@ public class InscriptionController {
 	@PostMapping("/inscription")
 	public String inscription(@ModelAttribute Compte compte, @RequestParam(required=false, value="nom_equipe") String nom_equipe, @RequestParam(required=false, value="budget") Double budget, @RequestParam(value="choix") String choix, HttpSession session, Model model) {
 		
-		Compte c=daoCompte.findByLogin(compte.getLogin());
+		Compte c=this.daoCompte.findByLogin(compte.getLogin());
 		boolean okEquipe = false;
 		
 		model.addAttribute("login",compte.getLogin());
@@ -58,7 +58,7 @@ public class InscriptionController {
 				return "inscription";
 			}
 			
-			Equipe eq = daoEquipe.findByNomEquipe(nom_equipe);
+			Equipe eq = this.daoEquipe.findByNomEquipe(nom_equipe);
 			
 			if (eq!=null)
 			{
@@ -70,11 +70,11 @@ public class InscriptionController {
 			
 			Equipe eq2 = new Equipe(nom_equipe,compte.getId(),budget);
 			
-			daoEquipe.save(eq2);
+			this.daoEquipe.save(eq2);
 			okEquipe = true;
 		}
 		
-		daoCompte.save(compte);
+		this.daoCompte.save(compte);
 		
 		session.setAttribute("message", okEquipe ? "Votre compte et votre équipe ont bien été créés" : "Votre compte a bien été créé" );
 		return "redirect:/accueil";
@@ -88,7 +88,7 @@ public class InscriptionController {
 	@PostMapping("/reset_password")
 	public String resetPassword(@RequestParam(value="login") String login, @RequestParam(value="password") String password, HttpSession session, Model model) {
 		
-		Compte c = daoCompte.findByLogin(login);
+		Compte c = this.daoCompte.findByLogin(login);
 		
 		if (c==null)
 		{
@@ -97,7 +97,7 @@ public class InscriptionController {
 		}
 		
 		c.setPassword(password);
-		daoCompte.save(c);
+		this.daoCompte.save(c);
 		
 		session.setAttribute("message","Votre mot de passe à bien été changé");
 		return "redirect:/accueil";

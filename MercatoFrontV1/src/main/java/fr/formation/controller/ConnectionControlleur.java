@@ -51,7 +51,7 @@ public class ConnectionControlleur {
 	@PostMapping("/connection")
 	public String connection(@RequestParam(value="login") String login, @RequestParam(value="password") String password, Model model, HttpSession session) {
 	
-		Compte c = daoCompte.checkConnect(login, password);
+		Compte c = this.daoCompte.checkConnect(login, password);
 
 		if (c==null) 
 		{
@@ -66,7 +66,7 @@ public class ConnectionControlleur {
 			session.setAttribute("compte", c);
 			session.setAttribute("typeAccount", "Joueur");
 			
-			Optional<Joueur> j = daoJoueur.findById(c.getId());
+			Optional<Joueur> j = this.daoJoueur.findById(c.getId());
 			
 			if (!j.isPresent()) 
 			{
@@ -85,7 +85,7 @@ public class ConnectionControlleur {
 			session.setAttribute("compte", c);
 			session.setAttribute("typeAccount", "Manager");
 
-			Equipe eq = daoEquipe.findByManager(c.getId());
+			Equipe eq = this.daoEquipe.findByManager(c.getId());
 			
 			if (eq == null) 
 			{
