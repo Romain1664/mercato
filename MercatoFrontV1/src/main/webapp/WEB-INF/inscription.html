@@ -44,13 +44,11 @@
 			<table>
 				<tr>
 					<td>Login</td>
-					<td><input Required type="text" name="login"
-						th:value="${session.login}" placeholder="login"></td>
+					<td><input Required type="text" name="login" th:value="${login}" placeholder="login"></td>
 				</tr>
 				<tr>
 					<td>Mot de passe</td>
-					<td><input Required type="password" name="password"
-						placeholder="password"></td>
+					<td><input Required type="password" name="password" placeholder="password"></td>
 				</tr>
 				<tr>
 					<td>Type de compte ?</td>
@@ -77,13 +75,11 @@
 			<table>
 				<tr>
 					<td>Nom d'�quipe</td>
-					<td><input type="text" name="nom_equipe"
-						placeholder="Nom d'equipe"></td>
+					<td><input type="text" name="nom_equipe" placeholder="Nom d'equipe"></td>
 				</tr>
 				<tr>
 					<td>Budget de l'�quipe</td>
-					<td><input type="text" name="budget"
-						placeholder="Budget de l'�quipe"></td>
+					<td><input type="text" name="budget" placeholder="Budget de l'�quipe"></td>
 				</tr>
 			</table>
 		</div>
@@ -91,6 +87,7 @@
 			<input type="submit" value="Valider" />
 			<span class="error" th:if="${errorLogin!=null}" th:text="${errorLogin}"></span>
 			<span class="error" th:if="${errorType!=null}" th:text="${errorType}"></span>
+			<span class="error" th:if="${errorEquipe!=null}" th:text="${errorEquipe}"></span>
 		</div>
 
 	</form>
