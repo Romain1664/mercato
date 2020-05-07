@@ -1,39 +1,47 @@
 <!DOCTYPE html>
 <html	xmlns:th="http://www.thymeleaf.org"
 		th:replace="~{layout.html :: layout(~{::title}, ~{::body})}">
-<head>
-<title>Menu Manager</title>
-</head>
-<body class="body6">
 
-	<form action="">
+	<head>
+		<title>Menu Manager</title>
+	</head>
+	
+	<body class="body6">
+
 		<div class="table1">
 			<table>
 				<legend>MENU MANAGER</legend>
 			</table>
 		</div>
-
 		
 		<div class="table2">
 			<div class="valid" th:if="${message!=null}" th:text="${message}"><br><br></div>
 			<a href="Liste_Joueurs">Afficher la liste des joueurs inscrits</a>
 			<br>
 			<br> 
-			<a href="Menu_Manager/gestionBudget">Gérer son compte en banque</a>
-			<br>
-			<br>
-			<a href="Liste_Joueurs_Equipe">Afficher les joueurs de son équipe</a>
-			<br>
-			<br>
-			<a href="Acheter_Joueurs">Acheter un joueur</a>
-			<br>
-			<br>
-			<a href="Vendre_Joueurs">Vendre un joueur</a>
-			<br>
-			<br>
+			
+			<div th:if="${session.managerEquipe=='Y' }">
+				<a href="Menu_Manager/gestionBudget">Gérer son compte en banque</a>
+				<br>
+				<br>
+				<a href="Liste_Joueurs_Equipe">Afficher les joueurs de son équipe</a>
+				<br>
+				<br>
+				<a href="Acheter_Joueurs">Acheter un joueur</a>
+				<br>
+				<br>
+				<a href="Vendre_Joueurs">Vendre un joueur</a>
+				<br>
+				<br>
+			</div>
+			
+			<div th:if="${session.managerEquipe=='N' }">
+				<a href="">Créer son équipe</a>
+				<br><br>
+			</div>
+			
 			<a href="deconnection">Se deconnecter</a>
 		</div>
-	</form>
-</body>
+	</body>
 </html>
 

@@ -86,6 +86,35 @@ public class ManagerController
 		return "redirect:/Menu_Manager";
 	}
 	
+	@GetMapping("/Menu_Manager/gestionBudget")
+	public String choixBudget() {
+		
+		return "gestionBudget";
+	}
+	
+	
+	@PostMapping("/budget")
+	public String budget(@RequestParam(value="budget") Double budget, HttpSession session,Model model) {
+
+		Compte c = (Compte) session.getAttribute("compte");
+		Equipe eq = daoEquipe.findByManager(c.getId());
+
+		eq.setBudget(budget);
+		
+		daoEquipe.save(eq);
+		
+		session.setAttribute("message","Le budget a été changé !");
+		
+		return "redirect:/Menu_Manager";
+	}
+	
+	@GetMapping("/Menu_Manager/Creation_Equipe")
+	public String equipe(Model model, HttpSession session) {
+		
+		model.addAttribute("message",session.getAttribute("message"));
+		session.removeAttribute("message");
+		return "";
+	}
 	
 }
 	
