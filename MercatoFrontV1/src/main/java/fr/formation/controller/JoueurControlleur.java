@@ -78,7 +78,7 @@ public class JoueurControlleur {
 		return "redirect:/Menu_Joueur";
 	}
 	
-	@GetMapping("/joueur/retraite")
+	@GetMapping("retraite")
 	public String deleteById(HttpSession session)
 	{
 		Compte c = (Compte) session.getAttribute("compte");
@@ -87,7 +87,7 @@ public class JoueurControlleur {
 		this.daoJoueur.deleteById(j.getId());
 		session.setAttribute("joueurInscrit", "N");
 		
-		return "redirect:/joueur";
+		return "redirect:/Menu_Joueur";
 	}
 
 	
