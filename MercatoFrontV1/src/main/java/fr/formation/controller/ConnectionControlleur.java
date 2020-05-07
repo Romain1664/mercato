@@ -41,10 +41,10 @@ public class ConnectionControlleur {
 	public String connection(@RequestParam(value="login") String login, @RequestParam(value="password") String password, Model model, HttpSession session) {
 	
 		Compte c = daoCompte.checkConnect(login, password);
-		model.addAttribute("login", login);
-		
+
 		if (c==null) 
 		{
+			model.addAttribute("login", login);
 			model.addAttribute("error", "Le login/password est incorrect");
 			System.out.println("Mauvaise connection");
 			return "accueil";

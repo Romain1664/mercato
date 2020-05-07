@@ -19,12 +19,12 @@
 			<div class="table2">
 	
 				
-				<div th:if="${sessionScope.joueurInscrit=='N' }">
+				<div th:if="${session.joueurInscrit=='N' }">
 						<a href="joueur?action=inscription">Etre éligible Joueur</a>
 						<br>
 						<br>
 					</div>
-					<div th:if="${sessionScope.joueurInscrit=='Y' }">
+					<div th:if="${session.joueurInscrit=='Y' }">
 						<!-- Button trigger modal -->
 						<a href="#" data-href="" data-toggle="modal" data-target="#confirm-delete">Prendre sa retraite</a><br>
 						<!-- Modal -->
