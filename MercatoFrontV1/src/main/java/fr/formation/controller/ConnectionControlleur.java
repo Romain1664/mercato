@@ -36,6 +36,16 @@ public class ConnectionControlleur {
 		return "accueil";
 	}
 	
+	@GetMapping("/deconnection")
+	public String deconnection(HttpSession session) {
+		
+		session.removeAttribute("compte");
+		session.removeAttribute("typeAccount");
+		session.removeAttribute("joueurInscrit");
+		
+		return "redirect:/accueil";
+	}
+	
 	
 	@PostMapping("/connection")
 	public String connection(@RequestParam(value="login") String login, @RequestParam(value="password") String password, Model model, HttpSession session) {
