@@ -29,16 +29,14 @@ public class InscriptionController {
 	}
 	
 	@PostMapping("/inscription")
-	public String inscription(@ModelAttribute Compte compte, @RequestParam(required=false, value="nom_equipe") String nom_equipe, @RequestParam(required=false, value="budget") Double budget, HttpSession session, Model model) {
+	public String inscription(@ModelAttribute Compte compte, @RequestParam(required=false, value="nom_equipe") String nom_equipe, @RequestParam(required=false, value="budget") Double budget, @RequestParam(value="choix") String choix, HttpSession session, Model model) {
 		
 		Compte c=daoCompte.findByLogin(compte.getLogin());
 		boolean okEquipe = false;
-		System.out.println("0");
 		
 		if (c!=null)
 		{
 			model.addAttribute("errorLogin","Ce login existe déjà");
-			System.out.println("1");
 			return "inscription";
 		}
 		
@@ -47,19 +45,26 @@ public class InscriptionController {
 		if ( (!compte.getType().equals("joueur")) && (!compte.getType().equals("manager")) )
 		{
 			model.addAttribute("errorType","Choisissez un type de compte VALIDE !");
-			System.out.println("2");
 			return "inscription";
 		}
 		
-		if (compte.getType().equals("manager"))
+		if (compte.getType().equals("manager") && choix.equals("oui"))
 		{
-
+			
+			if (nom_equipe==null || nom_equipe.equals(""))
+			{
+				model.addAttribute("errorEquipe","Veuillez rentrer un nom d'équipe !");
+				model.addAttribute("budget",budget);
+				return "inscription";
+			}
+			
 			Equipe eq = daoEquipe.findByNomEquipe(nom_equipe);
 			
 			if (eq!=null)
 			{
-				model.addAttribute("errorEquipe","Le nom d'équipe est déjà pris!");
-				System.out.println("3");
+				model.addAttribute("errorEquipe","Le nom d'équipe est déjà pris !");
+				model.addAttribute("nom_equipe",nom_equipe);
+				model.addAttribute("budget",budget);
 				return "inscription";
 			}
 			
@@ -67,13 +72,11 @@ public class InscriptionController {
 			
 			daoEquipe.save(eq2);
 			okEquipe = true;
-			
 		}
 		
 		daoCompte.save(compte);
 		
 		session.setAttribute("message", okEquipe ? "Votre compte et votre équipe ont bien été créés" : "Votre compte a bien été créé" );
-		System.out.println("4");
 		return "redirect:/accueil";
 	}
 	
