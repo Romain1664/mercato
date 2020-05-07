@@ -29,14 +29,17 @@ public class InscriptionController {
 	}
 	
 	@PostMapping("/inscription")
-	public String inscription(@ModelAttribute Compte compte, @RequestParam(value="nom_equipe") String nom_equipe, @RequestParam(value="budget") double budget, HttpSession session, Model model) {
+	public String inscription(@ModelAttribute Compte compte, @RequestParam(required=false, value="nom_equipe") String nom_equipe, @RequestParam(required=false, value="budget") Double budget, HttpSession session, Model model) {
 		
 		Compte c=daoCompte.findByLogin(compte.getLogin());
 		boolean okEquipe = false;
+		System.out.println("0");
 		
 		if (c!=null)
 		{
 			model.addAttribute("errorLogin","Ce login existe déjà");
+			System.out.println("1");
+			return "inscription";
 		}
 		
 		model.addAttribute("login",compte.getLogin());
@@ -44,6 +47,7 @@ public class InscriptionController {
 		if ( (!compte.getType().equals("joueur")) && (!compte.getType().equals("manager")) )
 		{
 			model.addAttribute("errorType","Choisissez un type de compte VALIDE !");
+			System.out.println("2");
 			return "inscription";
 		}
 		
@@ -55,6 +59,7 @@ public class InscriptionController {
 			if (eq!=null)
 			{
 				model.addAttribute("errorEquipe","Le nom d'équipe est déjà pris!");
+				System.out.println("3");
 				return "inscription";
 			}
 			
@@ -67,7 +72,7 @@ public class InscriptionController {
 		
 		daoCompte.save(compte);
 		
-		session.setAttribute("message", okEquipe ? "Votre compte et votre �quipe ont bien été créés" : "Votre compte a bien été créé" );
+		session.setAttribute("message", okEquipe ? "Votre compte et votre équipe ont bien été créés" : "Votre compte a bien été créé" );
 		System.out.println("4");
 		return "redirect:/accueil";
 	}

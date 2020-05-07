@@ -30,13 +30,10 @@
 						<input type="password" name="password" placeholder="Nouveau password">
 					</td>
 				</tr>
-					
-				<tr>
-					<td>		
-						<input type="submit" value="Valider">
-					</td>
-				</tr>
 			</table>
+			
+			<input type="submit" value="Valider">
+			<span class="error" th:if="${errorLogin!=null}" th:text="${errorLogin}"></span>
 		</div>	
 	</form>
 	
