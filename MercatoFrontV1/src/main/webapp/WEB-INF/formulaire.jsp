@@ -12,7 +12,7 @@
 		<meta charset="UTF-8">
 		<title>Liste des joueurs</title>
 	</head>
-	<body>
+	<body class="body0">
 		<form method="POST" action="joueurs">
 			<input type="number" name="id_equipe"/>
 				<p>Tape l'identifiant de ton équipe</p>

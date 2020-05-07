@@ -14,7 +14,7 @@
 
 </head>
 
-<body>
+<body class="body5">
 
 	<form action="joueur" method="POST">
 		<input type="hidden" action="stats">

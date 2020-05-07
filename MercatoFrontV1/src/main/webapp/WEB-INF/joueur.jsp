@@ -10,7 +10,7 @@
 		<meta charset="UTF-8">
 		<title>Menu Joueur</title>
 	</head>
-	<body>
+	<body class="body3">
 	
 		<form action="">
 			<div class="table1">

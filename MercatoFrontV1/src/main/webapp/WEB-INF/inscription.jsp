@@ -11,7 +11,7 @@
 <meta charset="UTF-8">
 <title>S'inscrire</title>
 </head>
-<body>
+<body class="body2">
 
 	<script>
 		function showDiv1 (element)

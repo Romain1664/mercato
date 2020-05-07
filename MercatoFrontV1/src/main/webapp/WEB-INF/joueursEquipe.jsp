@@ -14,7 +14,7 @@
 		<title>Liste des joueurs</title>
 	</head>
 	
-	<body>
+	<body  class="body4">
 		
 			<div class="table3">
 			<form method="GET" action="joueurs">

@@ -12,7 +12,7 @@
 		<meta charset="UTF-8"/>
 	</head>
 	
-	<body>
+	<body class="body5">
 		<div class="table1">
 			<legend>ALORS ON CHANGE QUOI?</legend>
 		</div>

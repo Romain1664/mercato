@@ -12,7 +12,7 @@
 		<meta charset="UTF-8"/>
 	</head>
 
-	<body>
+	<body class="body0">
 		<div class="table1">
 			<table>
 				<legend>L'EMIR VEUT GAGNER LA CHAMPION'S LEAGUE: 

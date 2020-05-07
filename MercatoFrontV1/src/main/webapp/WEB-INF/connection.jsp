@@ -12,7 +12,7 @@
 		<title>Accueil Connection</title>
 	</head>
 	
-	<body>
+	<body class="body1">
 		<form method="POST" action="connection?action=identification">
 			<div class="table1">
 				<table>

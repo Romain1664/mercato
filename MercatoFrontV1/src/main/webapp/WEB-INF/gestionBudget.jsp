@@ -12,7 +12,7 @@
 			
 	</head>
 
-<body>
+<body class="body0">
 	<form action="">
 		<div class="table1">
 			<table>

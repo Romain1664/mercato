@@ -10,7 +10,7 @@
 <meta charset="UTF-8">
 <title>Menu Manager</title>
 </head>
-<body>
+<body class="body6">
 
 	<form action="">
 		<div class="table1">

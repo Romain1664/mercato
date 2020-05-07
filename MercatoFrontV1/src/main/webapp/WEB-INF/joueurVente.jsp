@@ -11,7 +11,7 @@
 <meta charset="UTF-8">
 <title>Vente Joueur1</title>
 </head>
-<body>
+<body class="body0">
 	<div class="table1">
 		<table>
 			<legend>Le Quatar veut faire des économies : On vire qui Coach ???</legend>

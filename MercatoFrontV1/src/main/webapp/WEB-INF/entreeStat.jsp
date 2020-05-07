@@ -15,7 +15,7 @@
 		<title>Inscription Joueur</title>
 	</head>
 
-	<body>
+	<body class="body5">
 		<div class="table1">
 			<table>
 				<legend>ENTRE TES STATISTIQUES</legend>
