@@ -9,15 +9,11 @@
 	<body>
 	
 	<form method="POST" action="reset_password">
-		<div class="table1">
-			<table>
-				<tr>
-					<td>BIENVENUE SUR L'APPLICATION MERCATO</td>
-				</tr>
-			</table>
+		<div class="table2">
+			<legend>REINITIALISER VOTRE MOT DE PASSE</legend>
 		</div>
 		<div class = "table2">
-			<table>
+			<table class="tableau">
 				<tr>
 					<td>Login</td>	
 					<td>
@@ -32,10 +28,10 @@
 				</tr>
 			</table>
 		</div>
+		
 		<div class="table2">
-			<table>
-				<tr><td><input type="submit" class="btn btn-success" value="Valider">     <a href="Menu_Joueur" class="btn btn-danger" role="button">Retour</a></td></tr>
-			</table>
+			<input type="submit" class="btn btn-success" value="Valider">
+			<a href="Menu_Joueur" class="btn btn-danger" role="button">Retour</a>
 			<span class="error" th:if="${errorLogin!=null}" th:text="${errorLogin}"></span>
 		</div>	
 	</form>

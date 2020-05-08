@@ -11,58 +11,56 @@
 	
 		<div class="joueur-nom">[[${session.compte.login}]]</div>
 		
-		<form action="">
-			<div class="table1">
-				<table>
-					<tr><legend>MENU JOUEUR </br> Que voulez-vous faire ?</legend></tr>
-				</table>
+			<div class="table2">
+				<legend>MENU JOUEUR </br> Que voulez-vous faire ?</legend>
 			</div>
 	
 			<div class="table2">
 			
-				<div class="valid" th:if="${message!=null}" th:text="${message}"></div>				
+				<div class="valid" style="text-align:center" th:if="${message!=null}">
+					<p>[[${message}]]</p>
+				</div>		
 				
-				<div th:if="${session.joueurInscrit=='N' }">
-					<a href="Menu_Joueur/Joueur_Inscription">Etre éligible Joueur</a>
-					<br><br>
-				</div>
-				
-				<div th:if="${session.joueurInscrit=='Y' }">
-
-					<a href="#" data-href="" data-toggle="modal" data-target="#confirmation">Prendre sa retraite</a><br>
-					<div class="modal fade" id="confirmation" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-					  <div class="modal-dialog" role="document">
-					    <div class="modal-content">
-					      <div class="modal-header">
-					        <h5 class="modal-title" id="exampleModalLabel">Veuillez confirmer</h5>
-					        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					          <span aria-hidden="true">&times;</span>
-					        </button>
-					      </div>
-					      <div class="modal-body">
-					        <p>Voulez-vous vraiment ranger les crampons ?</p>
-					      </div>
-					      <div class="modal-footer">
-					        <button type="button" class="btn btn-secondary" data-dismiss="modal">Pas maintenant ...</button>
-					        <a class="btn btn-primary" href="retraite">Retraite bien méritée</a>
-					      </div>
-					    </div>
-					  </div>
-					</div>
-
-					
-					<br>
-					<a href="Menu_Joueur/afficherStats">Afficher mes statistiques</a>
-					<br><br>
-					<a href="Menu_Joueur/modifierStats">Modifier mes statistiques</a>
-					<br><br>
-					
-				</div>
-				
-				<a href="Liste_Joueurs">Afficher la liste des joueurs inscrits</a>
+			<div th:if="${session.joueurInscrit=='N' }">
+				<a href="Menu_Joueur/Joueur_Inscription">Etre éligible Joueur</a>
 				<br><br>
-				<a href="deconnection">Se deconnecter</a>
 			</div>
-		</form>
+			
+			<div th:if="${session.joueurInscrit=='Y' }">
+
+				<a href="#" data-href="" data-toggle="modal" data-target="#confirmation">Prendre sa retraite</a><br>
+				<div class="modal fade" id="confirmation" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				  <div class="modal-dialog" role="document">
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <h5 class="modal-title" id="exampleModalLabel">Veuillez confirmer</h5>
+				        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				          <span aria-hidden="true">&times;</span>
+				        </button>
+				      </div>
+				      <div class="modal-body">
+				        <p>Voulez-vous vraiment ranger les crampons ?</p>
+				      </div>
+				      <div class="modal-footer">
+				        <button type="button" class="btn btn-secondary" data-dismiss="modal">Pas maintenant ...</button>
+				        <a class="btn btn-primary" href="retraite">Retraite bien méritée</a>
+				      </div>
+				    </div>
+				  </div>
+				</div>
+
+				
+				<br>
+				<a href="Menu_Joueur/afficherStats">Afficher mes statistiques</a>
+				<br><br>
+				<a href="Menu_Joueur/modifierStats">Modifier mes statistiques</a>
+				<br><br>
+				
+			</div>
+			
+			<a href="Liste_Joueurs">Afficher la liste des joueurs inscrits</a>
+			<br><br>
+			<a href="deconnection">Se deconnecter</a>
+		</div>
 	</body>
 </html>

@@ -91,7 +91,6 @@ a
 	border-radius: 10px 10px;
 	border: double black 3px;
 	background-color:white; 
- 	width:400px;
  	border-collapse:collapse; 
 }
 
@@ -113,6 +112,11 @@ a
  	border-collapse:collapse; 
 }
 
+.tableau
+{
+	margin:5px;
+}
+
 legend
 {
 	padding-right: 15px;
@@ -125,7 +129,6 @@ legend
 	text-decoration: underline;
 	font-style: italic;
 	font-weight: bold;
-	
 }
 
 #hidden_div1 {

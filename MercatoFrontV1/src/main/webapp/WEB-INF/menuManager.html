@@ -8,14 +8,16 @@
 	
 	<body class="body6">
 
-		<div class="table1">
-			<table>
-				<legend>MENU MANAGER</legend>
-			</table>
+		<div class="table2">
+			<legend>MENU MANAGER</legend>
 		</div>
 		
-		<div class="table1">
-			<div class="valid" th:if="${message!=null}" th:text="${message}"><br><br></div>
+		<div class="table2">
+		
+			<div class="valid" style="text-align:center" th:if="${message!=null}">
+				<p>[[${message}]]</p>
+			</div>
+			
 			<a href="Liste_Joueurs">Afficher la liste des joueurs inscrits</a>
 			<br>
 			<br> 

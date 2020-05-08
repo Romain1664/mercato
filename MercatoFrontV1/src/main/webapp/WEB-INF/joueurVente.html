@@ -7,14 +7,12 @@
 
 <body class="body6">
 	<div class="table3">
-		<table>
-			<legend>LE QUATAR VEUT FAIRE DES ECONOMIES : 
-			</br>On vire qui coach ???</legend>
-		</table>
+		<legend>LE QUATAR VEUT FAIRE DES ECONOMIES : 
+		</br>On vire qui coach ???</legend>
 	</div>
 
 	<div class="table3">
-		<legend>Voici vous joueurs Monsieur : qui voulez-vous donner aux lions ?</legend>
+		<legend>Voici vos joueurs monsieur : qui voulez-vous jeter dans la fosse aux lions ?</legend>
 		<table class="table">
 			<thead>
 				<tr align="center">
@@ -52,25 +50,25 @@
 	</div>
 
 	<form method="POST" action="Vente_Joueur">
-		<div class="table3">
-			<table>
-				<tr><td>Qui est le maillon faible ?</td><tr>
-				<tr><td><select name="id">
-							<option th:each="j : ${joueurs}" th:value="${j.id}"
-								th:text="${j.nom} + ' ' + ${j.prenom} + ' (' + ${j.id} + ')'" />
-					</select></td>
+		<div class="table1">
+			<table class="tableau">
+				<tr>
+					<td>Qui est le maillon faible ?</td>
+					<td>
+						<select name="id">
+								<option th:each="j : ${joueurs}" th:value="${j.id}" th:text="${j.nom} + ' ' + ${j.prenom} + ' (' + ${j.id} + ')'" />
+						</select>
+					</td>
+					<td align="center" colspan="2">
+						<input type="submit" class="btn btn-success" value="Valider">
+					</td>
 				</tr>
-				<tr><td><input type="submit" value="Au revoir"></td></tr>
 			</table>
 		</div>
 	</form>
 
-	<div class="table3">
-		<table>
-			<tr>
-				<td><a href="Menu_Manager">Retour au menu Manager</a></td>
-			</tr>
-		</table>
+	<div class="table1">
+		<a href="Menu_Manager">Retour au menu Manager</a>
 	</div>
 </body>
 

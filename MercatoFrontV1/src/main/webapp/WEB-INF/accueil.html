@@ -8,16 +8,12 @@
 	
 	<body>
 		<form method="POST" action="connection">
-			<div class="table1">
-				<table>
-					<tr>
-						<legend>BIENVENUE SUR L'APPLICATION MERCATO</legend>
-					</tr>
-				</table>
+			<div class="table2">
+				<legend>BIENVENUE SUR L'APPLICATION MERCATO</legend>
 			</div>
 		
 			<div class="table2">
-				<table>
+				<table class="tableau">
 					<tr>
 						<td>Login</td>	
 						<td><input type="text" name="login" th:value="${login}" placeholder="Login"></td>
@@ -29,8 +25,6 @@
 				</table>
 				
 				<input type="submit" class="btn btn-success" value="Valider">
-			
-				<!-- <input type="submit" value="Valider"/>	 -->	
 								
 				<span class="error" th:if="${error!=null}" th:text="${error}"></span>
 				<span class="valid" th:if="${message!=null}" th:text="${message}"></span>					

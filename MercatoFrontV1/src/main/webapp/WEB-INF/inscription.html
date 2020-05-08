@@ -2,98 +2,94 @@
 <html xmlns:th="http://www.thymeleaf.org"
 	th:replace="~{layout.html :: layout(~{::title}, ~{::body})}">
 
-<head>
-<title>S'inscrire</title>
-</head>
+	<head>
+		<title>S'inscrire</title>
+	</head>
 
-<body class="body2">
-
-	<script>
-			function showDiv1 (element)
-			{
-				if (element.value == "manager") {
-			    document.getElementById("hidden_div1").style.display =  'block' ;
-			    showDiv2(document.getElementById("choix"));
-				} else if (element.value == "joueur") {
-				document.getElementById("hidden_div1").style.display =  'none' ;
-				document.getElementById("hidden_div2").style.display =  'none' ;
-				}
-			}
-			function showDiv2(element)
-			{
-				if (element.value == "oui") {
-					document.getElementById("hidden_div2").style.display =  'block' ;
-				} else if (element.value == "non") {
+	<body class="body2">
+	
+		<script>
+				function showDiv1 (element)
+				{
+					if (element.value == "manager") {
+				    document.getElementById("hidden_div1").style.display =  'block' ;
+				    showDiv2(document.getElementById("choix"));
+					} else if (element.value == "joueur") {
+					document.getElementById("hidden_div1").style.display =  'none' ;
 					document.getElementById("hidden_div2").style.display =  'none' ;
+					}
 				}
-			}
-		</script>
-
-
-	<form method="POST" action="inscription">
-
-		<div class="table1">
-			<table>
-				<tr>
-					<legend>S'INSCRIRE SUR L'APPLICATION MERCATO</legend>
-				</tr>
-			</table>
-		</div>
-		
-		<div class="table2">
-			<table>
-				<tr>
-					<td>Login</td>
-					<td><input Required type="text" name="login" th:value="${login}" placeholder="Login"></td>
-				</tr>
-				<tr>
-					<td>Mot de passe</td>
-					<td><input Required type="password" name="password" placeholder="Password"></td>
-				</tr>
-				<tr>
-					<td>Type de compte ?</td>
-					<td><select name="type" id="type" onchange="showDiv1(this)">
-							<option value="joueur">Joueur</option>
-							<option value="manager">Manager</option>
-					</select></td>
-				</tr>
-			</table>
-		</div>
-				
-		<div id="hidden_div1" class="table2">
-			<table>
-				<tr>
-					<td>Créer son équipe</td>
-					<td><select name="choix" id="choix" onchange="showDiv2(this)">
-							<option value="oui">Oui</option>
-							<option selected value="non">Non</option>
-					</select></td>
-				</tr>
-			</table>
-		</div>
-		<div id="hidden_div2" class="table2">
-			<table>
-				<tr>
-					<td>Nom d'équipe</td>
-					<td><input type="text" name="nom_equipe" placeholder="Nom d'equipe"></td>
-				</tr>
-				<tr>
-					<td>Budget de l'équipe</td>
-					<td><input type="text" name="budget" placeholder="Budget de l'équipe"></td>
-				</tr>
-			</table>
-		</div>
-		<div class="table2">
-			<table>
-				<tr><td><input type="submit" class="btn btn-success" value="Valider">     <a href="Menu_Joueur" class="btn btn-danger" role="button">Retour</a></td></tr>
-			</table>
-			<span class="error" th:if="${errorLogin!=null}" th:text="${errorLogin}"></span>
-			<span class="error" th:if="${errorType!=null}" th:text="${errorType}"></span>
-			<span class="error" th:if="${errorEquipe!=null}" th:text="${errorEquipe}"></span>
-		</div>
-
-	</form>
-
-</body>
+				function showDiv2(element)
+				{
+					if (element.value == "oui") {
+						document.getElementById("hidden_div2").style.display =  'block' ;
+					} else if (element.value == "non") {
+						document.getElementById("hidden_div2").style.display =  'none' ;
+					}
+				}
+			</script>
+	
+	
+		<form method="POST" action="inscription">
+	
+			<div class="table2">
+				<legend>S'INSCRIRE SUR L'APPLICATION MERCATO</legend>
+			</div>
+			
+			<div class="table2">
+				<table class="tableau">
+					<tr>
+						<td>Login</td>
+						<td><input Required type="text" name="login" th:value="${login}" placeholder="Login"></td>
+					</tr>
+					<tr>
+						<td>Mot de passe</td>
+						<td><input Required type="password" name="password" placeholder="Password"></td>
+					</tr>
+					<tr>
+						<td>Type de compte ?</td>
+						<td><select name="type" id="type" onchange="showDiv1(this)">
+								<option value="joueur">Joueur</option>
+								<option value="manager">Manager</option>
+						</select></td>
+					</tr>
+				</table>
+			</div>
+					
+			<div id="hidden_div1" class="table2">
+				<table class="tableau">
+					<tr>
+						<td>Créer son équipe</td>
+						<td><select name="choix" id="choix" onchange="showDiv2(this)">
+								<option value="oui">Oui</option>
+								<option selected value="non">Non</option>
+						</select></td>
+					</tr>
+				</table>
+			</div>
+			<div id="hidden_div2" class="table2">
+				<table class="tableau">
+					<tr>
+						<td>Nom d'équipe</td>
+						<td><input type="text" name="nom_equipe" placeholder="Nom d'equipe"></td>
+					</tr>
+					<tr>
+						<td>Budget de l'équipe</td>
+						<td><input type="text" name="budget" placeholder="Budget de l'équipe"></td>
+					</tr>
+				</table>
+			</div>
+			
+			<div class="table1">
+				<input type="submit" class="btn btn-success" value="Valider">
+				<a href="Menu_Joueur" class="btn btn-danger" role="button">Retour</a>
+				<span class="error" th:if="${errorLogin!=null}" th:text="${errorLogin}"></span>
+				<span class="error" th:if="${errorType!=null}" th:text="${errorType}"></span>
+				<span class="error" th:if="${errorEquipe!=null}" th:text="${errorEquipe}"></span>
+			</div>
+	
+		</form>
+	
+	</body>
 
 </html>
