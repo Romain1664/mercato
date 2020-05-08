@@ -29,12 +29,16 @@ public class InscriptionController {
 	}
 	
 	@PostMapping("/inscription")
-	public String inscription(@ModelAttribute Compte compte, @RequestParam(required=false, value="nom_equipe") String nom_equipe, @RequestParam(required=false, value="budget") Double budget, @RequestParam(value="choix") String choix, HttpSession session, Model model) {
+	public String inscription(@ModelAttribute Compte compte, @RequestParam(required=false, value="nom_equipe") String nom_equipe, @RequestParam(required=false, value="budget") Double budget, @RequestParam(value="choix") String choix, @RequestParam(value="type") String type, HttpSession session, Model model) {
 		
 		Compte c=this.daoCompte.findByLogin(compte.getLogin());
 		boolean okEquipe = false;
 		
 		model.addAttribute("login",compte.getLogin());
+		model.addAttribute("type",type);
+		model.addAttribute("choix",choix);
+		model.addAttribute("nom_equipe",nom_equipe);
+		model.addAttribute("budget",budget);
 		
 		if (c!=null)
 		{
@@ -50,11 +54,9 @@ public class InscriptionController {
 		
 		if (compte.getType().equals("manager") && choix.equals("oui"))
 		{
-			
 			if (nom_equipe==null || nom_equipe.equals(""))
 			{
 				model.addAttribute("errorEquipe","Veuillez rentrer un nom d'équipe !");
-				model.addAttribute("budget",budget);
 				return "inscription";
 			}
 			
@@ -63,8 +65,6 @@ public class InscriptionController {
 			if (eq!=null)
 			{
 				model.addAttribute("errorEquipe","Le nom d'équipe est déjà pris !");
-				model.addAttribute("nom_equipe",nom_equipe);
-				model.addAttribute("budget",budget);
 				return "inscription";
 			}
 			
