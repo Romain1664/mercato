@@ -19,13 +19,13 @@
 					<tr>
 						<td>Tir</td>	
 						<td> 
-							<input th:value="${joueur.tir}" type="text" name="tir">
+							<input th:value="${joueur.tir}" class="form-control" type="text" name="tir">
 						</td>
 					</tr>	
 					<tr>
 						<td>Précision</td> 	
 						<td> 
-							<input th:value="${joueur.precision}" type="text" name="precision">
+							<input th:value="${joueur.precision}" class="form-control" type="text" name="precision">
 						</td>
 					</tr> 	
 					<tr>
@@ -34,13 +34,13 @@
 					<tr>
 						<td>Acceleration</td>
 						<td>
-							<input th:value="${joueur.acceleration}" type="text" name="acceleration">
+							<input th:value="${joueur.acceleration}" class="form-control" type="text" name="acceleration">
 						</td>
 					</tr>	
 					<tr>
 						<td>Puissance</td>	
 						<td> 
-							<input th:value="${joueur.puissance}" type="text" name="puissance">
+							<input th:value="${joueur.puissance}" class="form-control" type="text" name="puissance">
 						</td>						
 					</tr>
 					 <tr>
@@ -49,20 +49,22 @@
 					<tr>
 						<td>Tacle</td> 
 						<td> 
-							<input th:value="${joueur.tacle}" type="text" name="tacle">
+							<input th:value="${joueur.tacle}" class="form-control" type="text" name="tacle">
 						</td>
 					</tr>
 					<tr>
 						<td>Marquage</td>	
 						<td> 
-							<input th:value="${joueur.marquage}" type="text" name="marquage">
+							<input th:value="${joueur.marquage}" class="form-control" type="text" name="marquage">
 						</td>
 					</tr>
 				</table>
 			</div>
 			<div class="table1">
-				<input type="submit" class="btn btn-success" value="Valider">
-				<a href="Menu_Joueur" class="btn btn-danger" role="button">Retour</a>
+				<div>
+					<input type="submit" class="btn btn-success" value="Valider">
+					<a href="Menu_Joueur" class="btn btn-danger" role="button">Retour</a>
+				</div>
 			</div>
 		</form>
 	</body>

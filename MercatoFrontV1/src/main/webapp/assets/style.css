@@ -82,9 +82,24 @@ a
     font-family:"times new roman", times, serif;
 }
 
-.error{color :red;}
+.error
+{
+	color :red;
+	font-weight: bold;
+}
 
-.valid{color :green;}
+.valid
+{
+	color :green;
+	font-weight: bold;
+}
+
+.titre
+{
+	text-decoration: underline;
+	font-style: italic;
+	font-weight: bold;
+}
 
 .table1 
 {
@@ -93,14 +108,22 @@ a
 	background-color:white; 
  	border-collapse:collapse; 
 }
+.table1 > div
+{
+	margin: 8px; 
+}
 
 .table2 
 {
 	border-radius: 10px 10px ;
 	border : double black 3px;
 	background-color:white; 
-	width:400px;
 	border-collapse:collapse; 
+	width:400px;
+}
+.table2 > div
+{
+	margin: 8px; 
 }
 
 .table3
@@ -111,10 +134,14 @@ a
 	width:75%;
  	border-collapse:collapse; 
 }
+.table3 > div
+{
+	margin: 8px; 
+}
 
 .tableau
 {
-	margin:5px;
+	margin: 8px; 	
 }
 
 legend
@@ -124,12 +151,6 @@ legend
 	font-weight:bold;
 }
 
-.titre
-{
-	text-decoration: underline;
-	font-style: italic;
-	font-weight: bold;
-}
 
 #hidden_div1 {
     display: none;

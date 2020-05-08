@@ -12,27 +12,25 @@
 		<div class="table2">
 			<legend>REINITIALISER VOTRE MOT DE PASSE</legend>
 		</div>
-		<div class = "table2">
-			<table class="tableau">
-				<tr>
-					<td>Login</td>	
-					<td>
-						<input type="text" name="login" placeholder="Login">
-					</td>
-				</tr>
-				<tr>
-					<td>Nouveau password</td>	
-					<td>
-						<input type="password" name="password" placeholder="Nouveau password">
-					</td>
-				</tr>
-			</table>
+		<div class="table2">
+			<div class="form-group">
+				<label for="exampleInputLogin">Votre Login</label>
+				<input type="text" class="form-control" placeholder="Login" name="login">
+			</div>
+			
+		  	<div class="form-group">
+			    <label for="exampleInputPassword">Votre nouveau password</label>
+			    <input type="password" class="form-control" placeholder="Password" name="password">
+			    <small id="loginHelp" class="form-text text-muted">Essayez de pas l'oublier cette fois ;) !</small>
+			</div>
 		</div>
 		
 		<div class="table2">
-			<input type="submit" class="btn btn-success" value="Valider">
-			<a href="Menu_Joueur" class="btn btn-danger" role="button">Retour</a>
-			<span class="error" th:if="${errorLogin!=null}" th:text="${errorLogin}"></span>
+			<div>
+				<input type="submit" class="btn btn-success" value="Valider">
+				<a href="Menu_Joueur" class="btn btn-danger" role="button">Retour</a>
+				<span class="error" th:if="${errorLogin!=null}" th:text="${errorLogin}"></span>
+			</div>
 		</div>	
 	</form>
 	

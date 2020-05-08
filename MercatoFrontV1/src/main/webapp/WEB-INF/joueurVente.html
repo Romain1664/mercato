@@ -43,7 +43,7 @@
 					<td>[[ ${j.puissance} ]]</td>
 					<td>[[ ${j.tacle} ]]</td>
 					<td>[[ ${j.marquage} ]]</td>
-					<td>[[ ${j.prix} ]]</td>
+					<td>[[ ${j.prix} ]]€</td>
 				</tr>
 			</tbody>
 		</table>
@@ -56,7 +56,7 @@
 					<td>Qui est le maillon faible ?</td>
 					<td>
 						<select name="id">
-								<option th:each="j : ${joueurs}" th:value="${j.id}" th:text="${j.nom} + ' ' + ${j.prenom} + ' (' + ${j.id} + ')'" />
+								<option th:each="j : ${joueurs}" th:value="${j.id}" th:text="${j.nom} + ' ' + ${j.prenom} + ' (' + ${j.id} + ')' " />
 						</select>
 					</td>
 					<td align="center" colspan="2">
@@ -68,7 +68,9 @@
 	</form>
 
 	<div class="table1">
-		<a href="Menu_Manager">Retour au menu Manager</a>
+		<div>
+			<a href="Menu_Manager">Retour au menu Manager</a>
+		</div>
 	</div>
 </body>
 

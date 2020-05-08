@@ -37,18 +37,21 @@
 			</div>
 			
 			<div class="table2">
+
+				  <div class="form-group">
+				    <label for="exampleInputLogin">Login</label>
+				    <input type="text" class="form-control" placeholder="Login" name="login" aria-describedby="loginHelp">
+				    <small id="loginHelp" class="form-text text-muted">Concervez bien ce login, il ne pourra pas être modifier !</small>
+				  </div>
+				  <div class="form-group">
+				    <label for="exampleInputPassword">Password</label>
+				    <input type="password" class="form-control" placeholder="Password" name="password">
+				  </div>
+				  
 				<table class="tableau">
 					<tr>
-						<td>Login</td>
-						<td><input Required type="text" name="login" th:value="${login}" placeholder="Login"></td>
-					</tr>
-					<tr>
-						<td>Mot de passe</td>
-						<td><input Required type="password" name="password" placeholder="Password"></td>
-					</tr>
-					<tr>
 						<td>Type de compte ?</td>
-						<td><select name="type" id="type" onchange="showDiv1(this)">
+						<td><select name="type" id="type" class="form-control" onchange="showDiv1(this)">
 								<option value="joueur">Joueur</option>
 								<option value="manager">Manager</option>
 						</select></td>
@@ -60,7 +63,7 @@
 				<table class="tableau">
 					<tr>
 						<td>Créer son équipe</td>
-						<td><select name="choix" id="choix" onchange="showDiv2(this)">
+						<td><select name="choix" id="choix" class="form-control" onchange="showDiv2(this)">
 								<option value="oui">Oui</option>
 								<option selected value="non">Non</option>
 						</select></td>
@@ -71,21 +74,23 @@
 				<table class="tableau">
 					<tr>
 						<td>Nom d'équipe</td>
-						<td><input type="text" name="nom_equipe" placeholder="Nom d'equipe"></td>
+						<td><input type="text" name="nom_equipe" class="form-control" placeholder="Nom d'equipe"></td>
 					</tr>
 					<tr>
 						<td>Budget de l'équipe</td>
-						<td><input type="text" name="budget" placeholder="Budget de l'équipe"></td>
+						<td><input type="text" name="budget" class="form-control" placeholder="Budget"></td>
 					</tr>
 				</table>
 			</div>
 			
 			<div class="table1">
-				<input type="submit" class="btn btn-success" value="Valider">
-				<a href="Menu_Joueur" class="btn btn-danger" role="button">Retour</a>
-				<span class="error" th:if="${errorLogin!=null}" th:text="${errorLogin}"></span>
-				<span class="error" th:if="${errorType!=null}" th:text="${errorType}"></span>
-				<span class="error" th:if="${errorEquipe!=null}" th:text="${errorEquipe}"></span>
+				<div>
+					<input type="submit" class="btn btn-success" value="Valider">
+					<a href="Menu_Joueur" class="btn btn-danger" role="button">Retour</a>
+					<span class="error" th:if="${errorLogin!=null}" th:text="${errorLogin}"></span>
+					<span class="error" th:if="${errorType!=null}" th:text="${errorType}"></span>
+					<span class="error" th:if="${errorEquipe!=null}" th:text="${errorEquipe}"></span>
+				</div>
 			</div>
 	
 		</form>

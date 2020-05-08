@@ -12,8 +12,8 @@
 		</div>
 
 		<form action="ajoutBDD" method="POST">		
-			<div class="table2">
-				<table>
+			<div class="table1">
+				<table class="tableau">
 					<tr>	
 						<td class="titre">Vos informations générales</td> 
 						<td></td>
@@ -21,31 +21,31 @@
 					<tr>
 						<td>Nom</td>	
 						<td> 
-							<input placeholder="Votre nom" type="Text" name="nom" required>
+							<input placeholder="Votre nom" class="form-control" type="Text" name="nom" required>
 						</td>
 					</tr>
 					<tr>
 						<td>Prénom</td> 
 						<td>
-							<input placeholder="Votre prénom" type="Text" name="prenom" required>
+							<input placeholder="Votre prénom" class="form-control" type="Text" name="prenom" required>
 						</td>
 					</tr>
 					<tr>
 						<td>Age</td>	
 						<td> 
-							<input placeholder="Votre age" type="Text" name="age"  required>
+							<input placeholder="Votre age" class="form-control" type="number" name="age"  required>
 						</td>
 					</tr>
 					<tr>
 						<td>Poste</td> 
 						<td>
-							<input placeholder="Votre poste" type="Text" name="poste" required>
+							<input placeholder="Votre poste" class="form-control" type="Text" name="poste" required>
 						</td>
 					</tr>
 					<tr>	
 						<td>Prix</td> 
 						<td>
-							<input placeholder="Votre prix" type="Text" name="prix" required>
+							<input placeholder="Votre prix" class="form-control" type="number" name="prix" required>
 						</td>
 					</tr>
 					<tr>
@@ -55,13 +55,13 @@
 					<tr>
 						<td>Tir</td>	
 						<td> 
-							<input placeholder="Votre stat de tir" type="Text" name="tir" required>
+							<input placeholder="Votre stat de tir" class="form-control" type="number" name="tir" required>
 						</td>
 					</tr>	
 					<tr>
 						<td>Précision</td> 
 						<td>
-							<input placeholder="Votre stat de précision" type="Text" name="precision" required>
+							<input placeholder="Votre stat de précision" class="form-control" type="number" name="precision" required>
 						</td>
 					</tr>
 					<tr>
@@ -71,13 +71,13 @@
 					<tr>
 						<td>Acceleration</td>	
 						<td> 
-							<input placeholder="Votre stat d'acceleration" type="Text" name="acceleration" required>
+							<input placeholder="Votre stat d'acceleration" class="form-control" type="number" name="acceleration" required>
 						</td>
 					</tr>	
 					<tr>
 						<td>Puissance</td>	
 						<td> 
-							<input placeholder="Votre stat de puissance" type="Text" name="puissance" required>
+							<input placeholder="Votre stat de puissance" class="form-control" type="number" name="puissance" required>
 						</td>
 					</tr>	
 					<tr>
@@ -87,21 +87,23 @@
 					<tr>
 						<td>Tacle</td> 
 						<td>
-							<input placeholder="Votre stat de tacle" type="Text" name="tacle" required>
+							<input placeholder="Votre stat de tacle" class="form-control" type="number" name="tacle" required>
 						</td>
 					</tr>
 					<tr>
 						<td>Marquage</td>	
 						<td> 
-							<input placeholder="Votre stat de marquage" type="Text" name="marquage" required>
+							<input placeholder="Votre stat de marquage" class="form-control" type="number" name="marquage" required>
 						</td>
 					</tr>
 				</table>
 			</div>
 
 			<div class="table1">
-				<input type="submit" class="btn btn-success" value="Valider">
-				<a href="Menu_Joueur" class="btn btn-danger" role="button">Retour</a>
+				<div class="marge">
+					<input type="submit" class="btn btn-success" value="Valider">
+					<a href="Menu_Joueur" class="btn btn-danger" role="button">Retour</a>
+				</div>
 			</div>
 		</form>	
 	</body>
