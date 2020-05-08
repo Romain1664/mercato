@@ -82,14 +82,6 @@ a
     font-family:"times new roman", times, serif;
 }
 
-#hidden_div1 {
-    display: none;
-}
-
-#hidden_div2 {
-    display: none;
-}
-
 .error{color :red;}
 
 .valid{color :green;}
@@ -126,4 +118,20 @@ legend
 	padding-right: 15px;
  	text-align:center;
 	font-weight:bold;
+}
+
+.titre
+{
+	text-decoration: underline;
+	font-style: italic;
+	font-weight: bold;
+	
+}
+
+#hidden_div1 {
+    display: none;
+}
+
+#hidden_div2 {
+    display: none;
 }

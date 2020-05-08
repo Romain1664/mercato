@@ -84,7 +84,9 @@
 			</table>
 		</div>
 		<div class="table2">
-			<input type="submit" value="Valider" />
+			<table>
+				<tr><td><input type="submit" class="btn btn-success" value="Valider">     <a href="Menu_Joueur" class="btn btn-danger" role="button">Retour</a></td></tr>
+			</table>
 			<span class="error" th:if="${errorLogin!=null}" th:text="${errorLogin}"></span>
 			<span class="error" th:if="${errorType!=null}" th:text="${errorType}"></span>
 			<span class="error" th:if="${errorEquipe!=null}" th:text="${errorEquipe}"></span>

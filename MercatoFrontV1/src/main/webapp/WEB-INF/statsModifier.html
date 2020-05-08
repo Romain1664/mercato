@@ -9,8 +9,8 @@
 		<div class="table1">
 			<legend>ALORS ON CHANGE QUOI?</legend>
 		</div>
-		<div class="table1">
-			<form action="Menu_Joueur/ModificationStat" method="POST">
+		<form action="Menu_Joueur/ModificationStat" method="POST">
+			<div class="table1">
 				<table> 
 					<tr>
 						<td colspan="2"><h4>Offensive</h4></td>
@@ -58,13 +58,12 @@
 						</td>
 					</tr>
 				</table>
-				<input type="submit" value="Envoyer">
-			</form>
-		</div>
-		<div class="table1">
-			<table>
-				<tr><td><a href="Menu_Joueur">Retour au menu Joueur</a></td><tr>
-			</table>
-		</div>
+			</div>
+			<div class="table1">
+				<table>
+					<tr><td><input type="submit" class="btn btn-success" value="Valider">     <a href="Menu_Joueur" class="btn btn-danger" role="button">Retour</a></td></tr>
+				</table>
+			</div>
+		</form>
 	</body>
 </html>

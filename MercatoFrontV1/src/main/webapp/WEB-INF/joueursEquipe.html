@@ -30,7 +30,7 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr th:each="j : ${joueursEquipe}" align="center">
+						<tr th:each="j : ${joueurs}" align="center">
 							<td>[[ ${j.id} ]]</td>
 							<td>[[ ${j.nom} ]]</td>
 							<td>[[ ${j.prenom} ]]</td>
@@ -42,7 +42,6 @@
 							<td>[[ ${j.puissance} ]]</td>
 							<td>[[ ${j.tacle} ]]</td>
 							<td>[[ ${j.marquage} ]]</td>
-							
 							<td>[[ ${j.prix} ]]</td>
 						</tr>
 					</tbody>

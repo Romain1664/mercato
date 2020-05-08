@@ -28,7 +28,9 @@
 					</tr>
 				</table>
 				
-				<input type="submit" value="Valider">		
+				<input type="submit" class="btn btn-success" value="Valider">
+			
+				<!-- <input type="submit" value="Valider"/>	 -->	
 								
 				<span class="error" th:if="${error!=null}" th:text="${error}"></span>
 				<span class="valid" th:if="${message!=null}" th:text="${message}"></span>					

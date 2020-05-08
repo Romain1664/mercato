@@ -12,12 +12,12 @@
 				<legend>ENTRE TES STATISTIQUES</legend>
 			</table>
 		</div>
-		
-		<div class="table2">
-			<form action="ajoutBDD" method="POST">
+
+		<form action="ajoutBDD" method="POST">		
+			<div class="table2">
 				<table>
 					<tr>	
-						<td>Vos informations générales</td> 
+						<td class="titre">Vos informations générales</td> 
 						<td></td>
 					</tr>	
 					<tr>
@@ -51,7 +51,7 @@
 						</td>
 					</tr>
 					<tr>
-						<td>Vos stats offensives</td>
+						<td class="titre">Vos stats offensives :</td>
 						<td></td>
 					</tr>
 					<tr>
@@ -67,7 +67,7 @@
 						</td>
 					</tr>
 					<tr>
-						<td>Vos stats générales</td>
+						<td class="titre">Vos stats générales : </td>
 						<td></td>
 					</tr>
 					<tr>
@@ -83,7 +83,7 @@
 						</td>
 					</tr>	
 					<tr>
-						<td>Vos stats défensives</td>
+						<td class="titre">Vos stats défensives : </td>
 						<td></td>
 					</tr>
 					<tr>
@@ -98,17 +98,15 @@
 							<input placeholder="Votre stat de marquage" type="Text" name="marquage" required>
 						</td>
 					</tr>
-
 				</table>
-				<input type="submit" value="Envoyer">
-			</form>	
-		</div>
-		<input required type="hidden" value="${session.id}" name="id">
-		<input required type="hidden" value="1" name="id_equipe">
+			</div>
 
-		<div class="table2">
-			<a th:href="Menu_Joueur"><p>Retour au menu Joueur</p></a>
-		</div>
+			<div class="table2">
+				<table>
+					<tr><td><input type="submit" class="btn btn-success" value="Valider">     <a href="Menu_Joueur" class="btn btn-danger" role="button">Retour</a></td></tr>
+				</table>
+			</div>
+		</form>	
 	</body>
 
 </html>
