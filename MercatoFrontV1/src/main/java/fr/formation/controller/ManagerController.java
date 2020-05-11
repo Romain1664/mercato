@@ -1,6 +1,8 @@
 package fr.formation.controller;
 
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -55,13 +57,19 @@ public class ManagerController {
 		Equipe eq = this.daoEquipe.findByManager(c.getId());
 		Joueur j = this.daoJoueur.findById(id).get();
 		
-		eq.setBudget(eq.getBudget()-j.getPrix());
-		j.setId_equipe(eq.getId());
-		
-		this.daoJoueur.save(j);
-		this.daoEquipe.save(eq);
-		
-		session.setAttribute("message","Votre achat fut un succès");
+		if (eq.getBudget()<j.getPrix())
+		{
+			session.setAttribute("error","Vous n'avez pas les bases... le budget pardon");
+		}
+			
+		else
+		{
+			eq.setBudget(eq.getBudget()-j.getPrix());
+			j.setId_equipe(eq.getId());
+			
+			this.daoJoueur.save(j);
+			this.daoEquipe.save(eq);
+		}
 		
 		return "redirect:/Acheter_Joueurs";
 	}
@@ -75,13 +83,16 @@ public class ManagerController {
 		
 		eq.setBudget(eq.getBudget()+j.getPrix());
 		j.setId_equipe(1);
+		double budget= eq.getBudget();
 		
 		this.daoJoueur.save(j);
 		this.daoEquipe.save(eq);
 		
-		session.setAttribute("message","Votre vente fut un succès");
+		List<Joueur> joueurs =this.daoJoueur.findByEquipe(eq.getId());
+		model.addAttribute("joueurs",joueurs);
+		model.addAttribute("budget", budget);
 		
-		return "redirect:/Menu_Manager";
+		return "joueur-part";
 	}
 	
 	@GetMapping("/Menu_Manager/gestionBudget")

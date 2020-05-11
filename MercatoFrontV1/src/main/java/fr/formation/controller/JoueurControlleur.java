@@ -65,7 +65,7 @@ public class JoueurControlleur {
 		this.daoJoueur.insert(joueur);
 		
 		session.setAttribute("joueurInscrit", "Y");
-		session.setAttribute("message", "Vos stats ont été modifiées");
+		session.setAttribute("message", "Votre profil a été ajouté dans notre BDD");
 		
 		return "redirect:/Menu_Joueur";
 	}

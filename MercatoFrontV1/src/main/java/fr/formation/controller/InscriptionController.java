@@ -99,7 +99,7 @@ public class InscriptionController {
 		c.setPassword(password);
 		this.daoCompte.save(c);
 		
-		session.setAttribute("message","Votre mot de passe à bien été changé");
+		session.setAttribute("message","Votre mot de passe a bien été changé");
 		return "redirect:/accueil";
 	}
 	

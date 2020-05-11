@@ -7,46 +7,16 @@
 
 <body class="body6">
 	<div class="table3">
-		<legend>LE QUATAR VEUT FAIRE DES ECONOMIES : 
+		<legend>LE QATAR VEUT FAIRE DES ECONOMIES : 
 		</br>On vire qui coach ???</legend>
 	</div>
 
 	<div class="table3">
-		<legend>Voici vos joueurs monsieur : qui voulez-vous jeter dans la fosse aux lions ?</legend>
-		<table class="table">
-			<thead>
-				<tr align="center">
-					<th scope="col">id</th>
-					<th scope="col">Nom</th>
-					<th scope="col">Prenom</th>
-					<th scope="col">Age</th>
-					<th scope="col">Poste</th>
-					<th scope="col">Tir</th>
-					<th scope="col">Précision</th>
-					<th scope="col">Accélération</th>
-					<th scope="col">Puissance</th>
-					<th scope="col">Tacle</th>
-					<th scope="col">Marquage</th>
-					<th scope="col">Prix</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr th:each="j : ${ joueurs }" align="center">
-					<td>[[ ${j.id} ]]</td>
-					<td>[[ ${j.nom} ]]</td>
-					<td>[[ ${j.prenom} ]]</td>
-					<td>[[ ${j.age} ]]</td>
-					<td>[[ ${j.poste} ]]</td>
-					<td>[[ ${j.tir} ]]</td>
-					<td>[[ ${j.precision} ]]</td>
-					<td>[[ ${j.acceleration} ]]</td>
-					<td>[[ ${j.puissance} ]]</td>
-					<td>[[ ${j.tacle} ]]</td>
-					<td>[[ ${j.marquage} ]]</td>
-					<td>[[ ${j.prix} ]]€</td>
-				</tr>
-			</tbody>
-		</table>
+		<div>
+			<legend>Voici vos joueurs monsieur : qui voulez-vous jeter dans la fosse aux lions ?</legend>
+			<a th:replace=" joueur-part :: a "></a>
+		</div>
+		<table  th:replace=" joueur-part :: table "></table>
 	</div>
 
 	<form method="POST" action="Vente_Joueur">
@@ -55,12 +25,10 @@
 				<tr>
 					<td>Qui est le maillon faible ?</td>
 					<td>
-						<select name="id">
-								<option th:each="j : ${joueurs}" th:value="${j.id}" th:text="${j.nom} + ' ' + ${j.prenom} + ' (' + ${j.id} + ')' " />
-						</select>
+						<select th:replace=" joueur-part :: select "></select>
 					</td>
 					<td align="center" colspan="2">
-						<input type="submit" class="btn btn-success" value="Valider">
+						<button class="btn btn-success">Valider</button>
 					</td>
 				</tr>
 			</table>
@@ -72,6 +40,50 @@
 			<a href="Menu_Manager">Retour au menu Manager</a>
 		</div>
 	</div>
+	
+	
+	<script>
+	
+		const sendVisite = (e) => {
+			e.preventDefault();
+		
+		let id = {
+			id: document.querySelector('[name="id"]').value,
+		};
+		
+		fetch('Vente_Joueur', {
+			body: new URLSearchParams(id),
+			method: 'POST',
+		})
+		
+		.then(resp => resp.text()) //Conversion du flux HTML en Texte
+		.then(joueurHtml => {
+			
+			let divParentTemp = $('<div />');
+			
+			divParentTemp.html(joueurHtml);
+			console.log(divParentTemp)
+
+			$('#budget').html(
+				divParentTemp.find('#budget').html()
+			)
+			
+			$('#joueurs').html(
+				divParentTemp.find('#joueurs').html()
+			)
+			
+			$('#select').html(
+				divParentTemp.find('#select').html()
+			);
+			
+			//document.querySelector('tbody').innerHTML = joueurHtml;
+		});}
+		
+		document.querySelector('button').addEventListener('click', sendVisite);
+	
+	</script>
+	
+	
 </body>
 
 </html>

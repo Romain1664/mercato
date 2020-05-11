@@ -12,7 +12,11 @@
 		<div class="table3">
 			<legend>L'EMIR VEUT GAGNER LA CHAMPION'S LEAGUE: 
 			<br> Qui sera ta nouvelle pépite (selon le budget de l'émir) ?</legend>
-			<a style="float:right">Budget : [[${budget}]]€</a>
+			
+			<div>
+				<a style="float:right">Budget : [[${budget}]]€</a>
+				<span style="text-align:center" class="error" th:if="${error!=null}" th:text="${error}"></span>
+			</div>
 		</div>
 		
 		<div class="table3">
@@ -54,7 +58,6 @@
 		
 		<form method="POST" action="Achat_Joueur">
 			<div class="table1">
-			
 				<table class="tableau">
 				 	<tr>
 						<td align="center">Qui veux-tu acheter ?</td>
@@ -70,7 +73,6 @@
 						<input type="submit" class="btn btn-success" value="Valider"></td>
 					</tr> 
 				</table>
-				
 			</div>
 		</form>
 		
