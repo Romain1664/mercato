@@ -57,9 +57,11 @@ public class ListeJoueursController {
 		
 		Compte c = (Compte) session.getAttribute("compte");
 		Equipe eq = this.daoEquipe.findByManager(c.getId());
+		double budget= eq.getBudget();
 		
 		List<Joueur> joueurs =this.daoJoueur.findLibreByBudget(eq.getBudget());
 		model.addAttribute("joueurs", joueurs);
+		model.addAttribute("budget", budget);
 		
 		return "joueurAchat";
 	}	
@@ -76,6 +78,5 @@ public class ListeJoueursController {
 		return "joueurVente";
 	}	
 	
-	
-	
+
 }

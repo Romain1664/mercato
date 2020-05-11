@@ -12,7 +12,7 @@
 		<div class="table3">
 			<legend>L'EMIR VEUT GAGNER LA CHAMPION'S LEAGUE: 
 			<br> Qui sera ta nouvelle pépite (selon le budget de l'émir) ?</legend>
-			<a style="float:right">Budget : €</a>
+			<a style="float:right">Budget : [[${budget}]]€</a>
 		</div>
 		
 		<div class="table3">
@@ -34,27 +34,27 @@
 					</tr>
 				</thead>
 				<tbody>
-					
-						<tr th:each="j : ${joueurs}" align="center">
-							<td>[[ ${j.id} ]]</td>
-							<td>[[ ${j.nom} ]]</td>
-							<td>[[ ${j.prenom} ]]</td>
-							<td>[[ ${j.age} ]]</td>
-							<td>[[ ${j.poste} ]]</td>
-							<td>[[ ${j.tir} ]]</td>
-							<td>[[ ${j.precision} ]]</td>
-							<td>[[ ${j.acceleration} ]]</td>
-							<td>[[ ${j.puissance} ]]</td>
-							<td>[[ ${j.tacle} ]]</td>
-							<td>[[ ${j.marquage} ]]</td>
-							<td>[[ ${j.prix} ]]€</td>
-						</tr>
+					<tr th:each="j : ${joueurs}" align="center">
+						<td>[[ ${j.id} ]]</td>
+						<td>[[ ${j.nom} ]]</td>
+						<td>[[ ${j.prenom} ]]</td>
+						<td>[[ ${j.age} ]]</td>
+						<td>[[ ${j.poste} ]]</td>
+						<td>[[ ${j.tir} ]]</td>
+						<td>[[ ${j.precision} ]]</td>
+						<td>[[ ${j.acceleration} ]]</td>
+						<td>[[ ${j.puissance} ]]</td>
+						<td>[[ ${j.tacle} ]]</td>
+						<td>[[ ${j.marquage} ]]</td>
+						<td>[[ ${j.prix} ]]€</td>
+					</tr>
 				</tbody>
 			</table>
 		</div>
 		
 		<form method="POST" action="Achat_Joueur">
 			<div class="table1">
+			
 				<table class="tableau">
 				 	<tr>
 						<td align="center">Qui veux-tu acheter ?</td>
@@ -70,6 +70,7 @@
 						<input type="submit" class="btn btn-success" value="Valider"></td>
 					</tr> 
 				</table>
+				
 			</div>
 		</form>
 		
@@ -78,6 +79,6 @@
 				<a href="Menu_Manager">Retour au menu Manager</a>
 			</div>
 		</div>
-		
+
 	</body>
 </html>

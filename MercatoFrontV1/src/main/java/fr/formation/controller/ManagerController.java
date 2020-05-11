@@ -63,7 +63,7 @@ public class ManagerController {
 		
 		session.setAttribute("message","Votre achat fut un succès");
 		
-		return "redirect:/Menu_Manager";
+		return "redirect:/Acheter_Joueurs";
 	}
 	
 	@PostMapping("/Vente_Joueur")
