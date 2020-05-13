@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html	xmlns:th="http://www.thymeleaf.org"
+		th:replace="~{layout.html :: layout(~{::title}, ~{::body})}">
+
+	<head>
+		<title>Création d'équipe</title>	
+	</head>
+
+	<body class="body0">
+		<form method="POST" action="Menu_Manager/Creation_Equipe">
+			<div class="table2">
+				<legend>CREER VOTRE EQUIPE</legend>
+			</div>
+			<div class="table2">
+				<table class="tableau">
+					<tr>
+						<td colspan="2"> 
+							<p>C'est toi le petit nouveau de la Champion's League ?</p>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2"> 
+							<span class="error" th:if="${errorEquipe!=null}" th:text="${errorEquipe}"></span>
+						</td>
+					</tr>
+					<tr>
+						<td>Le nom de ton équipe</td>
+						<td><input type="text" required name="nom_equipe" th:value="${nom_equipe}" placeholder="Votre nom d'équipe"></td>
+					</tr>
+					<tr>
+						<td>Le budget de ton équipe</td>
+						<td><input type="number" required name="budget" th:value="${budget}" placeholder="Votre budget Coach"></td>
+					</tr>
+				</table>
+			</div>
+			
+			<input type="hidden"
+                th:name="${ _csrf.parameterName }"
+                th:value="${ _csrf.token }" />	
+			
+			<div class="table1">
+				<div>
+					<input type="submit" class="btn btn-success" value="Valider">
+					<a style="float:right" href="Menu_Manager" class="btn btn-danger" role="button">Retour</a>
+				</div>
+			</div>
+			
+		</form>
+		
+	</body>
+	
+</html>

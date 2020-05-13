@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{layout.html :: layout(~{::title}, ~{::body})}">
+<head>
+<title>Vente Joueur1</title>
+</head>
+
+<body class="body6">
+	<div class="table3">
+		<legend>LE QATAR VEUT FAIRE DES ECONOMIES : 
+		</br>On vire qui coach ???</legend>
+	</div>
+
+	<div class="table3">
+		<div>
+			<legend>Voici vos joueurs monsieur : qui voulez-vous jeter dans la fosse aux lions ?</legend>
+			<a th:replace=" joueur-part :: a "></a>
+		</div>
+		<table  th:replace=" joueur-part :: table "></table>
+	</div>
+
+	<form method="POST" action="Vente_Joueur">
+		<div class="table1">
+			<table class="tableau">
+				<tr>
+					<td>Qui est le maillon faible ?</td>
+					<td>
+						<select th:replace=" joueur-part :: select "></select>
+					</td>
+					<td align="center" colspan="2">
+						<button class="btn btn-success">Valider</button>
+					</td>
+				</tr>
+			</table>
+		</div>
+		
+		<input type="hidden" th:name="${ _csrf.parameterName }" th:value="${ _csrf.token }" />	
+		
+	</form>
+
+	<div class="table1">
+		<div>
+			<a href="Menu_Manager">Retour au menu Manager</a>
+		</div>
+	</div>
+	
+	
+	<script>
+	
+		const sendVisite = (e) => {
+			e.preventDefault();
+		
+		let id = {
+			id: document.querySelector('[name="id"]').value,
+		};
+		
+		fetch('Vente_Joueur', {
+			body: new URLSearchParams(id),
+			method: 'POST',
+		})
+		
+		.then(resp => resp.text()) //Conversion du flux HTML en Texte
+		.then(joueurHtml => {
+			
+			let divParentTemp = $('<div />');
+			
+			divParentTemp.html(joueurHtml);
+			console.log(divParentTemp)
+
+			$('#budget').html(
+				divParentTemp.find('#budget').html()
+			)
+			
+			$('#joueurs').html(
+				divParentTemp.find('#joueurs').html()
+			)
+			
+			$('#select').html(
+				divParentTemp.find('#select').html()
+			);
+			
+			//document.querySelector('tbody').innerHTML = joueurHtml;
+		});}
+		
+		document.querySelector('button').addEventListener('click', sendVisite);
+	
+	</script>
+	
+	
+</body>
+
+</html>

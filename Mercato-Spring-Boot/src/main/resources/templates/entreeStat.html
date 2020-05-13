@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{ layout.html :: layout(~{::title}, ~{ ::body }) }">
+
+	<head>
+		<title>Liste des joueurs</title>
+	</head>
+
+	<body class="body5">
+		<div class="table2">
+			<legend>ENTRE TES STATISTIQUES</legend>
+		</div>
+
+		<form action="Menu_Joueur/ajoutBDD" method="POST">		
+			<div class="table1">
+				<table class="tableau">
+					<tr>	
+						<td class="titre">Vos informations générales</td> 
+						<td></td>
+					</tr>	
+					<tr>
+						<td>Nom</td>	
+						<td> 
+							<input placeholder="Votre nom" class="form-control" type="Text" name="nom" required>
+						</td>
+					</tr>
+					<tr>
+						<td>Prénom</td> 
+						<td>
+							<input placeholder="Votre prénom" class="form-control" type="Text" name="prenom" required>
+						</td>
+					</tr>
+					<tr>
+						<td>Age</td>	
+						<td> 
+							<input placeholder="Votre age" class="form-control" type="number" name="age"  required>
+						</td>
+					</tr>
+					<tr>
+						<td>Poste</td> 
+						<td>
+							<input placeholder="Votre poste" class="form-control" type="Text" name="poste" required>
+						</td>
+					</tr>
+					<tr>	
+						<td>Prix</td> 
+						<td>
+							<input placeholder="Votre prix" class="form-control" type="number" name="prix" required>
+						</td>
+					</tr>
+					<tr>
+						<td class="titre">Vos stats offensives :</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>Tir</td>	
+						<td> 
+							<input placeholder="Votre stat de tir" class="form-control" type="number" name="tir" required>
+						</td>
+					</tr>	
+					<tr>
+						<td>Précision</td> 
+						<td>
+							<input placeholder="Votre stat de précision" class="form-control" type="number" name="precision" required>
+						</td>
+					</tr>
+					<tr>
+						<td class="titre">Vos stats générales : </td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>Acceleration</td>	
+						<td> 
+							<input placeholder="Votre stat d'acceleration" class="form-control" type="number" name="acceleration" required>
+						</td>
+					</tr>	
+					<tr>
+						<td>Puissance</td>	
+						<td> 
+							<input placeholder="Votre stat de puissance" class="form-control" type="number" name="puissance" required>
+						</td>
+					</tr>	
+					<tr>
+						<td class="titre">Vos stats défensives : </td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>Tacle</td> 
+						<td>
+							<input placeholder="Votre stat de tacle" class="form-control" type="number" name="tacle" required>
+						</td>
+					</tr>
+					<tr>
+						<td>Marquage</td>	
+						<td> 
+							<input placeholder="Votre stat de marquage" class="form-control" type="number" name="marquage" required>
+						</td>
+					</tr>
+				</table>
+			</div>
+
+			<input type="hidden"
+                th:name="${ _csrf.parameterName }"
+                th:value="${ _csrf.token }" />	
+
+			<div class="table1">
+				<div class="marge">
+					<input type="submit" class="btn btn-success" value="Valider">
+					<a href="Menu_Joueur" class="btn btn-danger" style="float:right" role="button">Retour</a>
+				</div>
+			</div>
+		</form>	
+	</body>
+
+</html>
+
+

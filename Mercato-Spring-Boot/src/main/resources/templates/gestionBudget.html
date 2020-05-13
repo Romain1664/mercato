@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html	xmlns:th="http://www.thymeleaf.org"
+		th:replace="~{layout.html :: layout(~{::title}, ~{::body})}">
+
+	<head>
+		<title>Gestion du budget</title>	
+	</head>
+
+<body class="body0">
+	<form method="POST" action="budget">
+	
+		<div class="table2">
+			<legend>GESTION DU BUDGET</legend>
+		</div>
+		
+		<div class="table2">
+			<div>
+				<p>Alors le Qatar a sorti le chéquier ? (Chanceux va !)</p>
+				<table>
+					<tr>
+						<td>Nouveau Budget</td>
+						<td><input type="text" class="form-control" name="budget" placeholder="Votre nouveau budget"></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		
+		<input type="hidden"
+                th:name="${ _csrf.parameterName }"
+                th:value="${ _csrf.token }" />	
+		
+		<div class="table2">
+			<div>
+				<input type="submit" class="btn btn-success" value="Valider">
+				<a href="Menu_Manager" class="btn btn-danger" style="float:right" role="button">Retour</a>
+			</div>
+		</div>
+		
+	</form>
+</body>
+</html>

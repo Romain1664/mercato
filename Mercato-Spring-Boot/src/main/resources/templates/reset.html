@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html	xmlns:th="http://www.thymeleaf.org"
+		th:replace="~{layout.html :: layout(~{::title}, ~{::body})}">
+			
+	<head>
+		<title>Changer son Password</title>
+	</head>
+	<body>
+	
+	<form method="POST" action="reset_password">
+		<div class="table2">
+			<legend>REINITIALISER VOTRE MOT DE PASSE</legend>
+		</div>
+		<div class="table2">
+			<div class="form-group">
+				<label for="exampleInputLogin">Votre Login</label>
+				<input type="text" class="form-control" placeholder="Login" name="login">
+			</div>
+			
+		  	<div class="form-group">
+			    <label for="exampleInputPassword">Votre nouveau password</label>
+			    <input type="password" class="form-control" placeholder="Password" name="password">
+			    <small id="loginHelp" class="form-text text-muted">Essayez de pas l'oublier cette fois ;) !</small>
+			</div>
+		</div>
+		
+		<div class="table2">
+			<div>
+				<input type="submit" class="btn btn-success" value="Valider">
+				<a href="accueil" class="btn btn-danger" style="float:right" role="button">Retour</a>
+			</div>
+			<div>
+				<span class="error" th:if="${errorLogin!=null}" th:text="${errorLogin}"></span>
+			</div>
+		</div>	
+		
+		<input type="hidden" th:name="${ _csrf.parameterName }" th:value="${ _csrf.token }" />	
+		
+	</form>
+	
+	
+	</body>
+</html>
