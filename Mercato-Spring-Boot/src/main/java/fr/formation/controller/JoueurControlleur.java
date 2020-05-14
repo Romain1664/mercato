@@ -28,8 +28,10 @@ public class JoueurControlleur {
 	@GetMapping("/menu_joueur")
 	public String accueilJoueur(HttpSession session,Model model, Authentication auth)
 	{
-		model.addAttribute("message",session.getAttribute("message"));
-		session.removeAttribute("message");
+		model.addAttribute("valid",session.getAttribute("message"));
+		session.removeAttribute("valid");
+		model.addAttribute("error",session.getAttribute("error"));
+		session.removeAttribute("error");
 		
 		Compte compte = daoCompte.findByLogin(auth.getName());
 
@@ -76,12 +78,18 @@ public class JoueurControlleur {
 		joueur.setId((Integer) session.getAttribute("id"));
 		joueur.setId_equipe(1);
 		
-		System.out.println(joueur);
+		session.setAttribute("valid", "Votre profil a été ajouté dans notre BDD");
+		
+		if (joueur.getTir()<0 || joueur.getTir()>100) {joueur.setTir(0);session.setAttribute("error", "Petit tricheur, je me suis pas fait avoir !");}
+		if (joueur.getPrecision()<0 || joueur.getPrecision()>100) {joueur.setPrecision(0);session.setAttribute("error", "Petit tricheur, je me suis pas fait avoir !");}
+		if (joueur.getAcceleration()<0 || joueur.getAcceleration()>100) {joueur.setAcceleration(0);session.setAttribute("error", "Petit tricheur, je me suis pas fait avoir !");}
+		if (joueur.getPuissance()<0 || joueur.getPuissance()>100) {joueur.setPuissance(0);session.setAttribute("error", "Petit tricheur, je me suis pas fait avoir !");}
+		if (joueur.getTacle()<0 || joueur.getTacle()>100) {joueur.setTacle(0);session.setAttribute("error", "Petit tricheur, je me suis pas fait avoir !");}
+		if (joueur.getMarquage()<0 || joueur.getMarquage()>100) {joueur.setMarquage(0);session.setAttribute("error", "Petit tricheur, je me suis pas fait avoir !");}
 		
 		this.daoJoueur.insert(joueur);
 		
 		session.setAttribute("joueurInscrit", "Y");
-		session.setAttribute("message", "Votre profil a été ajouté dans notre BDD");
 		
 		return "redirect:/menu_joueur";
 	}
@@ -122,6 +130,13 @@ public class JoueurControlleur {
 	{
 		Joueur j = this.daoJoueur.findById((Integer) session.getAttribute("id")).get();
 		
+		if (tir<0 || tir>100) {tir=0;session.setAttribute("error", "Petit tricheur, je me suis pas fait avoir !");}
+		if (precision<0 || precision>100) {precision=0;session.setAttribute("error", "Petit tricheur, je me suis pas fait avoir !");}
+		if (acceleration<0 || acceleration>100) {acceleration=0;session.setAttribute("error", "Petit tricheur, je me suis pas fait avoir !");}
+		if (puissance<0 || puissance>100) {puissance=0;session.setAttribute("error", "Petit tricheur, je me suis pas fait avoir !");}
+		if (tacle<0 || tacle>100) {tacle=0;session.setAttribute("error", "Petit tricheur, je me suis pas fait avoir !");}
+		if (marquage<0 || marquage>100) {marquage=0;session.setAttribute("error", "Petit tricheur, je me suis pas fait avoir !");}
+		
 		j.setTir(tir);
 		j.setPrecision(precision);
 		j.setAcceleration(acceleration);
@@ -130,12 +145,10 @@ public class JoueurControlleur {
 		j.setMarquage(marquage);
 		
 		this.daoJoueur.save(j);
-		session.setAttribute("message", "Vos stats ont été modifiées");
+		session.setAttribute("valid", "Vos stats ont été modifiées");
 		
 		return "redirect:/menu_joueur";
 	}
-
-
 	
 }
 	

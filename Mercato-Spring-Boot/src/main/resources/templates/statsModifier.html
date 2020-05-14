@@ -19,13 +19,13 @@
 					<tr>
 						<td>Tir</td>	
 						<td> 
-							<input th:value="${joueur.tir}" class="form-control" type="number" name="tir">
+							<input th:value="${joueur.tir}" class="form-control" type="number" name="tir" min="0" max="100">
 						</td>
 					</tr>	
 					<tr>
 						<td>Précision</td> 	
 						<td> 
-							<input th:value="${joueur.precision}" class="form-control" type="number" name="precision">
+							<input th:value="${joueur.precision}" class="form-control" type="number" name="precision" min="0" max="100">
 						</td>
 					</tr> 	
 					<tr>
@@ -34,13 +34,13 @@
 					<tr>
 						<td>Acceleration</td>
 						<td>
-							<input th:value="${joueur.acceleration}" class="form-control" type="number" name="acceleration">
+							<input th:value="${joueur.acceleration}" class="form-control" type="number" name="acceleration" min="0" max="100">
 						</td>
 					</tr>	
 					<tr>
 						<td>Puissance</td>	
 						<td> 
-							<input th:value="${joueur.puissance}" class="form-control" type="number" name="puissance">
+							<input th:value="${joueur.puissance}" class="form-control" type="number" name="puissance" min="0" max="100">
 						</td>						
 					</tr>
 					 <tr>
@@ -49,13 +49,13 @@
 					<tr>
 						<td>Tacle</td> 
 						<td> 
-							<input th:value="${joueur.tacle}" class="form-control" type="number" name="tacle">
+							<input th:value="${joueur.tacle}" class="form-control" type="number" name="tacle" min="0" max="100">
 						</td>
 					</tr>
 					<tr>
 						<td>Marquage</td>	
 						<td> 
-							<input th:value="${joueur.marquage}" class="form-control" type="number" name="marquage">
+							<input th:value="${joueur.marquage}" class="form-control" type="number" name="marquage" min="0" max="100">
 						</td>
 					</tr>
 				</table>

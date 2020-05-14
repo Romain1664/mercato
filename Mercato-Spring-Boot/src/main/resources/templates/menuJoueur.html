@@ -9,11 +9,9 @@
 
 <body class="body3">
 
-
-
 	<div class="table4">
 			
-		<div class="joueur-nom">[[${session.login}]]</div>
+		<div th:if="${session.joueurInscrit=='Y' }" class="joueur-nom">[[${session.login}]]</div>
 		
 		<legend>
 			MENU JOUEUR </br> Que voulez-vous faire ?
@@ -22,8 +20,13 @@
 
 	<div class="table2">
 
-		<div class="valid" style="text-align:center" th:if="${message!=null}">
-			[[${message}]]
+		<div class="valid" style="text-align:center" th:if="${valid!=null}">
+			[[${valid}]]
+			<br>
+		</div>
+		
+		<div class="error" style="text-align:center" th:if="${error!=null}">
+			[[${error}]]
 			<br>
 		</div>
 
