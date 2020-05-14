@@ -1,8 +1,8 @@
-package fr.formation.dao.jpa;
+package fr.formation.daObsolete.jpa;
 
 import java.util.List;
 
-import fr.formation.dao.idao.IDAOCompte;
+import fr.formation.daObsolete.idao.IDAOCompte;
 import fr.formation.model.Compte;
 import fr.formation.model.Joueur;
 import fr.formation.model.Manager;

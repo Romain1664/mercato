@@ -4,8 +4,6 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,7 +22,6 @@ public class JoueurControlleur {
 
 	@Autowired
 	private IDAOJoueur daoJoueur;
-	
 	@Autowired
 	private IDAOCompte daoCompte;
 	
@@ -41,7 +38,8 @@ public class JoueurControlleur {
 			session.setAttribute("id", compte.getId());
 			session.setAttribute("login", compte.getLogin());
 			session.setAttribute("typeAccount", "Joueur");
-			session.setAttribute("joueurInscrit", daoJoueur.findById(compte.getId())== null ? "N" : "Y");
+			System.out.println(daoJoueur.findById(compte.getId()));
+			session.setAttribute("joueurInscrit", daoJoueur.findById(compte.getId()).isEmpty() ? "N" : "Y");
 			
 			return "menuJoueur";
 		}
@@ -49,7 +47,6 @@ public class JoueurControlleur {
 		{
 			return "accueil";
 		}
-		
 	}
 	
 	@GetMapping("/menu_joueur/retraite")
@@ -62,6 +59,9 @@ public class JoueurControlleur {
 		
 		return "redirect:/menu_joueur";
 	}
+	
+	
+	
 	
 	@GetMapping("/menu_joueur/joueur_inscription")
 	public String debutCarriere()
@@ -76,6 +76,8 @@ public class JoueurControlleur {
 		joueur.setId((Integer) session.getAttribute("id"));
 		joueur.setId_equipe(1);
 		
+		System.out.println(joueur);
+		
 		this.daoJoueur.insert(joueur);
 		
 		session.setAttribute("joueurInscrit", "Y");
@@ -83,6 +85,8 @@ public class JoueurControlleur {
 		
 		return "redirect:/menu_joueur";
 	}
+	
+	
 	
 	@GetMapping("/menu_joueur/afficher_stats")
 	public String afficherStat(HttpSession session,Model model) 
@@ -93,6 +97,8 @@ public class JoueurControlleur {
 		
 		return "statsAfficher";
 	}
+	
+	
 	
 	@GetMapping("/menu_joueur/modifier_stats")
 	public String modifierStat(HttpSession session,Model model) 

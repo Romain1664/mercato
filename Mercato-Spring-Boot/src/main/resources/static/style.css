@@ -113,14 +113,13 @@ a
 	margin: 8px; 
 }
 
-.table2 
+.table2
 {
 	border-radius: 10px 10px ;
 	border : double black 3px;
 	background-color:white; 
 	border-collapse:collapse; 
 	width:400px;
-	position: relative;
 }
 .table2 > div
 {
@@ -140,6 +139,19 @@ a
 	margin: 8px; 
 }
 
+.table4 
+{
+	border-radius: 10px 10px ;
+	border : double black 3px;
+	background-color:white; 
+	border-collapse:collapse; 
+	width:400px;
+	position: relative;
+}
+.table4 > div
+{
+	margin: 8px; 
+}
 .tableau
 {
 	margin: 8px; 	

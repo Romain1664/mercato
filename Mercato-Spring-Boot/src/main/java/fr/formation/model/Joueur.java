@@ -5,7 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Transient;
 
-import fr.formation.dao.idao.IDAOJoueur;
+import fr.formation.daObsolete.idao.IDAOJoueur;
 
 @Entity
 @PrimaryKeyJoinColumn(name="id",referencedColumnName="id")

@@ -38,50 +38,6 @@ public class ListeJoueursController {
 		
 		return "joueursListe";
 	}
-	
-	@GetMapping("/menu_manager/liste_joueurs_equipe")
-	public String afficherEquipe(HttpSession session, Model model) 
-	{
-		Compte c = (Compte) session.getAttribute("compte");
-		Equipe eq = this.daoEquipe.findByManager(c.getId());
-		
-		List<Joueur> joueurs = this.daoJoueur.findByEquipe(eq.getId());
-		model.addAttribute("joueurs", joueurs);
-		
-		return "joueursEquipe";
-	}
-	
-	@GetMapping("/menu_manager/acheter_joueurs")
-	public String achatEquipe(HttpSession session, Model model) 
-	{
-		
-		Compte c = (Compte) session.getAttribute("compte");
-		Equipe eq = this.daoEquipe.findByManager(c.getId());
-		double budget= eq.getBudget();
-		
-		List<Joueur> joueurs =this.daoJoueur.findByEquipe(1);
-		model.addAttribute("joueurs", joueurs);
-		model.addAttribute("budget", budget);
-				
-		model.addAttribute("error",session.getAttribute("error"));
-		session.removeAttribute("error");
-		
-		return "joueurAchat";
-	}	
-	
-	@GetMapping("/menu_manager/vendre_joueurs")
-	public String venteEquipe(HttpSession session, Model model) 
-	{
-		Compte c = (Compte) session.getAttribute("compte");
-		Equipe eq = this.daoEquipe.findByManager(c.getId());
-		double budget= eq.getBudget();
-		
-		List<Joueur> joueurs =this.daoJoueur.findByEquipe(eq.getId());
-		model.addAttribute("joueurs", joueurs);
-		model.addAttribute("budget", budget);
-		
-		return "joueurVente";
-	}	
-	
+
 
 }

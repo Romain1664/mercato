@@ -33,7 +33,7 @@
 					<tr>
 						<td>Age</td>	
 						<td> 
-							<input placeholder="Votre age" class="form-control" type="number" name="age"  required>
+							<input placeholder="Votre age" class="form-control" type="number" min="0" name="age"  required>
 						</td>
 					</tr>
 					<tr>
@@ -48,7 +48,7 @@
 					<tr>	
 						<td>Prix</td> 
 						<td>
-							<input placeholder="Votre prix" class="form-control" type="number" name="prix" required>
+							<input placeholder="Votre prix" class="form-control" type="number" min="0" max="100" name="prix" required>
 						</td>
 					</tr>
 					<tr>
@@ -58,13 +58,13 @@
 					<tr>
 						<td>Tir</td>	
 						<td> 
-							<input placeholder="Votre stat de tir" class="form-control" type="number" name="tir" required>
+							<input placeholder="Votre stat de tir" class="form-control" type="number" min="0" max="100" name="tir" required>
 						</td>
 					</tr>	
 					<tr>
 						<td>Précision</td> 
 						<td>
-							<input placeholder="Votre stat de précision" class="form-control" type="number" name="precision" required>
+							<input placeholder="Votre stat de précision" class="form-control" type="number" min="0" max="100" name="precision" required>
 						</td>
 					</tr>
 					<tr>
@@ -74,13 +74,13 @@
 					<tr>
 						<td>Acceleration</td>	
 						<td> 
-							<input placeholder="Votre stat d'acceleration" class="form-control" type="number" name="acceleration" required>
+							<input placeholder="Votre stat d'acceleration" class="form-control" type="number" min="0" max="100" name="acceleration" required>
 						</td>
 					</tr>	
 					<tr>
 						<td>Puissance</td>	
 						<td> 
-							<input placeholder="Votre stat de puissance" class="form-control" type="number" name="puissance" required>
+							<input placeholder="Votre stat de puissance" class="form-control" type="number" min="0" max="100" name="puissance" required>
 						</td>
 					</tr>	
 					<tr>
@@ -90,13 +90,13 @@
 					<tr>
 						<td>Tacle</td> 
 						<td>
-							<input placeholder="Votre stat de tacle" class="form-control" type="number" name="tacle" required>
+							<input placeholder="Votre stat de tacle" class="form-control" type="number" min="0" max="100" name="tacle" required>
 						</td>
 					</tr>
 					<tr>
 						<td>Marquage</td>	
 						<td> 
-							<input placeholder="Votre stat de marquage" class="form-control" type="number" name="marquage" required>
+							<input placeholder="Votre stat de marquage" class="form-control" type="number" min="0" max="100" name="marquage" required>
 						</td>
 					</tr>
 				</table>
@@ -107,7 +107,7 @@
                 th:value="${ _csrf.token }" />	
 
 			<div class="table1">
-				<div class="marge">
+				<div>
 					<input type="submit" class="btn btn-success" value="Valider">
 					<a href="menu_joueur" class="btn btn-danger" style="float:right" role="button">Retour</a>
 				</div>

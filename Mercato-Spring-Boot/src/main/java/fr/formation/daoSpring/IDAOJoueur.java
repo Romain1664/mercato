@@ -15,7 +15,7 @@ public interface IDAOJoueur extends JpaRepository<Joueur, Integer> {
 	
 	@Transactional
 	@Modifying
-	@Query(value = "INSERT INTO joueur ( id, nom, prenom, age, poste, tir, précision, acceleration, puissance, tacle, marquage, id_equipe, prix) VALUES ( :#{#j.id} ,:#{#j.nom},:#{#j.prenom},:#{#j.age},:#{#j.poste},:#{#j.tir},:#{#j.precision},:#{#j.acceleration},:#{#j.puissance},:#{#j.tacle},:#{#j.marquage},:#{#j.id_equipe},:#{#j.prix})", nativeQuery = true)
+	@Query(value = "INSERT INTO joueur ( id, nom, prenom, age, poste, tir, prÃ©cision, acceleration, puissance, tacle, marquage, id_equipe, prix) VALUES ( :#{#j.id} ,:#{#j.nom},:#{#j.prenom},:#{#j.age},:#{#j.poste},:#{#j.tir},:#{#j.precision},:#{#j.acceleration},:#{#j.puissance},:#{#j.tacle},:#{#j.marquage},:#{#j.id_equipe},:#{#j.prix})", nativeQuery = true)
 	public Integer insert(@Param("j") Joueur j);
 	
 	@Modifying

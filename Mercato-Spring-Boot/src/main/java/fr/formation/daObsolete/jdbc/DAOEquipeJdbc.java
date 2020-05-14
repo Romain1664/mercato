@@ -1,11 +1,11 @@
-package fr.formation.dao.jdbc;
+package fr.formation.daObsolete.jdbc;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import fr.formation.dao.idao.IDAOEquipe;
+import fr.formation.daObsolete.idao.IDAOEquipe;
 import fr.formation.model.Equipe;
 
 public class DAOEquipeJdbc extends DaoJdbc implements IDAOEquipe {
@@ -72,7 +72,7 @@ public class DAOEquipeJdbc extends DaoJdbc implements IDAOEquipe {
 	}
 
 	public Equipe selectByNomEquipe(String nom) {
-		// Par nom d'équipe
+		// Par nom d'ï¿½quipe
 		Equipe eq = null;
 		try
 		(

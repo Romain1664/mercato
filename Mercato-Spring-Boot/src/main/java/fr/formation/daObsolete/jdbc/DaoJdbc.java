@@ -1,4 +1,4 @@
-package fr.formation.dao.jdbc;
+package fr.formation.daObsolete.jdbc;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

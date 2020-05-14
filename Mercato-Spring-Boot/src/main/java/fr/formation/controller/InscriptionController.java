@@ -81,7 +81,7 @@ public class InscriptionController {
 		
 		this.daoCompte.save(compte);
 		
-		session.setAttribute("message", okEquipe ? "Votre compte et votre équipe ont bien été créés" : "Votre compte a bien été créé" );
+		session.setAttribute("message", okEquipe ? "Votre compte et votre équipe ont bien été créés" : "Votre compte " + compte.getType().toLowerCase() + " a bien été créé" );
 		return "redirect:/accueil";
 	}
 	

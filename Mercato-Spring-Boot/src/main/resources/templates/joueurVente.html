@@ -19,7 +19,7 @@
 		<table  th:replace=" joueur-part :: table "></table>
 	</div>
 
-	<form method="POST" action="vente_joueur">
+	<form method="POST" action="menu_manager/vente_joueur">
 		<div class="table1">
 			<table class="tableau">
 				<tr>
@@ -33,9 +33,7 @@
 				</tr>
 			</table>
 		</div>
-		
-		<input type="hidden" th:name="${ _csrf.parameterName }" th:value="${ _csrf.token }" />	
-		
+		<input type="hidden" th:name="${ _csrf.parameterName }" th:value="${ _csrf.token }" />		
 	</form>
 
 	<div class="table1">
@@ -54,7 +52,7 @@
 			id: document.querySelector('[name="id"]').value,
 		};
 		
-		fetch('Vente_Joueur', {
+		fetch('menu_manager/vente_joueur', {
 			body: new URLSearchParams(id),
 			method: 'POST',
 		})

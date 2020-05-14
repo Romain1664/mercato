@@ -1,11 +1,11 @@
 package fr.formation.model;
 
-import fr.formation.dao.idao.IDAOCompte;
-import fr.formation.dao.idao.IDAOEquipe;
-import fr.formation.dao.idao.IDAOJoueur;
-import fr.formation.dao.jpa.DAOCompteJpa;
-import fr.formation.dao.jpa.DAOEquipeJpa;
-import fr.formation.dao.jpa.DAOJoueurJpa;
+import fr.formation.daObsolete.idao.IDAOCompte;
+import fr.formation.daObsolete.idao.IDAOEquipe;
+import fr.formation.daObsolete.idao.IDAOJoueur;
+import fr.formation.daObsolete.jpa.DAOCompteJpa;
+import fr.formation.daObsolete.jpa.DAOEquipeJpa;
+import fr.formation.daObsolete.jpa.DAOJoueurJpa;
 
 public class Context {
 	

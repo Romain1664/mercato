@@ -22,6 +22,7 @@
 			    <label for="exampleInputPassword">Votre nouveau password</label>
 			    <input type="password" class="form-control" placeholder="Password" name="password">
 			    <small id="loginHelp" class="form-text text-muted">Essayez de pas l'oublier cette fois ;) !</small>
+			   <span class="error" th:if="${errorLogin!=null}" th:text="${errorLogin}"></span>
 			</div>
 		</div>
 		
@@ -33,9 +34,6 @@
 			<div>
 				<input type="submit" class="btn btn-success" value="Valider">
 				<a href="accueil" class="btn btn-danger" style="float:right" role="button">Retour</a>
-			</div>
-			<div>
-				<span class="error" th:if="${errorLogin!=null}" th:text="${errorLogin}"></span>
 			</div>
 		</div>	
 		

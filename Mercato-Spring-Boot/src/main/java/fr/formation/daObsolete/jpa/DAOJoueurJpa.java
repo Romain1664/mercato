@@ -1,10 +1,10 @@
-package fr.formation.dao.jpa;
+package fr.formation.daObsolete.jpa;
 
 import java.util.List;
 
 import org.hibernate.engine.spi.ExecuteUpdateResultCheckStyle;
 
-import fr.formation.dao.idao.IDAOJoueur;
+import fr.formation.daObsolete.idao.IDAOJoueur;
 import fr.formation.model.Joueur;
 
 
@@ -17,7 +17,7 @@ public class DAOJoueurJpa extends DaoJpa implements IDAOJoueur {
 		try 
 		{
 			em.
-			createNativeQuery("INSERT INTO joueur ( id, nom, prenom, age, poste, tir, précision, acceleration, puissance, tacle, marquage, id_equipe, prix) VALUES (?1,?2,?3,?4,?5,?6,?7,?8,?9,?10,?11,?12,?13)")
+			createNativeQuery("INSERT INTO joueur ( id, nom, prenom, age, poste, tir, prï¿½cision, acceleration, puissance, tacle, marquage, id_equipe, prix) VALUES (?1,?2,?3,?4,?5,?6,?7,?8,?9,?10,?11,?12,?13)")
 			.setParameter(1, j.getId())
 			.setParameter(2, j.getNom())
 			.setParameter(3, j.getPrenom())

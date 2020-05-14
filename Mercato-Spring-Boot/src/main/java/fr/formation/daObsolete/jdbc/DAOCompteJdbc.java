@@ -1,10 +1,10 @@
-package fr.formation.dao.jdbc;
+package fr.formation.daObsolete.jdbc;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.List;
 
-import fr.formation.dao.idao.IDAOCompte;
+import fr.formation.daObsolete.idao.IDAOCompte;
 import fr.formation.model.Compte;
 import fr.formation.model.Joueur;
 import fr.formation.model.Manager;

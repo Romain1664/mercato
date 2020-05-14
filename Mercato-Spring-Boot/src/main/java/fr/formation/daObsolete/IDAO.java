@@ -1,4 +1,4 @@
-package fr.formation.dao;
+package fr.formation.daObsolete;
 
 import java.util.List;
 

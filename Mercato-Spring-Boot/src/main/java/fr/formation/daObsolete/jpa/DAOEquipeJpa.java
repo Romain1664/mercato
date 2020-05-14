@@ -1,8 +1,8 @@
-package fr.formation.dao.jpa;
+package fr.formation.daObsolete.jpa;
 
 import java.util.List;
 
-import fr.formation.dao.idao.IDAOEquipe;
+import fr.formation.daObsolete.idao.IDAOEquipe;
 import fr.formation.model.Equipe;
 
 

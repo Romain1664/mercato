@@ -12,8 +12,8 @@ import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
-import fr.formation.dao.idao.IDAOCompte;
-import fr.formation.dao.idao.IDAOJoueur;
+import fr.formation.daObsolete.idao.IDAOCompte;
+import fr.formation.daObsolete.idao.IDAOJoueur;
 
 @Entity 
 @Table(name = "compte")
