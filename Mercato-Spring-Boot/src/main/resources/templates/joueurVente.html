@@ -50,6 +50,7 @@
 		
 		let id = {
 			id: document.querySelector('[name="id"]').value,
+			_csrf: "[[ ${ _csrf.token } ]]"
 		};
 		
 		fetch('menu_manager/vente_joueur', {

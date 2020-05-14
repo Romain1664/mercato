@@ -20,12 +20,16 @@ public class ConnectionControlleur {
 	@GetMapping("/deconnection")
 	public String deconnection(HttpSession session) {
 		
-		session.removeAttribute("compte");
+		session.removeAttribute("id");
+		session.removeAttribute("login");
 		session.removeAttribute("typeAccount");
+		if (session.getAttribute("message")!=null) {session.removeAttribute("message");}
+		if (session.getAttribute("error")!=null) {session.removeAttribute("error");}
+		if (session.getAttribute("valid")!=null) {session.removeAttribute("valid");}
 		if (session.getAttribute("joueurInscrit")!=null) {session.removeAttribute("joueurInscrit");}
 		if (session.getAttribute("managerEquipe")!=null) {session.removeAttribute("managerEquipe");}
 		
-		return "redirect:/accueil";
+		return "/deconnection";
 	}
 	
 	

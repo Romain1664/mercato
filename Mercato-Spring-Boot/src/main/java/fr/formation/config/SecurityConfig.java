@@ -22,12 +22,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
 		.antMatchers("/static/**").permitAll()
-		.antMatchers("/Menu_Manager/**").hasAnyRole("ADMIN","MANAGER")
-		.antMatchers("/Menu_Joueur/**").hasAnyRole("ADMIN","JOUEUR")
-		.antMatchers("/Liste_Joueurs").hasAnyRole("ADMIN","JOUEUR","MANAGER")
-		.antMatchers("/Inscription").permitAll()
-		.antMatchers("/Liste_Joueurs").hasAnyRole("ADMIN","JOUEUR","MANAGER")
-//		.antMatchers("/**").permitAll()
+		.antMatchers("/menu_manager/**").hasAnyRole("ADMIN","MANAGER")
+		.antMatchers("/menu_joueur/**").hasAnyRole("ADMIN","JOUEUR")
+		.antMatchers("/liste_joueurs").hasAnyRole("ADMIN","JOUEUR","MANAGER")
+		.antMatchers("/inscription").permitAll()
+		.antMatchers("/liste_joueurs").permitAll()
+		.antMatchers("/deconnection/**").permitAll()
+		.antMatchers("/deconnection").permitAll()
 		.and()
 		.formLogin()
 			.loginPage("/connection") // Lien vers le @GetMapping
@@ -36,7 +37,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //			.defaultSuccessUrl("/visite", true)
 			.successHandler(new RedirectCompte())
 			.permitAll()
-			;
+		.and()
+		.logout()
+			.logoutUrl("/deconnection/spring")
+			.logoutSuccessUrl("/accueil")
+			.permitAll();
 	}
 	
 	@Bean

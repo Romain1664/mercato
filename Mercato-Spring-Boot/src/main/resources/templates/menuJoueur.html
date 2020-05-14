@@ -97,33 +97,31 @@
 		document.getElementById('musicStop1').addEventListener('click', musicStop)
 		document.getElementById('musicStop2').addEventListener('click', musicStop)
 		
-		document.addEventListener('keypress', e => {
+		document.addEventListener('keydown', e => {
 			if(e.keyCode == 27){
-		        musicStop()}
-			}); 
+		        musicStop()
+		        }
+			});  
 		
 		function musicStart()
 		{
 			let sound = document.getElementById("music");
 			sound.currentTime = 0;
 			sound.loop = true;
-			sound.play;
+			sound.play();
 		}
-		
 
-		
 		function musicStop()
 		{
 			let sound = document.getElementById("music");
 			sound.pause();
 		}
 		
+ 		document.getElementById('retraite').addEventListener('click', music)
 		
- 		document.getElementById('retraite').addEventListener('onclick', music)
-		
-		function music(e) {
+ 		function music(e) {
 			e.preventDefault();
-			document.getElementById('retraite').removeEventListener('onclick', music);
+			document.getElementById('retraite').removeEventListener('click', music);
 			
 			let sound = document.getElementById("music2");
 			sound.currentTime = 0;
@@ -135,7 +133,7 @@
 		}
 		
 		function submit() {
-			fetch('menu_joueur/retraite')
+			window.location = "menu_joueur/retraite";
 		} 
 
 	</script>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html	xmlns:th="http://www.thymeleaf.org"
+		th:replace="~{layout.html :: layout(~{::title}, ~{::body})}">
+
+	<head>
+		<title>Gestion du budget</title>	
+	</head>
+
+<body class="body7" onload="timer()">
+
+	<form method="POST" id="deconnection" action="deconnection/spring">
+	
+	<div class="table2">
+		<legend>DECONNECTION</legend>
+	</div>
+	
+	<div class="table2">
+		<div>
+			<p>Au plaisir de vous revoir sur notre appli !</p>
+			<small>(Vous allez être rediriger dans quelques secondes)</small>
+		</div>
+		<div>
+			<input type="submit" class="btn btn-success" value="Retour au menu d'accueil">
+		</div>
+	</div>
+	
+	<input type="hidden" th:name="${ _csrf.parameterName }" th:value="${ _csrf.token }" />	
+
+	</form>
+
+<script>
+
+	function timer() {
+		setTimeout(end,3200);
+	}
+	
+	function end() {
+		document.getElementById('deconnection').submit();
+	}
+
+</script>
+
+
+</body>
+	
+
+</html>
