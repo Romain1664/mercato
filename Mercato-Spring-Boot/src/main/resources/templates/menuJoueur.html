@@ -18,6 +18,9 @@
 
 <body class="body3">
 
+	<audio src="retraite.mp3" id="music" preload="auto" hidden="true"></audio>
+	<audio src="retraite2.mp3" id="music2" preload="auto" hidden="true"></audio>
+
 	<div class="table4">
 			
 		<div th:if="${session.joueurInscrit=='Y' }" class="joueur-nom">[[${session.login}]]</div>
@@ -43,7 +46,6 @@
 			<a href="menu_joueur/joueur_inscription">Etre éligible Joueur</a>
 			<br><br>
 		</div>
-		<audio src="secret.mp3" id="music" controls hidden="true"></audio>
 
 		<div th:if="${session.joueurInscrit=='Y' }">
 			<a href="#" data-href="" data-toggle="modal" data-target="#confirmation" id="musicStart">Prendre sa retraite</a>
@@ -61,7 +63,7 @@
 						</div>
 						<div class="modal-footer">
 							<button type="button" class="btn btn-secondary" data-dismiss="modal" id="musicStop1">Pas maintenant ...</button>
-							<a class="btn btn-primary" href="menu_joueur/retraite">Retraite bien méritée</a>
+							<a class="btn btn-primary" id="retraite" href="menu_joueur/retraite">Retraite bien méritée</a>
 						</div>
 					</div>
 				</div>
@@ -90,25 +92,52 @@
 	</div>
 	
 	<script>
+
+		document.getElementById('musicStart').addEventListener('click', musicStart)
+		document.getElementById('musicStop1').addEventListener('click', musicStop)
+		document.getElementById('musicStop2').addEventListener('click', musicStop)
+		
+		document.addEventListener('keypress', e => {
+			if(e.keyCode == 27){
+		        musicStop()}
+			}); 
+		
 		function musicStart()
 		{
 			let sound = document.getElementById("music");
 			sound.currentTime = 0;
 			sound.loop = true;
-			sound.play();
+			sound.play;
 		}
+		
+
 		
 		function musicStop()
 		{
 			let sound = document.getElementById("music");
 			sound.pause();
 		}
-		var click = document.getElementById("musicStart");
-		click.onclick=musicStart;
-		var click1 = document.getElementById("musicStop1");
-		click1.onclick=musicStop;
-		var click2 = document.getElementById("musicStop2");
-		click2.onclick=musicStop;
+		
+		
+ 		document.getElementById('retraite').addEventListener('onclick', music)
+		
+		function music(e) {
+			e.preventDefault();
+			document.getElementById('retraite').removeEventListener('onclick', music);
+			
+			let sound = document.getElementById("music2");
+			sound.currentTime = 0;
+			sound.play();
+			
+			setTimeout(submit,4900);
+
+			return false;
+		}
+		
+		function submit() {
+			fetch('menu_joueur/retraite')
+		} 
+
 	</script>
 	
 </body>

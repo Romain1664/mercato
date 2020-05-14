@@ -7,7 +7,7 @@
 	</head>
 
 <body class="body7">
-	<form method="POST" action="menu_manager/gestion_budget">
+	<form id="formInscription" method="POST" action="menu_manager/gestion_budget">
 	
 		<div class="table2">
 			<legend>GESTION DU BUDGET</legend>
@@ -36,6 +36,31 @@
 			</div>
 		</div>
 		
+		<audio src="budget.mp3" id="music" controls hidden="false" preload="auto"></audio>
+		
 	</form>
+	
+	<script>
+		document.getElementById('formInscription').addEventListener('submit', music)
+		
+		function music(e) {
+			e.preventDefault();
+			document.getElementById('formInscription').removeEventListener('submit', music);
+			
+			let sound = document.getElementById("music");
+			sound.currentTime = 0;
+			sound.play();
+			
+			setTimeout(submit,3300);
+
+			return false;
+		}
+		
+		function submit() {
+			document.getElementById('formInscription').submit();
+		}
+	</script>
+
 </body>
+	
 </html>
