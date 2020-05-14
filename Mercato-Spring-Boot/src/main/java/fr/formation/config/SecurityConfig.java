@@ -25,7 +25,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		.antMatchers("/Menu_Manager/**").hasAnyRole("ADMIN","MANAGER")
 		.antMatchers("/Menu_Joueur/**").hasAnyRole("ADMIN","JOUEUR")
 		.antMatchers("/Liste_Joueurs").hasAnyRole("ADMIN","JOUEUR","MANAGER")
-		.antMatchers("/**").permitAll()
+		.antMatchers("/Inscription").permitAll()
+		.antMatchers("/Liste_Joueurs").hasAnyRole("ADMIN","JOUEUR","MANAGER")
+//		.antMatchers("/**").permitAll()
 		.and()
 		.formLogin()
 			.loginPage("/connection") // Lien vers le @GetMapping

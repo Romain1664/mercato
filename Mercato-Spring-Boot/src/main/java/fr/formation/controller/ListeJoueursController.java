@@ -23,7 +23,7 @@ public class ListeJoueursController {
 	@Autowired
 	private IDAOEquipe daoEquipe;
 	
-	@GetMapping("/Liste_Joueurs")
+	@GetMapping("/liste_joueurs")
 	public String listeJoueurs(Model model) {
 		
 		List<Joueur> joueurs = this.daoJoueur.findAll();
@@ -39,7 +39,7 @@ public class ListeJoueursController {
 		return "joueursListe";
 	}
 	
-	@GetMapping("/Menu_Manager/Liste_Joueurs_Equipe")
+	@GetMapping("/menu_manager/liste_joueurs_equipe")
 	public String afficherEquipe(HttpSession session, Model model) 
 	{
 		Compte c = (Compte) session.getAttribute("compte");
@@ -51,7 +51,7 @@ public class ListeJoueursController {
 		return "joueursEquipe";
 	}
 	
-	@GetMapping("/Menu_Manager/Acheter_Joueurs")
+	@GetMapping("/menu_manager/acheter_joueurs")
 	public String achatEquipe(HttpSession session, Model model) 
 	{
 		
@@ -69,7 +69,7 @@ public class ListeJoueursController {
 		return "joueurAchat";
 	}	
 	
-	@GetMapping("/Menu_Manager/Vendre_Joueurs")
+	@GetMapping("/menu_manager/vendre_joueurs")
 	public String venteEquipe(HttpSession session, Model model) 
 	{
 		Compte c = (Compte) session.getAttribute("compte");

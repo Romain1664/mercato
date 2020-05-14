@@ -29,8 +29,8 @@ public class ManagerController {
 	@Autowired
 	private IDAOJoueur daoJoueur;
 	
-	@GetMapping("/Menu_Manager")
-	public String accueilJoueur(HttpSession session,Model model)
+	@GetMapping("/menu_manager")
+	public String accueilManger(HttpSession session,Model model)
 	{
 		model.addAttribute("message",session.getAttribute("message"));
 		session.removeAttribute("message");
@@ -38,8 +38,8 @@ public class ManagerController {
 	}
 	
 	
-	@PostMapping("/Menu_Manager/gestionBudget")
-	public String gesttionBudget(HttpSession session,Model model) 
+	@PostMapping("/menu_manager/gestion_budget")
+	public String gestionBudget(HttpSession session,Model model) 
 	{
 		Compte c = (Compte) session.getAttribute("compte");
 		Equipe eq = this.daoEquipe.findById(c.getId()).get();
@@ -50,7 +50,7 @@ public class ManagerController {
 	}
 	
 	
-	@PostMapping("/Menu_Manager/Achat_Joueur")
+	@PostMapping("/menu_manager/achat_joueur")
 	public String achat(@RequestParam(value="id") Integer id ,HttpSession session,Model model) {
 		
 		Compte c = (Compte) session.getAttribute("compte");
@@ -71,10 +71,10 @@ public class ManagerController {
 			this.daoEquipe.save(eq);
 		}
 		
-		return "redirect:/Acheter_Joueurs";
+		return "redirect:/acheter_joueurs";
 	}
 	
-	@PostMapping("/Menu_Manager/Vente_Joueur")
+	@PostMapping("/menu_manager/vente_joueur")
 	public String vente(@RequestParam(value="id") Integer id ,HttpSession session,Model model) {
 
 		Compte c = (Compte) session.getAttribute("compte");
@@ -95,14 +95,14 @@ public class ManagerController {
 		return "joueur-part";
 	}
 	
-	@GetMapping("/Menu_Manager/gestionBudget")
+	@GetMapping("/menu_manager/gestion_budget")
 	public String choixBudget() {
 		
 		return "gestionBudget";
 	}
 	
 	
-	@PostMapping("/Menu_Manager/budget")
+	@PostMapping("/menu_manager/budget")
 	public String budget(@RequestParam(value="budget") Double budget, HttpSession session,Model model) {
 
 		Compte c = (Compte) session.getAttribute("compte");
@@ -114,24 +114,24 @@ public class ManagerController {
 		
 		session.setAttribute("message","Le budget a �t� chang� !");
 		
-		return "redirect:/Menu_Manager";
+		return "redirect:/menu_manager";
 	}
 	
-	@GetMapping("/Menu_Manager/Creation_Equipe")
+	@GetMapping("/menu_manager/creation_equipe")
 	public String equipe() {
 		
 		return "creationEquipe";
 	}
 	
 	
-	@PostMapping("/Menu_Manager/Creation_Equipe")
+	@PostMapping("/menu_manager/creation_equipe")
 	public String creationEequipe(@Valid @RequestParam(value="nom_equipe") String nom_equipe,@Valid @RequestParam(value="budget") Double budget, Model model, HttpSession session) {
 		
 		Equipe eq = this.daoEquipe.findByNomEquipe(nom_equipe);
 		
 		if (eq!=null)
 		{
-			model.addAttribute("errorEquipe","Le nom d'�quipe est d�j� pris !");
+			model.addAttribute("errorEquipe","Le nom d'équipe est déjà pris !");
 			model.addAttribute("nom_equipe",nom_equipe);
 			model.addAttribute("budget",budget);
 			
@@ -144,7 +144,7 @@ public class ManagerController {
 			Equipe eq2 = new Equipe(nom_equipe, c.getId(),budget);
 			
 			this.daoEquipe.save(eq2);
-			model.addAttribute("message","L'�quipe a �t� cr�� avec succ�s !");
+			model.addAttribute("message","L'équipe a été créé avec succès !");
 			session.setAttribute("managerEquipe", "Y");
 			
 			return "manager";

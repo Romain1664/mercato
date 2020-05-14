@@ -29,8 +29,8 @@ public class Compte extends Context{
 	@NotNull
 	protected String login;
 	
-	@Column(name="password", length=25, nullable =false ) 
-	@NotNull
+	@Column(name="password", length=250, nullable =false ) 
+//	@NotNull
 	protected String password;
 	
 	@Column(name="type", length=10, nullable =false) 
@@ -91,7 +91,7 @@ public class Compte extends Context{
 	public void setPassword(String password) 
 	{
 		this.password = password;
-		Context.getDaoCompte().update(this);
+//		Context.getDaoCompte().update(this);
 	}
 	
 	public String getType() 
@@ -158,7 +158,7 @@ public class Compte extends Context{
 	public void updatePassword() {
 		
 		Context.getDaoCompte().update(this);
-		System.out.println("Votre mot de passe a été modifié !");
+		System.out.println("Votre mot de passe a ï¿½tï¿½ modifiï¿½ !");
 		
 	}
 	

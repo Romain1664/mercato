@@ -31,10 +31,16 @@ public class InscriptionController {
 	@PostMapping("/inscription")
 	public String inscription(@ModelAttribute Compte compte, @RequestParam(required=false, value="nom_equipe") String nom_equipe, @RequestParam(required=false, value="budget") Double budget, @RequestParam(value="choix") String choix, @RequestParam(value="type") String type, HttpSession session, Model model) {
 		
+		System.out.println(compte.getType());
+		System.out.println(compte.getLogin());
+		System.out.println(compte.getPassword());
+		
 		Compte c=this.daoCompte.findByLogin(compte.getLogin());
+		
 		boolean okEquipe = false;
 		
 		model.addAttribute("login",compte.getLogin());
+		
 		model.addAttribute("type",type);
 		model.addAttribute("choix",choix);
 		model.addAttribute("nom_equipe",nom_equipe);
@@ -46,13 +52,13 @@ public class InscriptionController {
 			return "inscription";
 		}
 		
-		if ( (!compte.getType().equals("joueur")) && (!compte.getType().equals("manager")) )
+		if ( (!compte.getType().equals("Joueur")) && (!compte.getType().equals("Manager")) )
 		{
 			model.addAttribute("errorType","Choisissez un type de compte VALIDE !");
 			return "inscription";
 		}
 		
-		if (compte.getType().equals("manager") && choix.equals("oui"))
+		if (compte.getType().equals("Manager") && choix.equals("oui"))
 		{
 			if (nom_equipe==null || nom_equipe.equals(""))
 			{

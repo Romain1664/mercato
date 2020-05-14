@@ -25,7 +25,7 @@
 		</div>
 
 		<div th:if="${session.joueurInscrit=='N' }">
-			<a href="Menu_Joueur/Joueur_Inscription">Etre éligible Joueur</a>
+			<a href="menu_joueur/joueur_inscription">Etre éligible Joueur</a>
 			<br><br>
 		</div>
 
@@ -45,7 +45,7 @@
 						</div>
 						<div class="modal-footer">
 							<button type="button" class="btn btn-secondary" data-dismiss="modal">Pas maintenant ...</button>
-							<a class="btn btn-primary" href="Menu_Joueur/retraite">Retraite bien méritée</a>
+							<a class="btn btn-primary" href="menu_joueur/retraite">Retraite bien méritée</a>
 						</div>
 					</div>
 				</div>
@@ -54,17 +54,17 @@
 		</div>
 		
 		<div th:if="${session.joueurInscrit=='Y'}">
-			<a href="Menu_Joueur/afficherStats">Afficher mes statistiques</a> 
+			<a href="menu_joueur/afficher_stats">Afficher mes statistiques</a> 
 			<br><br>
 		</div>
 		
 		<div th:if="${session.joueurInscrit=='Y'}">
-			<a href="Menu_Joueur/modifierStats">Modifier mes statistiques</a> 
+			<a href="menu_joueur/modifier_stats">Modifier mes statistiques</a> 
 			<br><br>
 		</div>
 	
 		<div>
-			<a href="Liste_Joueurs">Afficher la liste des joueurs inscrits</a>
+			<a href="liste_joueurs">Afficher la liste des joueurs inscrits</a>
 			<br><br>
 		</div>
 		

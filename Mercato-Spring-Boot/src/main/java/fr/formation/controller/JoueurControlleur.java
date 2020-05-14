@@ -21,9 +21,13 @@ public class JoueurControlleur {
 	@Autowired
 	private IDAOJoueur daoJoueur;
 	
-	@GetMapping("/Menu_Joueur")
+	@GetMapping("/menu_joueur")
 	public String accueilJoueur(HttpSession session,Model model)
 	{
+		
+		
+		
+		
 		model.addAttribute("message",session.getAttribute("message"));
 		session.removeAttribute("message");
 			
@@ -31,7 +35,7 @@ public class JoueurControlleur {
 	}
 	
 	
-	@GetMapping("/Menu_Joueur/retraite")
+	@GetMapping("/menu_joueur/retraite")
 	public String retraite(HttpSession session)
 	{
 		Compte c = (Compte) session.getAttribute("compte");
@@ -40,17 +44,17 @@ public class JoueurControlleur {
 		this.daoJoueur.deleteById(j.getId());
 		session.setAttribute("joueurInscrit", "N");
 		
-		return "redirect:/Menu_Joueur";
+		return "redirect:/menu_joueur";
 	}
 	
-	@GetMapping("/Menu_Joueur/Joueur_Inscription")
+	@GetMapping("/menu_joueur/joueur_inscription")
 	public String debutCarriere()
 	{
 		System.out.println("test");
 		return "entreeStat";
 	}
 	
-	@PostMapping("/Menu_Joueur/ajoutBDD")
+	@PostMapping("/menu_joueur/joueur_inscription")
 	public String ajoutJoueur(@ModelAttribute Joueur joueur, HttpSession session, Model model) {
 		
 		Compte c = (Compte) session.getAttribute("compte");
@@ -62,10 +66,10 @@ public class JoueurControlleur {
 		session.setAttribute("joueurInscrit", "Y");
 		session.setAttribute("message", "Votre profil a été ajouté dans notre BDD");
 		
-		return "redirect:/Menu_Joueur";
+		return "redirect:/menu_joueur";
 	}
 	
-	@GetMapping("/Menu_Joueur/afficherStats")
+	@GetMapping("/menu_joueur/afficher_stats")
 	public String afficherStat(HttpSession session,Model model) 
 	{
 		Compte c = (Compte) session.getAttribute("compte");
@@ -76,7 +80,7 @@ public class JoueurControlleur {
 		return "statsAfficher";
 	}
 	
-	@GetMapping("/Menu_Joueur/modifierStats")
+	@GetMapping("/menu_joueur/modifier_stats")
 	public String modifierStat(HttpSession session,Model model) 
 	{
 		Compte c = (Compte) session.getAttribute("compte");
@@ -87,7 +91,7 @@ public class JoueurControlleur {
 		return "statsModifier";
 	}
 	
-	@PostMapping("/Menu_Joueur/ModificationStat")
+	@PostMapping("/menu_joueur/modification_stat")
 	public String modificationStat(
 			@RequestParam(value="tir") Integer tir,
 			@RequestParam(value="precision") Integer precision,
@@ -108,9 +112,9 @@ public class JoueurControlleur {
 		j.setMarquage(marquage);
 		
 		this.daoJoueur.save(j);
-		session.setAttribute("message", "Vos stats ont �t� modifi�es");
+		session.setAttribute("message", "Vos stats ont été modifiées");
 		
-		return "redirect:/Menu_Joueur";
+		return "redirect:/menu_joueur";
 	}
 
 

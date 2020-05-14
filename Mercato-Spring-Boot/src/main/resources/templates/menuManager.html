@@ -20,29 +20,29 @@
 			</div>
 			
 			<div>
-				<a href="Liste_Joueurs">Afficher la liste des joueurs inscrits</a>
+				<a href="liste_joueurs">Afficher la liste des joueurs inscrits</a>
 				<br><br>
 			</div>
 			
 			<div th:if="${session.managerEquipe=='Y'}">
-				<a href="Menu_Manager/gestionBudget">Gérer son compte en banque</a>
+				<a href="menu_manager/gestion_budget">Gérer son compte en banque</a>
 				<br><br>
 			</div>
 			<div th:if="${session.managerEquipe=='Y'}">
-				<a href="Menu_Manager/Liste_Joueurs_Equipe">Afficher les joueurs de votre équipe</a>
+				<a href="menu_manager/liste_joueurs_equipe">Afficher les joueurs de votre équipe</a>
 				<br><br>
 			</div>
 			<div th:if="${session.managerEquipe=='Y'}">
-				<a href="Menu_Manager/Acheter_Joueurs">Acheter un joueur</a>
+				<a href="menu_manager/acheter_joueurs">Acheter un joueur</a>
 				<br><br>
 			</div>
 			<div th:if="${session.managerEquipe=='Y'}">
-				<a href="Menu_Manager/Vendre_Joueurs">Vendre un joueur</a>
+				<a href="menu_manager/vendre_joueurs">Vendre un joueur</a>
 				<br><br>
 			</div>
 			
 			<div th:if="${session.managerEquipe=='N'}">
-				<a href="Menu_Manager/Creation_Equipe">Créer son équipe</a>
+				<a href="menu_manager/creation_equipe">Créer son équipe</a>
 				<br><br>
 			</div>
 			
