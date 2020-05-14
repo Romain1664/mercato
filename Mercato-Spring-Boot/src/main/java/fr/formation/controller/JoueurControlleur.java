@@ -60,7 +60,7 @@ public class JoueurControlleur {
 		this.daoJoueur.insert(joueur);
 		
 		session.setAttribute("joueurInscrit", "Y");
-		session.setAttribute("message", "Votre profil a �t� ajout� dans notre BDD");
+		session.setAttribute("message", "Votre profil a été ajouté dans notre BDD");
 		
 		return "redirect:/Menu_Joueur";
 	}

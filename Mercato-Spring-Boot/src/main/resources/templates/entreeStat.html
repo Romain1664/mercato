@@ -38,9 +38,12 @@
 					</tr>
 					<tr>
 						<td>Poste</td> 
-						<td>
-							<input placeholder="Votre poste" class="form-control" type="Text" name="poste" required>
-						</td>
+						<td><select name="poste" required class="form-control">
+								<option th:selected="${choix}=='Attaquant'" value="Attaquant">Attaquant</option>
+								<option th:selected="${choix}=='Milieu'" value="Milieu">Milieu</option>
+								<option th:selected="${choix}=='Defenseur'" value="Defenseur">Defenseur</option>
+								<option th:selected="${choix}=='Gardien'" value="Gardien">Gardien</option>
+						</select></td>
 					</tr>
 					<tr>	
 						<td>Prix</td> 
