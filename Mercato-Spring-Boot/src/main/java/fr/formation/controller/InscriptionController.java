@@ -3,6 +3,7 @@ package fr.formation.controller;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -31,9 +32,7 @@ public class InscriptionController {
 	@PostMapping("/inscription")
 	public String inscription(@ModelAttribute Compte compte, @RequestParam(required=false, value="nom_equipe") String nom_equipe, @RequestParam(required=false, value="budget") Double budget, @RequestParam(value="choix") String choix, @RequestParam(value="type") String type, HttpSession session, Model model) {
 		
-		System.out.println(compte.getType());
-		System.out.println(compte.getLogin());
-		System.out.println(compte.getPassword());
+		compte.setPassword(new BCryptPasswordEncoder().encode(compte.getPassword()));
 		
 		Compte c=this.daoCompte.findByLogin(compte.getLogin());
 		
@@ -94,16 +93,16 @@ public class InscriptionController {
 	@PostMapping("/reset_password")
 	public String resetPassword(@RequestParam(value="login") String login, @RequestParam(value="password") String password, HttpSession session, Model model) {
 		
-		Compte c = this.daoCompte.findByLogin(login);
+		Compte compte = this.daoCompte.findByLogin(login);
 		
-		if (c==null)
+		if (compte==null)
 		{
 			model.addAttribute("errorLogin", "Ce login n'est associé à aucun compte");
 			return "reset";
 		}
 		
-		c.setPassword(password);
-		this.daoCompte.save(c);
+		compte.setPassword(new BCryptPasswordEncoder().encode(password));
+		this.daoCompte.save(compte);
 		
 		session.setAttribute("message","Votre mot de passe a bien été changé");
 		return "redirect:/accueil";

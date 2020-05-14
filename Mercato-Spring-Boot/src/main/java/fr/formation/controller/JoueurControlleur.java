@@ -3,6 +3,9 @@ package fr.formation.controller;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,6 +13,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import fr.formation.daoSpring.IDAOCompte;
 import fr.formation.daoSpring.IDAOJoueur;
 import fr.formation.model.Compte;
 import fr.formation.model.Joueur;
@@ -21,25 +25,37 @@ public class JoueurControlleur {
 	@Autowired
 	private IDAOJoueur daoJoueur;
 	
+	@Autowired
+	private IDAOCompte daoCompte;
+	
 	@GetMapping("/menu_joueur")
-	public String accueilJoueur(HttpSession session,Model model)
+	public String accueilJoueur(HttpSession session,Model model, Authentication auth)
 	{
-		
-		
-		
-		
 		model.addAttribute("message",session.getAttribute("message"));
 		session.removeAttribute("message");
+		
+		Compte compte = daoCompte.findByLogin(auth.getName());
+
+		if (compte!=null)
+		{
+			session.setAttribute("id", compte.getId());
+			session.setAttribute("login", compte.getLogin());
+			session.setAttribute("typeAccount", "Joueur");
+			session.setAttribute("joueurInscrit", daoJoueur.findById(compte.getId())== null ? "N" : "Y");
 			
-		return "menuJoueur";
+			return "menuJoueur";
+		}
+		else
+		{
+			return "accueil";
+		}
+		
 	}
-	
 	
 	@GetMapping("/menu_joueur/retraite")
 	public String retraite(HttpSession session)
 	{
-		Compte c = (Compte) session.getAttribute("compte");
-		Joueur j = this.daoJoueur.findById(c.getId()).get();
+		Joueur j = this.daoJoueur.findById((Integer) session.getAttribute("id")).get();
 		
 		this.daoJoueur.deleteById(j.getId());
 		session.setAttribute("joueurInscrit", "N");
@@ -57,8 +73,7 @@ public class JoueurControlleur {
 	@PostMapping("/menu_joueur/joueur_inscription")
 	public String ajoutJoueur(@ModelAttribute Joueur joueur, HttpSession session, Model model) {
 		
-		Compte c = (Compte) session.getAttribute("compte");
-		joueur.setId(c.getId());
+		joueur.setId((Integer) session.getAttribute("id"));
 		joueur.setId_equipe(1);
 		
 		this.daoJoueur.insert(joueur);
@@ -72,8 +87,7 @@ public class JoueurControlleur {
 	@GetMapping("/menu_joueur/afficher_stats")
 	public String afficherStat(HttpSession session,Model model) 
 	{
-		Compte c = (Compte) session.getAttribute("compte");
-		Joueur j = this.daoJoueur.findById(c.getId()).get();
+		Joueur j = this.daoJoueur.findById((Integer) session.getAttribute("id")).get();
 
 		model.addAttribute("joueur",j);
 		
@@ -83,8 +97,7 @@ public class JoueurControlleur {
 	@GetMapping("/menu_joueur/modifier_stats")
 	public String modifierStat(HttpSession session,Model model) 
 	{
-		Compte c = (Compte) session.getAttribute("compte");
-		Joueur j = this.daoJoueur.findById(c.getId()).get();
+		Joueur j = this.daoJoueur.findById((Integer) session.getAttribute("id")).get();
 		
 		model.addAttribute("joueur",j);
 		
@@ -101,8 +114,7 @@ public class JoueurControlleur {
 			@RequestParam(value="marquage") Integer marquage,
 			HttpSession session,Model model) 
 	{
-		Compte c = (Compte) session.getAttribute("compte");
-		Joueur j = this.daoJoueur.findById(c.getId()).get();
+		Joueur j = this.daoJoueur.findById((Integer) session.getAttribute("id")).get();
 		
 		j.setTir(tir);
 		j.setPrecision(precision);

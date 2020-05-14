@@ -16,13 +16,21 @@ public class RedirectCompte implements AuthenticationSuccessHandler {
 		if (auth.getAuthorities()
 				.stream()
 				.filter(r -> r.getAuthority().equals("ROLE_MANAGER"))
-				.findFirst().isPresent()) {
-			response.sendRedirect("/Menu_Manager");
+				.findFirst().isPresent()) 
+		{
+			response.sendRedirect("/menu_manager");
 		}
 		
-		else {
-			response.sendRedirect("/Menu_Joueur");
+		else if (auth.getAuthorities()
+				.stream()
+				.filter(r -> r.getAuthority().equals("ROLE_JOUEUR"))
+				.findFirst().isPresent())
+		{
+			response.sendRedirect("/menu_joueur");
 		}
+		
+		else 
+			response.sendRedirect("/accueil");
 	}
 
 }
