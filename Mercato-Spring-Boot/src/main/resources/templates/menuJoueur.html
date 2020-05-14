@@ -7,6 +7,15 @@
 <title>Menu Joueur</title>
 </head>
 
+<script>
+	function musicStart()
+	{
+		
+	}
+
+</script>
+
+
 <body class="body3">
 
 	<div class="table4">
@@ -34,15 +43,16 @@
 			<a href="menu_joueur/joueur_inscription">Etre éligible Joueur</a>
 			<br><br>
 		</div>
+		<audio src="secret.mp3" id="music" controls hidden="true"></audio>
 
 		<div th:if="${session.joueurInscrit=='Y' }">
-			<a href="#" data-href="" data-toggle="modal" data-target="#confirmation">Prendre sa retraite</a>
+			<a href="#" data-href="" data-toggle="modal" data-target="#confirmation" id="musicStart">Prendre sa retraite</a>
 			<div class="modal fade" id="confirmation" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 				<div class="modal-dialog" role="document">
 					<div class="modal-content">
 						<div class="modal-header">
 							<h5 class="modal-title" id="exampleModalLabel">Veuillez confirmer</h5>
-							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close" id="musicStop2">
 								<span aria-hidden="true">&times;</span>
 							</button>
 						</div>
@@ -50,7 +60,7 @@
 							<p>Voulez-vous vraiment ranger les crampons ?</p>
 						</div>
 						<div class="modal-footer">
-							<button type="button" class="btn btn-secondary" data-dismiss="modal">Pas maintenant ...</button>
+							<button type="button" class="btn btn-secondary" data-dismiss="modal" id="musicStop1">Pas maintenant ...</button>
 							<a class="btn btn-primary" href="menu_joueur/retraite">Retraite bien méritée</a>
 						</div>
 					</div>
@@ -78,5 +88,28 @@
 			<a href="deconnection">Se deconnecter</a>
 		</div>
 	</div>
+	
+	<script>
+		function musicStart()
+		{
+			let sound = document.getElementById("music");
+			sound.currentTime = 0;
+			sound.loop = true;
+			sound.play();
+		}
+		
+		function musicStop()
+		{
+			let sound = document.getElementById("music");
+			sound.pause();
+		}
+		var click = document.getElementById("musicStart");
+		click.onclick=musicStart;
+		var click1 = document.getElementById("musicStop1");
+		click1.onclick=musicStop;
+		var click2 = document.getElementById("musicStop2");
+		click2.onclick=musicStop;
+	</script>
+	
 </body>
 </html>
