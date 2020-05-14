@@ -32,12 +32,12 @@
 
 	<div class="table2">
 
-		<div class="valid" style="text-align:center" th:if="${valid!=null}">
+		<div class="valid center" th:if="${valid!=null}">
 			[[${valid}]]
 			<br>
 		</div>
 		
-		<div class="error" style="text-align:center" th:if="${error!=null}">
+		<div class="error center" th:if="${error!=null}">
 			[[${error}]]
 			<br>
 		</div>
@@ -122,6 +122,8 @@
  		function music(e) {
 			e.preventDefault();
 			document.getElementById('retraite').removeEventListener('click', music);
+			
+			musicStop();
 			
 			let sound = document.getElementById("music2");
 			sound.currentTime = 0;

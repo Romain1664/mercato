@@ -156,13 +156,17 @@ public class ManagerController {
 	
 	
 	@GetMapping("/menu_manager/gestion_budget")
-	public String choixBudget() {
+	public String choixBudget(HttpSession session, Model model) {
+		
+		Equipe eq = this.daoEquipe.findByManager((Integer)session.getAttribute("id"));
+		
+		model.addAttribute("budget",eq.getBudget());
 		
 		return "gestionBudget";
 	}
 	
 	@PostMapping("/menu_manager/gestion_budget")
-	public String budget(@RequestParam(value="budget") Double budget, HttpSession session,Model model) {
+	public String budget(@RequestParam(value="budget") Double budget, HttpSession session, Model model) {
 
 		Equipe eq = this.daoEquipe.findByManager((Integer)session.getAttribute("id"));
 
@@ -170,7 +174,7 @@ public class ManagerController {
 		
 		this.daoEquipe.save(eq);
 		
-		session.setAttribute("message","Le budget a été changé !");
+		session.setAttribute("message","Le budget a bien été changé !");
 		
 		return "redirect:/menu_manager";
 	}

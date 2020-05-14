@@ -89,6 +89,16 @@ a
     font-family:"times new roman", times, serif;
 }
 
+.center
+{
+	text-align:center;
+}
+
+.cursor
+{
+	cursor: pointer;
+}
+
 .error
 {
 	color :red;
@@ -99,6 +109,11 @@ a
 {
 	color :green;
 	font-weight: bold;
+}
+
+.right
+{
+	float:right;
 }
 
 .titre

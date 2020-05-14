@@ -11,7 +11,7 @@
 			<legend>ENTRE TES STATISTIQUES</legend>
 		</div>
 
-		<form action="menu_joueur/joueur_inscription" method="POST">		
+		<form action="menu_joueur/joueur_inscription" id ="formInscription" method="POST">		
 			<div class="table1">
 				<table class="tableau">
 					<tr>	
@@ -19,15 +19,15 @@
 						<td></td>
 					</tr>	
 					<tr>
-						<td>Nom</td>	
-						<td> 
-							<input placeholder="Votre nom" class="form-control" type="Text" name="nom" required>
+						<td>Prénom</td> 
+						<td>
+							<input placeholder="Votre prénom" class="form-control" type="Text" id="prenom" name="prenom" required>
 						</td>
 					</tr>
 					<tr>
-						<td>Prénom</td> 
-						<td>
-							<input placeholder="Votre prénom" class="form-control" type="Text" name="prenom" required>
+						<td>Nom</td>	
+						<td> 
+							<input placeholder="Votre nom" class="form-control" type="Text" id="nom" name="nom" required>
 						</td>
 					</tr>
 					<tr>
@@ -109,10 +109,38 @@
 			<div class="table1">
 				<div>
 					<input type="submit" class="btn btn-success" value="Valider">
-					<a href="menu_joueur" class="btn btn-danger" style="float:right" role="button">Retour</a>
+					<a href="menu_joueur" class="btn btn-danger right" role="button">Retour</a>
 				</div>
 			</div>
-		</form>	
+			
+			<audio src="zinedine_zidane.mp3" id="music" controls hidden="false" preload="auto"></audio>
+		
+		</form>
+	
+		<script>
+			document.getElementById('formInscription').addEventListener('submit', music)
+			
+			function music(e) {
+				if (document.getElementById('prenom').value.toLowerCase()=="zinédine" || document.getElementById('nom').value.toLowerCase()=="zidane") 
+				{
+					e.preventDefault();
+					document.getElementById('formInscription').removeEventListener('submit', music);
+					
+					let sound = document.getElementById("music");
+					sound.currentTime = 0;
+					sound.play();
+					
+					setTimeout(submit,7500);
+		
+					return false;
+				}
+			}
+			
+			function submit() {
+				document.getElementById('formInscription').submit();
+			}
+		</script>
+	
 	</body>
 
 </html>

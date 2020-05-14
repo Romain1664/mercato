@@ -29,7 +29,7 @@
 					<table class = "marge">
 						<tr>
 							<td><input type="submit" class="btn btn-success" value="Valider"></td>
-							<td style="text-align:center">
+							<td>
 								<span class="error" th:if="${param.error!=null}">L'identification a échoué</span>
 								<span class="valid" th:if="${message!=null}" th:text="${message}"></span>
 							</td>
@@ -46,7 +46,7 @@
 			<div class="table1">
 				<div>
 					<a href="inscription">Se créer un compte</a>
-					<a href="reset_password" style="float:right">Mot de passe perdu</a>		
+					<a href="reset_password" class="right">Mot de passe perdu</a>		
 				</div>
 			</div>
 		</form>

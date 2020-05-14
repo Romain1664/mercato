@@ -14,28 +14,28 @@
 			<br> Qui sera ta nouvelle pépite (selon le budget de l'émir) ?</legend>
 			
 			<div>
-				<a style="float:right">Budget : [[${budget}]]€</a>
+				<a class ="right">Budget : [[${budget}]]€</a>
 				<span class="error" th:if="${error!=null}" th:text="${error}"></span>
 				<span class="valid" th:if="${valid!=null}" th:text="${valid}"></span>
 			</div>
 		</div>
 		
 		<div class="table3">
-			<table class="table">
+			<table class="table" id="table">
 				<thead>
 					<tr align="center">
-						<th scope="col">id</th>
-						<th scope="col">Nom</th>
-						<th scope="col">Prenom</th>
-						<th scope="col">Age</th>
-						<th scope="col">Poste</th>
-						<th scope="col">Tir</th>
-						<th scope="col">Précision</th>
-						<th scope="col">Accélération</th>
-						<th scope="col">Puissance</th>
-						<th scope="col">Tacle</th>
-						<th scope="col">Marquage</th>							
-						<th scope="col">Prix</th>
+						<th scope="col" class="cursor" th:onclick="sortTable(0)">id</th>
+						<th scope="col" class="cursor" th:onclick="sortTable(1)">Nom</th>
+						<th scope="col" class="cursor" th:onclick="sortTable(2)">Prenom</th>
+						<th scope="col" class="cursor" th:onclick="sortTable(3)">Age</th>
+						<th scope="col" class="cursor" th:onclick="sortTable(4)">Poste</th>
+						<th scope="col" class="cursor" th:onclick="sortTable(5)">Tir</th>
+						<th scope="col" class="cursor" th:onclick="sortTable(6)">Précision</th>
+						<th scope="col" class="cursor" th:onclick="sortTable(7)">Accélération</th>
+						<th scope="col" class="cursor" th:onclick="sortTable(8)">Puissance</th>
+						<th scope="col" class="cursor" th:onclick="sortTable(9)">Tacle</th>
+						<th scope="col" class="cursor" th:onclick="sortTable(10)">Marquage</th>
+						<th scope="col" class="cursor" th:onclick="sortTable(11)">Prix</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -84,6 +84,70 @@
 				<a href="menu_manager">Retour au menu Manager</a>
 			</div>
 		</div>
+
+		<script>
+			function name(n) {
+				var headers = document.getElementsByTagName("th");
+				var dir;
+				
+				for (let i = 0; i < headers.length; i++) {
+					if (i!=n)
+					{
+						if (headers[i].innerHTML.indexOf(" ▲") >= 0){
+							headers[i].innerHTML = headers[i].innerHTML.substring(0, headers[i].innerHTML.length - 2);
+						} else if (headers[i].innerHTML.indexOf(" ▼") >= 0 {
+							headers[i].innerHTML = headers[i].innerHTML.substring(0, headers[i].innerHTML.length - 2);
+						}
+					}
+					else if (i==n)
+					{
+						if (headers[i].innerHTML.indexOf(" ▲") >= 0) {
+							headers[i].innerHTML = headers[i].innerHTML.substring(0, headers[i].innerHTML.length - 2);
+							headers[i].innerHTML = headers[i].innerHTML + " ▼"
+							dir="desc";
+						} else if (headers[i].innerHTML.indexOf(" ▼") >= 0) {
+							headers[i].innerHTML = headers[i].innerHTML.substring(0, headers[i].innerHTML.length - 2);
+							headers[i].innerHTML = headers[i].innerHTML + " ▲"
+							dir="asc";
+						} else {
+							headers[i].innerHTML = headers[i].innerHTML = headers[i].innerHTML + " ▲";
+							dir="asc";
+						}
+					}
+				}
+				return dir;
+			}
+			
+			function sortTable(n) {
+				var table, rows, i, j, x, y = 0;
+				var dir=name(n);
+				var shouldSwitch;
+				
+				table = document.getElementById("table");
+				rows = table.rows;
+
+				for (j = rows.length - 1; j > 1; j--) 
+				{
+					for (i = 1; i < j; i++)
+					{
+						shouldSwitch = false;
+						x = rows[i].getElementsByTagName("TD")[n];
+						y = rows[i + 1].getElementsByTagName("TD")[n];
+
+						if (dir == "asc") 
+						{
+							if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+								rows[i].parentNode.insertBefore(rows[i + 1], rows[i]); 
+							}
+						} else if (dir == "desc") {
+							if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+								rows[i].parentNode.insertBefore(rows[i + 1], rows[i]); 
+							}
+						}
+					}
+				}
+			}
+		</script>
 
 	</body>
 </html>

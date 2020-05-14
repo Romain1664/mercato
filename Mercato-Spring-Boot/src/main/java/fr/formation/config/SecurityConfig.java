@@ -26,7 +26,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		.antMatchers("/menu_joueur/**").hasAnyRole("ADMIN","JOUEUR")
 		.antMatchers("/liste_joueurs").hasAnyRole("ADMIN","JOUEUR","MANAGER")
 		.antMatchers("/inscription").permitAll()
-		.antMatchers("/liste_joueurs").permitAll()
+		.antMatchers("/liste_joueurs").hasAnyRole("ADMIN","JOUEUR","MANAGER")
 		.antMatchers("/deconnection/**").permitAll()
 		.antMatchers("/deconnection").permitAll()
 		.and()
@@ -34,7 +34,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			.loginPage("/connection") // Lien vers le @GetMapping
 			.loginProcessingUrl("/connection") //Lien du Post du form html
 			.failureUrl("/connection?error") // Page d'erreur de connexion
-//			.defaultSuccessUrl("/visite", true)
 			.successHandler(new RedirectCompte())
 			.permitAll()
 		.and()
