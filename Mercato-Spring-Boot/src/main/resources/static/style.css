@@ -63,6 +63,13 @@ body
 	background-size : 100%;
 }
 
+.body7
+{
+	background-image:url(Argent.jpg); 
+	background-position:center center;
+	background-size : cover;
+}
+
 .body3 .joueur-nom 
 {
 	position: absolute;

@@ -18,7 +18,7 @@ import fr.formation.daoSpring.IDAOCompte;
 import fr.formation.exception.CompteValidationException;
 import fr.formation.model.Compte;
 
-@RestController
+//@RestController
 public class CompteApiController {
 
 	@Autowired

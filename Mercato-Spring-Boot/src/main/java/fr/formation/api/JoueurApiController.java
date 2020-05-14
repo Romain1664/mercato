@@ -18,7 +18,7 @@ import fr.formation.daoSpring.IDAOJoueur;
 import fr.formation.exception.JoueurValidationException;
 import fr.formation.model.Joueur;
 
-@RestController
+//@RestController
 public class JoueurApiController {
 
 	@Autowired

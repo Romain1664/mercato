@@ -18,7 +18,7 @@ import fr.formation.daoSpring.IDAOEquipe;
 import fr.formation.exception.EquipeValidationException;
 import fr.formation.model.Equipe;
 
-@RestController
+//@RestController
 public class EquipeApiController {
 
 	@Autowired
