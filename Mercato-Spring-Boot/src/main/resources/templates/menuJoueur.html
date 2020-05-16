@@ -28,10 +28,7 @@
 		<legend>
 			MENU JOUEUR </br> Que voulez-vous faire ?
 		</legend>
-	</div>
-
-	<div class="table2">
-
+		
 		<div class="valid center" th:if="${valid!=null}">
 			[[${valid}]]
 			<br>
@@ -41,103 +38,120 @@
 			[[${error}]]
 			<br>
 		</div>
+		
+	</div>
 
-		<div th:if="${session.joueurInscrit=='N' }">
-			<a href="menu_joueur/joueur_inscription"><i class="fas fa-user-plus space"></i> Etre éligible Joueur</a>
-			<br><br>
+	<div class="table2">
+
+		<div id="1" class="cursor menu" th:if="${session.joueurInscrit=='N' }" onmouseenter="background(1)" onmouseleave="backgroundBack(1)" onclick="href('menu_joueur/joueur_inscription')">
+			<i class="fas fa-user-plus space"></i> Etre éligible Joueur
 		</div>
-
-		<div th:if="${session.joueurInscrit=='Y' }">
-			<a href="#" data-href="" data-toggle="modal" data-target="#confirmation" id="musicStart"><i class="fas fa-user-times space"></i> Prendre sa retraite</a>
+						
+		<div id="2" class="cursor menu" th:if="${session.joueurInscrit=='Y' }" onmouseenter="background(2)" onmouseleave="backgroundBack(2)" onclick="modal('#confirmation')">
+			<i class="fas fa-user-times space"></i> Prendre sa retraite
 			<div class="modal fade" id="confirmation" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 				<div class="modal-dialog" role="document">
 					<div class="modal-content">
 						<div class="modal-header">
 							<h5 class="modal-title" id="exampleModalLabel">Veuillez confirmer</h5>
-							<button type="button" class="close" data-dismiss="modal" aria-label="Close" id="musicStop2">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 								<span aria-hidden="true">&times;</span>
 							</button>
 						</div>
 						<div class="modal-body">
-							<p>Voulez-vous vraiment ranger les crampons ?</p>
+							<p>Tu veux vraiment ranger les crampons ?</p><p></p>
+							<p>Tu vas me manquer tu sais ;(</p>
 						</div>
 						<div class="modal-footer">
-							<button type="button" class="btn btn-secondary" data-dismiss="modal" id="musicStop1">Pas maintenant ...</button>
-							<a class="btn btn-primary" id="retraite" href="menu_joueur/retraite">Retraite bien méritée</a>
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">Pas maintenant ...</button>
+							<a class="btn btn-primary" onclick="pasCa()" style="color:white">Retraite bien méritée</a>
 						</div>
 					</div>
 				</div>
 			</div>
-			<br><br>
 		</div>
 		
-		<div th:if="${session.joueurInscrit=='Y'}">
-			<a href="menu_joueur/afficher_stats"><i class="far fa-address-card space"></i> Afficher mes statistiques</a> 
-			<br><br>
+		<div id="3" class="cursor menu" th:if="${session.joueurInscrit=='Y'}" onmouseenter="background(3)" onmouseleave="backgroundBack(3)" onclick="href('menu_joueur/afficher_stats')">
+			<i class="far fa-address-card space"></i> Afficher mes statistiques 
 		</div>
 		
-		<div th:if="${session.joueurInscrit=='Y'}">
-			<a href="menu_joueur/modifier_stats"><i class="fas fa-user-edit space"></i> Modifier mes statistiques</a> 
-			<br><br>
+		<div id="4" class="cursor menu" onmouseenter="background(4)" onmouseleave="backgroundBack(4)" th:if="${session.joueurInscrit=='Y'}" onclick="href('menu_joueur/modifier_stats')">
+			<i class="fas fa-user-edit space"></i> Modifier mes statistiques
 		</div>
 	
-		<div>
-			<a href="liste_joueurs"><i class="fas fa-table space"></i>  Afficher la liste des joueurs inscrits</a>
-			<br><br>
+		<div id="5" class="cursor menu" onmouseenter="background(5)" onmouseleave="backgroundBack(5)" onclick="href('liste_joueurs')">
+			<i class="fas fa-table space"></i>  Afficher la liste des joueurs inscrits
 		</div>
 		
-		<div>
-			<a href="deconnection"><i class="fas fa-sign-out-alt space"></i>  Se deconnecter</a>
+		<div id="6" class="cursor menu" onmouseenter="background(6)" onmouseleave="backgroundBack(6)" onclick="href('deconnection')">
+			<i class="fas fa-sign-out-alt space"></i>  Se deconnecter
 		</div>
 	</div>
 	
 	<script>
-
-		document.getElementById('musicStart').addEventListener('click', musicStart)
-		document.getElementById('musicStop1').addEventListener('click', musicStop)
-		document.getElementById('musicStop2').addEventListener('click', musicStop)
 		
+		var i=false;
+		var j=true;
+	
 		document.addEventListener('keydown', e => {
-			if(e.keyCode == 27){
-		        musicStop()
-		        }
-			});  
-		
+		if(e.keyCode == 27){
+	        musicStop()
+	        }
+		return false;
+		}) 
+
 		function musicStart()
 		{
 			let sound = document.getElementById("music");
 			sound.currentTime = 0;
 			sound.loop = true;
 			sound.play();
+			i=true;
+			return false;
 		}
-
+		
 		function musicStop()
 		{
 			let sound = document.getElementById("music");
 			sound.pause();
+			i=false;
+			return false;
 		}
-		
- 		document.getElementById('retraite').addEventListener('click', music)
-		
- 		function music(e) {
-			e.preventDefault();
-			document.getElementById('retraite').removeEventListener('click', music);
-			
-			musicStop();
-			
-			let sound = document.getElementById("music2");
-			sound.currentTime = 0;
-			sound.play();
-			
-			setTimeout(submit,4900);
 
+		function pasCa() {
+			musicStop();
+			let sound2 = document.getElementById("music2");
+			sound2.currentTime = 0;
+			sound2.play();
+			j=false;
+			setTimeout(href2,4900);
+			
 			return false;
 		}
 		
-		function submit() {
-			window.location = "menu_joueur/retraite";
-		} 
-
+		function background(id) {
+			document.getElementById(id).style.transition = "all 0.05s"
+			document.getElementById(id).style.background="#00BFFF";
+		}
+		function backgroundBack(id) {
+			document.getElementById(id).style.transition = "all 0.05s"
+			document.getElementById(id).style.background="white";
+		}
+		function href(link) {
+			window.location = link;
+			return false;
+		}
+		function href2() {
+			window.location = 'menu_joueur/retraite';
+			return false;
+		}
+		
+		function modal(id) {
+			$(id).modal('show');
+			if (i==false & j==true) {musicStart();}
+			else {musicStop();}
+		}
+		
 	</script>
 	
 </body>

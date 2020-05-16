@@ -19,7 +19,14 @@
 				<table>
 					<tr>
 						<td>Nouveau Budget</td>
-						<td><input type="text" class="form-control" name="budget" th:value="${budget}" placeholder="Votre nouveau budget"></td>
+						<td>
+							<div class="input-group">
+								<input type="number" class="form-control" name="budget" placeholder="Votre nouveau budget" th:value=${budget} aria-label="Recipient's username" aria-describedby="basic-addon2">
+								<div class="input-group-append">
+									<span class="input-group-text" id="basic-addon2">€</span>
+								</div>
+							</div>
+						</td>
 					</tr>
 				</table>
 			</div>

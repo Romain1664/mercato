@@ -30,7 +30,7 @@
 					<tr>
 						<td>Type de compte ?</td>
 						<td>
-							<select name="type" id="type" class="form-control" onchange="showDiv1(this)">
+							<select name="type" id="type" class="form-control margeLeft" onchange="showDiv1(this)">
 								<option th:selected="${type}=='joueur'" value="Joueur">Joueur</option>
 								<option th:selected="${type}=='manager'" value="Manager">Manager</option>
 							</select>
@@ -43,7 +43,7 @@
 				<table class="tableau">
 					<tr>
 						<td>Créer son équipe</td>
-						<td><select name="choix" id="choix" class="form-control" onchange="showDiv2(this)">
+						<td><select name="choix" id="choix" class="form-control margeLeft" onchange="showDiv2(this)">
 								<option th:selected="${choix}=='non'" value="non">Non</option>
 								<option th:selected="${choix}=='oui'" value="oui">Oui</option>
 						</select></td>
@@ -54,11 +54,11 @@
 				<table class="tableau">
 					<tr>
 						<td>Nom d'équipe</td>
-						<td><input type="text" name="nom_equipe" th:value="${nom_equipe}" class="form-control" placeholder="Nom d'equipe"></td>
+						<td><input type="text" name="nom_equipe" th:value="${nom_equipe}" class="form-control margeLeft" placeholder="Nom d'equipe"></td>
 					</tr>
 					<tr>
 						<td>Budget de l'équipe</td>
-						<td><input type="number" name="budget" th:value="${budget}" class="form-control" placeholder="Budget"></td>
+						<td><input type="number" name="budget" th:value="${budget}" class="form-control margeLeft" placeholder="Budget"></td>
 					</tr>
 				</table>
 			</div>

@@ -9,47 +9,54 @@
 	<body class="body6">
 
 		<div class="table2">
-			<legend>MENU MANAGER</legend>
-		</div>
-		
-		<div class="table2">
-		
+			<legend>MENU MANAGER </br> Que voulez-vous faire ?
+			</legend>
 			<div class="valid center" th:if="${message!=null}">
 				[[${message}]]
 				<br>
 			</div>
-			
-			<div>
-				<a href="liste_joueurs"><i class="fas fa-table space"></i>Afficher la liste des joueurs inscrits</a>
-				<br><br>
+		</div>
+		
+		<div class="table2" style="display: inline-table">
+		
+			<div id="1" class="cursor menu" onmouseenter="background(1)" onmouseleave="backgroundBack(1)" onclick="href('liste_joueurs')">
+				<i class="fas fa-table space"></i>Afficher la liste des joueurs inscrits
 			</div>
-			
-			<div th:if="${session.managerEquipe=='Y'}">
-				<a href="menu_manager/gestion_budget"><i class="fas fa-money-bill-wave space"></i>Gérer son compte en banque</a>
-				<br><br>
+			<div id="2" class="cursor menu" th:if="${session.managerEquipe=='Y'}" onmouseenter="background(2)" onmouseleave="backgroundBack(2)" onclick="href('menu_manager/liste_joueurs_equipe')">
+				<i class="fas fa-users space"></i>Afficher les joueurs de votre équipe
 			</div>
-			<div th:if="${session.managerEquipe=='Y'}">
-				<a href="menu_manager/liste_joueurs_equipe"><i class="fas fa-users space"></i>Afficher les joueurs de votre équipe</a>
-				<br><br>
+			<div id="3" class="cursor menu" th:if="${session.managerEquipe=='Y'}" onmouseenter="background(3)" onmouseleave="backgroundBack(3)" onclick="href('menu_manager/gestion_budget')">
+				<i class="fas fa-money-bill-wave space"></i>Gérer son compte en banque
 			</div>
-			<div th:if="${session.managerEquipe=='Y'}">
-				<a href="menu_manager/acheter_joueurs"><i class="fas fa-shopping-cart space"></i>Acheter un joueur</a>
-				<br><br>
+			<div id="4" class="cursor menu" th:if="${session.managerEquipe=='Y'}" onmouseenter="background(4)" onmouseleave="backgroundBack(4)" onclick="href('menu_manager/acheter_joueurs')">
+				<i class="fas fa-shopping-cart space"></i>Acheter un joueur
 			</div>
-			<div th:if="${session.managerEquipe=='Y'}">
-				<a href="menu_manager/vendre_joueurs"><i class="fas fa-hand-holding space"></i>Vendre un joueur</a>
-				<br><br>
+			<div id="5" class="cursor menu" th:if="${session.managerEquipe=='Y'}" onmouseenter="background(5)" onmouseleave="backgroundBack(5)" onclick="href('menu_manager/vendre_joueurs')">
+				<i class="fas fa-hand-holding space"></i>Vendre un joueur
 			</div>
-			
-			<div th:if="${session.managerEquipe=='N'}">
-				<a href="menu_manager/creation_equipe"><i class="fas fa-folder-plus space"></i>Créer son équipe</a>
-				<br><br>
+			<div id="6" class="cursor menu" th:if="${session.managerEquipe=='N'}" onmouseenter="background(6)" onmouseleave="backgroundBack(6)" onclick="href('menu_manager/creation_equipe')">
+				<i class="fas fa-folder-plus space"></i>Créer son équipe
 			</div>
-			
-			<div>
-				<a href="deconnection"><i class="fas fa-sign-out-alt space"></i>Se deconnecter</a>
+			<div id="7" class="cursor menu" onmouseenter="background(7)" onmouseleave="backgroundBack(7)" onclick="href('deconnection')">
+				<i class="fas fa-sign-out-alt space"></i>Se deconnecter
 			</div>
 		</div>
+		
+		<script>
+			function background(id) {
+				document.getElementById(id).style.transition = "all 0.05s"
+				document.getElementById(id).style.background="#00BFFF";
+			}
+			function backgroundBack(id) {
+				document.getElementById(id).style.transition = "all 0.05s"
+				document.getElementById(id).style.background="white";
+			}
+			function href(link) {
+				window.location = link;
+			}
+		</script>
+		
 	</body>
 </html>
+
 

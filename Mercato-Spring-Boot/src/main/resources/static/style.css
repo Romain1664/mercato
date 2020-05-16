@@ -111,6 +111,24 @@ a
 	font-weight: bold;
 }
 
+.margeLeft
+{
+	margin-left: 10px;
+}
+
+.paddingSides
+{
+	padding-left: 10px;
+    padding-right: 10px;
+}
+
+.menu 
+{
+	padding:10px 30px;
+	border: 1px solid #ddd;
+	border-radius: 10px;
+}
+
 .right
 {
 	float:right;
@@ -146,7 +164,6 @@ a
 	border-radius: 10px 10px ;
 	border : double black 3px;
 	background-color:white; 
-	border-collapse:collapse; 
 	width:400px;
 }
 .table2 > div
