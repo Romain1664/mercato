@@ -116,6 +116,12 @@ a
 	float:right;
 }
 
+.space
+{
+	margin-left:5px;
+	margin-right:10px;
+}
+
 .titre
 {
 	text-decoration: underline;

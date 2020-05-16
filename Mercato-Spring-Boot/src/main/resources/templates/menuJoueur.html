@@ -43,12 +43,12 @@
 		</div>
 
 		<div th:if="${session.joueurInscrit=='N' }">
-			<a href="menu_joueur/joueur_inscription">Etre éligible Joueur</a>
+			<a href="menu_joueur/joueur_inscription"><i class="fas fa-user-plus space"></i> Etre éligible Joueur</a>
 			<br><br>
 		</div>
 
 		<div th:if="${session.joueurInscrit=='Y' }">
-			<a href="#" data-href="" data-toggle="modal" data-target="#confirmation" id="musicStart">Prendre sa retraite</a>
+			<a href="#" data-href="" data-toggle="modal" data-target="#confirmation" id="musicStart"><i class="fas fa-user-times space"></i> Prendre sa retraite</a>
 			<div class="modal fade" id="confirmation" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 				<div class="modal-dialog" role="document">
 					<div class="modal-content">
@@ -72,22 +72,22 @@
 		</div>
 		
 		<div th:if="${session.joueurInscrit=='Y'}">
-			<a href="menu_joueur/afficher_stats">Afficher mes statistiques</a> 
+			<a href="menu_joueur/afficher_stats"><i class="far fa-address-card space"></i> Afficher mes statistiques</a> 
 			<br><br>
 		</div>
 		
 		<div th:if="${session.joueurInscrit=='Y'}">
-			<a href="menu_joueur/modifier_stats">Modifier mes statistiques</a> 
+			<a href="menu_joueur/modifier_stats"><i class="fas fa-user-edit space"></i> Modifier mes statistiques</a> 
 			<br><br>
 		</div>
 	
 		<div>
-			<a href="liste_joueurs">Afficher la liste des joueurs inscrits</a>
+			<a href="liste_joueurs"><i class="fas fa-table space"></i>  Afficher la liste des joueurs inscrits</a>
 			<br><br>
 		</div>
 		
 		<div>
-			<a href="deconnection">Se deconnecter</a>
+			<a href="deconnection"><i class="fas fa-sign-out-alt space"></i>  Se deconnecter</a>
 		</div>
 	</div>
 	
