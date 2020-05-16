@@ -20,34 +20,34 @@
 			</div>
 			
 			<div>
-				<a href="liste_joueurs"><i class="fas fa-table space"></i> Afficher la liste des joueurs inscrits</a>
+				<a href="liste_joueurs"><i class="fas fa-table space"></i>Afficher la liste des joueurs inscrits</a>
 				<br><br>
 			</div>
 			
 			<div th:if="${session.managerEquipe=='Y'}">
-				<a href="menu_manager/gestion_budget"><i class="fas fa-hand-holding-usd space"></i> Gérer son compte en banque</a>
+				<a href="menu_manager/gestion_budget"><i class="fas fa-money-bill-wave space"></i>Gérer son compte en banque</a>
 				<br><br>
 			</div>
 			<div th:if="${session.managerEquipe=='Y'}">
-				<a href="menu_manager/liste_joueurs_equipe"><i class="fas fa-users space"></i> Afficher les joueurs de votre équipe</a>
+				<a href="menu_manager/liste_joueurs_equipe"><i class="fas fa-users space"></i>Afficher les joueurs de votre équipe</a>
 				<br><br>
 			</div>
 			<div th:if="${session.managerEquipe=='Y'}">
-				<a href="menu_manager/acheter_joueurs"><i class="fas fa-shopping-cart space"></i> Acheter un joueur</a>
+				<a href="menu_manager/acheter_joueurs"><i class="fas fa-shopping-cart space"></i>Acheter un joueur</a>
 				<br><br>
 			</div>
 			<div th:if="${session.managerEquipe=='Y'}">
-				<a href="menu_manager/vendre_joueurs"><i class="fas fa-hand-holding space"></i> Vendre un joueur</a>
+				<a href="menu_manager/vendre_joueurs"><i class="fas fa-hand-holding space"></i>Vendre un joueur</a>
 				<br><br>
 			</div>
 			
 			<div th:if="${session.managerEquipe=='N'}">
-				<a href="menu_manager/creation_equipe"><i class="fas fa-folder-plus space"></i> Créer son équipe</a>
+				<a href="menu_manager/creation_equipe"><i class="fas fa-folder-plus space"></i>Créer son équipe</a>
 				<br><br>
 			</div>
 			
 			<div>
-				<a href="deconnection"><i class="fas fa-sign-out-alt space"></i> Se deconnecter</a>
+				<a href="deconnection"><i class="fas fa-sign-out-alt space"></i>Se deconnecter</a>
 			</div>
 		</div>
 	</body>
