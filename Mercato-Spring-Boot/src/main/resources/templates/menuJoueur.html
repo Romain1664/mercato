@@ -7,15 +7,6 @@
 <title>Menu Joueur</title>
 </head>
 
-<script>
-	function musicStart()
-	{
-		
-	}
-
-</script>
-
-
 <body class="body3">
 
 	<audio src="retraite.mp3" id="music" preload="auto" hidden="true"></audio>
@@ -48,7 +39,7 @@
 		</div>
 						
 		<div id="2" class="cursor menu" th:if="${session.joueurInscrit=='Y' }" onmouseenter="background(2)" onmouseleave="backgroundBack(2)" onclick="modal('#confirmation')">
-			<i class="fas fa-user-times space"></i> Prendre sa retraite
+			<i class="fas fa-user-slash space"></i> Prendre sa retraite
 			<div class="modal fade" id="confirmation" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 				<div class="modal-dialog" role="document">
 					<div class="modal-content">

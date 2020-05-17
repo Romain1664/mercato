@@ -13,6 +13,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -61,6 +62,10 @@ public class ManagerController {
 	@GetMapping("/menu_manager/liste_joueurs_equipe")
 	public String afficherEquipe(HttpSession session, Model model) 
 	{
+		
+		model.addAttribute("message",session.getAttribute("message"));
+		session.removeAttribute("message");		
+		
 		Equipe eq = this.daoEquipe.findByManager((Integer)session.getAttribute("id"));
 		
 		List<Joueur> joueurs = this.daoJoueur.findByEquipe(eq.getId());
@@ -69,7 +74,20 @@ public class ManagerController {
 		return "joueursEquipe";
 	}
 	
-
+	@GetMapping("/menu_manager/changer_prix/{id}/{prix}")
+	public String changerPrix(@PathVariable int id, @PathVariable Double prix, HttpSession session) {
+		
+		Joueur j = daoJoueur.findById(id).get();
+		
+		j.setPrix(prix);
+		
+		daoJoueur.save(j);
+		
+		session.setAttribute("message","Le joueur a bien vu son prix changer !");
+		
+		return "redirect:/menu_manager/liste_joueurs_equipe";
+	}
+	
 	
 	
 	@GetMapping("/menu_manager/acheter_joueurs")
@@ -213,7 +231,7 @@ public class ManagerController {
 			return "menu_manager";
 		}
 	}
-	
+
 	
 }
 	

@@ -9,8 +9,13 @@
 	
 	<body class="body4">
 		
-		<div class="table1" style="max-height: 80vh; overflow-x: auto;">
-			<legend>VOICI TES STARS</legend>
+		<div class="table1" style="max-height: 80vh; overflow-x: auto">
+			<div>
+				<legend>VOICI TES STARS<br>
+				Profites-en pour mettre à jour leur prix !
+				</legend>
+				<div class="valid center" th:if="${message!=null}">[[${message}]]</div>
+			</div>
 			<table class="table" id="table">
 				<thead>
 					<tr align="center">
@@ -26,6 +31,7 @@
 						<th scope="col" class="cursor" th:onclick="sortTable(9)">Tacle</th>
 						<th scope="col" class="cursor" th:onclick="sortTable(10)">Marquage</th>
 						<th scope="col" class="cursor" th:onclick="sortTable(11)">Prix (en €)</th>
+						<th><th>
 					</tr>
 				</thead>
 				<tbody>
@@ -41,14 +47,15 @@
 						<td>[[ ${j.puissance} ]]</td>
 						<td>[[ ${j.tacle} ]]</td>
 						<td>[[ ${j.marquage} ]]</td>
-						<td>[[ ${j.prix} ]]</td>
+						<td><input type="number" name="prix" th:id=${j.id} th:value="${j.prix}" style="width:150px" class="form-control" placeholder="Prix"></td>
+						<td><a class="btn btn-primary" th:onclick="|prix(${j.id})|">Changer Prix</a></td>
 					</tr>
 				</tbody>
 			</table>
 		</div>
 		
 		<div class="table1">
-			<div id="1" class="cursor menu" th:if="${session.typeAccount=='Manager' }" onmouseenter="background(1)" onmouseleave="backgroundBack(1)" onclick="href('menu_manager')">
+			<div id="box" class="cursor menu" th:if="${session.typeAccount=='Manager'}" onmouseenter="background('box')" onmouseleave="backgroundBack('box')" onclick="href('menu_manager')">
 				<i class="fas fa-user-tie space"></i>Retour au menu Manager
 			</div>
 		</div>
@@ -147,8 +154,13 @@
 			function href(link) {
 				window.location = link;
 			}
+			function prix(id) {
+				var prix=document.getElementById(id).value;
+				window.location = "menu_manager/changer_prix/" + id + "/" + prix
+			}
 		</script>
 		
+
 	</body>
 
 </html>

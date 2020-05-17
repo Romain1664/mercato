@@ -140,12 +140,12 @@ a
 	margin-right:10px;
 }
 
-table > thead 
+.table > thead 
 {
 	background-color:#CECECE;
 }
 
-table > tbody > tr:nth-child(even) 
+.table > tbody > tr:nth-child(even) 
 {
 	background-color:#eee;
 }
