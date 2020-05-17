@@ -147,6 +147,7 @@ public class ManagerController {
 		this.daoEquipe.save(eq);
 		
 		List<Joueur> joueurs =this.daoJoueur.findByEquipe(eq.getId());
+		
 		model.addAttribute("joueurs",joueurs);
 		model.addAttribute("budget", budget);
 		

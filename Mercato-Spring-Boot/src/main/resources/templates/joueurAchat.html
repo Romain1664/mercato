@@ -8,19 +8,14 @@
 	</head>
 
 	<body class="body1">
-	
-		<div class="table3">
-			<legend>L'EMIR VEUT GAGNER LA CHAMPION'S LEAGUE: 
-			<br> Qui sera ta nouvelle pépite (selon le budget de l'émir) ?</legend>
-			
+		
+		<div class="table1" style="max-height: 70vh; overflow-x: auto">
 			<div>
+				<legend>L'EMIR VEUT GAGNER LA CHAMPION'S LEAGUE: <br> Qui sera ta nouvelle pépite (selon le budget de l'émir) ?</legend>
 				<a class ="right">Budget : [[${budget}]]€</a>
 				<span class="error" th:if="${error!=null}" th:text="${error}"></span>
 				<span class="valid" th:if="${valid!=null}" th:text="${valid}"></span>
-			</div>
-		</div>
-		
-		<div class="table3">
+			</div>	
 			<table class="table" id="table">
 				<thead>
 					<tr align="center">
@@ -35,7 +30,7 @@
 						<th scope="col" class="cursor" th:onclick="sortTable(8)">Puissance</th>
 						<th scope="col" class="cursor" th:onclick="sortTable(9)">Tacle</th>
 						<th scope="col" class="cursor" th:onclick="sortTable(10)">Marquage</th>
-						<th scope="col" class="cursor" th:onclick="sortTable(11)">Prix</th>
+						<th scope="col" class="cursor" th:onclick="sortTable(11)">Prix (en €)</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -51,7 +46,7 @@
 						<td>[[ ${j.puissance} ]]</td>
 						<td>[[ ${j.tacle} ]]</td>
 						<td>[[ ${j.marquage} ]]</td>
-						<td>[[ ${j.prix} ]]€</td>
+						<td th:style="${budget<j.prix ? 'color:red' : 'color:black'}">[[ ${j.prix} ]]</td>
 					</tr>
 				</tbody>
 			</table>
@@ -73,20 +68,20 @@
 						<td align="center">
 							<input type="submit" class="btn btn-success" value="Valider">
 						</td>
+						<td>
+							<div id="1" class="cursor menu margeLeft" th:if="${session.typeAccount=='Manager' }" onmouseenter="background(1)" onmouseleave="backgroundBack(1)" onclick="href('menu_manager')">
+								<i class="fas fa-user-tie space"></i>Retour au menu Manager
+							</div>
+						</td>
 					</tr> 
 				</table>
 			</div>
+			
 			<input type="hidden" th:name="${ _csrf.parameterName }" th:value="${ _csrf.token }" />
 		</form>	
-		
-		<div class="table1">
-			<div>
-				<a href="menu_manager">Retour au menu Manager</a>
-			</div>
-		</div>
 
 		<script>
-			function name(n) {
+ 			function name(n) {
 				var headers = document.getElementsByTagName("th");
 				var dir;
 				
@@ -136,18 +131,50 @@
 
 						if (dir == "asc") 
 						{
-							if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-								rows[i].parentNode.insertBefore(rows[i + 1], rows[i]); 
-							}
+							if (isNaN(Number(x.innerHTML)) || isNaN(Number(y.innerHTML)))
+								{
+									if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+										rows[i].parentNode.insertBefore(rows[i + 1], rows[i]); 
+									}	
+								}
+							else
+							{
+								if (Number(x.innerHTML) > Number(y.innerHTML) ) {
+									rows[i].parentNode.insertBefore(rows[i + 1], rows[i]); 
+								}								
+							}	
 						} else if (dir == "desc") {
-							if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
-								rows[i].parentNode.insertBefore(rows[i + 1], rows[i]); 
+							if (isNaN(Number(x.innerHTML)) || isNaN(Number(y.innerHTML)))
+							{
+								if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+									rows[i].parentNode.insertBefore(rows[i + 1], rows[i]); 
+								}	
 							}
+						else
+						{
+							if (Number(x.innerHTML) < Number(y.innerHTML) ) {
+								rows[i].parentNode.insertBefore(rows[i + 1], rows[i]); 
+							}								
+						}	
 						}
 					}
 				}
-			}
+			} 
 		</script>
 
+		<script>
+			function background(id) {
+				document.getElementById(id).style.transition = "all 0.05s"
+				document.getElementById(id).style.background="#00BFFF";
+			}
+			function backgroundBack(id) {
+				document.getElementById(id).style.transition = "all 0.05s"
+				document.getElementById(id).style.background="white";
+			}
+			function href(link) {
+				window.location = link;
+			}
+		</script>
+		
 	</body>
 </html>

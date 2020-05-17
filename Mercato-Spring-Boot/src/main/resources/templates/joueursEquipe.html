@@ -9,7 +9,7 @@
 	
 	<body class="body4">
 		
-		<div class="table1">
+		<div class="table1" style="max-height: 80vh; overflow-x: auto;">
 			<legend>VOICI TES STARS</legend>
 			<table class="table" id="table">
 				<thead>
@@ -25,7 +25,7 @@
 						<th scope="col" class="cursor" th:onclick="sortTable(8)">Puissance</th>
 						<th scope="col" class="cursor" th:onclick="sortTable(9)">Tacle</th>
 						<th scope="col" class="cursor" th:onclick="sortTable(10)">Marquage</th>
-						<th scope="col" class="cursor" th:onclick="sortTable(11)">Prix</th>
+						<th scope="col" class="cursor" th:onclick="sortTable(11)">Prix (en €)</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -41,21 +41,20 @@
 						<td>[[ ${j.puissance} ]]</td>
 						<td>[[ ${j.tacle} ]]</td>
 						<td>[[ ${j.marquage} ]]</td>
-						<td>[[ ${j.prix} ]]€</td>
+						<td>[[ ${j.prix} ]]</td>
 					</tr>
 				</tbody>
 			</table>
 		</div>
 		
 		<div class="table1">
-			<div>
-				<a href="menu_manager">Retour au menu Manager</a>
+			<div id="1" class="cursor menu" th:if="${session.typeAccount=='Manager' }" onmouseenter="background(1)" onmouseleave="backgroundBack(1)" onclick="href('menu_manager')">
+				<i class="fas fa-user-tie space"></i>Retour au menu Manager
 			</div>
 		</div>
 		
-				
 		<script>
-			function name(n) {
+ 			function name(n) {
 				var headers = document.getElementsByTagName("th");
 				var dir;
 				
@@ -105,16 +104,48 @@
 
 						if (dir == "asc") 
 						{
-							if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-								rows[i].parentNode.insertBefore(rows[i + 1], rows[i]); 
-							}
+							if (isNaN(Number(x.innerHTML)) || isNaN(Number(y.innerHTML)))
+								{
+									if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+										rows[i].parentNode.insertBefore(rows[i + 1], rows[i]); 
+									}	
+								}
+							else
+							{
+								if (Number(x.innerHTML) > Number(y.innerHTML) ) {
+									rows[i].parentNode.insertBefore(rows[i + 1], rows[i]); 
+								}								
+							}	
 						} else if (dir == "desc") {
-							if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
-								rows[i].parentNode.insertBefore(rows[i + 1], rows[i]); 
+							if (isNaN(Number(x.innerHTML)) || isNaN(Number(y.innerHTML)))
+							{
+								if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+									rows[i].parentNode.insertBefore(rows[i + 1], rows[i]); 
+								}	
 							}
+						else
+						{
+							if (Number(x.innerHTML) < Number(y.innerHTML) ) {
+								rows[i].parentNode.insertBefore(rows[i + 1], rows[i]); 
+							}								
+						}	
 						}
 					}
 				}
+			} 
+		</script>
+		
+		<script>
+			function background(id) {
+				document.getElementById(id).style.transition = "all 0.05s"
+				document.getElementById(id).style.background="#00BFFF";
+			}
+			function backgroundBack(id) {
+				document.getElementById(id).style.transition = "all 0.05s"
+				document.getElementById(id).style.background="white";
+			}
+			function href(link) {
+				window.location = link;
 			}
 		</script>
 		

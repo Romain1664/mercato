@@ -140,6 +140,16 @@ a
 	margin-right:10px;
 }
 
+table > thead 
+{
+	background-color:#CECECE;
+}
+
+table > tbody > tr:nth-child(even) 
+{
+	background-color:#eee;
+}
+
 .titre
 {
 	text-decoration: underline;
@@ -171,18 +181,17 @@ a
 	margin: 8px; 
 }
 
-.table3
+/* .table3
 {
 	border-radius:10px 10px;
 	border: double black 3px;
 	background-color:white; 
-	width:75%;
  	border-collapse:collapse; 
 }
 .table3 > div
 {
 	margin: 8px; 
-}
+} */
 
 .table4 
 {
