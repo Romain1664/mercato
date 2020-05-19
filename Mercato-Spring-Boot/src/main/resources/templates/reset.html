@@ -15,12 +15,12 @@
 		<div class="table2">
 			<div class="form-group">
 				<label for="exampleInputLogin">Votre Login</label>
-				<input type="text" class="form-control" placeholder="Login" name="login">
+				<input type="text" required class="form-control" placeholder="Login" name="login">
 			</div>
 			
 		  	<div class="form-group">
 			    <label for="exampleInputPassword">Votre nouveau password</label>
-			    <input type="password" class="form-control" placeholder="Password" name="password">
+			    <input type="password" required class="form-control" placeholder="Password" name="password">
 			    <small id="loginHelp" class="form-text text-muted">Essayez de pas l'oublier cette fois ;) !</small>
 			   <span class="error" th:if="${errorLogin!=null}" th:text="${errorLogin}"></span>
 			</div>
@@ -32,8 +32,8 @@
                 
 		<div class="table2">
 			<div>
-				<input type="submit" class="btn btn-success" value="Valider">
-				<a href="accueil" class="btn btn-danger right" role="button">Retour</a>
+				<button type="submit" class="btn btn-success">Valider <i class="fas fa-check"></i></button>
+				<a href="accueil" class="btn btn-danger right" role="button"><i class="fas fa-home"></i> Retour</a>
 			</div>
 		</div>	
 		

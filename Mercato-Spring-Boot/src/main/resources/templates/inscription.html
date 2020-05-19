@@ -46,7 +46,8 @@
 						<td><select name="choix" id="choix" class="form-control margeLeft" onchange="showDiv2(this)">
 								<option th:selected="${choix}=='non'" value="non">Non</option>
 								<option th:selected="${choix}=='oui'" value="oui">Oui</option>
-						</select></td>
+							</select>
+						</td>
 					</tr>
 				</table>
 			</div>
@@ -69,8 +70,8 @@
 			
 			<div class="table1">
 				<div>
-					<input type="submit" id="valider" class="btn btn-success" value="Valider">
-					<a href="accueil" class="btn btn-danger right" role="button">Retour</a>
+					<button type="submit" id="valider" class="btn btn-success">S'inscrire <i class="fas fa-paper-plane"></i></button>
+					<a href="accueil" class="btn btn-danger right" role="button"><i class="fas fa-home"></i> Retour</a>
 					<span class="error" th:if="${errorLogin!=null}" th:text="${errorLogin}"></span>
 					<span class="error" th:if="${errorType!=null}" th:text="${errorType}"></span>
 					<span class="error" th:if="${errorEquipe!=null}" th:text="${errorEquipe}"></span>

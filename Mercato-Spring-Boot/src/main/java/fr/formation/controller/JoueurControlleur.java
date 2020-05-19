@@ -12,8 +12,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import fr.formation.daoSpring.IDAOCompte;
+import fr.formation.daoSpring.IDAOEquipe;
 import fr.formation.daoSpring.IDAOJoueur;
 import fr.formation.model.Compte;
+import fr.formation.model.Equipe;
 import fr.formation.model.Joueur;
 
 
@@ -24,6 +26,8 @@ public class JoueurControlleur {
 	private IDAOJoueur daoJoueur;
 	@Autowired
 	private IDAOCompte daoCompte;
+	@Autowired
+	private IDAOEquipe daoEquipe;
 	
 	@GetMapping("/menu_joueur")
 	public String accueilJoueur(HttpSession session,Model model, Authentication auth)
@@ -100,12 +104,16 @@ public class JoueurControlleur {
 	public String afficherStat(HttpSession session,Model model) 
 	{
 		Joueur j = this.daoJoueur.findById((Integer) session.getAttribute("id")).get();
-
+		Equipe eq= this.daoEquipe.findById(j.getId_equipe()).get();
+		
+		j.setNom_equipe(eq.getNom_equipe());
+		
+		System.out.println(j);
+		
 		model.addAttribute("joueur",j);
 		
 		return "statsAfficher";
 	}
-	
 	
 	
 	@GetMapping("/menu_joueur/modifier_stats")
@@ -118,7 +126,7 @@ public class JoueurControlleur {
 		return "statsModifier";
 	}
 	
-	@PostMapping("/menu_joueur/modification_stat")
+	@PostMapping("/menu_joueur/modification_stats")
 	public String modificationStat(
 			@RequestParam(value="tir") Integer tir,
 			@RequestParam(value="precision") Integer precision,

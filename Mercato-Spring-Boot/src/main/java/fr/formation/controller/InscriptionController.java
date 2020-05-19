@@ -104,7 +104,7 @@ public class InscriptionController {
 		compte.setPassword(new BCryptPasswordEncoder().encode(password));
 		this.daoCompte.save(compte);
 		
-		session.setAttribute("message","Votre mot de passe a bien été changé");
+		session.setAttribute("message","Votre mot de passe a été changé");
 		return "redirect:/accueil";
 	}
 	

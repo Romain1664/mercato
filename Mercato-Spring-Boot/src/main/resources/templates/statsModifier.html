@@ -1,76 +1,77 @@
 <!DOCTYPE html>
 <html	xmlns:th="http://www.thymeleaf.org"
 		th:replace="~{layout.html :: layout(~{::title}, ~{::body})}">
-	<head>
-		<title>changement stats joueur</title>
-	</head>
-	
-	<body class="body5">
-		<div class="table2">
-			<legend>ALORS ON CHANGE QUOI?</legend>
-		</div>
+<head>
+	<title>Modification statistiques Joueur</title>
+</head>
+
+<body class="body5">
 		
-		<form action="menu_joueur/modification_stat" method="POST">
-			<div class="table2">
-				<table class="tableau"> 
-					<tr>
-						<td colspan="2"><h4>Offensive</h4></td>
-					</tr>
-					<tr>
-						<td>Tir</td>	
-						<td> 
-							<input th:value="${joueur.tir}" class="form-control" type="number" name="tir" min="0" max="100">
-						</td>
-					</tr>	
-					<tr>
-						<td>Précision</td> 	
-						<td> 
-							<input th:value="${joueur.precision}" class="form-control" type="number" name="precision" min="0" max="100">
-						</td>
-					</tr> 	
-					<tr>
-						<td colspan="2"><h4>Général</h4></td>
-					</tr>
-					<tr>
-						<td>Acceleration</td>
-						<td>
-							<input th:value="${joueur.acceleration}" class="form-control" type="number" name="acceleration" min="0" max="100">
-						</td>
-					</tr>	
-					<tr>
-						<td>Puissance</td>	
-						<td> 
-							<input th:value="${joueur.puissance}" class="form-control" type="number" name="puissance" min="0" max="100">
-						</td>						
-					</tr>
-					 <tr>
-						<td colspan="2"><h4>Défensive</h4></td>
-					</tr>
-					<tr>
-						<td>Tacle</td> 
-						<td> 
-							<input th:value="${joueur.tacle}" class="form-control" type="number" name="tacle" min="0" max="100">
-						</td>
-					</tr>
-					<tr>
-						<td>Marquage</td>	
-						<td> 
-							<input th:value="${joueur.marquage}" class="form-control" type="number" name="marquage" min="0" max="100">
-						</td>
-					</tr>
+		<div class="table1">
+			<form id="form" method="POST" action="menu_joueur/modification_stats">
+				<legend>On change quoi aujourd'hui</legend>
+				<table class="table">
+					<thead>
+						<tr align="center">
+							<td>Stat : Tir</td>
+							<td>Stat : Précision</td>
+							<td>Stat : Accélération</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr align="center">
+							<td><input type="number" min=0 max=100 name="tir" th:id=${joueur.tir} th:value="${joueur.tir}" style="width:150px" class="form-control" placeholder="Tir"></td>
+							<td><input type="number" min=0 max=100 name="precision" th:id=${joueur.precision} th:value="${joueur.precision}" style="width:150px" class="form-control" placeholder="Précision"></td>
+							<td><input type="number" min=0 max=100 name="acceleration" th:id=${joueur.acceleration} th:value="${joueur.acceleration}" style="width:150px" class="form-control" placeholder="Acceleration"></td>
+						</tr>
+					</tbody>
+					<thead>
+						<tr align="center">
+							<td>Stat : Puissance</td>
+							<td>Stat : Tacle</td>
+							<td>Stat : Marquage</td>		
+						</tr>
+					</thead>
+					<tbody>
+						<tr align="center">
+							<td><input type="number" min=0 max=100 name="puissance" th:id=${joueur.puissance} th:value="${joueur.puissance}" style="width:150px" class="form-control" placeholder="Puissance"></td>
+							<td><input type="number" min=0 max=100 name="tacle" th:id=${joueur.tacle} th:value="${joueur.tacle}" style="width:150px" class="form-control" placeholder="Tacle"></td>
+							<td><input type="number" min=0 max=100 name="marquage" th:id=${joueur.Marquage} th:value="${joueur.Marquage}" style="width:150px" class="form-control" placeholder="Marquage"></td>	
+						</tr>
+					</tbody>
 				</table>
-			</div>
-			
-			<input type="hidden"
-                th:name="${ _csrf.parameterName }"
-                th:value="${ _csrf.token }" />	
-			
+								
+				<input type="hidden" th:name="${ _csrf.parameterName }" th:value="${ _csrf.token }" />	
+			</form>
+		</div>
+
+		
+		<div style="display:flex">
 			<div class="table1">
-				<div>
-					<input type="submit" class="btn btn-success" value="Valider">
-					<a href="menu_joueur" class="btn btn-danger right" role="button">Retour</a>
-				</div>
+				<div id="1" class="cursor menu"  onmouseenter="background(1, '#00FF00')" onmouseleave="backgroundBack(1)" onclick="submit()"><i class="fas fa-user-edit"></i> Valider</div>
 			</div>
-		</form>
-	</body>
+			<div class="table1">
+				<div id="2" class="cursor menu"  onmouseenter="background(2,'#00BFFF')" onmouseleave="backgroundBack(2)" onclick="href('menu_joueur')"><i class="fas fa-user space"></i>Retour au menu</div>
+			</div>
+		</div>
+	
+		<script>
+			function background(id, color) {
+				document.getElementById(id).style.transition = "all 0.05s"
+				document.getElementById(id).style.background= color ;
+			}
+			function backgroundBack(id) {
+				document.getElementById(id).style.transition = "all 0.05s"
+				document.getElementById(id).style.background="white";
+			}
+			function href(link) {
+				window.location = link;
+			}
+			function submit() {
+				document.getElementById("form").submit();
+			}
+		</script>
+	
+</body>
+
 </html>

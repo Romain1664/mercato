@@ -6,51 +6,73 @@
 </head>
 
 <body class="body5">
-
-	<form action="Menu_Joueur/Modification_Stat" method="POST">
-
-		<div class="table2">
-			<legend>Voila tes statistiques mon champion</legend>
-		</div>
 		
-		<div class="table2">
-			<table class="tableau">
-				<tr>
-					<td colspan="2"><h4>Offensives</h4></td>
-				</tr>
-				<tr>
-					<td>Tir : [[${joueur.tir}]] </td>
-				</tr>
-				<tr>
-					<td>Précision : [[${joueur.precision}]]</td>
-				</tr>
-				<tr>
-					<td colspan="2"><h4>Générales</h4></td>
-				</tr>
-				<tr>
-					<td>Acceleration : [[${joueur.acceleration}]]</td>
-				</tr>
-				<tr>
-					<td>Puissance : [[${joueur.puissance}]]</td>
-				</tr>
-				<tr>
-					<td colspan="2"><h4>Défensives</h4></td>
-				</tr>
-				<tr>
-					<td>Tacle : [[${joueur.tacle}]]</td>
-				</tr>
-				<tr>
-					<td>Marquage : [[${joueur.marquage}]]</td>
-				</tr>
+		<div class="table1">
+			<legend>Voila tes statistiques mon champion</legend>
+			<table class="table">
+				<thead>
+					<tr align="center">
+						<td>Nom</td>
+						<td>Prénom</td>
+						<td>Age</td>
+						<td>Poste</td>
+						<td>Equipe</td>
+						<td>Prix</td>		
+					</tr>
+				</thead>
+				<tbody>
+					<tr align="center">
+						<td>[[ ${joueur.nom} ]]</td>
+						<td>[[ ${joueur.prenom} ]]</td>
+						<td>[[ ${joueur.age} ]]</td>
+						<td>[[ ${joueur.poste} ]]</td>
+						<td>[[ ${joueur.nom_equipe} ]]</td>
+						<td>[[ ${joueur.prix}]]€</td>
+					</tr>
+				</tbody>
+				<thead>
+					<tr align="center">
+						<td>Stat : Tir</td>
+						<td>Stat : Précision</td>
+						<td>Stat : Accélération</td>
+						<td>Stat : Puissance</td>
+						<td>Stat : Tacle</td>
+						<td>Stat : Marquage</td>		
+					</tr>
+				</thead>
+				<tbody>
+					<tr align="center">
+						<td>[[ ${joueur.tir} ]]</td>
+						<td>[[ ${joueur.precision} ]]</td>
+						<td>[[ ${joueur.acceleration} ]]</td>
+						<td>[[ ${joueur.puissance} ]]</td>
+						<td>[[ ${joueur.tacle} ]]</td>
+						<td>[[ ${joueur.marquage} ]]</td>	
+					</tr>
+				</tbody>
 			</table>
 		</div>
 		
 		<div class="table1">
-			<div>
-				<a href="menu_joueur">Retour au menu Joueur</a>
+			<div id="1" class="cursor menu"  onmouseenter="background(1)" onmouseleave="backgroundBack(1)" onclick="href('menu_joueur')">
+				<i class="fas fa-user space"></i>Retour au menu Joueur
 			</div>
 		</div>
-	</form>
+	
+		<script>
+			function background(id) {
+				document.getElementById(id).style.transition = "all 0.05s"
+				document.getElementById(id).style.background="#00BFFF";
+			}
+			function backgroundBack(id) {
+				document.getElementById(id).style.transition = "all 0.05s"
+				document.getElementById(id).style.background="white";
+			}
+			function href(link) {
+				window.location = link;
+			}
+		</script>
+	
 </body>
 
 </html>
