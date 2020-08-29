@@ -72,7 +72,6 @@ public class JoueurControlleur {
 	@GetMapping("/menu_joueur/joueur_inscription")
 	public String debutCarriere()
 	{
-		System.out.println("test");
 		return "entreeStat";
 	}
 	

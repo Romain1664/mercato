@@ -20,7 +20,7 @@ public class DAOEquipeJdbc extends DaoJdbc implements IDAOEquipe {
 			ps.setString(1,eq.getNom_equipe());
 			ps.setInt(2,eq.getId_compte());
 			ps.setDouble(3,eq.getBudget());
-			
+		 
 			ps.executeUpdate();
 
 		}catch (Exception e) {e.printStackTrace();}
